@@ -1,3 +1,5 @@
+#!/usr/bin/env
+
 const highlight = require('cli-highlight').highlight;
 const fs = require('fs');
 const args = process.argv.slice(2);
