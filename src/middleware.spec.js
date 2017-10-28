@@ -1,7 +1,7 @@
-import canvasRequest          from './action';
-import { listAccounts }       from './constants/accounts';
+import Helper from 'atomic-fuel/libs/specs_support/helper';
+import canvasRequest from './action';
 import { listCoursesForUser } from './constants/courses';
-import CanvasMiddlware        from './middleware';
+import CanvasMiddlware from './middleware';
 
 describe('Canvas Middleware', () => {
 
