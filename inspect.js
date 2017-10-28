@@ -1,4 +1,4 @@
-#!/usr/bin/env
+#!/usr/bin/env node
 
 const highlight = require('cli-highlight').highlight;
 const fs = require('fs');
