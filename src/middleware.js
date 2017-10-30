@@ -22,9 +22,9 @@ export function proxyCanvas(store, action, params) {
   const promise = api.execRequest(
     action.canvas.method,
     canvasProxyUrl,
-    state.settings.apiURL,
+    state.settings.api_url,
     state.jwt,
-    state.settings.csrfToken,
+    state.settings.csrf_token,
     {
       ...action.params,
       ...params,
