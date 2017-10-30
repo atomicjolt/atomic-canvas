@@ -42,7 +42,9 @@
         ["transform-react-remove-prop-types"],
       ],
       "ignore": [
-        "node_modules"
+        "node_modules",
+        "*.spec.js",
+        "*.spec.jsx"
       ]
     }
   }
