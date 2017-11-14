@@ -43,6 +43,7 @@ function proxyCanvas(store, action, params) {
 
   var promise = _api2.default.execRequest(action.canvas.method, canvasProxyUrl, state.settings.api_url, state.jwt, state.settings.csrf_token, (0, _extends3.default)({}, action.params, params, {
     lms_proxy_call_type: action.canvas.type,
+    context_id: state.settings.context_id,
     oauth_consumer_key: state.settings.oauth_consumer_key
   }), action.body);
 

@@ -29,6 +29,7 @@ export function proxyCanvas(store, action, params) {
       ...action.params,
       ...params,
       lms_proxy_call_type: action.canvas.type,
+      context_id: state.settings.context_id,
       oauth_consumer_key: state.settings.oauth_consumer_key
     },
     action.body
