@@ -19,6 +19,7 @@ libs/
 ```
 If you wanted to use, for example, `libs/canvas/constants/accounts.js` you would write the following:
 ```Javascript
+import { connect } from 'react-redux'; 
 import {constantName} from 'atomic-canvas/libs/constants/my_constant_file.js';
 import canvasRequest from 'atomic-canvas/libs/action';
 
