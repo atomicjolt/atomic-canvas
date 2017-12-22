@@ -19,7 +19,16 @@ libs/
 ```
 If you wanted to use, for example, `libs/canvas/constants/accounts.js` you would write the following:
 ```Javascript
-import {constantName} from 'atomic-canvas/libs/constants/accounts.js';
+import {constantName} from 'atomic-canvas/libs/constants/my_constant_file.js';
+import canvasRequest from 'atomic-canvas/libs/action';
+
+class MyComponent extends React.Component {
+...
+  // Dispatch a request action
+  this.props.canvasRequest(constantName, params, body);
+};
+
+connect({}, {canvasRequest})(MyComponent);
 ```
 ## Inspection Script
 Because you will often need to inspect the canvas constants you are using to determing what the type and required params are, an inspection script has been provided
