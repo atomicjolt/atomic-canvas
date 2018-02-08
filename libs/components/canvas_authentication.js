@@ -53,8 +53,6 @@ var select = function select(state) {
   };
 };
 
-var _ref = _react2.default.createElement('input', { type: 'submit', value: 'Authorize' });
-
 var CanvasAuthentication = exports.CanvasAuthentication = (_temp = _class = function (_React$Component) {
   (0, _inherits3.default)(CanvasAuthentication, _React$Component);
 
@@ -74,7 +72,7 @@ var CanvasAuthentication = exports.CanvasAuthentication = (_temp = _class = func
     key: 'getButton',
     value: function getButton() {
       if (this.props.hideButton) return null;
-      return _ref;
+      return _react2.default.createElement('input', { type: 'submit', value: this.props.buttonText || "Authorize", className: this.props.buttonClassName });
     }
   }, {
     key: 'renderSettings',
@@ -92,8 +90,8 @@ var CanvasAuthentication = exports.CanvasAuthentication = (_temp = _class = func
       return _react2.default.createElement(
         'form',
         {
-          ref: function ref(_ref2) {
-            _this2.form = _ref2;
+          ref: function ref(_ref) {
+            _this2.form = _ref;
           },
           action: this.props.settings.canvas_oauth_url
         },
@@ -106,6 +104,8 @@ var CanvasAuthentication = exports.CanvasAuthentication = (_temp = _class = func
 }(_react2.default.Component), _class.defaultProps = {
   overrides: {},
   hideButton: false,
-  autoSubmit: false
+  autoSubmit: false,
+  buttonClassName: "",
+  buttonText: null
 }, _temp);
 exports.default = (0, _reactRedux.connect)(select)(CanvasAuthentication);
