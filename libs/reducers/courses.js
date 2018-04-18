@@ -17,10 +17,10 @@ exports.default = function () {
 
   switch (action.type) {
 
-    case _courses.listYourCourses.type + '_' + _wrapper.DONE:
+    case '' + _courses.listYourCourses.type + _wrapper.DONE:
       return action.payload;
 
-    case _courses.listCoursesForUser.type + '_' + _wrapper.DONE:
+    case '' + _courses.listCoursesForUser.type + _wrapper.DONE:
       return action.payload;
 
     default:
