@@ -9,10 +9,10 @@ export default (state = initialState, action) => {
 
   switch (action.type) {
 
-    case `${listYourCourses.type}_${DONE}`:
+    case `${listYourCourses.type}${DONE}`:
       return action.payload;
 
-    case `${listCoursesForUser.type}_${DONE}`:
+    case `${listCoursesForUser.type}${DONE}`:
       return action.payload;
 
     default:
