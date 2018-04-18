@@ -15,7 +15,7 @@ describe('error reducer', () => {
         type: 'AnythingisDone',
         error: {
           response: {
-            status: 401,
+            status: 403,
             text: '{ message: "canvas_authorization_required" }'
           },
         },
