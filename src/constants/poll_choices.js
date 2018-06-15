@@ -2,7 +2,7 @@
 // PollChoices
 //
 // List poll choices in a poll
-// Returns the list of PollChoices in this poll.
+// Returns the paginated list of PollChoices in this poll.
 //
 // API Docs: https://canvas.instructure.com/doc/api/poll_choices.html
 // API Url: polls/{poll_id}/poll_choices
@@ -28,12 +28,12 @@ export const getSinglePollChoice = { type: 'GET_SINGLE_POLL_CHOICE', method: 'ge
 // API Url: polls/{poll_id}/poll_choices
 //
 // Example:
-// const query = {
+// const body = {
 //   poll_choices[text] (required)
 //   poll_choices[is_correct]
 //   poll_choices[position]
 // }
-// return canvasRequest(create_single_poll_choice, {poll_id}, query);
+// return canvasRequest(create_single_poll_choice, {poll_id}, body);
 export const createSinglePollChoice = { type: 'CREATE_SINGLE_POLL_CHOICE', method: 'post', key: 'create_single_poll_choicecreate_single_poll_choice_poll_id', required: ['poll_id'] };
 
 // Update a single poll choice
@@ -43,12 +43,12 @@ export const createSinglePollChoice = { type: 'CREATE_SINGLE_POLL_CHOICE', metho
 // API Url: polls/{poll_id}/poll_choices/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   poll_choices[text] (required)
 //   poll_choices[is_correct]
 //   poll_choices[position]
 // }
-// return canvasRequest(update_single_poll_choice, {poll_id, id}, query);
+// return canvasRequest(update_single_poll_choice, {poll_id, id}, body);
 export const updateSinglePollChoice = { type: 'UPDATE_SINGLE_POLL_CHOICE', method: 'put', key: 'update_single_poll_choiceupdate_single_poll_choice_{poll_id}_{id}', required: ['poll_id', 'id'] };
 
 // Delete a poll choice

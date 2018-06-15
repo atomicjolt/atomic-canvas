@@ -2,7 +2,7 @@
 // Custom Gradebook Columns
 //
 // List custom gradebook columns
-// List all custom gradebook columns for a course
+// A paginated list of all custom gradebook columns for a course
 //
 // API Docs: https://canvas.instructure.com/doc/api/custom_gradebook_columns.html
 // API Url: courses/{course_id}/custom_gradebook_columns
@@ -11,7 +11,7 @@
 // const query = {
 //   include_hidden
 // }
-// return canvasRequest(list_custom_gradebook_columns, {course_id}, query);
+// return canvasRequest(list_custom_gradebook_columns, {course_id, ...query});
 export const listCustomGradebookColumns = { type: 'LIST_CUSTOM_GRADEBOOK_COLUMNS', method: 'get', key: 'list_custom_gradebook_columnslist_custom_gradebook_columns_course_id', required: ['course_id'] };
 
 // Create a custom gradebook column
@@ -21,13 +21,14 @@ export const listCustomGradebookColumns = { type: 'LIST_CUSTOM_GRADEBOOK_COLUMNS
 // API Url: courses/{course_id}/custom_gradebook_columns
 //
 // Example:
-// const query = {
+// const body = {
 //   column[title] (required)
 //   column[position]
 //   column[hidden]
 //   column[teacher_notes]
+//   column[read_only]
 // }
-// return canvasRequest(create_custom_gradebook_column, {course_id}, query);
+// return canvasRequest(create_custom_gradebook_column, {course_id}, body);
 export const createCustomGradebookColumn = { type: 'CREATE_CUSTOM_GRADEBOOK_COLUMN', method: 'post', key: 'create_custom_gradebook_columncreate_custom_gradebook_column_course_id', required: ['course_id'] };
 
 // Update a custom gradebook column
@@ -59,10 +60,10 @@ export const deleteCustomGradebookColumn = { type: 'DELETE_CUSTOM_GRADEBOOK_COLU
 // API Url: courses/{course_id}/custom_gradebook_columns/reorder
 //
 // Example:
-// const query = {
+// const body = {
 //   order (required)
 // }
-// return canvasRequest(reorder_custom_columns, {course_id}, query);
+// return canvasRequest(reorder_custom_columns, {course_id}, body);
 export const reorderCustomColumns = { type: 'REORDER_CUSTOM_COLUMNS', method: 'post', key: 'reorder_custom_columnsreorder_custom_columns_course_id', required: ['course_id'] };
 
 // List entries for a column
@@ -75,7 +76,7 @@ export const reorderCustomColumns = { type: 'REORDER_CUSTOM_COLUMNS', method: 'p
 // const query = {
 //   include_hidden
 // }
-// return canvasRequest(list_entries_for_column, {course_id, id}, query);
+// return canvasRequest(list_entries_for_column, {course_id, id, ...query});
 export const listEntriesForColumn = { type: 'LIST_ENTRIES_FOR_COLUMN', method: 'get', key: 'list_entries_for_columnlist_entries_for_column_{course_id}_{id}', required: ['course_id', 'id'] };
 
 // Update column data
@@ -85,8 +86,8 @@ export const listEntriesForColumn = { type: 'LIST_ENTRIES_FOR_COLUMN', method: '
 // API Url: courses/{course_id}/custom_gradebook_columns/{id}/data/{user_id}
 //
 // Example:
-// const query = {
+// const body = {
 //   column_data[content] (required)
 // }
-// return canvasRequest(update_column_data, {course_id, id, user_id}, query);
+// return canvasRequest(update_column_data, {course_id, id, user_id}, body);
 export const updateColumnData = { type: 'UPDATE_COLUMN_DATA', method: 'put', key: 'update_column_dataupdate_column_data_{course_id}_{id}_{user_id}', required: ['course_id', 'id', 'user_id'] };

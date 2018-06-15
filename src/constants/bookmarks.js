@@ -2,7 +2,7 @@
 // Bookmarks
 //
 // List bookmarks
-// Returns the list of bookmarks.
+// Returns the paginated list of bookmarks.
 //
 // API Docs: https://canvas.instructure.com/doc/api/bookmarks.html
 // API Url: users/self/bookmarks
@@ -18,13 +18,13 @@ export const listBookmarks = { type: 'LIST_BOOKMARKS', method: 'get', key: 'list
 // API Url: users/self/bookmarks
 //
 // Example:
-// const query = {
+// const body = {
 //   name
 //   url
 //   position
 //   data
 // }
-// return canvasRequest(create_bookmark, {}, query);
+// return canvasRequest(create_bookmark, {}, body);
 export const createBookmark = { type: 'CREATE_BOOKMARK', method: 'post', key: 'create_bookmark', required: [] };
 
 // Get bookmark
@@ -44,13 +44,13 @@ export const getBookmark = { type: 'GET_BOOKMARK', method: 'get', key: 'get_book
 // API Url: users/self/bookmarks/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   name
 //   url
 //   position
 //   data
 // }
-// return canvasRequest(update_bookmark, {id}, query);
+// return canvasRequest(update_bookmark, {id}, body);
 export const updateBookmark = { type: 'UPDATE_BOOKMARK', method: 'put', key: 'update_bookmarkupdate_bookmark_id', required: ['id'] };
 
 // Delete bookmark

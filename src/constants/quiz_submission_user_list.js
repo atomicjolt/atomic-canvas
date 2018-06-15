@@ -24,8 +24,8 @@
 // API Url: courses/{course_id}/quizzes/{id}/submission_users/message
 //
 // Example:
-// const query = {
+// const body = {
 //   conversations
 // }
-// return canvasRequest(send_message_to_unsubmitted_or_submitted_users_for_quiz, {course_id, id}, query);
+// return canvasRequest(send_message_to_unsubmitted_or_submitted_users_for_quiz, {course_id, id}, body);
 export const sendMessageToUnsubmittedOrSubmittedUsersForQuiz = { type: 'SEND_MESSAGE_TO_UNSUBMITTED_OR_SUBMITTED_USERS_FOR_QUIZ', method: 'post', key: 'send_message_to_unsubmitted_or_submitted_users_for_quizsend_message_to_unsubmitted_or_submitted_users_for_quiz_{course_id}_{id}', required: ['course_id', 'id'] };

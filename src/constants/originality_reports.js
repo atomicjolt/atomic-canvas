@@ -8,8 +8,8 @@
 // API Url: /lti/assignments/{assignment_id}/submissions/{submission_id}/originality_report
 //
 // Example:
-// const query = {
-//   originality_report[file_id] (required)
+// const body = {
+//   originality_report[file_id]
 //   originality_report[originality_score] (required)
 //   originality_report[originality_report_url]
 //   originality_report[originality_report_file_id]
@@ -17,7 +17,7 @@
 //   originality_report[tool_setting][resource_url]
 //   originality_report[workflow_state]
 // }
-// return canvasRequest(create_originality_report, {assignment_id, submission_id}, query);
+// return canvasRequest(create_originality_report, {assignment_id, submission_id}, body);
 export const createOriginalityReport = { type: 'CREATE_ORIGINALITY_REPORT', method: 'post', key: 'create_originality_reportcreate_originality_report_{assignment_id}_{submission_id}', required: ['assignment_id', 'submission_id'] };
 
 // Edit an Originality Report
@@ -28,7 +28,7 @@ export const createOriginalityReport = { type: 'CREATE_ORIGINALITY_REPORT', meth
 // API Url: /lti/assignments/{assignment_id}/submissions/{submission_id}/originality_report/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   originality_report[originality_score]
 //   originality_report[originality_report_url]
 //   originality_report[originality_report_file_id]
@@ -36,7 +36,7 @@ export const createOriginalityReport = { type: 'CREATE_ORIGINALITY_REPORT', meth
 //   originality_report[tool_setting][resource_url]
 //   originality_report[workflow_state]
 // }
-// return canvasRequest(edit_originality_report_submissions, {assignment_id, submission_id, id}, query);
+// return canvasRequest(edit_originality_report_submissions, {assignment_id, submission_id, id}, body);
 export const editOriginalityReportSubmissions = { type: 'EDIT_ORIGINALITY_REPORT_SUBMISSIONS', method: 'put', key: 'edit_originality_report_submissionsedit_originality_report_submissions_{assignment_id}_{submission_id}_{id}', required: ['assignment_id', 'submission_id', 'id'] };
 
 // Edit an Originality Report
@@ -47,7 +47,7 @@ export const editOriginalityReportSubmissions = { type: 'EDIT_ORIGINALITY_REPORT
 // API Url: /lti/assignments/{assignment_id}/files/{file_id}/originality_report
 //
 // Example:
-// const query = {
+// const body = {
 //   originality_report[originality_score]
 //   originality_report[originality_report_url]
 //   originality_report[originality_report_file_id]
@@ -55,7 +55,7 @@ export const editOriginalityReportSubmissions = { type: 'EDIT_ORIGINALITY_REPORT
 //   originality_report[tool_setting][resource_url]
 //   originality_report[workflow_state]
 // }
-// return canvasRequest(edit_originality_report_files, {assignment_id, file_id}, query);
+// return canvasRequest(edit_originality_report_files, {assignment_id, file_id}, body);
 export const editOriginalityReportFiles = { type: 'EDIT_ORIGINALITY_REPORT_FILES', method: 'put', key: 'edit_originality_report_filesedit_originality_report_files_{assignment_id}_{file_id}', required: ['assignment_id', 'file_id'] };
 
 // Show an Originality Report

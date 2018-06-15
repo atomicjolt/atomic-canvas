@@ -2,7 +2,7 @@
 // Poll Sessions
 //
 // List poll sessions for a poll
-// Returns the list of PollSessions in this poll.
+// Returns the paginated list of PollSessions in this poll.
 //
 // API Docs: https://canvas.instructure.com/doc/api/poll_sessions.html
 // API Url: polls/{poll_id}/poll_sessions
@@ -28,12 +28,12 @@ export const getResultsForSinglePollSession = { type: 'GET_RESULTS_FOR_SINGLE_PO
 // API Url: polls/{poll_id}/poll_sessions
 //
 // Example:
-// const query = {
+// const body = {
 //   poll_sessions[course_id] (required)
 //   poll_sessions[course_section_id]
 //   poll_sessions[has_public_results]
 // }
-// return canvasRequest(create_single_poll_session, {poll_id}, query);
+// return canvasRequest(create_single_poll_session, {poll_id}, body);
 export const createSinglePollSession = { type: 'CREATE_SINGLE_POLL_SESSION', method: 'post', key: 'create_single_poll_sessioncreate_single_poll_session_poll_id', required: ['poll_id'] };
 
 // Update a single poll session
@@ -43,12 +43,12 @@ export const createSinglePollSession = { type: 'CREATE_SINGLE_POLL_SESSION', met
 // API Url: polls/{poll_id}/poll_sessions/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   poll_sessions[course_id]
 //   poll_sessions[course_section_id]
 //   poll_sessions[has_public_results]
 // }
-// return canvasRequest(update_single_poll_session, {poll_id, id}, query);
+// return canvasRequest(update_single_poll_session, {poll_id, id}, body);
 export const updateSinglePollSession = { type: 'UPDATE_SINGLE_POLL_SESSION', method: 'put', key: 'update_single_poll_sessionupdate_single_poll_session_{poll_id}_{id}', required: ['poll_id', 'id'] };
 
 // Delete a poll session
@@ -82,7 +82,7 @@ export const openPollSession = { type: 'OPEN_POLL_SESSION', method: 'get', key: 
 export const closeOpenedPollSession = { type: 'CLOSE_OPENED_POLL_SESSION', method: 'get', key: 'close_opened_poll_sessionclose_opened_poll_session_{poll_id}_{id}', required: ['poll_id', 'id'] };
 
 // List opened poll sessions
-// Lists all opened poll sessions available to the current user.
+// A paginated list of all opened poll sessions available to the current user.
 //
 // API Docs: https://canvas.instructure.com/doc/api/poll_sessions.html
 // API Url: poll_sessions/opened
@@ -92,7 +92,7 @@ export const closeOpenedPollSession = { type: 'CLOSE_OPENED_POLL_SESSION', metho
 export const listOpenedPollSessions = { type: 'LIST_OPENED_POLL_SESSIONS', method: 'get', key: 'list_opened_poll_sessions', required: [] };
 
 // List closed poll sessions
-// Lists all closed poll sessions available to the current user.
+// A paginated list of all closed poll sessions available to the current user.
 //
 // API Docs: https://canvas.instructure.com/doc/api/poll_sessions.html
 // API Url: poll_sessions/closed

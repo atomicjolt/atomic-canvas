@@ -88,10 +88,10 @@ export const getMigrationIssueUsers = { type: 'GET_MIGRATION_ISSUE_USERS', metho
 // API Url: accounts/{account_id}/content_migrations/{content_migration_id}/migration_issues/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   workflow_state (required)
 // }
-// return canvasRequest(update_migration_issue_accounts, {account_id, content_migration_id, id}, query);
+// return canvasRequest(update_migration_issue_accounts, {account_id, content_migration_id, id}, body);
 export const updateMigrationIssueAccounts = { type: 'UPDATE_MIGRATION_ISSUE_ACCOUNTS', method: 'put', key: 'update_migration_issue_accountsupdate_migration_issue_accounts_{account_id}_{content_migration_id}_{id}', required: ['account_id', 'content_migration_id', 'id'] };
 
 // Update a migration issue
@@ -101,10 +101,10 @@ export const updateMigrationIssueAccounts = { type: 'UPDATE_MIGRATION_ISSUE_ACCO
 // API Url: courses/{course_id}/content_migrations/{content_migration_id}/migration_issues/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   workflow_state (required)
 // }
-// return canvasRequest(update_migration_issue_courses, {course_id, content_migration_id, id}, query);
+// return canvasRequest(update_migration_issue_courses, {course_id, content_migration_id, id}, body);
 export const updateMigrationIssueCourses = { type: 'UPDATE_MIGRATION_ISSUE_COURSES', method: 'put', key: 'update_migration_issue_coursesupdate_migration_issue_courses_{course_id}_{content_migration_id}_{id}', required: ['course_id', 'content_migration_id', 'id'] };
 
 // Update a migration issue
@@ -114,10 +114,10 @@ export const updateMigrationIssueCourses = { type: 'UPDATE_MIGRATION_ISSUE_COURS
 // API Url: groups/{group_id}/content_migrations/{content_migration_id}/migration_issues/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   workflow_state (required)
 // }
-// return canvasRequest(update_migration_issue_groups, {group_id, content_migration_id, id}, query);
+// return canvasRequest(update_migration_issue_groups, {group_id, content_migration_id, id}, body);
 export const updateMigrationIssueGroups = { type: 'UPDATE_MIGRATION_ISSUE_GROUPS', method: 'put', key: 'update_migration_issue_groupsupdate_migration_issue_groups_{group_id}_{content_migration_id}_{id}', required: ['group_id', 'content_migration_id', 'id'] };
 
 // Update a migration issue
@@ -127,10 +127,10 @@ export const updateMigrationIssueGroups = { type: 'UPDATE_MIGRATION_ISSUE_GROUPS
 // API Url: users/{user_id}/content_migrations/{content_migration_id}/migration_issues/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   workflow_state (required)
 // }
-// return canvasRequest(update_migration_issue_users, {user_id, content_migration_id, id}, query);
+// return canvasRequest(update_migration_issue_users, {user_id, content_migration_id, id}, body);
 export const updateMigrationIssueUsers = { type: 'UPDATE_MIGRATION_ISSUE_USERS', method: 'put', key: 'update_migration_issue_usersupdate_migration_issue_users_{user_id}_{content_migration_id}_{id}', required: ['user_id', 'content_migration_id', 'id'] };
 
 // List content migrations
@@ -246,7 +246,7 @@ export const getContentMigrationUsers = { type: 'GET_CONTENT_MIGRATION_USERS', m
 // API Url: accounts/{account_id}/content_migrations
 //
 // Example:
-// const query = {
+// const body = {
 //   migration_type (required)
 //   pre_attachment[name]
 //   pre_attachment[*]
@@ -264,7 +264,7 @@ export const getContentMigrationUsers = { type: 'GET_CONTENT_MIGRATION_USERS', m
 //   date_shift_options[day_substitutions][X]
 //   date_shift_options[remove_dates]
 // }
-// return canvasRequest(create_content_migration_accounts, {account_id}, query);
+// return canvasRequest(create_content_migration_accounts, {account_id}, body);
 export const createContentMigrationAccounts = { type: 'CREATE_CONTENT_MIGRATION_ACCOUNTS', method: 'post', key: 'create_content_migration_accountscreate_content_migration_accounts_account_id', required: ['account_id'] };
 
 // Create a content migration
@@ -300,7 +300,7 @@ export const createContentMigrationAccounts = { type: 'CREATE_CONTENT_MIGRATION_
 // API Url: courses/{course_id}/content_migrations
 //
 // Example:
-// const query = {
+// const body = {
 //   migration_type (required)
 //   pre_attachment[name]
 //   pre_attachment[*]
@@ -318,7 +318,7 @@ export const createContentMigrationAccounts = { type: 'CREATE_CONTENT_MIGRATION_
 //   date_shift_options[day_substitutions][X]
 //   date_shift_options[remove_dates]
 // }
-// return canvasRequest(create_content_migration_courses, {course_id}, query);
+// return canvasRequest(create_content_migration_courses, {course_id}, body);
 export const createContentMigrationCourses = { type: 'CREATE_CONTENT_MIGRATION_COURSES', method: 'post', key: 'create_content_migration_coursescreate_content_migration_courses_course_id', required: ['course_id'] };
 
 // Create a content migration
@@ -354,7 +354,7 @@ export const createContentMigrationCourses = { type: 'CREATE_CONTENT_MIGRATION_C
 // API Url: groups/{group_id}/content_migrations
 //
 // Example:
-// const query = {
+// const body = {
 //   migration_type (required)
 //   pre_attachment[name]
 //   pre_attachment[*]
@@ -372,7 +372,7 @@ export const createContentMigrationCourses = { type: 'CREATE_CONTENT_MIGRATION_C
 //   date_shift_options[day_substitutions][X]
 //   date_shift_options[remove_dates]
 // }
-// return canvasRequest(create_content_migration_groups, {group_id}, query);
+// return canvasRequest(create_content_migration_groups, {group_id}, body);
 export const createContentMigrationGroups = { type: 'CREATE_CONTENT_MIGRATION_GROUPS', method: 'post', key: 'create_content_migration_groupscreate_content_migration_groups_group_id', required: ['group_id'] };
 
 // Create a content migration
@@ -408,7 +408,7 @@ export const createContentMigrationGroups = { type: 'CREATE_CONTENT_MIGRATION_GR
 // API Url: users/{user_id}/content_migrations
 //
 // Example:
-// const query = {
+// const body = {
 //   migration_type (required)
 //   pre_attachment[name]
 //   pre_attachment[*]
@@ -426,7 +426,7 @@ export const createContentMigrationGroups = { type: 'CREATE_CONTENT_MIGRATION_GR
 //   date_shift_options[day_substitutions][X]
 //   date_shift_options[remove_dates]
 // }
-// return canvasRequest(create_content_migration_users, {user_id}, query);
+// return canvasRequest(create_content_migration_users, {user_id}, body);
 export const createContentMigrationUsers = { type: 'CREATE_CONTENT_MIGRATION_USERS', method: 'post', key: 'create_content_migration_userscreate_content_migration_users_user_id', required: ['user_id'] };
 
 // Update a content migration

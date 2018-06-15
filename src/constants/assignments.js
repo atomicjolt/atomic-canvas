@@ -12,7 +12,7 @@
 export const deleteAssignment = { type: 'DELETE_ASSIGNMENT', method: 'delete', key: 'delete_assignmentdelete_assignment_{course_id}_{id}', required: ['course_id', 'id'] };
 
 // List assignments
-// Returns the list of assignments for the current context.
+// Returns the paginated list of assignments for the current context.
 //
 // API Docs: https://canvas.instructure.com/doc/api/assignments.html
 // API Url: courses/{course_id}/assignments
@@ -25,12 +25,13 @@ export const deleteAssignment = { type: 'DELETE_ASSIGNMENT', method: 'delete', k
 //   needs_grading_count_by_section
 //   bucket
 //   assignment_ids
+//   order_by
 // }
-// return canvasRequest(list_assignments, {course_id}, query);
+// return canvasRequest(list_assignments, {course_id, ...query});
 export const listAssignments = { type: 'LIST_ASSIGNMENTS', method: 'get', key: 'list_assignmentslist_assignments_course_id', required: ['course_id'] };
 
 // List assignments for user
-// Returns the list of assignments for the specified user if the current user has rights to view.
+// Returns the paginated list of assignments for the specified user if the current user has rights to view.
 // See {api:AssignmentsApiController#index List assignments} for valid arguments.
 //
 // API Docs: https://canvas.instructure.com/doc/api/assignments.html
@@ -54,7 +55,7 @@ export const listAssignmentsForUser = { type: 'LIST_ASSIGNMENTS_FOR_USER', metho
 //   needs_grading_count_by_section
 //   all_dates
 // }
-// return canvasRequest(get_single_assignment, {course_id, id}, query);
+// return canvasRequest(get_single_assignment, {course_id, id, ...query});
 export const getSingleAssignment = { type: 'GET_SINGLE_ASSIGNMENT', method: 'get', key: 'get_single_assignmentget_single_assignment_{course_id}_{id}', required: ['course_id', 'id'] };
 
 // Create an assignment
@@ -65,7 +66,7 @@ export const getSingleAssignment = { type: 'GET_SINGLE_ASSIGNMENT', method: 'get
 // API Url: courses/{course_id}/assignments
 //
 // Example:
-// const query = {
+// const body = {
 //   assignment[name] (required)
 //   assignment[position]
 //   assignment[submission_types]
@@ -95,8 +96,9 @@ export const getSingleAssignment = { type: 'GET_SINGLE_ASSIGNMENT', method: 'get
 //   assignment[grading_standard_id]
 //   assignment[omit_from_final_grade]
 //   assignment[quiz_lti]
+//   assignment[moderated_grading]
 // }
-// return canvasRequest(create_assignment, {course_id}, query);
+// return canvasRequest(create_assignment, {course_id}, body);
 export const createAssignment = { type: 'CREATE_ASSIGNMENT', method: 'post', key: 'create_assignmentcreate_assignment_course_id', required: ['course_id'] };
 
 // Edit an assignment
@@ -106,14 +108,12 @@ export const createAssignment = { type: 'CREATE_ASSIGNMENT', method: 'post', key
 // overrides are kept as is. If the assignment [assignment_overrides] key is
 // present, existing overrides are updated or deleted (and new ones created,
 // as necessary) to match the provided list.
-// 
-// NOTE: The assignment overrides feature is in beta.
 //
 // API Docs: https://canvas.instructure.com/doc/api/assignments.html
 // API Url: courses/{course_id}/assignments/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   assignment[name]
 //   assignment[position]
 //   assignment[submission_types]
@@ -142,12 +142,13 @@ export const createAssignment = { type: 'CREATE_ASSIGNMENT', method: 'post', key
 //   assignment[published]
 //   assignment[grading_standard_id]
 //   assignment[omit_from_final_grade]
+//   assignment[moderated_grading]
 // }
-// return canvasRequest(edit_assignment, {course_id, id}, query);
+// return canvasRequest(edit_assignment, {course_id, id}, body);
 export const editAssignment = { type: 'EDIT_ASSIGNMENT', method: 'put', key: 'edit_assignmentedit_assignment_{course_id}_{id}', required: ['course_id', 'id'] };
 
 // List assignment overrides
-// Returns the list of overrides for this assignment that target
+// Returns the paginated list of overrides for this assignment that target
 // sections/groups/students visible to the current user.
 //
 // API Docs: https://canvas.instructure.com/doc/api/assignments.html
@@ -199,7 +200,7 @@ export const redirectToAssignmentOverrideForSection = { type: 'REDIRECT_TO_ASSIG
 // API Url: courses/{course_id}/assignments/{assignment_id}/overrides
 //
 // Example:
-// const query = {
+// const body = {
 //   assignment_override[student_ids]
 //   assignment_override[title]
 //   assignment_override[group_id]
@@ -208,7 +209,7 @@ export const redirectToAssignmentOverrideForSection = { type: 'REDIRECT_TO_ASSIG
 //   assignment_override[unlock_at]
 //   assignment_override[lock_at]
 // }
-// return canvasRequest(create_assignment_override, {course_id, assignment_id}, query);
+// return canvasRequest(create_assignment_override, {course_id, assignment_id}, body);
 export const createAssignmentOverride = { type: 'CREATE_ASSIGNMENT_OVERRIDE', method: 'post', key: 'create_assignment_overridecreate_assignment_override_{course_id}_{assignment_id}', required: ['course_id', 'assignment_id'] };
 
 // Update an assignment override
@@ -222,14 +223,14 @@ export const createAssignmentOverride = { type: 'CREATE_ASSIGNMENT_OVERRIDE', me
 // API Url: courses/{course_id}/assignments/{assignment_id}/overrides/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   assignment_override[student_ids]
 //   assignment_override[title]
 //   assignment_override[due_at]
 //   assignment_override[unlock_at]
 //   assignment_override[lock_at]
 // }
-// return canvasRequest(update_assignment_override, {course_id, assignment_id, id}, query);
+// return canvasRequest(update_assignment_override, {course_id, assignment_id, id}, body);
 export const updateAssignmentOverride = { type: 'UPDATE_ASSIGNMENT_OVERRIDE', method: 'put', key: 'update_assignment_overrideupdate_assignment_override_{course_id}_{assignment_id}_{id}', required: ['course_id', 'assignment_id', 'id'] };
 
 // Delete an assignment override
@@ -255,7 +256,7 @@ export const deleteAssignmentOverride = { type: 'DELETE_ASSIGNMENT_OVERRIDE', me
 //   assignment_overrides[id] (required)
 //   assignment_overrides[assignment_id] (required)
 // }
-// return canvasRequest(batch_retrieve_overrides_in_course, {course_id}, query);
+// return canvasRequest(batch_retrieve_overrides_in_course, {course_id, ...query});
 export const batchRetrieveOverridesInCourse = { type: 'BATCH_RETRIEVE_OVERRIDES_IN_COURSE', method: 'get', key: 'batch_retrieve_overrides_in_coursebatch_retrieve_overrides_in_course_course_id', required: ['course_id'] };
 
 // Batch create overrides in a course
@@ -274,10 +275,10 @@ export const batchRetrieveOverridesInCourse = { type: 'BATCH_RETRIEVE_OVERRIDES_
 // API Url: courses/{course_id}/assignments/overrides
 //
 // Example:
-// const query = {
+// const body = {
 //   assignment_overrides (required)
 // }
-// return canvasRequest(batch_create_overrides_in_course, {course_id}, query);
+// return canvasRequest(batch_create_overrides_in_course, {course_id}, body);
 export const batchCreateOverridesInCourse = { type: 'BATCH_CREATE_OVERRIDES_IN_COURSE', method: 'post', key: 'batch_create_overrides_in_coursebatch_create_overrides_in_course_course_id', required: ['course_id'] };
 
 // Batch update overrides in a course
@@ -299,8 +300,8 @@ export const batchCreateOverridesInCourse = { type: 'BATCH_CREATE_OVERRIDES_IN_C
 // API Url: courses/{course_id}/assignments/overrides
 //
 // Example:
-// const query = {
+// const body = {
 //   assignment_overrides (required)
 // }
-// return canvasRequest(batch_update_overrides_in_course, {course_id}, query);
+// return canvasRequest(batch_update_overrides_in_course, {course_id}, body);
 export const batchUpdateOverridesInCourse = { type: 'BATCH_UPDATE_OVERRIDES_IN_COURSE', method: 'put', key: 'batch_update_overrides_in_coursebatch_update_overrides_in_course_course_id', required: ['course_id'] };

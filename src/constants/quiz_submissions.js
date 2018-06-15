@@ -18,7 +18,7 @@
 // const query = {
 //   include
 // }
-// return canvasRequest(get_all_quiz_submissions, {course_id, quiz_id}, query);
+// return canvasRequest(get_all_quiz_submissions, {course_id, quiz_id, ...query});
 export const getAllQuizSubmissions = { type: 'GET_ALL_QUIZ_SUBMISSIONS', method: 'get', key: 'get_all_quiz_submissionsget_all_quiz_submissions_{course_id}_{quiz_id}', required: ['course_id', 'quiz_id'] };
 
 // Get the quiz submission.
@@ -33,7 +33,7 @@ export const getAllQuizSubmissions = { type: 'GET_ALL_QUIZ_SUBMISSIONS', method:
 // const query = {
 //   include
 // }
-// return canvasRequest(get_quiz_submission, {course_id, quiz_id}, query);
+// return canvasRequest(get_quiz_submission, {course_id, quiz_id, ...query});
 export const getQuizSubmission = { type: 'GET_QUIZ_SUBMISSION', method: 'get', key: 'get_quiz_submissionget_quiz_submission_{course_id}_{quiz_id}', required: ['course_id', 'quiz_id'] };
 
 // Get a single quiz submission.
@@ -48,7 +48,7 @@ export const getQuizSubmission = { type: 'GET_QUIZ_SUBMISSION', method: 'get', k
 // const query = {
 //   include
 // }
-// return canvasRequest(get_single_quiz_submission, {course_id, quiz_id, id}, query);
+// return canvasRequest(get_single_quiz_submission, {course_id, quiz_id, id, ...query});
 export const getSingleQuizSubmission = { type: 'GET_SINGLE_QUIZ_SUBMISSION', method: 'get', key: 'get_single_quiz_submissionget_single_quiz_submission_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };
 
 // Create the quiz submission (start a quiz-taking session)
@@ -67,11 +67,11 @@ export const getSingleQuizSubmission = { type: 'GET_SINGLE_QUIZ_SUBMISSION', met
 // API Url: courses/{course_id}/quizzes/{quiz_id}/submissions
 //
 // Example:
-// const query = {
+// const body = {
 //   access_code
 //   preview
 // }
-// return canvasRequest(create_quiz_submission_start_quiz_taking_session, {course_id, quiz_id}, query);
+// return canvasRequest(create_quiz_submission_start_quiz_taking_session, {course_id, quiz_id}, body);
 export const createQuizSubmissionStartQuizTakingSession = { type: 'CREATE_QUIZ_SUBMISSION_START_QUIZ_TAKING_SESSION', method: 'post', key: 'create_quiz_submission_start_quiz_taking_sessioncreate_quiz_submission_start_quiz_taking_session_{course_id}_{quiz_id}', required: ['course_id', 'quiz_id'] };
 
 // Update student question scores and comments.
@@ -90,12 +90,12 @@ export const createQuizSubmissionStartQuizTakingSession = { type: 'CREATE_QUIZ_S
 // API Url: courses/{course_id}/quizzes/{quiz_id}/submissions/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   attempt (required)
 //   fudge_points
 //   questions
 // }
-// return canvasRequest(update_student_question_scores_and_comments, {course_id, quiz_id, id}, query);
+// return canvasRequest(update_student_question_scores_and_comments, {course_id, quiz_id, id}, body);
 export const updateStudentQuestionScoresAndComments = { type: 'UPDATE_STUDENT_QUESTION_SCORES_AND_COMMENTS', method: 'put', key: 'update_student_question_scores_and_commentsupdate_student_question_scores_and_comments_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };
 
 // Complete the quiz submission (turn it in).
@@ -117,12 +117,12 @@ export const updateStudentQuestionScoresAndComments = { type: 'UPDATE_STUDENT_QU
 // API Url: courses/{course_id}/quizzes/{quiz_id}/submissions/{id}/complete
 //
 // Example:
-// const query = {
+// const body = {
 //   attempt (required)
 //   validation_token (required)
 //   access_code
 // }
-// return canvasRequest(complete_quiz_submission_turn_it_in, {course_id, quiz_id, id}, query);
+// return canvasRequest(complete_quiz_submission_turn_it_in, {course_id, quiz_id, id}, body);
 export const completeQuizSubmissionTurnItIn = { type: 'COMPLETE_QUIZ_SUBMISSION_TURN_IT_IN', method: 'post', key: 'complete_quiz_submission_turn_it_incomplete_quiz_submission_turn_it_in_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };
 
 // Get current quiz submission times.

@@ -48,5 +48,5 @@ export const listsSubmissions = { type: 'LISTS_SUBMISSIONS', method: 'get', key:
 //   user_id
 //   ascending
 // }
-// return canvasRequest(list_uncollated_submission_versions, {course_id}, query);
+// return canvasRequest(list_uncollated_submission_versions, {course_id, ...query});
 export const listUncollatedSubmissionVersions = { type: 'LIST_UNCOLLATED_SUBMISSION_VERSIONS', method: 'get', key: 'list_uncollated_submission_versionslist_uncollated_submission_versions_course_id', required: ['course_id'] };

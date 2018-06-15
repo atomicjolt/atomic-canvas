@@ -2,7 +2,7 @@
 // Feature Flags
 //
 // List features
-// List all features that apply to a given Account, Course, or User.
+// A paginated list of all features that apply to a given Account, Course, or User.
 //
 // API Docs: https://canvas.instructure.com/doc/api/feature_flags.html
 // API Url: courses/{course_id}/features
@@ -12,7 +12,7 @@
 export const listFeaturesCourses = { type: 'LIST_FEATURES_COURSES', method: 'get', key: 'list_features_courseslist_features_courses_course_id', required: ['course_id'] };
 
 // List features
-// List all features that apply to a given Account, Course, or User.
+// A paginated list of all features that apply to a given Account, Course, or User.
 //
 // API Docs: https://canvas.instructure.com/doc/api/feature_flags.html
 // API Url: accounts/{account_id}/features
@@ -22,7 +22,7 @@ export const listFeaturesCourses = { type: 'LIST_FEATURES_COURSES', method: 'get
 export const listFeaturesAccounts = { type: 'LIST_FEATURES_ACCOUNTS', method: 'get', key: 'list_features_accountslist_features_accounts_account_id', required: ['account_id'] };
 
 // List features
-// List all features that apply to a given Account, Course, or User.
+// A paginated list of all features that apply to a given Account, Course, or User.
 //
 // API Docs: https://canvas.instructure.com/doc/api/feature_flags.html
 // API Url: users/{user_id}/features
@@ -32,7 +32,7 @@ export const listFeaturesAccounts = { type: 'LIST_FEATURES_ACCOUNTS', method: 'g
 export const listFeaturesUsers = { type: 'LIST_FEATURES_USERS', method: 'get', key: 'list_features_userslist_features_users_user_id', required: ['user_id'] };
 
 // List enabled features
-// List all features that are enabled on a given Account, Course, or User.
+// A paginated list of all features that are enabled on a given Account, Course, or User.
 // Only the feature names are returned.
 //
 // API Docs: https://canvas.instructure.com/doc/api/feature_flags.html
@@ -43,7 +43,7 @@ export const listFeaturesUsers = { type: 'LIST_FEATURES_USERS', method: 'get', k
 export const listEnabledFeaturesCourses = { type: 'LIST_ENABLED_FEATURES_COURSES', method: 'get', key: 'list_enabled_features_courseslist_enabled_features_courses_course_id', required: ['course_id'] };
 
 // List enabled features
-// List all features that are enabled on a given Account, Course, or User.
+// A paginated list of all features that are enabled on a given Account, Course, or User.
 // Only the feature names are returned.
 //
 // API Docs: https://canvas.instructure.com/doc/api/feature_flags.html
@@ -54,7 +54,7 @@ export const listEnabledFeaturesCourses = { type: 'LIST_ENABLED_FEATURES_COURSES
 export const listEnabledFeaturesAccounts = { type: 'LIST_ENABLED_FEATURES_ACCOUNTS', method: 'get', key: 'list_enabled_features_accountslist_enabled_features_accounts_account_id', required: ['account_id'] };
 
 // List enabled features
-// List all features that are enabled on a given Account, Course, or User.
+// A paginated list of all features that are enabled on a given Account, Course, or User.
 // Only the feature names are returned.
 //
 // API Docs: https://canvas.instructure.com/doc/api/feature_flags.html
@@ -114,10 +114,10 @@ export const getFeatureFlagUsers = { type: 'GET_FEATURE_FLAG_USERS', method: 'ge
 // API Url: courses/{course_id}/features/flags/{feature}
 //
 // Example:
-// const query = {
+// const body = {
 //   state
 // }
-// return canvasRequest(set_feature_flag_courses, {course_id, feature}, query);
+// return canvasRequest(set_feature_flag_courses, {course_id, feature}, body);
 export const setFeatureFlagCourses = { type: 'SET_FEATURE_FLAG_COURSES', method: 'put', key: 'set_feature_flag_coursesset_feature_flag_courses_{course_id}_{feature}', required: ['course_id', 'feature'] };
 
 // Set feature flag
@@ -128,10 +128,10 @@ export const setFeatureFlagCourses = { type: 'SET_FEATURE_FLAG_COURSES', method:
 // API Url: accounts/{account_id}/features/flags/{feature}
 //
 // Example:
-// const query = {
+// const body = {
 //   state
 // }
-// return canvasRequest(set_feature_flag_accounts, {account_id, feature}, query);
+// return canvasRequest(set_feature_flag_accounts, {account_id, feature}, body);
 export const setFeatureFlagAccounts = { type: 'SET_FEATURE_FLAG_ACCOUNTS', method: 'put', key: 'set_feature_flag_accountsset_feature_flag_accounts_{account_id}_{feature}', required: ['account_id', 'feature'] };
 
 // Set feature flag
@@ -142,10 +142,10 @@ export const setFeatureFlagAccounts = { type: 'SET_FEATURE_FLAG_ACCOUNTS', metho
 // API Url: users/{user_id}/features/flags/{feature}
 //
 // Example:
-// const query = {
+// const body = {
 //   state
 // }
-// return canvasRequest(set_feature_flag_users, {user_id, feature}, query);
+// return canvasRequest(set_feature_flag_users, {user_id, feature}, body);
 export const setFeatureFlagUsers = { type: 'SET_FEATURE_FLAG_USERS', method: 'put', key: 'set_feature_flag_usersset_feature_flag_users_{user_id}_{feature}', required: ['user_id', 'feature'] };
 
 // Remove feature flag

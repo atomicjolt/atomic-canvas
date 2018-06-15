@@ -11,7 +11,7 @@
 // const query = {
 //   includes_all_versions
 // }
-// return canvasRequest(retrieve_all_quiz_reports, {course_id, quiz_id}, query);
+// return canvasRequest(retrieve_all_quiz_reports, {course_id, quiz_id, ...query});
 export const retrieveAllQuizReports = { type: 'RETRIEVE_ALL_QUIZ_REPORTS', method: 'get', key: 'retrieve_all_quiz_reportsretrieve_all_quiz_reports_{course_id}_{quiz_id}', required: ['course_id', 'quiz_id'] };
 
 // Create a quiz report
@@ -29,12 +29,12 @@ export const retrieveAllQuizReports = { type: 'RETRIEVE_ALL_QUIZ_REPORTS', metho
 // API Url: courses/{course_id}/quizzes/{quiz_id}/reports
 //
 // Example:
-// const query = {
+// const body = {
 //   quiz_report[report_type] (required)
 //   quiz_report[includes_all_versions]
 //   include
 // }
-// return canvasRequest(create_quiz_report, {course_id, quiz_id}, query);
+// return canvasRequest(create_quiz_report, {course_id, quiz_id}, body);
 export const createQuizReport = { type: 'CREATE_QUIZ_REPORT', method: 'post', key: 'create_quiz_reportcreate_quiz_report_{course_id}_{quiz_id}', required: ['course_id', 'quiz_id'] };
 
 // Get a quiz report
@@ -47,7 +47,7 @@ export const createQuizReport = { type: 'CREATE_QUIZ_REPORT', method: 'post', ke
 // const query = {
 //   include
 // }
-// return canvasRequest(get_quiz_report, {course_id, quiz_id, id}, query);
+// return canvasRequest(get_quiz_report, {course_id, quiz_id, id, ...query});
 export const getQuizReport = { type: 'GET_QUIZ_REPORT', method: 'get', key: 'get_quiz_reportget_quiz_report_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };
 
 // Abort the generation of a report, or remove a previously generated one

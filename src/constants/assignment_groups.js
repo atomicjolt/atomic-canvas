@@ -2,8 +2,8 @@
 // Assignment Groups
 //
 // List assignment groups
-// Returns the list of assignment groups for the current context. The returned
-// groups are sorted by their position field.
+// Returns the paginated list of assignment groups for the current context.
+// The returned groups are sorted by their position field.
 //
 // API Docs: https://canvas.instructure.com/doc/api/assignment_groups.html
 // API Url: courses/{course_id}/assignment_groups
@@ -16,7 +16,7 @@
 //   grading_period_id
 //   scope_assignments_to_student
 // }
-// return canvasRequest(list_assignment_groups, {course_id}, query);
+// return canvasRequest(list_assignment_groups, {course_id, ...query});
 export const listAssignmentGroups = { type: 'LIST_ASSIGNMENT_GROUPS', method: 'get', key: 'list_assignment_groupslist_assignment_groups_course_id', required: ['course_id'] };
 
 // Get an Assignment Group
@@ -31,7 +31,7 @@ export const listAssignmentGroups = { type: 'LIST_ASSIGNMENT_GROUPS', method: 'g
 //   override_assignment_dates
 //   grading_period_id
 // }
-// return canvasRequest(get_assignment_group, {course_id, assignment_group_id}, query);
+// return canvasRequest(get_assignment_group, {course_id, assignment_group_id, ...query});
 export const getAssignmentGroup = { type: 'GET_ASSIGNMENT_GROUP', method: 'get', key: 'get_assignment_groupget_assignment_group_{course_id}_{assignment_group_id}', required: ['course_id', 'assignment_group_id'] };
 
 // Create an Assignment Group
@@ -41,7 +41,7 @@ export const getAssignmentGroup = { type: 'GET_ASSIGNMENT_GROUP', method: 'get',
 // API Url: courses/{course_id}/assignment_groups
 //
 // Example:
-// const query = {
+// const body = {
 //   name
 //   position
 //   group_weight
@@ -49,7 +49,7 @@ export const getAssignmentGroup = { type: 'GET_ASSIGNMENT_GROUP', method: 'get',
 //   integration_data
 //   rules
 // }
-// return canvasRequest(create_assignment_group, {course_id}, query);
+// return canvasRequest(create_assignment_group, {course_id}, body);
 export const createAssignmentGroup = { type: 'CREATE_ASSIGNMENT_GROUP', method: 'post', key: 'create_assignment_groupcreate_assignment_group_course_id', required: ['course_id'] };
 
 // Edit an Assignment Group
@@ -70,8 +70,8 @@ export const editAssignmentGroup = { type: 'EDIT_ASSIGNMENT_GROUP', method: 'put
 // API Url: courses/{course_id}/assignment_groups/{assignment_group_id}
 //
 // Example:
-// const query = {
+// const body = {
 //   move_assignments_to
 // }
-// return canvasRequest(destroy_assignment_group, {course_id, assignment_group_id}, query);
+// return canvasRequest(destroy_assignment_group, {course_id, assignment_group_id}, body);
 export const destroyAssignmentGroup = { type: 'DESTROY_ASSIGNMENT_GROUP', method: 'delete', key: 'destroy_assignment_groupdestroy_assignment_group_{course_id}_{assignment_group_id}', required: ['course_id', 'assignment_group_id'] };

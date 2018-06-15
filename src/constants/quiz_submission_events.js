@@ -10,10 +10,10 @@
 // API Url: courses/{course_id}/quizzes/{quiz_id}/submissions/{id}/events
 //
 // Example:
-// const query = {
+// const body = {
 //   quiz_submission_events (required)
 // }
-// return canvasRequest(submit_captured_events, {course_id, quiz_id, id}, query);
+// return canvasRequest(submit_captured_events, {course_id, quiz_id, id}, body);
 export const submitCapturedEvents = { type: 'SUBMIT_CAPTURED_EVENTS', method: 'post', key: 'submit_captured_eventssubmit_captured_events_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };
 
 // Retrieve captured events
@@ -26,5 +26,5 @@ export const submitCapturedEvents = { type: 'SUBMIT_CAPTURED_EVENTS', method: 'p
 // const query = {
 //   attempt
 // }
-// return canvasRequest(retrieve_captured_events, {course_id, quiz_id, id}, query);
+// return canvasRequest(retrieve_captured_events, {course_id, quiz_id, id, ...query});
 export const retrieveCapturedEvents = { type: 'RETRIEVE_CAPTURED_EVENTS', method: 'get', key: 'retrieve_captured_eventsretrieve_captured_events_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };

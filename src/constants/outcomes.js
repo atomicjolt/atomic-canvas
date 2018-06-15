@@ -29,7 +29,7 @@ export const showOutcome = { type: 'SHOW_OUTCOME', method: 'get', key: 'show_out
 // API Url: outcomes/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   title
 //   display_name
 //   description
@@ -40,5 +40,5 @@ export const showOutcome = { type: 'SHOW_OUTCOME', method: 'get', key: 'show_out
 //   calculation_method
 //   calculation_int
 // }
-// return canvasRequest(update_outcome, {id}, query);
+// return canvasRequest(update_outcome, {id}, body);
 export const updateOutcome = { type: 'UPDATE_OUTCOME', method: 'put', key: 'update_outcomeupdate_outcome_id', required: ['id'] };

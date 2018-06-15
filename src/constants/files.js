@@ -46,7 +46,7 @@ export const getQuotaInformationUsers = { type: 'GET_QUOTA_INFORMATION_USERS', m
 //   sort
 //   order
 // }
-// return canvasRequest(list_files_courses, {course_id}, query);
+// return canvasRequest(list_files_courses, {course_id, ...query});
 export const listFilesCourses = { type: 'LIST_FILES_COURSES', method: 'get', key: 'list_files_courseslist_files_courses_course_id', required: ['course_id'] };
 
 // List files
@@ -64,7 +64,7 @@ export const listFilesCourses = { type: 'LIST_FILES_COURSES', method: 'get', key
 //   sort
 //   order
 // }
-// return canvasRequest(list_files_users, {user_id}, query);
+// return canvasRequest(list_files_users, {user_id, ...query});
 export const listFilesUsers = { type: 'LIST_FILES_USERS', method: 'get', key: 'list_files_userslist_files_users_user_id', required: ['user_id'] };
 
 // List files
@@ -82,7 +82,7 @@ export const listFilesUsers = { type: 'LIST_FILES_USERS', method: 'get', key: 'l
 //   sort
 //   order
 // }
-// return canvasRequest(list_files_groups, {group_id}, query);
+// return canvasRequest(list_files_groups, {group_id, ...query});
 export const listFilesGroups = { type: 'LIST_FILES_GROUPS', method: 'get', key: 'list_files_groupslist_files_groups_group_id', required: ['group_id'] };
 
 // List files
@@ -100,7 +100,7 @@ export const listFilesGroups = { type: 'LIST_FILES_GROUPS', method: 'get', key: 
 //   sort
 //   order
 // }
-// return canvasRequest(list_files_folders, {id}, query);
+// return canvasRequest(list_files_folders, {id, ...query});
 export const listFilesFolders = { type: 'LIST_FILES_FOLDERS', method: 'get', key: 'list_files_folderslist_files_folders_id', required: ['id'] };
 
 // Get public inline preview url
@@ -113,7 +113,7 @@ export const listFilesFolders = { type: 'LIST_FILES_FOLDERS', method: 'get', key
 // const query = {
 //   submission_id
 // }
-// return canvasRequest(get_public_inline_preview_url, {id}, query);
+// return canvasRequest(get_public_inline_preview_url, {id, ...query});
 export const getPublicInlinePreviewUrl = { type: 'GET_PUBLIC_INLINE_PREVIEW_URL', method: 'get', key: 'get_public_inline_preview_urlget_public_inline_preview_url_id', required: ['id'] };
 
 // Get file
@@ -126,7 +126,7 @@ export const getPublicInlinePreviewUrl = { type: 'GET_PUBLIC_INLINE_PREVIEW_URL'
 // const query = {
 //   include
 // }
-// return canvasRequest(get_file_files, {id}, query);
+// return canvasRequest(get_file_files, {id, ...query});
 export const getFileFiles = { type: 'GET_FILE_FILES', method: 'get', key: 'get_file_filesget_file_files_id', required: ['id'] };
 
 // Get file
@@ -139,7 +139,7 @@ export const getFileFiles = { type: 'GET_FILE_FILES', method: 'get', key: 'get_f
 // const query = {
 //   include
 // }
-// return canvasRequest(get_file_courses, {course_id, id}, query);
+// return canvasRequest(get_file_courses, {course_id, id, ...query});
 export const getFileCourses = { type: 'GET_FILE_COURSES', method: 'get', key: 'get_file_coursesget_file_courses_{course_id}_{id}', required: ['course_id', 'id'] };
 
 // Get file
@@ -152,7 +152,7 @@ export const getFileCourses = { type: 'GET_FILE_COURSES', method: 'get', key: 'g
 // const query = {
 //   include
 // }
-// return canvasRequest(get_file_groups, {group_id, id}, query);
+// return canvasRequest(get_file_groups, {group_id, id, ...query});
 export const getFileGroups = { type: 'GET_FILE_GROUPS', method: 'get', key: 'get_file_groupsget_file_groups_{group_id}_{id}', required: ['group_id', 'id'] };
 
 // Get file
@@ -165,7 +165,7 @@ export const getFileGroups = { type: 'GET_FILE_GROUPS', method: 'get', key: 'get
 // const query = {
 //   include
 // }
-// return canvasRequest(get_file_users, {user_id, id}, query);
+// return canvasRequest(get_file_users, {user_id, id, ...query});
 export const getFileUsers = { type: 'GET_FILE_USERS', method: 'get', key: 'get_file_usersget_file_users_{user_id}_{id}', required: ['user_id', 'id'] };
 
 // Update file
@@ -175,7 +175,7 @@ export const getFileUsers = { type: 'GET_FILE_USERS', method: 'get', key: 'get_f
 // API Url: files/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   name
 //   parent_folder_id
 //   on_duplicate
@@ -184,7 +184,7 @@ export const getFileUsers = { type: 'GET_FILE_USERS', method: 'get', key: 'get_f
 //   locked
 //   hidden
 // }
-// return canvasRequest(update_file, {id}, query);
+// return canvasRequest(update_file, {id}, body);
 export const updateFile = { type: 'UPDATE_FILE', method: 'put', key: 'update_fileupdate_file_id', required: ['id'] };
 
 // Delete file
@@ -194,10 +194,10 @@ export const updateFile = { type: 'UPDATE_FILE', method: 'put', key: 'update_fil
 // API Url: files/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   replace
 // }
-// return canvasRequest(delete_file, {id}, query);
+// return canvasRequest(delete_file, {id}, body);
 export const deleteFile = { type: 'DELETE_FILE', method: 'delete', key: 'delete_filedelete_file_id', required: ['id'] };
 
 // List folders
@@ -392,7 +392,7 @@ export const getFolderFolders = { type: 'GET_FOLDER_FOLDERS', method: 'get', key
 // API Url: folders/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   name
 //   parent_folder_id
 //   lock_at
@@ -401,7 +401,7 @@ export const getFolderFolders = { type: 'GET_FOLDER_FOLDERS', method: 'get', key
 //   hidden
 //   position
 // }
-// return canvasRequest(update_folder, {id}, query);
+// return canvasRequest(update_folder, {id}, body);
 export const updateFolder = { type: 'UPDATE_FOLDER', method: 'put', key: 'update_folderupdate_folder_id', required: ['id'] };
 
 // Create folder
@@ -411,7 +411,7 @@ export const updateFolder = { type: 'UPDATE_FOLDER', method: 'put', key: 'update
 // API Url: courses/{course_id}/folders
 //
 // Example:
-// const query = {
+// const body = {
 //   name (required)
 //   parent_folder_id
 //   parent_folder_path
@@ -421,7 +421,7 @@ export const updateFolder = { type: 'UPDATE_FOLDER', method: 'put', key: 'update
 //   hidden
 //   position
 // }
-// return canvasRequest(create_folder_courses, {course_id}, query);
+// return canvasRequest(create_folder_courses, {course_id}, body);
 export const createFolderCourses = { type: 'CREATE_FOLDER_COURSES', method: 'post', key: 'create_folder_coursescreate_folder_courses_course_id', required: ['course_id'] };
 
 // Create folder
@@ -431,7 +431,7 @@ export const createFolderCourses = { type: 'CREATE_FOLDER_COURSES', method: 'pos
 // API Url: users/{user_id}/folders
 //
 // Example:
-// const query = {
+// const body = {
 //   name (required)
 //   parent_folder_id
 //   parent_folder_path
@@ -441,7 +441,7 @@ export const createFolderCourses = { type: 'CREATE_FOLDER_COURSES', method: 'pos
 //   hidden
 //   position
 // }
-// return canvasRequest(create_folder_users, {user_id}, query);
+// return canvasRequest(create_folder_users, {user_id}, body);
 export const createFolderUsers = { type: 'CREATE_FOLDER_USERS', method: 'post', key: 'create_folder_userscreate_folder_users_user_id', required: ['user_id'] };
 
 // Create folder
@@ -451,7 +451,7 @@ export const createFolderUsers = { type: 'CREATE_FOLDER_USERS', method: 'post', 
 // API Url: groups/{group_id}/folders
 //
 // Example:
-// const query = {
+// const body = {
 //   name (required)
 //   parent_folder_id
 //   parent_folder_path
@@ -461,7 +461,7 @@ export const createFolderUsers = { type: 'CREATE_FOLDER_USERS', method: 'post', 
 //   hidden
 //   position
 // }
-// return canvasRequest(create_folder_groups, {group_id}, query);
+// return canvasRequest(create_folder_groups, {group_id}, body);
 export const createFolderGroups = { type: 'CREATE_FOLDER_GROUPS', method: 'post', key: 'create_folder_groupscreate_folder_groups_group_id', required: ['group_id'] };
 
 // Create folder
@@ -471,7 +471,7 @@ export const createFolderGroups = { type: 'CREATE_FOLDER_GROUPS', method: 'post'
 // API Url: folders/{folder_id}/folders
 //
 // Example:
-// const query = {
+// const body = {
 //   name (required)
 //   parent_folder_id
 //   parent_folder_path
@@ -481,7 +481,7 @@ export const createFolderGroups = { type: 'CREATE_FOLDER_GROUPS', method: 'post'
 //   hidden
 //   position
 // }
-// return canvasRequest(create_folder_folders, {folder_id}, query);
+// return canvasRequest(create_folder_folders, {folder_id}, body);
 export const createFolderFolders = { type: 'CREATE_FOLDER_FOLDERS', method: 'post', key: 'create_folder_folderscreate_folder_folders_folder_id', required: ['folder_id'] };
 
 // Delete folder
@@ -492,10 +492,10 @@ export const createFolderFolders = { type: 'CREATE_FOLDER_FOLDERS', method: 'pos
 // API Url: folders/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   force
 // }
-// return canvasRequest(delete_folder, {id}, query);
+// return canvasRequest(delete_folder, {id}, body);
 export const deleteFolder = { type: 'DELETE_FOLDER', method: 'delete', key: 'delete_folderdelete_folder_id', required: ['id'] };
 
 // Upload a file
@@ -525,11 +525,11 @@ export const filesUploadFile = { type: 'FILES_UPLOAD_FILE', method: 'post', key:
 // API Url: folders/{dest_folder_id}/copy_file
 //
 // Example:
-// const query = {
+// const body = {
 //   source_file_id (required)
 //   on_duplicate
 // }
-// return canvasRequest(copy_file, {dest_folder_id}, query);
+// return canvasRequest(copy_file, {dest_folder_id}, body);
 export const copyFile = { type: 'COPY_FILE', method: 'post', key: 'copy_filecopy_file_dest_folder_id', required: ['dest_folder_id'] };
 
 // Copy a folder
@@ -546,10 +546,10 @@ export const copyFile = { type: 'COPY_FILE', method: 'post', key: 'copy_filecopy
 // API Url: folders/{dest_folder_id}/copy_folder
 //
 // Example:
-// const query = {
+// const body = {
 //   source_folder_id (required)
 // }
-// return canvasRequest(copy_folder, {dest_folder_id}, query);
+// return canvasRequest(copy_folder, {dest_folder_id}, body);
 export const copyFolder = { type: 'COPY_FOLDER', method: 'post', key: 'copy_foldercopy_folder_dest_folder_id', required: ['dest_folder_id'] };
 
 // Set usage rights
@@ -559,7 +559,7 @@ export const copyFolder = { type: 'COPY_FOLDER', method: 'post', key: 'copy_fold
 // API Url: courses/{course_id}/usage_rights
 //
 // Example:
-// const query = {
+// const body = {
 //   file_ids (required)
 //   folder_ids
 //   publish
@@ -567,7 +567,7 @@ export const copyFolder = { type: 'COPY_FOLDER', method: 'post', key: 'copy_fold
 //   usage_rights[legal_copyright]
 //   usage_rights[license]
 // }
-// return canvasRequest(set_usage_rights_courses, {course_id}, query);
+// return canvasRequest(set_usage_rights_courses, {course_id}, body);
 export const setUsageRightsCourses = { type: 'SET_USAGE_RIGHTS_COURSES', method: 'put', key: 'set_usage_rights_coursesset_usage_rights_courses_course_id', required: ['course_id'] };
 
 // Set usage rights
@@ -577,7 +577,7 @@ export const setUsageRightsCourses = { type: 'SET_USAGE_RIGHTS_COURSES', method:
 // API Url: groups/{group_id}/usage_rights
 //
 // Example:
-// const query = {
+// const body = {
 //   file_ids (required)
 //   folder_ids
 //   publish
@@ -585,7 +585,7 @@ export const setUsageRightsCourses = { type: 'SET_USAGE_RIGHTS_COURSES', method:
 //   usage_rights[legal_copyright]
 //   usage_rights[license]
 // }
-// return canvasRequest(set_usage_rights_groups, {group_id}, query);
+// return canvasRequest(set_usage_rights_groups, {group_id}, body);
 export const setUsageRightsGroups = { type: 'SET_USAGE_RIGHTS_GROUPS', method: 'put', key: 'set_usage_rights_groupsset_usage_rights_groups_group_id', required: ['group_id'] };
 
 // Set usage rights
@@ -595,7 +595,7 @@ export const setUsageRightsGroups = { type: 'SET_USAGE_RIGHTS_GROUPS', method: '
 // API Url: users/{user_id}/usage_rights
 //
 // Example:
-// const query = {
+// const body = {
 //   file_ids (required)
 //   folder_ids
 //   publish
@@ -603,7 +603,7 @@ export const setUsageRightsGroups = { type: 'SET_USAGE_RIGHTS_GROUPS', method: '
 //   usage_rights[legal_copyright]
 //   usage_rights[license]
 // }
-// return canvasRequest(set_usage_rights_users, {user_id}, query);
+// return canvasRequest(set_usage_rights_users, {user_id}, body);
 export const setUsageRightsUsers = { type: 'SET_USAGE_RIGHTS_USERS', method: 'put', key: 'set_usage_rights_usersset_usage_rights_users_user_id', required: ['user_id'] };
 
 // Remove usage rights
@@ -613,11 +613,11 @@ export const setUsageRightsUsers = { type: 'SET_USAGE_RIGHTS_USERS', method: 'pu
 // API Url: courses/{course_id}/usage_rights
 //
 // Example:
-// const query = {
+// const body = {
 //   file_ids (required)
 //   folder_ids
 // }
-// return canvasRequest(remove_usage_rights_courses, {course_id}, query);
+// return canvasRequest(remove_usage_rights_courses, {course_id}, body);
 export const removeUsageRightsCourses = { type: 'REMOVE_USAGE_RIGHTS_COURSES', method: 'delete', key: 'remove_usage_rights_coursesremove_usage_rights_courses_course_id', required: ['course_id'] };
 
 // Remove usage rights
@@ -627,11 +627,11 @@ export const removeUsageRightsCourses = { type: 'REMOVE_USAGE_RIGHTS_COURSES', m
 // API Url: groups/{group_id}/usage_rights
 //
 // Example:
-// const query = {
+// const body = {
 //   file_ids (required)
 //   folder_ids
 // }
-// return canvasRequest(remove_usage_rights_groups, {group_id}, query);
+// return canvasRequest(remove_usage_rights_groups, {group_id}, body);
 export const removeUsageRightsGroups = { type: 'REMOVE_USAGE_RIGHTS_GROUPS', method: 'delete', key: 'remove_usage_rights_groupsremove_usage_rights_groups_group_id', required: ['group_id'] };
 
 // Remove usage rights
@@ -641,15 +641,15 @@ export const removeUsageRightsGroups = { type: 'REMOVE_USAGE_RIGHTS_GROUPS', met
 // API Url: users/{user_id}/usage_rights
 //
 // Example:
-// const query = {
+// const body = {
 //   file_ids (required)
 //   folder_ids
 // }
-// return canvasRequest(remove_usage_rights_users, {user_id}, query);
+// return canvasRequest(remove_usage_rights_users, {user_id}, body);
 export const removeUsageRightsUsers = { type: 'REMOVE_USAGE_RIGHTS_USERS', method: 'delete', key: 'remove_usage_rights_usersremove_usage_rights_users_user_id', required: ['user_id'] };
 
 // List licenses
-// Lists licenses that can be applied
+// A paginated list of licenses that can be applied
 //
 // API Docs: https://canvas.instructure.com/doc/api/files.html
 // API Url: courses/{course_id}/content_licenses
@@ -659,7 +659,7 @@ export const removeUsageRightsUsers = { type: 'REMOVE_USAGE_RIGHTS_USERS', metho
 export const listLicensesCourses = { type: 'LIST_LICENSES_COURSES', method: 'get', key: 'list_licenses_courseslist_licenses_courses_course_id', required: ['course_id'] };
 
 // List licenses
-// Lists licenses that can be applied
+// A paginated list of licenses that can be applied
 //
 // API Docs: https://canvas.instructure.com/doc/api/files.html
 // API Url: groups/{group_id}/content_licenses
@@ -669,7 +669,7 @@ export const listLicensesCourses = { type: 'LIST_LICENSES_COURSES', method: 'get
 export const listLicensesGroups = { type: 'LIST_LICENSES_GROUPS', method: 'get', key: 'list_licenses_groupslist_licenses_groups_group_id', required: ['group_id'] };
 
 // List licenses
-// Lists licenses that can be applied
+// A paginated list of licenses that can be applied
 //
 // API Docs: https://canvas.instructure.com/doc/api/files.html
 // API Url: users/{user_id}/content_licenses

@@ -20,13 +20,13 @@ export const getSingleQuizGroup = { type: 'GET_SINGLE_QUIZ_GROUP', method: 'get'
 // API Url: courses/{course_id}/quizzes/{quiz_id}/groups
 //
 // Example:
-// const query = {
+// const body = {
 //   quiz_groups[name]
 //   quiz_groups[pick_count]
 //   quiz_groups[question_points]
 //   quiz_groups[assessment_question_bank_id]
 // }
-// return canvasRequest(create_question_group, {course_id, quiz_id}, query);
+// return canvasRequest(create_question_group, {course_id, quiz_id}, body);
 export const createQuestionGroup = { type: 'CREATE_QUESTION_GROUP', method: 'post', key: 'create_question_groupcreate_question_group_{course_id}_{quiz_id}', required: ['course_id', 'quiz_id'] };
 
 // Update a question group
@@ -36,12 +36,12 @@ export const createQuestionGroup = { type: 'CREATE_QUESTION_GROUP', method: 'pos
 // API Url: courses/{course_id}/quizzes/{quiz_id}/groups/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   quiz_groups[name]
 //   quiz_groups[pick_count]
 //   quiz_groups[question_points]
 // }
-// return canvasRequest(update_question_group, {course_id, quiz_id, id}, query);
+// return canvasRequest(update_question_group, {course_id, quiz_id, id}, body);
 export const updateQuestionGroup = { type: 'UPDATE_QUESTION_GROUP', method: 'put', key: 'update_question_groupupdate_question_group_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };
 
 // Delete a question group
@@ -65,9 +65,9 @@ export const deleteQuestionGroup = { type: 'DELETE_QUESTION_GROUP', method: 'del
 // API Url: courses/{course_id}/quizzes/{quiz_id}/groups/{id}/reorder
 //
 // Example:
-// const query = {
+// const body = {
 //   order[id] (required)
 //   order[type]
 // }
-// return canvasRequest(reorder_question_groups, {course_id, quiz_id, id}, query);
+// return canvasRequest(reorder_question_groups, {course_id, quiz_id, id}, body);
 export const reorderQuestionGroups = { type: 'REORDER_QUESTION_GROUPS', method: 'post', key: 'reorder_question_groupsreorder_question_groups_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };
