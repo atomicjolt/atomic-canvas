@@ -18,7 +18,7 @@ Object.defineProperty(exports, "__esModule", {
 //   outcome_ids
 //   include
 // }
-// return canvasRequest(get_outcome_results, {course_id}, query);
+// return canvasRequest(get_outcome_results, {course_id, ...query});
 var getOutcomeResults = exports.getOutcomeResults = { type: 'GET_OUTCOME_RESULTS', method: 'get', key: 'get_outcome_resultsget_outcome_results_course_id', required: ['course_id'] };
 
 // Get outcome result rollups
@@ -35,5 +35,5 @@ var getOutcomeResults = exports.getOutcomeResults = { type: 'GET_OUTCOME_RESULTS
 //   outcome_ids
 //   include
 // }
-// return canvasRequest(get_outcome_result_rollups, {course_id}, query);
+// return canvasRequest(get_outcome_result_rollups, {course_id, ...query});
 var getOutcomeResultRollups = exports.getOutcomeResultRollups = { type: 'GET_OUTCOME_RESULT_ROLLUPS', method: 'get', key: 'get_outcome_result_rollupsget_outcome_result_rollups_course_id', required: ['course_id'] };

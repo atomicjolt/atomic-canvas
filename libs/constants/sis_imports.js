@@ -20,7 +20,7 @@ Object.defineProperty(exports, "__esModule", {
 // const query = {
 //   created_since
 // }
-// return canvasRequest(get_sis_import_list, {account_id}, query);
+// return canvasRequest(get_sis_import_list, {account_id, ...query});
 var getSisImportList = exports.getSisImportList = { type: 'GET_SIS_IMPORT_LIST', method: 'get', key: 'get_sis_import_listget_sis_import_list_account_id', required: ['account_id'] };
 
 // Import SIS data
@@ -34,21 +34,23 @@ var getSisImportList = exports.getSisImportList = { type: 'GET_SIS_IMPORT_LIST',
 // API Url: accounts/{account_id}/sis_imports
 //
 // Example:
-// const query = {
+// const body = {
 //   import_type
 //   attachment
 //   extension
 //   batch_mode
 //   batch_mode_term_id
 //   multi_term_batch_mode
+//   skip_deletes
 //   override_sis_stickiness
 //   add_sis_stickiness
 //   clear_sis_stickiness
 //   diffing_data_set_identifier
 //   diffing_remaster_data_set
+//   diffing_drop_status
 //   change_threshold
 // }
-// return canvasRequest(import_sis_data, {account_id}, query);
+// return canvasRequest(import_sis_data, {account_id}, body);
 var importSisData = exports.importSisData = { type: 'IMPORT_SIS_DATA', method: 'post', key: 'import_sis_dataimport_sis_data_account_id', required: ['account_id'] };
 
 // Get SIS import status

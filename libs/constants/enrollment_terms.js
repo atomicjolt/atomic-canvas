@@ -13,7 +13,7 @@ Object.defineProperty(exports, "__esModule", {
 // API Url: accounts/{account_id}/terms
 //
 // Example:
-// const query = {
+// const body = {
 //   enrollment_term[name]
 //   enrollment_term[start_at]
 //   enrollment_term[end_at]
@@ -21,7 +21,7 @@ Object.defineProperty(exports, "__esModule", {
 //   enrollment_term[overrides][enrollment_type][start_at]
 //   enrollment_term[overrides][enrollment_type][end_at]
 // }
-// return canvasRequest(create_enrollment_term, {account_id}, query);
+// return canvasRequest(create_enrollment_term, {account_id}, body);
 var createEnrollmentTerm = exports.createEnrollmentTerm = { type: 'CREATE_ENROLLMENT_TERM', method: 'post', key: 'create_enrollment_termcreate_enrollment_term_account_id', required: ['account_id'] };
 
 // Update enrollment term
@@ -31,7 +31,7 @@ var createEnrollmentTerm = exports.createEnrollmentTerm = { type: 'CREATE_ENROLL
 // API Url: accounts/{account_id}/terms/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   enrollment_term[name]
 //   enrollment_term[start_at]
 //   enrollment_term[end_at]
@@ -39,7 +39,7 @@ var createEnrollmentTerm = exports.createEnrollmentTerm = { type: 'CREATE_ENROLL
 //   enrollment_term[overrides][enrollment_type][start_at]
 //   enrollment_term[overrides][enrollment_type][end_at]
 // }
-// return canvasRequest(update_enrollment_term, {account_id, id}, query);
+// return canvasRequest(update_enrollment_term, {account_id, id}, body);
 var updateEnrollmentTerm = exports.updateEnrollmentTerm = { type: 'UPDATE_ENROLLMENT_TERM', method: 'put', key: 'update_enrollment_termupdate_enrollment_term_{account_id}_{id}', required: ['account_id', 'id'] };
 
 // Delete enrollment term
@@ -53,7 +53,7 @@ var updateEnrollmentTerm = exports.updateEnrollmentTerm = { type: 'UPDATE_ENROLL
 var deleteEnrollmentTerm = exports.deleteEnrollmentTerm = { type: 'DELETE_ENROLLMENT_TERM', method: 'delete', key: 'delete_enrollment_termdelete_enrollment_term_{account_id}_{id}', required: ['account_id', 'id'] };
 
 // List enrollment terms
-// Return all of the terms in the account.
+// A paginated list of all of the terms in the account.
 //
 // API Docs: https://canvas.instructure.com/doc/api/enrollment_terms.html
 // API Url: accounts/{account_id}/terms
@@ -63,5 +63,5 @@ var deleteEnrollmentTerm = exports.deleteEnrollmentTerm = { type: 'DELETE_ENROLL
 //   workflow_state
 //   include
 // }
-// return canvasRequest(list_enrollment_terms, {account_id}, query);
+// return canvasRequest(list_enrollment_terms, {account_id, ...query});
 var listEnrollmentTerms = exports.listEnrollmentTerms = { type: 'LIST_ENROLLMENT_TERMS', method: 'get', key: 'list_enrollment_termslist_enrollment_terms_account_id', required: ['account_id'] };

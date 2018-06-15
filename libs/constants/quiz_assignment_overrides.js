@@ -17,5 +17,5 @@ Object.defineProperty(exports, "__esModule", {
 // const query = {
 //   quiz_assignment_overrides[0][quiz_ids]
 // }
-// return canvasRequest(retrieve_assignment_overridden_dates_for_quizzes, {course_id}, query);
+// return canvasRequest(retrieve_assignment_overridden_dates_for_quizzes, {course_id, ...query});
 var retrieveAssignmentOverriddenDatesForQuizzes = exports.retrieveAssignmentOverriddenDatesForQuizzes = { type: 'RETRIEVE_ASSIGNMENT_OVERRIDDEN_DATES_FOR_QUIZZES', method: 'get', key: 'retrieve_assignment_overridden_dates_for_quizzesretrieve_assignment_overridden_dates_for_quizzes_course_id', required: ['course_id'] };

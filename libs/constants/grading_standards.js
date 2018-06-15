@@ -28,12 +28,12 @@ Object.defineProperty(exports, "__esModule", {
 // API Url: accounts/{account_id}/grading_standards
 //
 // Example:
-// const query = {
+// const body = {
 //   title (required)
 //   grading_scheme_entry[name] (required)
 //   grading_scheme_entry[value] (required)
 // }
-// return canvasRequest(create_new_grading_standard_accounts, {account_id}, query);
+// return canvasRequest(create_new_grading_standard_accounts, {account_id}, body);
 var createNewGradingStandardAccounts = exports.createNewGradingStandardAccounts = { type: 'CREATE_NEW_GRADING_STANDARD_ACCOUNTS', method: 'post', key: 'create_new_grading_standard_accountscreate_new_grading_standard_accounts_account_id', required: ['account_id'] };
 
 // Create a new grading standard
@@ -58,16 +58,16 @@ var createNewGradingStandardAccounts = exports.createNewGradingStandardAccounts 
 // API Url: courses/{course_id}/grading_standards
 //
 // Example:
-// const query = {
+// const body = {
 //   title (required)
 //   grading_scheme_entry[name] (required)
 //   grading_scheme_entry[value] (required)
 // }
-// return canvasRequest(create_new_grading_standard_courses, {course_id}, query);
+// return canvasRequest(create_new_grading_standard_courses, {course_id}, body);
 var createNewGradingStandardCourses = exports.createNewGradingStandardCourses = { type: 'CREATE_NEW_GRADING_STANDARD_COURSES', method: 'post', key: 'create_new_grading_standard_coursescreate_new_grading_standard_courses_course_id', required: ['course_id'] };
 
 // List the grading standards available in a context.
-// Returns the list of grading standards for the given context that are visible to the user.
+// Returns the paginated list of grading standards for the given context that are visible to the user.
 //
 // API Docs: https://canvas.instructure.com/doc/api/grading_standards.html
 // API Url: courses/{course_id}/grading_standards
@@ -77,7 +77,7 @@ var createNewGradingStandardCourses = exports.createNewGradingStandardCourses = 
 var listGradingStandardsAvailableInContextCourses = exports.listGradingStandardsAvailableInContextCourses = { type: 'LIST_GRADING_STANDARDS_AVAILABLE_IN_CONTEXT_COURSES', method: 'get', key: 'list_grading_standards_available_in_context_courseslist_grading_standards_available_in_context_courses_course_id', required: ['course_id'] };
 
 // List the grading standards available in a context.
-// Returns the list of grading standards for the given context that are visible to the user.
+// Returns the paginated list of grading standards for the given context that are visible to the user.
 //
 // API Docs: https://canvas.instructure.com/doc/api/grading_standards.html
 // API Url: accounts/{account_id}/grading_standards

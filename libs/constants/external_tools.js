@@ -19,7 +19,7 @@ Object.defineProperty(exports, "__esModule", {
 //   selectable
 //   include_parents
 // }
-// return canvasRequest(list_external_tools_courses, {course_id}, query);
+// return canvasRequest(list_external_tools_courses, {course_id, ...query});
 var listExternalToolsCourses = exports.listExternalToolsCourses = { type: 'LIST_EXTERNAL_TOOLS_COURSES', method: 'get', key: 'list_external_tools_courseslist_external_tools_courses_course_id', required: ['course_id'] };
 
 // List external tools
@@ -35,7 +35,7 @@ var listExternalToolsCourses = exports.listExternalToolsCourses = { type: 'LIST_
 //   selectable
 //   include_parents
 // }
-// return canvasRequest(list_external_tools_accounts, {account_id}, query);
+// return canvasRequest(list_external_tools_accounts, {account_id, ...query});
 var listExternalToolsAccounts = exports.listExternalToolsAccounts = { type: 'LIST_EXTERNAL_TOOLS_ACCOUNTS', method: 'get', key: 'list_external_tools_accountslist_external_tools_accounts_account_id', required: ['account_id'] };
 
 // List external tools
@@ -51,7 +51,7 @@ var listExternalToolsAccounts = exports.listExternalToolsAccounts = { type: 'LIS
 //   selectable
 //   include_parents
 // }
-// return canvasRequest(list_external_tools_groups, {group_id}, query);
+// return canvasRequest(list_external_tools_groups, {group_id, ...query});
 var listExternalToolsGroups = exports.listExternalToolsGroups = { type: 'LIST_EXTERNAL_TOOLS_GROUPS', method: 'get', key: 'list_external_tools_groupslist_external_tools_groups_group_id', required: ['group_id'] };
 
 // Get a sessionless launch url for an external tool.
@@ -70,7 +70,7 @@ var listExternalToolsGroups = exports.listExternalToolsGroups = { type: 'LIST_EX
 //   module_item_id
 //   launch_type
 // }
-// return canvasRequest(get_sessionless_launch_url_for_external_tool_courses, {course_id}, query);
+// return canvasRequest(get_sessionless_launch_url_for_external_tool_courses, {course_id, ...query});
 var getSessionlessLaunchUrlForExternalToolCourses = exports.getSessionlessLaunchUrlForExternalToolCourses = { type: 'GET_SESSIONLESS_LAUNCH_URL_FOR_EXTERNAL_TOOL_COURSES', method: 'get', key: 'get_sessionless_launch_url_for_external_tool_coursesget_sessionless_launch_url_for_external_tool_courses_course_id', required: ['course_id'] };
 
 // Get a sessionless launch url for an external tool.
@@ -89,7 +89,7 @@ var getSessionlessLaunchUrlForExternalToolCourses = exports.getSessionlessLaunch
 //   module_item_id
 //   launch_type
 // }
-// return canvasRequest(get_sessionless_launch_url_for_external_tool_accounts, {account_id}, query);
+// return canvasRequest(get_sessionless_launch_url_for_external_tool_accounts, {account_id, ...query});
 var getSessionlessLaunchUrlForExternalToolAccounts = exports.getSessionlessLaunchUrlForExternalToolAccounts = { type: 'GET_SESSIONLESS_LAUNCH_URL_FOR_EXTERNAL_TOOL_ACCOUNTS', method: 'get', key: 'get_sessionless_launch_url_for_external_tool_accountsget_sessionless_launch_url_for_external_tool_accounts_account_id', required: ['account_id'] };
 
 // Get a single external tool
@@ -120,7 +120,7 @@ var getSingleExternalToolAccounts = exports.getSingleExternalToolAccounts = { ty
 // API Url: courses/{course_id}/external_tools
 //
 // Example:
-// const query = {
+// const body = {
 //   name (required)
 //   privacy_level (required)
 //   consumer_key (required)
@@ -136,9 +136,11 @@ var getSingleExternalToolAccounts = exports.getSingleExternalToolAccounts = { ty
 //   account_navigation[text]
 //   account_navigation[selection_width]
 //   account_navigation[selection_height]
+//   account_navigation[display_type]
 //   user_navigation[url]
 //   user_navigation[enabled]
 //   user_navigation[text]
+//   user_navigation[visibility]
 //   course_home_sub_navigation[url]
 //   course_home_sub_navigation[enabled]
 //   course_home_sub_navigation[text]
@@ -148,6 +150,7 @@ var getSingleExternalToolAccounts = exports.getSingleExternalToolAccounts = { ty
 //   course_navigation[visibility]
 //   course_navigation[windowTarget]
 //   course_navigation[default]
+//   course_navigation[display_type]
 //   editor_button[url]
 //   editor_button[enabled]
 //   editor_button[icon_url]
@@ -180,7 +183,7 @@ var getSingleExternalToolAccounts = exports.getSingleExternalToolAccounts = { ty
 //   not_selectable
 //   oauth_compliant
 // }
-// return canvasRequest(create_external_tool_courses, {course_id}, query);
+// return canvasRequest(create_external_tool_courses, {course_id}, body);
 var createExternalToolCourses = exports.createExternalToolCourses = { type: 'CREATE_EXTERNAL_TOOL_COURSES', method: 'post', key: 'create_external_tool_coursescreate_external_tool_courses_course_id', required: ['course_id'] };
 
 // Create an external tool
@@ -191,7 +194,7 @@ var createExternalToolCourses = exports.createExternalToolCourses = { type: 'CRE
 // API Url: accounts/{account_id}/external_tools
 //
 // Example:
-// const query = {
+// const body = {
 //   name (required)
 //   privacy_level (required)
 //   consumer_key (required)
@@ -207,9 +210,11 @@ var createExternalToolCourses = exports.createExternalToolCourses = { type: 'CRE
 //   account_navigation[text]
 //   account_navigation[selection_width]
 //   account_navigation[selection_height]
+//   account_navigation[display_type]
 //   user_navigation[url]
 //   user_navigation[enabled]
 //   user_navigation[text]
+//   user_navigation[visibility]
 //   course_home_sub_navigation[url]
 //   course_home_sub_navigation[enabled]
 //   course_home_sub_navigation[text]
@@ -219,6 +224,7 @@ var createExternalToolCourses = exports.createExternalToolCourses = { type: 'CRE
 //   course_navigation[visibility]
 //   course_navigation[windowTarget]
 //   course_navigation[default]
+//   course_navigation[display_type]
 //   editor_button[url]
 //   editor_button[enabled]
 //   editor_button[icon_url]
@@ -251,7 +257,7 @@ var createExternalToolCourses = exports.createExternalToolCourses = { type: 'CRE
 //   not_selectable
 //   oauth_compliant
 // }
-// return canvasRequest(create_external_tool_accounts, {account_id}, query);
+// return canvasRequest(create_external_tool_accounts, {account_id}, body);
 var createExternalToolAccounts = exports.createExternalToolAccounts = { type: 'CREATE_EXTERNAL_TOOL_ACCOUNTS', method: 'post', key: 'create_external_tool_accountscreate_external_tool_accounts_account_id', required: ['account_id'] };
 
 // Edit an external tool

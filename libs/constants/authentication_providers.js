@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 // Authentication Providers
 //
 // List authentication providers
-// Returns the list of authentication providers
+// Returns a paginated list of authentication providers
 //
 // API Docs: https://canvas.instructure.com/doc/api/authentication_providers.html
 // API Url: accounts/{account_id}/authentication_providers
@@ -166,7 +166,7 @@ var listAuthenticationProviders = exports.listAuthenticationProviders = { type: 
 // 
 // - auth_over_tls [Optional]
 // 
-//   Whether to use TLS. Can be '', 'simple_tls', or 'start_tls'. For backwards
+//   Whether to use TLS. Can be 'simple_tls', or 'start_tls'. For backwards
 //   compatibility, booleans are also accepted, with true meaning simple_tls.
 //   If not provided, it will default to start_tls.
 // 
@@ -346,6 +346,16 @@ var listAuthenticationProviders = exports.listAuthenticationProviders = { type: 
 // 
 //   The SAML AuthnContext
 // 
+// - sig_alg [Optional]
+// 
+//   If set, +AuthnRequest+, +LogoutRequest+, and +LogoutResponse+ messages
+//   are signed with the corresponding algorithm. Supported algorithms are:
+// 
+//   - {http://www.w3.org/2000/09/xmldsig#rsa-sha1}
+//   - {http://www.w3.org/2001/04/xmldsig-more#rsa-sha256}
+// 
+//   RSA-SHA1 and RSA-SHA256 are acceptable aliases.
+// 
 // - federated_attributes [Optional]
 // 
 //   See FederatedAttributesConfig. Any value is allowed for the provider attribute names.
@@ -365,7 +375,7 @@ var listAuthenticationProviders = exports.listAuthenticationProviders = { type: 
 //   The attribute to use to look up the user's login in Canvas. Either
 //   'user_id' (the default), or 'screen_name'
 // 
-// - parent_registration [Optional]
+// - parent_registration [Optional] - DEPRECATED 2017-11-03
 // 
 //   Accepts a boolean value, true designates the authentication service
 //   for use on parent registrations.  Only one service can be selected

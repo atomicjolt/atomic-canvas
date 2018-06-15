@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 // Moderated Grading
 //
 // List students selected for moderation
-// 
+// Returns a paginated list of students selected for moderation
 //
 // API Docs: https://canvas.instructure.com/doc/api/moderated_grading.html
 // API Url: courses/{course_id}/assignments/{assignment_id}/moderated_students
@@ -23,10 +23,10 @@ var listStudentsSelectedForModeration = exports.listStudentsSelectedForModeratio
 // API Url: courses/{course_id}/assignments/{assignment_id}/moderated_students
 //
 // Example:
-// const query = {
+// const body = {
 //   student_ids
 // }
-// return canvasRequest(select_students_for_moderation, {course_id, assignment_id}, query);
+// return canvasRequest(select_students_for_moderation, {course_id, assignment_id}, body);
 var selectStudentsForModeration = exports.selectStudentsForModeration = { type: 'SELECT_STUDENTS_FOR_MODERATION', method: 'post', key: 'select_students_for_moderationselect_students_for_moderation_{course_id}_{assignment_id}', required: ['course_id', 'assignment_id'] };
 
 // Show provisional grade status for a student
@@ -39,7 +39,7 @@ var selectStudentsForModeration = exports.selectStudentsForModeration = { type: 
 // const query = {
 //   student_id
 // }
-// return canvasRequest(show_provisional_grade_status_for_student, {course_id, assignment_id}, query);
+// return canvasRequest(show_provisional_grade_status_for_student, {course_id, assignment_id, ...query});
 var showProvisionalGradeStatusForStudent = exports.showProvisionalGradeStatusForStudent = { type: 'SHOW_PROVISIONAL_GRADE_STATUS_FOR_STUDENT', method: 'get', key: 'show_provisional_grade_status_for_studentshow_provisional_grade_status_for_student_{course_id}_{assignment_id}', required: ['course_id', 'assignment_id'] };
 
 // Select provisional grade

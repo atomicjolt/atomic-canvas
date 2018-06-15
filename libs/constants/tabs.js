@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 // Tabs
 //
 // List available tabs for a course or group
-// Returns a list of navigation tabs available in the current context.
+// Returns a paginated list of navigation tabs available in the current context.
 //
 // API Docs: https://canvas.instructure.com/doc/api/tabs.html
 // API Url: courses/{course_id}/tabs
@@ -16,11 +16,11 @@ Object.defineProperty(exports, "__esModule", {
 // const query = {
 //   include
 // }
-// return canvasRequest(list_available_tabs_for_course_or_group_courses, {course_id}, query);
+// return canvasRequest(list_available_tabs_for_course_or_group_courses, {course_id, ...query});
 var listAvailableTabsForCourseOrGroupCourses = exports.listAvailableTabsForCourseOrGroupCourses = { type: 'LIST_AVAILABLE_TABS_FOR_COURSE_OR_GROUP_COURSES', method: 'get', key: 'list_available_tabs_for_course_or_group_courseslist_available_tabs_for_course_or_group_courses_course_id', required: ['course_id'] };
 
 // List available tabs for a course or group
-// Returns a list of navigation tabs available in the current context.
+// Returns a paginated list of navigation tabs available in the current context.
 //
 // API Docs: https://canvas.instructure.com/doc/api/tabs.html
 // API Url: groups/{group_id}/tabs
@@ -29,7 +29,7 @@ var listAvailableTabsForCourseOrGroupCourses = exports.listAvailableTabsForCours
 // const query = {
 //   include
 // }
-// return canvasRequest(list_available_tabs_for_course_or_group_groups, {group_id}, query);
+// return canvasRequest(list_available_tabs_for_course_or_group_groups, {group_id, ...query});
 var listAvailableTabsForCourseOrGroupGroups = exports.listAvailableTabsForCourseOrGroupGroups = { type: 'LIST_AVAILABLE_TABS_FOR_COURSE_OR_GROUP_GROUPS', method: 'get', key: 'list_available_tabs_for_course_or_group_groupslist_available_tabs_for_course_or_group_groups_group_id', required: ['group_id'] };
 
 // Update a tab for a course
@@ -41,9 +41,9 @@ var listAvailableTabsForCourseOrGroupGroups = exports.listAvailableTabsForCourse
 // API Url: courses/{course_id}/tabs/{tab_id}
 //
 // Example:
-// const query = {
+// const body = {
 //   position
 //   hidden
 // }
-// return canvasRequest(update_tab_for_course, {course_id, tab_id}, query);
+// return canvasRequest(update_tab_for_course, {course_id, tab_id}, body);
 var updateTabForCourse = exports.updateTabForCourse = { type: 'UPDATE_TAB_FOR_COURSE', method: 'put', key: 'update_tab_for_courseupdate_tab_for_course_{course_id}_{tab_id}', required: ['course_id', 'tab_id'] };

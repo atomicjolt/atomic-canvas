@@ -23,7 +23,7 @@ Object.defineProperty(exports, "__esModule", {
 // const query = {
 //   include
 // }
-// return canvasRequest(get_all_quiz_submissions, {course_id, quiz_id}, query);
+// return canvasRequest(get_all_quiz_submissions, {course_id, quiz_id, ...query});
 var getAllQuizSubmissions = exports.getAllQuizSubmissions = { type: 'GET_ALL_QUIZ_SUBMISSIONS', method: 'get', key: 'get_all_quiz_submissionsget_all_quiz_submissions_{course_id}_{quiz_id}', required: ['course_id', 'quiz_id'] };
 
 // Get the quiz submission.
@@ -38,7 +38,7 @@ var getAllQuizSubmissions = exports.getAllQuizSubmissions = { type: 'GET_ALL_QUI
 // const query = {
 //   include
 // }
-// return canvasRequest(get_quiz_submission, {course_id, quiz_id}, query);
+// return canvasRequest(get_quiz_submission, {course_id, quiz_id, ...query});
 var getQuizSubmission = exports.getQuizSubmission = { type: 'GET_QUIZ_SUBMISSION', method: 'get', key: 'get_quiz_submissionget_quiz_submission_{course_id}_{quiz_id}', required: ['course_id', 'quiz_id'] };
 
 // Get a single quiz submission.
@@ -53,7 +53,7 @@ var getQuizSubmission = exports.getQuizSubmission = { type: 'GET_QUIZ_SUBMISSION
 // const query = {
 //   include
 // }
-// return canvasRequest(get_single_quiz_submission, {course_id, quiz_id, id}, query);
+// return canvasRequest(get_single_quiz_submission, {course_id, quiz_id, id, ...query});
 var getSingleQuizSubmission = exports.getSingleQuizSubmission = { type: 'GET_SINGLE_QUIZ_SUBMISSION', method: 'get', key: 'get_single_quiz_submissionget_single_quiz_submission_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };
 
 // Create the quiz submission (start a quiz-taking session)
@@ -72,11 +72,11 @@ var getSingleQuizSubmission = exports.getSingleQuizSubmission = { type: 'GET_SIN
 // API Url: courses/{course_id}/quizzes/{quiz_id}/submissions
 //
 // Example:
-// const query = {
+// const body = {
 //   access_code
 //   preview
 // }
-// return canvasRequest(create_quiz_submission_start_quiz_taking_session, {course_id, quiz_id}, query);
+// return canvasRequest(create_quiz_submission_start_quiz_taking_session, {course_id, quiz_id}, body);
 var createQuizSubmissionStartQuizTakingSession = exports.createQuizSubmissionStartQuizTakingSession = { type: 'CREATE_QUIZ_SUBMISSION_START_QUIZ_TAKING_SESSION', method: 'post', key: 'create_quiz_submission_start_quiz_taking_sessioncreate_quiz_submission_start_quiz_taking_session_{course_id}_{quiz_id}', required: ['course_id', 'quiz_id'] };
 
 // Update student question scores and comments.
@@ -95,12 +95,12 @@ var createQuizSubmissionStartQuizTakingSession = exports.createQuizSubmissionSta
 // API Url: courses/{course_id}/quizzes/{quiz_id}/submissions/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   attempt (required)
 //   fudge_points
 //   questions
 // }
-// return canvasRequest(update_student_question_scores_and_comments, {course_id, quiz_id, id}, query);
+// return canvasRequest(update_student_question_scores_and_comments, {course_id, quiz_id, id}, body);
 var updateStudentQuestionScoresAndComments = exports.updateStudentQuestionScoresAndComments = { type: 'UPDATE_STUDENT_QUESTION_SCORES_AND_COMMENTS', method: 'put', key: 'update_student_question_scores_and_commentsupdate_student_question_scores_and_comments_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };
 
 // Complete the quiz submission (turn it in).
@@ -122,12 +122,12 @@ var updateStudentQuestionScoresAndComments = exports.updateStudentQuestionScores
 // API Url: courses/{course_id}/quizzes/{quiz_id}/submissions/{id}/complete
 //
 // Example:
-// const query = {
+// const body = {
 //   attempt (required)
 //   validation_token (required)
 //   access_code
 // }
-// return canvasRequest(complete_quiz_submission_turn_it_in, {course_id, quiz_id, id}, query);
+// return canvasRequest(complete_quiz_submission_turn_it_in, {course_id, quiz_id, id}, body);
 var completeQuizSubmissionTurnItIn = exports.completeQuizSubmissionTurnItIn = { type: 'COMPLETE_QUIZ_SUBMISSION_TURN_IT_IN', method: 'post', key: 'complete_quiz_submission_turn_it_incomplete_quiz_submission_turn_it_in_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };
 
 // Get current quiz submission times.

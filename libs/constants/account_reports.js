@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 // Account Reports
 //
 // List Available Reports
-// Returns the list of reports for the current context.
+// Returns a paginated list of reports for the current context.
 //
 // API Docs: https://canvas.instructure.com/doc/api/account_reports.html
 // API Url: accounts/{account_id}/reports
@@ -17,16 +17,22 @@ Object.defineProperty(exports, "__esModule", {
 var listAvailableReports = exports.listAvailableReports = { type: 'LIST_AVAILABLE_REPORTS', method: 'get', key: 'list_available_reportslist_available_reports_account_id', required: ['account_id'] };
 
 // Start a Report
-// Generates a report instance for the account.
+// Generates a report instance for the account. Note that "report" in the
+// request must match one of the available report names. To fetch a list of
+// available report names and parameters for each report (including whether or
+// not those parameters are required), see
+// {api:AccountReportsController#available_reports List Available Reports}.
 //
 // API Docs: https://canvas.instructure.com/doc/api/account_reports.html
 // API Url: accounts/{account_id}/reports/{report}
 //
 // Example:
-// const query = {
-//   [parameters]
+// const body = {
+//   parameters
+//   parameters[course_id]
+//   parameters[users]
 // }
-// return canvasRequest(start_report, {account_id, report}, query);
+// return canvasRequest(start_report, {account_id, report}, body);
 var startReport = exports.startReport = { type: 'START_REPORT', method: 'post', key: 'start_reportstart_report_{account_id}_{report}', required: ['account_id', 'report'] };
 
 // Index of Reports

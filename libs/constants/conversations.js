@@ -7,7 +7,8 @@ Object.defineProperty(exports, "__esModule", {
 // Conversations
 //
 // List conversations
-// Returns the list of conversations for the current user, most recent ones first.
+// Returns the paginated list of conversations for the current user, most
+// recent ones first.
 //
 // API Docs: https://canvas.instructure.com/doc/api/conversations.html
 // API Url: conversations
@@ -21,7 +22,7 @@ Object.defineProperty(exports, "__esModule", {
 //   include_all_conversation_ids
 //   include
 // }
-// return canvasRequest(list_conversations, {}, query);
+// return canvasRequest(list_conversations, {, ...query});
 var listConversations = exports.listConversations = { type: 'LIST_CONVERSATIONS', method: 'get', key: 'list_conversations', required: [] };
 
 // Create a conversation
@@ -33,7 +34,7 @@ var listConversations = exports.listConversations = { type: 'LIST_CONVERSATIONS'
 // API Url: conversations
 //
 // Example:
-// const query = {
+// const body = {
 //   recipients (required)
 //   subject
 //   body (required)
@@ -48,7 +49,7 @@ var listConversations = exports.listConversations = { type: 'LIST_CONVERSATIONS'
 //   filter_mode
 //   context_code
 // }
-// return canvasRequest(create_conversation, {}, query);
+// return canvasRequest(create_conversation, {}, body);
 var createConversation = exports.createConversation = { type: 'CREATE_CONVERSATION', method: 'post', key: 'create_conversation', required: [] };
 
 // Get running batches
@@ -79,7 +80,7 @@ var getRunningBatches = exports.getRunningBatches = { type: 'GET_RUNNING_BATCHES
 //   filter_mode
 //   auto_mark_as_read
 // }
-// return canvasRequest(get_single_conversation, {id}, query);
+// return canvasRequest(get_single_conversation, {id, ...query});
 var getSingleConversation = exports.getSingleConversation = { type: 'GET_SINGLE_CONVERSATION', method: 'get', key: 'get_single_conversationget_single_conversation_id', required: ['id'] };
 
 // Edit a conversation
@@ -89,7 +90,7 @@ var getSingleConversation = exports.getSingleConversation = { type: 'GET_SINGLE_
 // API Url: conversations/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   conversation[workflow_state]
 //   conversation[subscribed]
 //   conversation[starred]
@@ -97,7 +98,7 @@ var getSingleConversation = exports.getSingleConversation = { type: 'GET_SINGLE_
 //   filter
 //   filter_mode
 // }
-// return canvasRequest(edit_conversation, {id}, query);
+// return canvasRequest(edit_conversation, {id}, body);
 var editConversation = exports.editConversation = { type: 'EDIT_CONVERSATION', method: 'put', key: 'edit_conversationedit_conversation_id', required: ['id'] };
 
 // Mark all as read
@@ -132,10 +133,10 @@ var deleteConversation = exports.deleteConversation = { type: 'DELETE_CONVERSATI
 // API Url: conversations/{id}/add_recipients
 //
 // Example:
-// const query = {
+// const body = {
 //   recipients (required)
 // }
-// return canvasRequest(add_recipients, {id}, query);
+// return canvasRequest(add_recipients, {id}, body);
 var addRecipients = exports.addRecipients = { type: 'ADD_RECIPIENTS', method: 'post', key: 'add_recipientsadd_recipients_id', required: ['id'] };
 
 // Add a message
@@ -155,7 +156,7 @@ var addRecipients = exports.addRecipients = { type: 'ADD_RECIPIENTS', method: 'p
 // API Url: conversations/{id}/add_message
 //
 // Example:
-// const query = {
+// const body = {
 //   body (required)
 //   attachment_ids
 //   media_comment_id
@@ -164,7 +165,7 @@ var addRecipients = exports.addRecipients = { type: 'ADD_RECIPIENTS', method: 'p
 //   included_messages
 //   user_note
 // }
-// return canvasRequest(add_message, {id}, query);
+// return canvasRequest(add_message, {id}, body);
 var addMessage = exports.addMessage = { type: 'ADD_MESSAGE', method: 'post', key: 'add_messageadd_message_id', required: ['id'] };
 
 // Delete a message
@@ -176,10 +177,10 @@ var addMessage = exports.addMessage = { type: 'ADD_MESSAGE', method: 'post', key
 // API Url: conversations/{id}/remove_messages
 //
 // Example:
-// const query = {
+// const body = {
 //   remove (required)
 // }
-// return canvasRequest(delete_message, {id}, query);
+// return canvasRequest(delete_message, {id}, body);
 var deleteMessage = exports.deleteMessage = { type: 'DELETE_MESSAGE', method: 'post', key: 'delete_messagedelete_message_id', required: ['id'] };
 
 // Batch update conversations
@@ -190,11 +191,11 @@ var deleteMessage = exports.deleteMessage = { type: 'DELETE_MESSAGE', method: 'p
 // API Url: conversations
 //
 // Example:
-// const query = {
+// const body = {
 //   conversation_ids (required)
 //   event (required)
 // }
-// return canvasRequest(batch_update_conversations, {}, query);
+// return canvasRequest(batch_update_conversations, {}, body);
 var batchUpdateConversations = exports.batchUpdateConversations = { type: 'BATCH_UPDATE_CONVERSATIONS', method: 'put', key: 'batch_update_conversations', required: [] };
 
 // Find recipients

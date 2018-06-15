@@ -13,13 +13,13 @@ Object.defineProperty(exports, "__esModule", {
 // API Url: accounts/{account_id}/admins
 //
 // Example:
-// const query = {
+// const body = {
 //   user_id (required)
 //   role
 //   role_id
 //   send_confirmation
 // }
-// return canvasRequest(make_account_admin, {account_id}, query);
+// return canvasRequest(make_account_admin, {account_id}, body);
 var makeAccountAdmin = exports.makeAccountAdmin = { type: 'MAKE_ACCOUNT_ADMIN', method: 'post', key: 'make_account_adminmake_account_admin_account_id', required: ['account_id'] };
 
 // Remove account admin
@@ -29,15 +29,15 @@ var makeAccountAdmin = exports.makeAccountAdmin = { type: 'MAKE_ACCOUNT_ADMIN', 
 // API Url: accounts/{account_id}/admins/{user_id}
 //
 // Example:
-// const query = {
+// const body = {
 //   role
 //   role_id
 // }
-// return canvasRequest(remove_account_admin, {account_id, user_id}, query);
+// return canvasRequest(remove_account_admin, {account_id, user_id}, body);
 var removeAccountAdmin = exports.removeAccountAdmin = { type: 'REMOVE_ACCOUNT_ADMIN', method: 'delete', key: 'remove_account_adminremove_account_admin_{account_id}_{user_id}', required: ['account_id', 'user_id'] };
 
 // List account admins
-// List the admins in the account
+// A paginated list of the admins in the account
 //
 // API Docs: https://canvas.instructure.com/doc/api/admins.html
 // API Url: accounts/{account_id}/admins
@@ -46,5 +46,5 @@ var removeAccountAdmin = exports.removeAccountAdmin = { type: 'REMOVE_ACCOUNT_AD
 // const query = {
 //   user_id
 // }
-// return canvasRequest(list_account_admins, {account_id}, query);
+// return canvasRequest(list_account_admins, {account_id, ...query});
 var listAccountAdmins = exports.listAccountAdmins = { type: 'LIST_ACCOUNT_ADMINS', method: 'get', key: 'list_account_adminslist_account_admins_account_id', required: ['account_id'] };

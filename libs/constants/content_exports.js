@@ -7,8 +7,8 @@ Object.defineProperty(exports, "__esModule", {
 // Content Exports
 //
 // List content exports
-// List the past and pending content export jobs for a course, group, or user.
-// Exports are returned newest first.
+// A paginated list of the past and pending content export jobs for a course,
+// group, or user. Exports are returned newest first.
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_exports.html
 // API Url: courses/{course_id}/content_exports
@@ -18,8 +18,8 @@ Object.defineProperty(exports, "__esModule", {
 var listContentExportsCourses = exports.listContentExportsCourses = { type: 'LIST_CONTENT_EXPORTS_COURSES', method: 'get', key: 'list_content_exports_courseslist_content_exports_courses_course_id', required: ['course_id'] };
 
 // List content exports
-// List the past and pending content export jobs for a course, group, or user.
-// Exports are returned newest first.
+// A paginated list of the past and pending content export jobs for a course,
+// group, or user. Exports are returned newest first.
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_exports.html
 // API Url: groups/{group_id}/content_exports
@@ -29,8 +29,8 @@ var listContentExportsCourses = exports.listContentExportsCourses = { type: 'LIS
 var listContentExportsGroups = exports.listContentExportsGroups = { type: 'LIST_CONTENT_EXPORTS_GROUPS', method: 'get', key: 'list_content_exports_groupslist_content_exports_groups_group_id', required: ['group_id'] };
 
 // List content exports
-// List the past and pending content export jobs for a course, group, or user.
-// Exports are returned newest first.
+// A paginated list of the past and pending content export jobs for a course,
+// group, or user. Exports are returned newest first.
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_exports.html
 // API Url: users/{user_id}/content_exports
@@ -83,11 +83,12 @@ var showContentExportUsers = exports.showContentExportUsers = { type: 'SHOW_CONT
 // API Url: courses/{course_id}/content_exports
 //
 // Example:
-// const query = {
+// const body = {
 //   export_type (required)
 //   skip_notifications
+//   select
 // }
-// return canvasRequest(export_content_courses, {course_id}, query);
+// return canvasRequest(export_content_courses, {course_id}, body);
 var exportContentCourses = exports.exportContentCourses = { type: 'EXPORT_CONTENT_COURSES', method: 'post', key: 'export_content_coursesexport_content_courses_course_id', required: ['course_id'] };
 
 // Export content
@@ -104,11 +105,12 @@ var exportContentCourses = exports.exportContentCourses = { type: 'EXPORT_CONTEN
 // API Url: groups/{group_id}/content_exports
 //
 // Example:
-// const query = {
+// const body = {
 //   export_type (required)
 //   skip_notifications
+//   select
 // }
-// return canvasRequest(export_content_groups, {group_id}, query);
+// return canvasRequest(export_content_groups, {group_id}, body);
 var exportContentGroups = exports.exportContentGroups = { type: 'EXPORT_CONTENT_GROUPS', method: 'post', key: 'export_content_groupsexport_content_groups_group_id', required: ['group_id'] };
 
 // Export content
@@ -125,9 +127,10 @@ var exportContentGroups = exports.exportContentGroups = { type: 'EXPORT_CONTENT_
 // API Url: users/{user_id}/content_exports
 //
 // Example:
-// const query = {
+// const body = {
 //   export_type (required)
 //   skip_notifications
+//   select
 // }
-// return canvasRequest(export_content_users, {user_id}, query);
+// return canvasRequest(export_content_users, {user_id}, body);
 var exportContentUsers = exports.exportContentUsers = { type: 'EXPORT_CONTENT_USERS', method: 'post', key: 'export_content_usersexport_content_users_user_id', required: ['user_id'] };

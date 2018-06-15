@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 // Polls
 //
 // List polls
-// Returns the list of polls for the current user.
+// Returns the paginated list of polls for the current user.
 //
 // API Docs: https://canvas.instructure.com/doc/api/polls.html
 // API Url: polls
@@ -33,11 +33,11 @@ var getSinglePoll = exports.getSinglePoll = { type: 'GET_SINGLE_POLL', method: '
 // API Url: polls
 //
 // Example:
-// const query = {
+// const body = {
 //   polls[question] (required)
 //   polls[description]
 // }
-// return canvasRequest(create_single_poll, {}, query);
+// return canvasRequest(create_single_poll, {}, body);
 var createSinglePoll = exports.createSinglePoll = { type: 'CREATE_SINGLE_POLL', method: 'post', key: 'create_single_poll', required: [] };
 
 // Update a single poll
@@ -47,11 +47,11 @@ var createSinglePoll = exports.createSinglePoll = { type: 'CREATE_SINGLE_POLL', 
 // API Url: polls/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   polls[question] (required)
 //   polls[description]
 // }
-// return canvasRequest(update_single_poll, {id}, query);
+// return canvasRequest(update_single_poll, {id}, body);
 var updateSinglePoll = exports.updateSinglePoll = { type: 'UPDATE_SINGLE_POLL', method: 'put', key: 'update_single_pollupdate_single_poll_id', required: ['id'] };
 
 // Delete a poll

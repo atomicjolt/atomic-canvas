@@ -17,5 +17,5 @@ Object.defineProperty(exports, "__esModule", {
 //   start_time
 //   end_time
 // }
-// return canvasRequest(course_audit_log_query_by_course, {course_id}, query);
+// return canvasRequest(course_audit_log_query_by_course, {course_id, ...query});
 var courseAuditLogQueryByCourse = exports.courseAuditLogQueryByCourse = { type: 'COURSE_AUDIT_LOG_QUERY_BY_COURSE', method: 'get', key: 'course_audit_log_query_by_coursecourse_audit_log_query_by_course_course_id', required: ['course_id'] };

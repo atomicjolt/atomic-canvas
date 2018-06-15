@@ -14,7 +14,7 @@ Object.defineProperty(exports, "__esModule", {
 // API Url: /lti/subscriptions
 //
 // Example:
-// const query = {
+// const body = {
 //   submission[ContextId] (required)
 //   subscription[ContextType] (required)
 //   subscription[EventTypes] (required)
@@ -22,7 +22,7 @@ Object.defineProperty(exports, "__esModule", {
 //   subscription[TransportMetadata] (required)
 //   subscription[TransportType] (required)
 // }
-// return canvasRequest(create_webhook_subscription, {}, query);
+// return canvasRequest(create_webhook_subscription, {}, body);
 var createWebhookSubscription = exports.createWebhookSubscription = { type: 'CREATE_WEBHOOK_SUBSCRIPTION', method: 'post', key: 'create_webhook_subscription', required: [] };
 
 // Delete a Webhook Subscription

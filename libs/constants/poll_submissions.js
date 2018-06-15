@@ -23,8 +23,8 @@ var getSinglePollSubmission = exports.getSinglePollSubmission = { type: 'GET_SIN
 // API Url: polls/{poll_id}/poll_sessions/{poll_session_id}/poll_submissions
 //
 // Example:
-// const query = {
+// const body = {
 //   poll_submissions[poll_choice_id] (required)
 // }
-// return canvasRequest(create_single_poll_submission, {poll_id, poll_session_id}, query);
+// return canvasRequest(create_single_poll_submission, {poll_id, poll_session_id}, body);
 var createSinglePollSubmission = exports.createSinglePollSubmission = { type: 'CREATE_SINGLE_POLL_SUBMISSION', method: 'post', key: 'create_single_poll_submissioncreate_single_poll_submission_{poll_id}_{poll_session_id}', required: ['poll_id', 'poll_session_id'] };

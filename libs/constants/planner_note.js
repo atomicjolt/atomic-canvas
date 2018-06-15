@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 // Planner Note
 //
 // List planner notes
-// Retrieve the list of planner notes
+// Retrieve the paginated list of planner notes
 // 
 // Retrieve planner note for a user
 //
@@ -15,7 +15,12 @@ Object.defineProperty(exports, "__esModule", {
 // API Url: planner_notes
 //
 // Example:
-// return canvasRequest(list_planner_notes, {});
+// const query = {
+//   start_date
+//   end_date
+//   context_codes
+// }
+// return canvasRequest(list_planner_notes, {, ...query});
 var listPlannerNotes = exports.listPlannerNotes = { type: 'LIST_PLANNER_NOTES', method: 'get', key: 'list_planner_notes', required: [] };
 
 // Show a PlannerNote
@@ -35,7 +40,13 @@ var showPlannernote = exports.showPlannernote = { type: 'SHOW_PLANNERNOTE', meth
 // API Url: planner_notes/{id}
 //
 // Example:
-// return canvasRequest(update_plannernote, {id});
+// const body = {
+//   title
+//   details
+//   todo_date
+//   course_id
+// }
+// return canvasRequest(update_plannernote, {id}, body);
 var updatePlannernote = exports.updatePlannernote = { type: 'UPDATE_PLANNERNOTE', method: 'put', key: 'update_plannernoteupdate_plannernote_id', required: ['id'] };
 
 // Create a planner note
@@ -45,7 +56,15 @@ var updatePlannernote = exports.updatePlannernote = { type: 'UPDATE_PLANNERNOTE'
 // API Url: planner_notes
 //
 // Example:
-// return canvasRequest(create_planner_note, {});
+// const body = {
+//   title
+//   details
+//   todo_date
+//   course_id
+//   linked_object_type
+//   linked_object_id
+// }
+// return canvasRequest(create_planner_note, {}, body);
 var createPlannerNote = exports.createPlannerNote = { type: 'CREATE_PLANNER_NOTE', method: 'post', key: 'create_planner_note', required: [] };
 
 // Delete a planner note

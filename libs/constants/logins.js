@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 // Logins
 //
 // List user logins
-// Given a user ID, return that user's logins for the given account.
+// Given a user ID, return a paginated list of that user's logins for the given account.
 //
 // API Docs: https://canvas.instructure.com/doc/api/logins.html
 // API Url: accounts/{account_id}/logins
@@ -17,7 +17,7 @@ Object.defineProperty(exports, "__esModule", {
 var listUserLoginsAccounts = exports.listUserLoginsAccounts = { type: 'LIST_USER_LOGINS_ACCOUNTS', method: 'get', key: 'list_user_logins_accountslist_user_logins_accounts_account_id', required: ['account_id'] };
 
 // List user logins
-// Given a user ID, return that user's logins for the given account.
+// Given a user ID, return a paginated list of that user's logins for the given account.
 //
 // API Docs: https://canvas.instructure.com/doc/api/logins.html
 // API Url: users/{user_id}/logins
@@ -33,7 +33,7 @@ var listUserLoginsUsers = exports.listUserLoginsUsers = { type: 'LIST_USER_LOGIN
 // API Url: accounts/{account_id}/logins
 //
 // Example:
-// const query = {
+// const body = {
 //   user[id] (required)
 //   login[unique_id] (required)
 //   login[password]
@@ -41,7 +41,7 @@ var listUserLoginsUsers = exports.listUserLoginsUsers = { type: 'LIST_USER_LOGIN
 //   login[integration_id]
 //   login[authentication_provider_id]
 // }
-// return canvasRequest(create_user_login, {account_id}, query);
+// return canvasRequest(create_user_login, {account_id}, body);
 var createUserLogin = exports.createUserLogin = { type: 'CREATE_USER_LOGIN', method: 'post', key: 'create_user_logincreate_user_login_account_id', required: ['account_id'] };
 
 // Edit a user login
@@ -51,13 +51,13 @@ var createUserLogin = exports.createUserLogin = { type: 'CREATE_USER_LOGIN', met
 // API Url: accounts/{account_id}/logins/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   login[unique_id]
 //   login[password]
 //   login[sis_user_id]
 //   login[integration_id]
 // }
-// return canvasRequest(edit_user_login, {account_id, id}, query);
+// return canvasRequest(edit_user_login, {account_id, id}, body);
 var editUserLogin = exports.editUserLogin = { type: 'EDIT_USER_LOGIN', method: 'put', key: 'edit_user_loginedit_user_login_{account_id}_{id}', required: ['account_id', 'id'] };
 
 // Delete a user login

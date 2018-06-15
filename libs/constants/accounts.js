@@ -7,9 +7,9 @@ Object.defineProperty(exports, "__esModule", {
 // Accounts
 //
 // List accounts
-// List accounts that the current user can view or manage.  Typically,
-// students and even teachers will get an empty list in response, only
-// account admins can view the accounts that they are in.
+// A paginated list of accounts that the current user can view or manage.
+// Typically, students and even teachers will get an empty list in response,
+// only account admins can view the accounts that they are in.
 //
 // API Docs: https://canvas.instructure.com/doc/api/accounts.html
 // API Url: accounts
@@ -18,12 +18,12 @@ Object.defineProperty(exports, "__esModule", {
 // const query = {
 //   include
 // }
-// return canvasRequest(list_accounts, {}, query);
+// return canvasRequest(list_accounts, {, ...query});
 var listAccounts = exports.listAccounts = { type: 'LIST_ACCOUNTS', method: 'get', key: 'list_accounts', required: [] };
 
 // List accounts for course admins
-// List accounts that the current user can view through their admin course enrollments.
-// (Teacher, TA, or designer enrollments).
+// A paginated list of accounts that the current user can view through their
+// admin course enrollments. (Teacher, TA, or designer enrollments).
 // Only returns "id", "name", "workflow_state", "root_account_id" and "parent_account_id"
 //
 // API Docs: https://canvas.instructure.com/doc/api/accounts.html
@@ -44,6 +44,22 @@ var listAccountsForCourseAdmins = exports.listAccountsForCourseAdmins = { type: 
 // return canvasRequest(get_single_account, {id});
 var getSingleAccount = exports.getSingleAccount = { type: 'GET_SINGLE_ACCOUNT', method: 'get', key: 'get_single_accountget_single_account_id', required: ['id'] };
 
+// Permissions
+// Returns permission information for the calling user and the given account.
+// You may use `self` as the account id to check permissions against the domain root account.
+// The caller must have an account role or admin (teacher/TA/designer) enrollment in a course
+// in the account. See also {api:CoursesController#permissions the Course counterpart}.
+//
+// API Docs: https://canvas.instructure.com/doc/api/accounts.html
+// API Url: accounts/{account_id}/permissions
+//
+// Example:
+// const query = {
+//   permissions
+// }
+// return canvasRequest(permissions, {account_id, ...query});
+var permissions = exports.permissions = { type: 'PERMISSIONS', method: 'get', key: 'permissionspermissions_account_id', required: ['account_id'] };
+
 // Get the sub-accounts of an account
 // List accounts that are sub-accounts of the given account.
 //
@@ -54,11 +70,21 @@ var getSingleAccount = exports.getSingleAccount = { type: 'GET_SINGLE_ACCOUNT', 
 // const query = {
 //   recursive
 // }
-// return canvasRequest(get_sub_accounts_of_account, {account_id}, query);
+// return canvasRequest(get_sub_accounts_of_account, {account_id, ...query});
 var getSubAccountsOfAccount = exports.getSubAccountsOfAccount = { type: 'GET_SUB_ACCOUNTS_OF_ACCOUNT', method: 'get', key: 'get_sub_accounts_of_accountget_sub_accounts_of_account_account_id', required: ['account_id'] };
 
+// Returns the terms of service for that account
+// 
+//
+// API Docs: https://canvas.instructure.com/doc/api/accounts.html
+// API Url: accounts/{account_id}/terms_of_service
+//
+// Example:
+// return canvasRequest(returns_terms_of_service_for_that_account, {account_id});
+var returnsTermsOfServiceForThatAccount = exports.returnsTermsOfServiceForThatAccount = { type: 'RETURNS_TERMS_OF_SERVICE_FOR_THAT_ACCOUNT', method: 'get', key: 'returns_terms_of_service_for_that_accountreturns_terms_of_service_for_that_account_account_id', required: ['account_id'] };
+
 // List active courses in an account
-// Retrieve the list of courses in this account.
+// Retrieve a paginated list of courses in this account.
 //
 // API Docs: https://canvas.instructure.com/doc/api/accounts.html
 // API Url: accounts/{account_id}/courses
@@ -82,7 +108,7 @@ var getSubAccountsOfAccount = exports.getSubAccountsOfAccount = { type: 'GET_SUB
 //   order
 //   search_by
 // }
-// return canvasRequest(list_active_courses_in_account, {account_id}, query);
+// return canvasRequest(list_active_courses_in_account, {account_id, ...query});
 var listActiveCoursesInAccount = exports.listActiveCoursesInAccount = { type: 'LIST_ACTIVE_COURSES_IN_ACCOUNT', method: 'get', key: 'list_active_courses_in_accountlist_active_courses_in_account_account_id', required: ['account_id'] };
 
 // Update an account
@@ -92,7 +118,7 @@ var listActiveCoursesInAccount = exports.listActiveCoursesInAccount = { type: 'L
 // API Url: accounts/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   account[name]
 //   account[sis_account_id]
 //   account[default_time_zone]
@@ -109,7 +135,7 @@ var listActiveCoursesInAccount = exports.listActiveCoursesInAccount = { type: 'L
 //   account[settings][restrict_student_future_listing][locked]
 //   account[services]
 // }
-// return canvasRequest(update_account, {id}, query);
+// return canvasRequest(update_account, {id}, body);
 var updateAccount = exports.updateAccount = { type: 'UPDATE_ACCOUNT', method: 'put', key: 'update_accountupdate_account_id', required: ['id'] };
 
 // Delete a user from the root account
@@ -135,12 +161,23 @@ var deleteUserFromRootAccount = exports.deleteUserFromRootAccount = { type: 'DEL
 // API Url: accounts/{account_id}/sub_accounts
 //
 // Example:
-// const query = {
+// const body = {
 //   account[name] (required)
 //   account[sis_account_id]
 //   account[default_storage_quota_mb]
 //   account[default_user_storage_quota_mb]
 //   account[default_group_storage_quota_mb]
 // }
-// return canvasRequest(create_new_sub_account, {account_id}, query);
+// return canvasRequest(create_new_sub_account, {account_id}, body);
 var createNewSubAccount = exports.createNewSubAccount = { type: 'CREATE_NEW_SUB_ACCOUNT', method: 'post', key: 'create_new_sub_accountcreate_new_sub_account_account_id', required: ['account_id'] };
+
+// Delete a sub-account
+// Cannot delete an account with active courses or active sub_accounts.
+// Cannot delete a root_account
+//
+// API Docs: https://canvas.instructure.com/doc/api/accounts.html
+// API Url: accounts/{account_id}/sub_accounts/{id}
+//
+// Example:
+// return canvasRequest(delete_sub_account, {account_id, id});
+var deleteSubAccount = exports.deleteSubAccount = { type: 'DELETE_SUB_ACCOUNT', method: 'delete', key: 'delete_sub_accountdelete_sub_account_{account_id}_{id}', required: ['account_id', 'id'] };

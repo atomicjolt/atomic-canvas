@@ -17,7 +17,7 @@ Object.defineProperty(exports, "__esModule", {
 //   start_time
 //   end_time
 // }
-// return canvasRequest(query_by_assignment, {assignment_id}, query);
+// return canvasRequest(query_by_assignment, {assignment_id, ...query});
 var queryByAssignment = exports.queryByAssignment = { type: 'QUERY_BY_ASSIGNMENT', method: 'get', key: 'query_by_assignmentquery_by_assignment_assignment_id', required: ['assignment_id'] };
 
 // Query by course.
@@ -31,7 +31,7 @@ var queryByAssignment = exports.queryByAssignment = { type: 'QUERY_BY_ASSIGNMENT
 //   start_time
 //   end_time
 // }
-// return canvasRequest(grade_change_log_query_by_course, {course_id}, query);
+// return canvasRequest(grade_change_log_query_by_course, {course_id, ...query});
 var gradeChangeLogQueryByCourse = exports.gradeChangeLogQueryByCourse = { type: 'GRADE_CHANGE_LOG_QUERY_BY_COURSE', method: 'get', key: 'grade_change_log_query_by_coursegrade_change_log_query_by_course_course_id', required: ['course_id'] };
 
 // Query by student.
@@ -45,7 +45,7 @@ var gradeChangeLogQueryByCourse = exports.gradeChangeLogQueryByCourse = { type: 
 //   start_time
 //   end_time
 // }
-// return canvasRequest(query_by_student, {student_id}, query);
+// return canvasRequest(query_by_student, {student_id, ...query});
 var queryByStudent = exports.queryByStudent = { type: 'QUERY_BY_STUDENT', method: 'get', key: 'query_by_studentquery_by_student_student_id', required: ['student_id'] };
 
 // Query by grader.
@@ -59,5 +59,5 @@ var queryByStudent = exports.queryByStudent = { type: 'QUERY_BY_STUDENT', method
 //   start_time
 //   end_time
 // }
-// return canvasRequest(query_by_grader, {grader_id}, query);
+// return canvasRequest(query_by_grader, {grader_id, ...query});
 var queryByGrader = exports.queryByGrader = { type: 'QUERY_BY_GRADER', method: 'get', key: 'query_by_graderquery_by_grader_grader_id', required: ['grader_id'] };

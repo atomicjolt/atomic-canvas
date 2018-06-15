@@ -7,8 +7,8 @@ Object.defineProperty(exports, "__esModule", {
 // Appointment Groups
 //
 // List appointment groups
-// Retrieve the list of appointment groups that can be reserved or managed by
-// the current user.
+// Retrieve the paginated list of appointment groups that can be reserved or
+// managed by the current user.
 //
 // API Docs: https://canvas.instructure.com/doc/api/appointment_groups.html
 // API Url: appointment_groups
@@ -20,7 +20,7 @@ Object.defineProperty(exports, "__esModule", {
 //   include_past_appointments
 //   include
 // }
-// return canvasRequest(list_appointment_groups, {}, query);
+// return canvasRequest(list_appointment_groups, {, ...query});
 var listAppointmentGroups = exports.listAppointmentGroups = { type: 'LIST_APPOINTMENT_GROUPS', method: 'get', key: 'list_appointment_groups', required: [] };
 
 // Create an appointment group
@@ -32,7 +32,7 @@ var listAppointmentGroups = exports.listAppointmentGroups = { type: 'LIST_APPOIN
 // API Url: appointment_groups
 //
 // Example:
-// const query = {
+// const body = {
 //   appointment_group[context_codes] (required)
 //   appointment_group[sub_context_codes]
 //   appointment_group[title] (required)
@@ -46,7 +46,7 @@ var listAppointmentGroups = exports.listAppointmentGroups = { type: 'LIST_APPOIN
 //   appointment_group[new_appointments][X]
 //   appointment_group[participant_visibility]
 // }
-// return canvasRequest(create_appointment_group, {}, query);
+// return canvasRequest(create_appointment_group, {}, body);
 var createAppointmentGroup = exports.createAppointmentGroup = { type: 'CREATE_APPOINTMENT_GROUP', method: 'post', key: 'create_appointment_group', required: [] };
 
 // Get a single appointment group
@@ -59,7 +59,7 @@ var createAppointmentGroup = exports.createAppointmentGroup = { type: 'CREATE_AP
 // const query = {
 //   include
 // }
-// return canvasRequest(get_single_appointment_group, {id}, query);
+// return canvasRequest(get_single_appointment_group, {id, ...query});
 var getSingleAppointmentGroup = exports.getSingleAppointmentGroup = { type: 'GET_SINGLE_APPOINTMENT_GROUP', method: 'get', key: 'get_single_appointment_groupget_single_appointment_group_id', required: ['id'] };
 
 // Update an appointment group
@@ -71,7 +71,7 @@ var getSingleAppointmentGroup = exports.getSingleAppointmentGroup = { type: 'GET
 // API Url: appointment_groups/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   appointment_group[context_codes] (required)
 //   appointment_group[sub_context_codes]
 //   appointment_group[title]
@@ -85,7 +85,7 @@ var getSingleAppointmentGroup = exports.getSingleAppointmentGroup = { type: 'GET
 //   appointment_group[new_appointments][X]
 //   appointment_group[participant_visibility]
 // }
-// return canvasRequest(update_appointment_group, {id}, query);
+// return canvasRequest(update_appointment_group, {id}, body);
 var updateAppointmentGroup = exports.updateAppointmentGroup = { type: 'UPDATE_APPOINTMENT_GROUP', method: 'put', key: 'update_appointment_groupupdate_appointment_group_id', required: ['id'] };
 
 // Delete an appointment group
@@ -96,16 +96,16 @@ var updateAppointmentGroup = exports.updateAppointmentGroup = { type: 'UPDATE_AP
 // API Url: appointment_groups/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   cancel_reason
 // }
-// return canvasRequest(delete_appointment_group, {id}, query);
+// return canvasRequest(delete_appointment_group, {id}, body);
 var deleteAppointmentGroup = exports.deleteAppointmentGroup = { type: 'DELETE_APPOINTMENT_GROUP', method: 'delete', key: 'delete_appointment_groupdelete_appointment_group_id', required: ['id'] };
 
 // List user participants
-// List users that are (or may be) participating in this appointment group.
-// Refer to the Users API for the response fields. Returns no results for
-// appointment groups with the "Group" participant_type.
+// A paginated list of users that are (or may be) participating in this
+// appointment group.  Refer to the Users API for the response fields. Returns
+// no results for appointment groups with the "Group" participant_type.
 //
 // API Docs: https://canvas.instructure.com/doc/api/appointment_groups.html
 // API Url: appointment_groups/{id}/users
@@ -114,13 +114,13 @@ var deleteAppointmentGroup = exports.deleteAppointmentGroup = { type: 'DELETE_AP
 // const query = {
 //   registration_status
 // }
-// return canvasRequest(list_user_participants, {id}, query);
+// return canvasRequest(list_user_participants, {id, ...query});
 var listUserParticipants = exports.listUserParticipants = { type: 'LIST_USER_PARTICIPANTS', method: 'get', key: 'list_user_participantslist_user_participants_id', required: ['id'] };
 
 // List student group participants
-// List student groups that are (or may be) participating in this appointment
-// group. Refer to the Groups API for the response fields. Returns no results
-// for appointment groups with the "User" participant_type.
+// A paginated list of student groups that are (or may be) participating in
+// this appointment group. Refer to the Groups API for the response fields.
+// Returns no results for appointment groups with the "User" participant_type.
 //
 // API Docs: https://canvas.instructure.com/doc/api/appointment_groups.html
 // API Url: appointment_groups/{id}/groups
@@ -129,7 +129,7 @@ var listUserParticipants = exports.listUserParticipants = { type: 'LIST_USER_PAR
 // const query = {
 //   registration_status
 // }
-// return canvasRequest(list_student_group_participants, {id}, query);
+// return canvasRequest(list_student_group_participants, {id, ...query});
 var listStudentGroupParticipants = exports.listStudentGroupParticipants = { type: 'LIST_STUDENT_GROUP_PARTICIPANTS', method: 'get', key: 'list_student_group_participantslist_student_group_participants_id', required: ['id'] };
 
 // Get next appointment
@@ -144,5 +144,5 @@ var listStudentGroupParticipants = exports.listStudentGroupParticipants = { type
 // const query = {
 //   appointment_group_ids
 // }
-// return canvasRequest(get_next_appointment, {}, query);
+// return canvasRequest(get_next_appointment, {, ...query});
 var getNextAppointment = exports.getNextAppointment = { type: 'GET_NEXT_APPOINTMENT', method: 'get', key: 'get_next_appointment', required: [] };

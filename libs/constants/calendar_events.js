@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 // Calendar Events
 //
 // List calendar events
-// Retrieve the list of calendar events or assignments for the current user
+// Retrieve the paginated list of calendar events or assignments for the current user
 //
 // API Docs: https://canvas.instructure.com/doc/api/calendar_events.html
 // API Url: calendar_events
@@ -22,11 +22,11 @@ Object.defineProperty(exports, "__esModule", {
 //   context_codes
 //   excludes
 // }
-// return canvasRequest(list_calendar_events, {}, query);
+// return canvasRequest(list_calendar_events, {, ...query});
 var listCalendarEvents = exports.listCalendarEvents = { type: 'LIST_CALENDAR_EVENTS', method: 'get', key: 'list_calendar_events', required: [] };
 
 // List calendar events for a user
-// Retrieve the list of calendar events or assignments for the specified user.
+// Retrieve the paginated list of calendar events or assignments for the specified user.
 // To view calendar events for a user other than yourself,
 // you must either be an observer of that user or an administrator.
 //
@@ -43,7 +43,7 @@ var listCalendarEvents = exports.listCalendarEvents = { type: 'LIST_CALENDAR_EVE
 //   context_codes
 //   excludes
 // }
-// return canvasRequest(list_calendar_events_for_user, {user_id}, query);
+// return canvasRequest(list_calendar_events_for_user, {user_id, ...query});
 var listCalendarEventsForUser = exports.listCalendarEventsForUser = { type: 'LIST_CALENDAR_EVENTS_FOR_USER', method: 'get', key: 'list_calendar_events_for_userlist_calendar_events_for_user_user_id', required: ['user_id'] };
 
 // Create a calendar event
@@ -53,7 +53,7 @@ var listCalendarEventsForUser = exports.listCalendarEventsForUser = { type: 'LIS
 // API Url: calendar_events
 //
 // Example:
-// const query = {
+// const body = {
 //   calendar_event[context_code] (required)
 //   calendar_event[title]
 //   calendar_event[description]
@@ -62,6 +62,7 @@ var listCalendarEventsForUser = exports.listCalendarEventsForUser = { type: 'LIS
 //   calendar_event[location_name]
 //   calendar_event[location_address]
 //   calendar_event[time_zone_edited]
+//   calendar_event[all_day]
 //   calendar_event[child_event_data][X][start_at]
 //   calendar_event[child_event_data][X][end_at]
 //   calendar_event[child_event_data][X][context_code]
@@ -70,7 +71,7 @@ var listCalendarEventsForUser = exports.listCalendarEventsForUser = { type: 'LIS
 //   calendar_event[duplicate][frequency]
 //   calendar_event[duplicate][append_iterator]
 // }
-// return canvasRequest(create_calendar_event, {}, query);
+// return canvasRequest(create_calendar_event, {}, body);
 var createCalendarEvent = exports.createCalendarEvent = { type: 'CREATE_CALENDAR_EVENT', method: 'post', key: 'create_calendar_event', required: [] };
 
 // Get a single calendar event or assignment
@@ -90,12 +91,12 @@ var getSingleCalendarEventOrAssignment = exports.getSingleCalendarEventOrAssignm
 // API Url: calendar_events/{id}/reservations
 //
 // Example:
-// const query = {
+// const body = {
 //   participant_id
 //   comments
 //   cancel_existing
 // }
-// return canvasRequest(reserve_time_slot, {id}, query);
+// return canvasRequest(reserve_time_slot, {id}, body);
 var reserveTimeSlot = exports.reserveTimeSlot = { type: 'RESERVE_TIME_SLOT', method: 'post', key: 'reserve_time_slotreserve_time_slot_id', required: ['id'] };
 
 // Reserve a time slot
@@ -105,11 +106,11 @@ var reserveTimeSlot = exports.reserveTimeSlot = { type: 'RESERVE_TIME_SLOT', met
 // API Url: calendar_events/{id}/reservations/{participant_id}
 //
 // Example:
-// const query = {
+// const body = {
 //   comments
 //   cancel_existing
 // }
-// return canvasRequest(reserve_time_slot_participant_id, {id, participant_id}, query);
+// return canvasRequest(reserve_time_slot_participant_id, {id, participant_id}, body);
 var reserveTimeSlotParticipantId = exports.reserveTimeSlotParticipantId = { type: 'RESERVE_TIME_SLOT_PARTICIPANT_ID', method: 'post', key: 'reserve_time_slot_participant_idreserve_time_slot_participant_id_{id}_{participant_id}', required: ['id', 'participant_id'] };
 
 // Update a calendar event
@@ -119,7 +120,7 @@ var reserveTimeSlotParticipantId = exports.reserveTimeSlotParticipantId = { type
 // API Url: calendar_events/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   calendar_event[context_code]
 //   calendar_event[title]
 //   calendar_event[description]
@@ -128,11 +129,12 @@ var reserveTimeSlotParticipantId = exports.reserveTimeSlotParticipantId = { type
 //   calendar_event[location_name]
 //   calendar_event[location_address]
 //   calendar_event[time_zone_edited]
+//   calendar_event[all_day]
 //   calendar_event[child_event_data][X][start_at]
 //   calendar_event[child_event_data][X][end_at]
 //   calendar_event[child_event_data][X][context_code]
 // }
-// return canvasRequest(update_calendar_event, {id}, query);
+// return canvasRequest(update_calendar_event, {id}, body);
 var updateCalendarEvent = exports.updateCalendarEvent = { type: 'UPDATE_CALENDAR_EVENT', method: 'put', key: 'update_calendar_eventupdate_calendar_event_id', required: ['id'] };
 
 // Delete a calendar event
@@ -142,10 +144,10 @@ var updateCalendarEvent = exports.updateCalendarEvent = { type: 'UPDATE_CALENDAR
 // API Url: calendar_events/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   cancel_reason
 // }
-// return canvasRequest(delete_calendar_event, {id}, query);
+// return canvasRequest(delete_calendar_event, {id}, body);
 var deleteCalendarEvent = exports.deleteCalendarEvent = { type: 'DELETE_CALENDAR_EVENT', method: 'delete', key: 'delete_calendar_eventdelete_calendar_event_id', required: ['id'] };
 
 // Set a course timetable
@@ -161,14 +163,14 @@ var deleteCalendarEvent = exports.deleteCalendarEvent = { type: 'DELETE_CALENDAR
 // API Url: courses/{course_id}/calendar_events/timetable
 //
 // Example:
-// const query = {
+// const body = {
 //   timetables[course_section_id]
 //   timetables[course_section_id][weekdays]
 //   timetables[course_section_id][start_time]
 //   timetables[course_section_id][end_time]
 //   timetables[course_section_id][location_name]
 // }
-// return canvasRequest(set_course_timetable, {course_id}, query);
+// return canvasRequest(set_course_timetable, {course_id}, body);
 var setCourseTimetable = exports.setCourseTimetable = { type: 'SET_COURSE_TIMETABLE', method: 'post', key: 'set_course_timetableset_course_timetable_course_id', required: ['course_id'] };
 
 // Get course timetable
@@ -192,7 +194,7 @@ var getCourseTimetable = exports.getCourseTimetable = { type: 'GET_COURSE_TIMETA
 // API Url: courses/{course_id}/calendar_events/timetable_events
 //
 // Example:
-// const query = {
+// const body = {
 //   course_section_id
 //   events
 //   events[start_at]
@@ -200,5 +202,5 @@ var getCourseTimetable = exports.getCourseTimetable = { type: 'GET_COURSE_TIMETA
 //   events[location_name]
 //   events[code]
 // }
-// return canvasRequest(create_or_update_events_directly_for_course_timetable, {course_id}, query);
+// return canvasRequest(create_or_update_events_directly_for_course_timetable, {course_id}, body);
 var createOrUpdateEventsDirectlyForCourseTimetable = exports.createOrUpdateEventsDirectlyForCourseTimetable = { type: 'CREATE_OR_UPDATE_EVENTS_DIRECTLY_FOR_COURSE_TIMETABLE', method: 'post', key: 'create_or_update_events_directly_for_course_timetablecreate_or_update_events_directly_for_course_timetable_course_id', required: ['course_id'] };

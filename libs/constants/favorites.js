@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 // Favorites
 //
 // List favorite courses
-// Retrieve the list of favorite courses for the current user. If the user has not chosen
+// Retrieve the paginated list of favorite courses for the current user. If the user has not chosen
 // any favorites, then a selection of currently enrolled courses will be returned.
 // 
 // See the {api:CoursesController#index List courses API} for details on accepted include[] parameters.
@@ -19,11 +19,11 @@ Object.defineProperty(exports, "__esModule", {
 // const query = {
 //   exclude_blueprint_courses
 // }
-// return canvasRequest(list_favorite_courses, {}, query);
+// return canvasRequest(list_favorite_courses, {, ...query});
 var listFavoriteCourses = exports.listFavoriteCourses = { type: 'LIST_FAVORITE_COURSES', method: 'get', key: 'list_favorite_courses', required: [] };
 
 // List favorite groups
-// Retrieve the list of favorite groups for the current user. If the user has not chosen
+// Retrieve the paginated list of favorite groups for the current user. If the user has not chosen
 // any favorites, then a selection of groups that the user is a member of will be returned.
 //
 // API Docs: https://canvas.instructure.com/doc/api/favorites.html

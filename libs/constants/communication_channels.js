@@ -7,8 +7,8 @@ Object.defineProperty(exports, "__esModule", {
 // Communication Channels
 //
 // List user communication channels
-// Returns a list of communication channels for the specified user, sorted by
-// position.
+// Returns a paginated list of communication channels for the specified user,
+// sorted by position.
 //
 // API Docs: https://canvas.instructure.com/doc/api/communication_channels.html
 // API Url: users/{user_id}/communication_channels
@@ -24,13 +24,13 @@ var listUserCommunicationChannels = exports.listUserCommunicationChannels = { ty
 // API Url: users/{user_id}/communication_channels
 //
 // Example:
-// const query = {
+// const body = {
 //   communication_channel[address] (required)
 //   communication_channel[type] (required)
 //   communication_channel[token]
 //   skip_confirmation
 // }
-// return canvasRequest(create_communication_channel, {user_id}, query);
+// return canvasRequest(create_communication_channel, {user_id}, body);
 var createCommunicationChannel = exports.createCommunicationChannel = { type: 'CREATE_COMMUNICATION_CHANNEL', method: 'post', key: 'create_communication_channelcreate_communication_channel_user_id', required: ['user_id'] };
 
 // Delete a communication channel
@@ -52,3 +52,13 @@ var deleteCommunicationChannelId = exports.deleteCommunicationChannelId = { type
 // Example:
 // return canvasRequest(delete_communication_channel_type, {user_id, type, address});
 var deleteCommunicationChannelType = exports.deleteCommunicationChannelType = { type: 'DELETE_COMMUNICATION_CHANNEL_TYPE', method: 'delete', key: 'delete_communication_channel_typedelete_communication_channel_type_{user_id}_{type}_{address}', required: ['user_id', 'type', 'address'] };
+
+// Delete a push notification endpoint
+// 
+//
+// API Docs: https://canvas.instructure.com/doc/api/communication_channels.html
+// API Url: users/self/communication_channels/push
+//
+// Example:
+// return canvasRequest(delete_push_notification_endpoint, {});
+var deletePushNotificationEndpoint = exports.deletePushNotificationEndpoint = { type: 'DELETE_PUSH_NOTIFICATION_ENDPOINT', method: 'delete', key: 'delete_push_notification_endpoint', required: [] };

@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 // Users
 //
 // List users in account
-// Retrieve the list of users associated with this account.
+// A paginated list of of users associated with this account.
 // 
 //  @example_request
 //    curl https://<canvas>/api/v1/accounts/self/users?search_term=<search value> \
@@ -23,7 +23,7 @@ Object.defineProperty(exports, "__esModule", {
 //   sort
 //   order
 // }
-// return canvasRequest(list_users_in_account, {account_id}, query);
+// return canvasRequest(list_users_in_account, {account_id, ...query});
 var listUsersInAccount = exports.listUsersInAccount = { type: 'LIST_USERS_IN_ACCOUNT', method: 'get', key: 'list_users_in_accountlist_users_in_account_account_id', required: ['account_id'] };
 
 // List the activity stream
@@ -253,7 +253,7 @@ var listActivityStreamActivityStream = exports.listActivityStreamActivityStream 
 var activityStreamSummary = exports.activityStreamSummary = { type: 'ACTIVITY_STREAM_SUMMARY', method: 'get', key: 'activity_stream_summary', required: [] };
 
 // List the TODO items
-// Returns the current user's list of todo items, as seen on the user dashboard.
+// A paginated list of the current user's list of todo items, as seen on the user dashboard.
 // 
 // There is a limit to the number of items returned.
 // 
@@ -271,11 +271,28 @@ var activityStreamSummary = exports.activityStreamSummary = { type: 'ACTIVITY_ST
 // const query = {
 //   include
 // }
-// return canvasRequest(list_todo_items, {}, query);
+// return canvasRequest(list_todo_items, {, ...query});
 var listTodoItems = exports.listTodoItems = { type: 'LIST_TODO_ITEMS', method: 'get', key: 'list_todo_items', required: [] };
 
+// List counts for todo items
+// Counts of different todo items such as the number of assignments needing grading as well as the number of assignments needing submitting.
+// 
+// There is a limit to the number of todo items this endpoint will count.
+// It will only look at the first 100 todo items for the user. If the user has more than 100 todo items this count may not be reliable.
+// The largest reliable number for both counts is 100.
+//
+// API Docs: https://canvas.instructure.com/doc/api/users.html
+// API Url: users/self/todo_item_count
+//
+// Example:
+// const query = {
+//   include
+// }
+// return canvasRequest(list_counts_for_todo_items, {, ...query});
+var listCountsForTodoItems = exports.listCountsForTodoItems = { type: 'LIST_COUNTS_FOR_TODO_ITEMS', method: 'get', key: 'list_counts_for_todo_items', required: [] };
+
 // List upcoming assignments, calendar events
-// Returns the current user's upcoming events, i.e. the same things shown
+// A paginated list of the current user's upcoming events, i.e. the same things shown
 // in the dashboard 'Coming Up' sidebar.
 //
 // API Docs: https://canvas.instructure.com/doc/api/users.html
@@ -286,7 +303,7 @@ var listTodoItems = exports.listTodoItems = { type: 'LIST_TODO_ITEMS', method: '
 var listUpcomingAssignmentsCalendarEvents = exports.listUpcomingAssignmentsCalendarEvents = { type: 'LIST_UPCOMING_ASSIGNMENTS_CALENDAR_EVENTS', method: 'get', key: 'list_upcoming_assignments_calendar_events', required: [] };
 
 // List Missing Submissions
-// returns past-due assignments for which the student does not have a submission.
+// A paginated list of past-due assignments for which the student does not have a submission.
 // The user sending the request must either be an admin or a parent observer using the parent app
 //
 // API Docs: https://canvas.instructure.com/doc/api/users.html
@@ -296,7 +313,7 @@ var listUpcomingAssignmentsCalendarEvents = exports.listUpcomingAssignmentsCalen
 // const query = {
 //   include
 // }
-// return canvasRequest(list_missing_submissions, {user_id}, query);
+// return canvasRequest(list_missing_submissions, {user_id, ...query});
 var listMissingSubmissions = exports.listMissingSubmissions = { type: 'LIST_MISSING_SUBMISSIONS', method: 'get', key: 'list_missing_submissionslist_missing_submissions_user_id', required: ['user_id'] };
 
 // Hide a stream item
@@ -367,7 +384,7 @@ var showUserDetails = exports.showUserDetails = { type: 'SHOW_USER_DETAILS', met
 // API Url: accounts/{account_id}/users
 //
 // Example:
-// const query = {
+// const body = {
 //   user[name]
 //   user[short_name]
 //   user[sortable_name]
@@ -389,8 +406,9 @@ var showUserDetails = exports.showUserDetails = { type: 'SHOW_USER_DETAILS', met
 //   communication_channel[skip_confirmation]
 //   force_validations
 //   enable_sis_reactivation
+//   destination
 // }
-// return canvasRequest(create_user, {account_id}, query);
+// return canvasRequest(create_user, {account_id}, body);
 var createUser = exports.createUser = { type: 'CREATE_USER', method: 'post', key: 'create_usercreate_user_account_id', required: ['account_id'] };
 
 // Self register a user
@@ -403,7 +421,7 @@ var createUser = exports.createUser = { type: 'CREATE_USER', method: 'post', key
 // API Url: accounts/{account_id}/self_registration
 //
 // Example:
-// const query = {
+// const body = {
 //   user[name] (required)
 //   user[short_name]
 //   user[sortable_name]
@@ -415,7 +433,7 @@ var createUser = exports.createUser = { type: 'CREATE_USER', method: 'post', key
 //   communication_channel[type]
 //   communication_channel[address]
 // }
-// return canvasRequest(self_register_user, {account_id}, query);
+// return canvasRequest(self_register_user, {account_id}, body);
 var selfRegisterUser = exports.selfRegisterUser = { type: 'SELF_REGISTER_USER', method: 'post', key: 'self_register_userself_register_user_account_id', required: ['account_id'] };
 
 // Update user settings.
@@ -429,7 +447,7 @@ var selfRegisterUser = exports.selfRegisterUser = { type: 'SELF_REGISTER_USER', 
 //   manual_mark_as_read
 //   collapse_global_nav
 // }
-// return canvasRequest(update_user_settings, {id}, query);
+// return canvasRequest(update_user_settings, {id, ...query});
 var updateUserSettings = exports.updateUserSettings = { type: 'UPDATE_USER_SETTINGS', method: 'get', key: 'update_user_settingsupdate_user_settings_id', required: ['id'] };
 
 // Get custom colors
@@ -466,21 +484,21 @@ var getCustomColor = exports.getCustomColor = { type: 'GET_CUSTOM_COLOR', method
 // API Url: users/{id}/colors/{asset_string}
 //
 // Example:
-// const query = {
+// const body = {
 //   hexcode
 // }
-// return canvasRequest(update_custom_color, {id, asset_string}, query);
+// return canvasRequest(update_custom_color, {id, asset_string}, body);
 var updateCustomColor = exports.updateCustomColor = { type: 'UPDATE_CUSTOM_COLOR', method: 'put', key: 'update_custom_colorupdate_custom_color_{id}_{asset_string}', required: ['id', 'asset_string'] };
 
-// Get dashboard postions
+// Get dashboard positions
 // Returns all dashboard positions that have been saved for a user.
 //
 // API Docs: https://canvas.instructure.com/doc/api/users.html
 // API Url: users/{id}/dashboard_positions
 //
 // Example:
-// return canvasRequest(get_dashboard_postions, {id});
-var getDashboardPostions = exports.getDashboardPostions = { type: 'GET_DASHBOARD_POSTIONS', method: 'get', key: 'get_dashboard_postionsget_dashboard_postions_id', required: ['id'] };
+// return canvasRequest(get_dashboard_positions, {id});
+var getDashboardPositions = exports.getDashboardPositions = { type: 'GET_DASHBOARD_POSITIONS', method: 'get', key: 'get_dashboard_positionsget_dashboard_positions_id', required: ['id'] };
 
 // Update dashboard positions
 // Updates the dashboard positions for a user for a given context.  This allows
@@ -504,7 +522,7 @@ var updateDashboardPositions = exports.updateDashboardPositions = { type: 'UPDAT
 // API Url: users/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   user[name]
 //   user[short_name]
 //   user[sortable_name]
@@ -514,7 +532,7 @@ var updateDashboardPositions = exports.updateDashboardPositions = { type: 'UPDAT
 //   user[avatar][token]
 //   user[avatar][url]
 // }
-// return canvasRequest(edit_user, {id}, query);
+// return canvasRequest(edit_user, {id}, body);
 var editUser = exports.editUser = { type: 'EDIT_USER', method: 'put', key: 'edit_useredit_user_id', required: ['id'] };
 
 // Merge user into another user
@@ -574,6 +592,19 @@ var mergeUserIntoAnotherUserAccounts = exports.mergeUserIntoAnotherUserAccounts 
 // return canvasRequest(split_merged_users_into_separate_users, {id});
 var splitMergedUsersIntoSeparateUsers = exports.splitMergedUsersIntoSeparateUsers = { type: 'SPLIT_MERGED_USERS_INTO_SEPARATE_USERS', method: 'post', key: 'split_merged_users_into_separate_userssplit_merged_users_into_separate_users_id', required: ['id'] };
 
+// Get a Pandata jwt token and its expiration date
+// Returns a jwt token that can be used to send events to Pandata
+//
+// API Docs: https://canvas.instructure.com/doc/api/users.html
+// API Url: users/{id}/pandata_token
+//
+// Example:
+// const body = {
+//   app_key
+// }
+// return canvasRequest(get_pandata_jwt_token_and_its_expiration_date, {id}, body);
+var getPandataJwtTokenAndItsExpirationDate = exports.getPandataJwtTokenAndItsExpirationDate = { type: 'GET_PANDATA_JWT_TOKEN_AND_ITS_EXPIRATION_DATE', method: 'post', key: 'get_pandata_jwt_token_and_its_expiration_dateget_pandata_jwt_token_and_its_expiration_date_id', required: ['id'] };
+
 // Get user profile
 // Returns user profile data, including user id, name, and profile pic.
 // 
@@ -588,7 +619,7 @@ var splitMergedUsersIntoSeparateUsers = exports.splitMergedUsersIntoSeparateUser
 var getUserProfile = exports.getUserProfile = { type: 'GET_USER_PROFILE', method: 'get', key: 'get_user_profileget_user_profile_user_id', required: ['user_id'] };
 
 // List avatar options
-// Retrieve the possible user avatar options that can be set with the user update endpoint. The response will be an array of avatar records. If the 'type' field is 'attachment', the record will include all the normal attachment json fields; otherwise it will include only the 'url' and 'display_name' fields. Additionally, all records will include a 'type' field and a 'token' field. The following explains each field in more detail
+// A paginated list of the possible user avatar options that can be set with the user update endpoint. The response will be an array of avatar records. If the 'type' field is 'attachment', the record will include all the normal attachment json fields; otherwise it will include only the 'url' and 'display_name' fields. Additionally, all records will include a 'type' field and a 'token' field. The following explains each field in more detail
 // type:: ["gravatar"|"attachment"|"no_pic"] The type of avatar record, for categorization purposes.
 // url:: The url of the avatar
 // token:: A unique representation of the avatar record which can be used to set the avatar with the user update endpoint. Note: this is an internal representation and is subject to change without notice. It should be consumed with this api endpoint and used in the user update endpoint, and should not be constructed by the client.
@@ -606,9 +637,9 @@ var getUserProfile = exports.getUserProfile = { type: 'GET_USER_PROFILE', method
 var listAvatarOptions = exports.listAvatarOptions = { type: 'LIST_AVATAR_OPTIONS', method: 'get', key: 'list_avatar_optionslist_avatar_options_user_id', required: ['user_id'] };
 
 // List user page views
-// Return the user's page view history in json format, similar to the
-// available CSV download. Pagination is used as described in API basics
-// section. Page views are returned in descending order, newest to oldest.
+// Return a paginated list of the user's page view history in json format,
+// similar to the available CSV download. Page views are returned in
+// descending order, newest to oldest.
 //
 // API Docs: https://canvas.instructure.com/doc/api/users.html
 // API Url: users/{user_id}/page_views
@@ -618,7 +649,7 @@ var listAvatarOptions = exports.listAvatarOptions = { type: 'LIST_AVATAR_OPTIONS
 //   start_time
 //   end_time
 // }
-// return canvasRequest(list_user_page_views, {user_id}, query);
+// return canvasRequest(list_user_page_views, {user_id, ...query});
 var listUserPageViews = exports.listUserPageViews = { type: 'LIST_USER_PAGE_VIEWS', method: 'get', key: 'list_user_page_viewslist_user_page_views_user_id', required: ['user_id'] };
 
 // Store custom data
@@ -772,11 +803,11 @@ var listUserPageViews = exports.listUserPageViews = { type: 'LIST_USER_PAGE_VIEW
 // API Url: users/{user_id}/custom_data
 //
 // Example:
-// const query = {
+// const body = {
 //   ns (required)
 //   data (required)
 // }
-// return canvasRequest(store_custom_data, {user_id}, query);
+// return canvasRequest(store_custom_data, {user_id}, body);
 var storeCustomData = exports.storeCustomData = { type: 'STORE_CUSTOM_DATA', method: 'put', key: 'store_custom_datastore_custom_data_user_id', required: ['user_id'] };
 
 // Load custom data
@@ -799,7 +830,7 @@ var storeCustomData = exports.storeCustomData = { type: 'STORE_CUSTOM_DATA', met
 // const query = {
 //   ns (required)
 // }
-// return canvasRequest(load_custom_data, {user_id}, query);
+// return canvasRequest(load_custom_data, {user_id, ...query});
 var loadCustomData = exports.loadCustomData = { type: 'LOAD_CUSTOM_DATA', method: 'get', key: 'load_custom_dataload_custom_data_user_id', required: ['user_id'] };
 
 // Delete custom data
@@ -911,10 +942,10 @@ var loadCustomData = exports.loadCustomData = { type: 'LOAD_CUSTOM_DATA', method
 // API Url: users/{user_id}/custom_data
 //
 // Example:
-// const query = {
+// const body = {
 //   ns (required)
 // }
-// return canvasRequest(delete_custom_data, {user_id}, query);
+// return canvasRequest(delete_custom_data, {user_id}, body);
 var deleteCustomData = exports.deleteCustomData = { type: 'DELETE_CUSTOM_DATA', method: 'delete', key: 'delete_custom_datadelete_custom_data_user_id', required: ['user_id'] };
 
 // List course nicknames
@@ -946,10 +977,10 @@ var getCourseNickname = exports.getCourseNickname = { type: 'GET_COURSE_NICKNAME
 // API Url: users/self/course_nicknames/{course_id}
 //
 // Example:
-// const query = {
+// const body = {
 //   nickname (required)
 // }
-// return canvasRequest(set_course_nickname, {course_id}, query);
+// return canvasRequest(set_course_nickname, {course_id}, body);
 var setCourseNickname = exports.setCourseNickname = { type: 'SET_COURSE_NICKNAME', method: 'put', key: 'set_course_nicknameset_course_nickname_course_id', required: ['course_id'] };
 
 // Remove course nickname

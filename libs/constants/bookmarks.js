@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 // Bookmarks
 //
 // List bookmarks
-// Returns the list of bookmarks.
+// Returns the paginated list of bookmarks.
 //
 // API Docs: https://canvas.instructure.com/doc/api/bookmarks.html
 // API Url: users/self/bookmarks
@@ -23,13 +23,13 @@ var listBookmarks = exports.listBookmarks = { type: 'LIST_BOOKMARKS', method: 'g
 // API Url: users/self/bookmarks
 //
 // Example:
-// const query = {
+// const body = {
 //   name
 //   url
 //   position
 //   data
 // }
-// return canvasRequest(create_bookmark, {}, query);
+// return canvasRequest(create_bookmark, {}, body);
 var createBookmark = exports.createBookmark = { type: 'CREATE_BOOKMARK', method: 'post', key: 'create_bookmark', required: [] };
 
 // Get bookmark
@@ -49,13 +49,13 @@ var getBookmark = exports.getBookmark = { type: 'GET_BOOKMARK', method: 'get', k
 // API Url: users/self/bookmarks/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   name
 //   url
 //   position
 //   data
 // }
-// return canvasRequest(update_bookmark, {id}, query);
+// return canvasRequest(update_bookmark, {id}, body);
 var updateBookmark = exports.updateBookmark = { type: 'UPDATE_BOOKMARK', method: 'put', key: 'update_bookmarkupdate_bookmark_id', required: ['id'] };
 
 // Delete bookmark

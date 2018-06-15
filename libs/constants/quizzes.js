@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 // Quizzes
 //
 // List quizzes in a course
-// Returns the list of Quizzes in this course.
+// Returns the paginated list of Quizzes in this course.
 //
 // API Docs: https://canvas.instructure.com/doc/api/quizzes.html
 // API Url: courses/{course_id}/quizzes
@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", {
 // const query = {
 //   search_term
 // }
-// return canvasRequest(list_quizzes_in_course, {course_id}, query);
+// return canvasRequest(list_quizzes_in_course, {course_id, ...query});
 var listQuizzesInCourse = exports.listQuizzesInCourse = { type: 'LIST_QUIZZES_IN_COURSE', method: 'get', key: 'list_quizzes_in_courselist_quizzes_in_course_course_id', required: ['course_id'] };
 
 // Get a single quiz
@@ -36,7 +36,7 @@ var getSingleQuiz = exports.getSingleQuiz = { type: 'GET_SINGLE_QUIZ', method: '
 // API Url: courses/{course_id}/quizzes
 //
 // Example:
-// const query = {
+// const body = {
 //   quiz[title] (required)
 //   quiz[description]
 //   quiz[quiz_type]
@@ -61,7 +61,7 @@ var getSingleQuiz = exports.getSingleQuiz = { type: 'GET_SINGLE_QUIZ', method: '
 //   quiz[one_time_results]
 //   quiz[only_visible_to_overrides]
 // }
-// return canvasRequest(create_quiz, {course_id}, query);
+// return canvasRequest(create_quiz, {course_id}, body);
 var createQuiz = exports.createQuiz = { type: 'CREATE_QUIZ', method: 'post', key: 'create_quizcreate_quiz_course_id', required: ['course_id'] };
 
 // Edit a quiz
@@ -73,10 +73,10 @@ var createQuiz = exports.createQuiz = { type: 'CREATE_QUIZ', method: 'post', key
 // API Url: courses/{course_id}/quizzes/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   quiz[notify_of_update]
 // }
-// return canvasRequest(edit_quiz, {course_id, id}, query);
+// return canvasRequest(edit_quiz, {course_id, id}, body);
 var editQuiz = exports.editQuiz = { type: 'EDIT_QUIZ', method: 'put', key: 'edit_quizedit_quiz_{course_id}_{id}', required: ['course_id', 'id'] };
 
 // Delete a quiz
@@ -98,11 +98,11 @@ var deleteQuiz = exports.deleteQuiz = { type: 'DELETE_QUIZ', method: 'delete', k
 // API Url: courses/{course_id}/quizzes/{id}/reorder
 //
 // Example:
-// const query = {
+// const body = {
 //   order[id] (required)
 //   order[type]
 // }
-// return canvasRequest(reorder_quiz_items, {course_id, id}, query);
+// return canvasRequest(reorder_quiz_items, {course_id, id}, body);
 var reorderQuizItems = exports.reorderQuizItems = { type: 'REORDER_QUIZ_ITEMS', method: 'post', key: 'reorder_quiz_itemsreorder_quiz_items_{course_id}_{id}', required: ['course_id', 'id'] };
 
 // Validate quiz access code
@@ -112,8 +112,8 @@ var reorderQuizItems = exports.reorderQuizItems = { type: 'REORDER_QUIZ_ITEMS', 
 // API Url: courses/{course_id}/quizzes/{id}/validate_access_code
 //
 // Example:
-// const query = {
+// const body = {
 //   access_code (required)
 // }
-// return canvasRequest(validate_quiz_access_code, {course_id, id}, query);
+// return canvasRequest(validate_quiz_access_code, {course_id, id}, body);
 var validateQuizAccessCode = exports.validateQuizAccessCode = { type: 'VALIDATE_QUIZ_ACCESS_CODE', method: 'post', key: 'validate_quiz_access_codevalidate_quiz_access_code_{course_id}_{id}', required: ['course_id', 'id'] };

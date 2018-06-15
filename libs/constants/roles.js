@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 // Roles
 //
 // List roles
-// List the roles available to an account.
+// A paginated list of the roles available to an account.
 //
 // API Docs: https://canvas.instructure.com/doc/api/roles.html
 // API Url: accounts/{account_id}/roles
@@ -17,7 +17,7 @@ Object.defineProperty(exports, "__esModule", {
 //   state
 //   show_inherited
 // }
-// return canvasRequest(list_roles, {account_id}, query);
+// return canvasRequest(list_roles, {account_id, ...query});
 var listRoles = exports.listRoles = { type: 'LIST_ROLES', method: 'get', key: 'list_roleslist_roles_account_id', required: ['account_id'] };
 
 // Get a single role
@@ -31,7 +31,7 @@ var listRoles = exports.listRoles = { type: 'LIST_ROLES', method: 'get', key: 'l
 //   role_id (required)
 //   role
 // }
-// return canvasRequest(get_single_role, {account_id, id}, query);
+// return canvasRequest(get_single_role, {account_id, id, ...query});
 var getSingleRole = exports.getSingleRole = { type: 'GET_SINGLE_ROLE', method: 'get', key: 'get_single_roleget_single_role_{account_id}_{id}', required: ['account_id', 'id'] };
 
 // Create a new role
@@ -41,7 +41,7 @@ var getSingleRole = exports.getSingleRole = { type: 'GET_SINGLE_ROLE', method: '
 // API Url: accounts/{account_id}/roles
 //
 // Example:
-// const query = {
+// const body = {
 //   label (required)
 //   role
 //   base_role_type
@@ -51,7 +51,7 @@ var getSingleRole = exports.getSingleRole = { type: 'GET_SINGLE_ROLE', method: '
 //   permissions[<X>][applies_to_self]
 //   permissions[<X>][applies_to_descendants]
 // }
-// return canvasRequest(create_new_role, {account_id}, query);
+// return canvasRequest(create_new_role, {account_id}, body);
 var createNewRole = exports.createNewRole = { type: 'CREATE_NEW_ROLE', method: 'post', key: 'create_new_rolecreate_new_role_account_id', required: ['account_id'] };
 
 // Deactivate a role
@@ -64,11 +64,11 @@ var createNewRole = exports.createNewRole = { type: 'CREATE_NEW_ROLE', method: '
 // API Url: accounts/{account_id}/roles/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   role_id (required)
 //   role
 // }
-// return canvasRequest(deactivate_role, {account_id, id}, query);
+// return canvasRequest(deactivate_role, {account_id, id}, body);
 var deactivateRole = exports.deactivateRole = { type: 'DEACTIVATE_ROLE', method: 'delete', key: 'deactivate_roledeactivate_role_{account_id}_{id}', required: ['account_id', 'id'] };
 
 // Activate a role
@@ -78,11 +78,11 @@ var deactivateRole = exports.deactivateRole = { type: 'DEACTIVATE_ROLE', method:
 // API Url: accounts/{account_id}/roles/{id}/activate
 //
 // Example:
-// const query = {
+// const body = {
 //   role_id (required)
 //   role
 // }
-// return canvasRequest(activate_role, {account_id, id}, query);
+// return canvasRequest(activate_role, {account_id, id}, body);
 var activateRole = exports.activateRole = { type: 'ACTIVATE_ROLE', method: 'post', key: 'activate_roleactivate_role_{account_id}_{id}', required: ['account_id', 'id'] };
 
 // Update a role
@@ -101,12 +101,12 @@ var activateRole = exports.activateRole = { type: 'ACTIVATE_ROLE', method: 'post
 // API Url: accounts/{account_id}/roles/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   label
 //   permissions[<X>][explicit]
 //   permissions[<X>][enabled]
 //   permissions[<X>][applies_to_self]
 //   permissions[<X>][applies_to_descendants]
 // }
-// return canvasRequest(update_role, {account_id, id}, query);
+// return canvasRequest(update_role, {account_id, id}, body);
 var updateRole = exports.updateRole = { type: 'UPDATE_ROLE', method: 'put', key: 'update_roleupdate_role_{account_id}_{id}', required: ['account_id', 'id'] };

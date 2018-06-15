@@ -34,7 +34,7 @@ var showOutcome = exports.showOutcome = { type: 'SHOW_OUTCOME', method: 'get', k
 // API Url: outcomes/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   title
 //   display_name
 //   description
@@ -45,5 +45,5 @@ var showOutcome = exports.showOutcome = { type: 'SHOW_OUTCOME', method: 'get', k
 //   calculation_method
 //   calculation_int
 // }
-// return canvasRequest(update_outcome, {id}, query);
+// return canvasRequest(update_outcome, {id}, body);
 var updateOutcome = exports.updateOutcome = { type: 'UPDATE_OUTCOME', method: 'put', key: 'update_outcomeupdate_outcome_id', required: ['id'] };

@@ -20,6 +20,7 @@ Object.defineProperty(exports, "__esModule", {
 //   start_date
 //   end_date
 //   active_only
+//   include
 // }
-// return canvasRequest(list_announcements, {}, query);
+// return canvasRequest(list_announcements, {, ...query});
 var listAnnouncements = exports.listAnnouncements = { type: 'LIST_ANNOUNCEMENTS', method: 'get', key: 'list_announcements', required: [] };

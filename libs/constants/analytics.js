@@ -224,7 +224,7 @@ var getCourseLevelParticipationData = exports.getCourseLevelParticipationData = 
 // const query = {
 //   async
 // }
-// return canvasRequest(get_course_level_assignment_data, {course_id}, query);
+// return canvasRequest(get_course_level_assignment_data, {course_id, ...query});
 var getCourseLevelAssignmentData = exports.getCourseLevelAssignmentData = { type: 'GET_COURSE_LEVEL_ASSIGNMENT_DATA', method: 'get', key: 'get_course_level_assignment_dataget_course_level_assignment_data_course_id', required: ['course_id'] };
 
 // Get course-level student summary data
@@ -245,7 +245,7 @@ var getCourseLevelAssignmentData = exports.getCourseLevelAssignmentData = { type
 //   sort_column
 //   student_id
 // }
-// return canvasRequest(get_course_level_student_summary_data, {course_id}, query);
+// return canvasRequest(get_course_level_student_summary_data, {course_id, ...query});
 var getCourseLevelStudentSummaryData = exports.getCourseLevelStudentSummaryData = { type: 'GET_COURSE_LEVEL_STUDENT_SUMMARY_DATA', method: 'get', key: 'get_course_level_student_summary_dataget_course_level_student_summary_data_course_id', required: ['course_id'] };
 
 // Get user-in-a-course-level participation data

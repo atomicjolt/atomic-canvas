@@ -21,5 +21,5 @@ Object.defineProperty(exports, "__esModule", {
 //   latitude
 //   longitude
 // }
-// return canvasRequest(search_account_domains, {}, query);
+// return canvasRequest(search_account_domains, {, ...query});
 var searchAccountDomains = exports.searchAccountDomains = { type: 'SEARCH_ACCOUNT_DOMAINS', method: 'get', key: 'search_account_domains', required: [] };

@@ -26,7 +26,7 @@ Object.defineProperty(exports, "__esModule", {
 //   from_conversation_id
 //   permissions
 // }
-// return canvasRequest(find_recipients_conversations, {}, query);
+// return canvasRequest(find_recipients_conversations, {, ...query});
 var findRecipientsConversations = exports.findRecipientsConversations = { type: 'FIND_RECIPIENTS_CONVERSATIONS', method: 'get', key: 'find_recipients_conversations', required: [] };
 
 // Find recipients
@@ -49,11 +49,11 @@ var findRecipientsConversations = exports.findRecipientsConversations = { type: 
 //   from_conversation_id
 //   permissions
 // }
-// return canvasRequest(find_recipients_search, {}, query);
+// return canvasRequest(find_recipients_search, {, ...query});
 var findRecipientsSearch = exports.findRecipientsSearch = { type: 'FIND_RECIPIENTS_SEARCH', method: 'get', key: 'find_recipients_search', required: [] };
 
 // List all courses
-// List all courses visible in the public index
+// A paginated list of all courses visible in the public index
 //
 // API Docs: https://canvas.instructure.com/doc/api/search.html
 // API Url: search/all_courses
@@ -64,5 +64,5 @@ var findRecipientsSearch = exports.findRecipientsSearch = { type: 'FIND_RECIPIEN
 //   public_only
 //   open_enrollment_only
 // }
-// return canvasRequest(list_all_courses, {}, query);
+// return canvasRequest(list_all_courses, {, ...query});
 var listAllCourses = exports.listAllCourses = { type: 'LIST_ALL_COURSES', method: 'get', key: 'list_all_courses', required: [] };
