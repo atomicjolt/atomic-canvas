@@ -2,7 +2,7 @@
 // Courses
 //
 // List your courses
-// Returns the list of active courses for the current user.
+// Returns the paginated list of active courses for the current user.
 //
 // API Docs: https://canvas.instructure.com/doc/api/courses.html
 // API Url: courses
@@ -17,11 +17,11 @@
 //   include
 //   state
 // }
-// return canvasRequest(list_your_courses, {}, query);
+// return canvasRequest(list_your_courses, {, ...query});
 export const listYourCourses = { type: 'LIST_YOUR_COURSES', method: 'get', key: 'list_your_courses', required: [] };
 
 // List courses for a user
-// Returns a list of active courses for this user. To view the course list for a user other than yourself, you must be either an observer of that user or an administrator.
+// Returns a paginated list of active courses for this user. To view the course list for a user other than yourself, you must be either an observer of that user or an administrator.
 //
 // API Docs: https://canvas.instructure.com/doc/api/courses.html
 // API Url: users/{user_id}/courses
@@ -32,7 +32,7 @@ export const listYourCourses = { type: 'LIST_YOUR_COURSES', method: 'get', key: 
 //   state
 //   enrollment_state
 // }
-// return canvasRequest(list_courses_for_user, {user_id}, query);
+// return canvasRequest(list_courses_for_user, {user_id, ...query});
 export const listCoursesForUser = { type: 'LIST_COURSES_FOR_USER', method: 'get', key: 'list_courses_for_userlist_courses_for_user_user_id', required: ['user_id'] };
 
 // Create a new course
@@ -42,7 +42,7 @@ export const listCoursesForUser = { type: 'LIST_COURSES_FOR_USER', method: 'get'
 // API Url: accounts/{account_id}/courses
 //
 // Example:
-// const query = {
+// const body = {
 //   course[name]
 //   course[course_code]
 //   course[start_at]
@@ -67,12 +67,13 @@ export const listCoursesForUser = { type: 'LIST_COURSES_FOR_USER', method: 'get'
 //   course[time_zone]
 //   offer
 //   enroll_me
+//   course[default_view]
 //   course[syllabus_body]
 //   course[grading_standard_id]
 //   course[course_format]
 //   enable_sis_reactivation
 // }
-// return canvasRequest(create_new_course, {account_id}, query);
+// return canvasRequest(create_new_course, {account_id}, body);
 export const createNewCourse = { type: 'CREATE_NEW_COURSE', method: 'post', key: 'create_new_coursecreate_new_course_account_id', required: ['account_id'] };
 
 // Upload a file
@@ -93,7 +94,7 @@ export const createNewCourse = { type: 'CREATE_NEW_COURSE', method: 'post', key:
 export const coursesUploadFile = { type: 'COURSES_UPLOAD_FILE', method: 'post', key: 'courses_upload_filecourses_upload_file_course_id', required: ['course_id'] };
 
 // List students
-// Returns the list of students enrolled in this course.
+// Returns the paginated list of students enrolled in this course.
 // 
 // DEPRECATED: Please use the {api:CoursesController#users course users} endpoint
 // and pass "student" as the enrollment_type.
@@ -106,7 +107,7 @@ export const coursesUploadFile = { type: 'COURSES_UPLOAD_FILE', method: 'post', 
 export const listStudents = { type: 'LIST_STUDENTS', method: 'get', key: 'list_studentslist_students_course_id', required: ['course_id'] };
 
 // List users in course
-// Returns the list of users in this course. And optionally the user's enrollments in the course.
+// Returns the paginated list of users in this course. And optionally the user's enrollments in the course.
 //
 // API Docs: https://canvas.instructure.com/doc/api/courses.html
 // API Url: courses/{course_id}/users
@@ -122,11 +123,11 @@ export const listStudents = { type: 'LIST_STUDENTS', method: 'get', key: 'list_s
 //   user_ids
 //   enrollment_state
 // }
-// return canvasRequest(list_users_in_course_users, {course_id}, query);
+// return canvasRequest(list_users_in_course_users, {course_id, ...query});
 export const listUsersInCourseUsers = { type: 'LIST_USERS_IN_COURSE_USERS', method: 'get', key: 'list_users_in_course_userslist_users_in_course_users_course_id', required: ['course_id'] };
 
 // List users in course
-// Returns the list of users in this course. And optionally the user's enrollments in the course.
+// Returns the paginated list of users in this course. And optionally the user's enrollments in the course.
 //
 // API Docs: https://canvas.instructure.com/doc/api/courses.html
 // API Url: courses/{course_id}/search_users
@@ -142,11 +143,11 @@ export const listUsersInCourseUsers = { type: 'LIST_USERS_IN_COURSE_USERS', meth
 //   user_ids
 //   enrollment_state
 // }
-// return canvasRequest(list_users_in_course_search_users, {course_id}, query);
+// return canvasRequest(list_users_in_course_search_users, {course_id, ...query});
 export const listUsersInCourseSearchUsers = { type: 'LIST_USERS_IN_COURSE_SEARCH_USERS', method: 'get', key: 'list_users_in_course_search_userslist_users_in_course_search_users_course_id', required: ['course_id'] };
 
 // List recently logged in students
-// Returns the list of users in this course, ordered by how recently they have
+// Returns the paginated list of users in this course, ordered by how recently they have
 // logged in. The records include the 'last_login' field which contains
 // a timestamp of the last time that user logged into canvas.  The querying
 // user must have the 'View usage reports' permission.
@@ -178,10 +179,10 @@ export const getSingleUser = { type: 'GET_SINGLE_USER', method: 'get', key: 'get
 // API Url: courses/{course_id}/preview_html
 //
 // Example:
-// const query = {
+// const body = {
 //   html
 // }
-// return canvasRequest(courses_preview_processed_html, {course_id}, query);
+// return canvasRequest(courses_preview_processed_html, {course_id}, body);
 export const coursesPreviewProcessedHtml = { type: 'COURSES_PREVIEW_PROCESSED_HTML', method: 'post', key: 'courses_preview_processed_htmlcourses_preview_processed_html_course_id', required: ['course_id'] };
 
 // Course activity stream
@@ -222,18 +223,18 @@ export const courseActivityStreamSummary = { type: 'COURSE_ACTIVITY_STREAM_SUMMA
 // return canvasRequest(course_todo_items, {course_id});
 export const courseTodoItems = { type: 'COURSE_TODO_ITEMS', method: 'get', key: 'course_todo_itemscourse_todo_items_course_id', required: ['course_id'] };
 
-// Conclude a course
+// Delete/Conclude a course
 // Delete or conclude an existing course
 //
 // API Docs: https://canvas.instructure.com/doc/api/courses.html
 // API Url: courses/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   event (required)
 // }
-// return canvasRequest(conclude_course, {id}, query);
-export const concludeCourse = { type: 'CONCLUDE_COURSE', method: 'delete', key: 'conclude_courseconclude_course_id', required: ['id'] };
+// return canvasRequest(delete_conclude_course, {id}, body);
+export const deleteConcludeCourse = { type: 'DELETE_CONCLUDE_COURSE', method: 'delete', key: 'delete_conclude_coursedelete_conclude_course_id', required: ['id'] };
 
 // Get course settings
 // Returns some of a course's settings.
@@ -252,7 +253,7 @@ export const getCourseSettings = { type: 'GET_COURSE_SETTINGS', method: 'get', k
 // API Url: courses/{course_id}/settings
 //
 // Example:
-// const query = {
+// const body = {
 //   allow_student_discussion_topics
 //   allow_student_forum_attachments
 //   allow_student_discussion_editing
@@ -265,7 +266,7 @@ export const getCourseSettings = { type: 'GET_COURSE_SETTINGS', method: 'get', k
 //   show_announcements_on_home_page
 //   home_page_announcement_limit
 // }
-// return canvasRequest(update_course_settings, {course_id}, query);
+// return canvasRequest(update_course_settings, {course_id}, body);
 export const updateCourseSettings = { type: 'UPDATE_COURSE_SETTINGS', method: 'put', key: 'update_course_settingsupdate_course_settings_course_id', required: ['course_id'] };
 
 // Get a single course
@@ -280,7 +281,7 @@ export const updateCourseSettings = { type: 'UPDATE_COURSE_SETTINGS', method: 'p
 // const query = {
 //   include
 // }
-// return canvasRequest(get_single_course_courses, {id}, query);
+// return canvasRequest(get_single_course_courses, {id, ...query});
 export const getSingleCourseCourses = { type: 'GET_SINGLE_COURSE_COURSES', method: 'get', key: 'get_single_course_coursesget_single_course_courses_id', required: ['id'] };
 
 // Get a single course
@@ -295,7 +296,7 @@ export const getSingleCourseCourses = { type: 'GET_SINGLE_COURSE_COURSES', metho
 // const query = {
 //   include
 // }
-// return canvasRequest(get_single_course_accounts, {account_id, id}, query);
+// return canvasRequest(get_single_course_accounts, {account_id, id, ...query});
 export const getSingleCourseAccounts = { type: 'GET_SINGLE_COURSE_ACCOUNTS', method: 'get', key: 'get_single_course_accountsget_single_course_accounts_{account_id}_{id}', required: ['account_id', 'id'] };
 
 // Update a course
@@ -310,7 +311,7 @@ export const getSingleCourseAccounts = { type: 'GET_SINGLE_COURSE_ACCOUNTS', met
 // API Url: courses/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   course[account_id]
 //   course[name]
 //   course[course_code]
@@ -337,6 +338,7 @@ export const getSingleCourseAccounts = { type: 'GET_SINGLE_COURSE_ACCOUNTS', met
 //   course[storage_quota_mb]
 //   offer
 //   course[event]
+//   course[default_view]
 //   course[syllabus_body]
 //   course[grading_standard_id]
 //   course[course_format]
@@ -348,7 +350,7 @@ export const getSingleCourseAccounts = { type: 'GET_SINGLE_COURSE_ACCOUNTS', met
 //   course[use_blueprint_restrictions_by_object_type]
 //   course[blueprint_restrictions_by_object_type]
 // }
-// return canvasRequest(update_course, {id}, query);
+// return canvasRequest(update_course, {id}, body);
 export const updateCourse = { type: 'UPDATE_COURSE', method: 'put', key: 'update_courseupdate_course_id', required: ['id'] };
 
 // Update courses
@@ -369,11 +371,11 @@ export const updateCourse = { type: 'UPDATE_COURSE', method: 'put', key: 'update
 // API Url: accounts/{account_id}/courses
 //
 // Example:
-// const query = {
+// const body = {
 //   course_ids (required)
 //   event (required)
 // }
-// return canvasRequest(update_courses, {account_id}, query);
+// return canvasRequest(update_courses, {account_id}, body);
 export const updateCourses = { type: 'UPDATE_COURSES', method: 'put', key: 'update_coursesupdate_courses_account_id', required: ['account_id'] };
 
 // Reset a course
@@ -405,11 +407,12 @@ export const resetCourse = { type: 'RESET_COURSE', method: 'post', key: 'reset_c
 // const query = {
 //   assignment_ids
 // }
-// return canvasRequest(get_effective_due_dates, {course_id}, query);
+// return canvasRequest(get_effective_due_dates, {course_id, ...query});
 export const getEffectiveDueDates = { type: 'GET_EFFECTIVE_DUE_DATES', method: 'get', key: 'get_effective_due_datesget_effective_due_dates_course_id', required: ['course_id'] };
 
 // Permissions
-// Returns permission information for provided course & current_user
+// Returns permission information for the calling user in the given course.
+// See also {api:AccountsController#permissions the Account counterpart}.
 //
 // API Docs: https://canvas.instructure.com/doc/api/courses.html
 // API Url: courses/{course_id}/permissions
@@ -418,7 +421,7 @@ export const getEffectiveDueDates = { type: 'GET_EFFECTIVE_DUE_DATES', method: '
 // const query = {
 //   permissions
 // }
-// return canvasRequest(permissions, {course_id}, query);
+// return canvasRequest(permissions, {course_id, ...query});
 export const permissions = { type: 'PERMISSIONS', method: 'get', key: 'permissionspermissions_course_id', required: ['course_id'] };
 
 // Get course copy status
@@ -446,10 +449,10 @@ export const getCourseCopyStatus = { type: 'GET_COURSE_COPY_STATUS', method: 'ge
 // API Url: courses/{course_id}/course_copy
 //
 // Example:
-// const query = {
+// const body = {
 //   source_course
 //   except
 //   only
 // }
-// return canvasRequest(copy_course_content, {course_id}, query);
+// return canvasRequest(copy_course_content, {course_id}, body);
 export const copyCourseContent = { type: 'COPY_COURSE_CONTENT', method: 'post', key: 'copy_course_contentcopy_course_content_course_id', required: ['course_id'] };

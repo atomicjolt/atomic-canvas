@@ -2,7 +2,7 @@
 // Modules
 //
 // List modules
-// List the modules in a course
+// A paginated list of the modules in a course
 //
 // API Docs: https://canvas.instructure.com/doc/api/modules.html
 // API Url: courses/{course_id}/modules
@@ -13,7 +13,7 @@
 //   search_term
 //   student_id
 // }
-// return canvasRequest(list_modules, {course_id}, query);
+// return canvasRequest(list_modules, {course_id, ...query});
 export const listModules = { type: 'LIST_MODULES', method: 'get', key: 'list_moduleslist_modules_course_id', required: ['course_id'] };
 
 // Show module
@@ -27,7 +27,7 @@ export const listModules = { type: 'LIST_MODULES', method: 'get', key: 'list_mod
 //   include
 //   student_id
 // }
-// return canvasRequest(show_module, {course_id, id}, query);
+// return canvasRequest(show_module, {course_id, id, ...query});
 export const showModule = { type: 'SHOW_MODULE', method: 'get', key: 'show_moduleshow_module_{course_id}_{id}', required: ['course_id', 'id'] };
 
 // Create a module
@@ -37,7 +37,7 @@ export const showModule = { type: 'SHOW_MODULE', method: 'get', key: 'show_modul
 // API Url: courses/{course_id}/modules
 //
 // Example:
-// const query = {
+// const body = {
 //   module[name] (required)
 //   module[unlock_at]
 //   module[position]
@@ -45,7 +45,7 @@ export const showModule = { type: 'SHOW_MODULE', method: 'get', key: 'show_modul
 //   module[prerequisite_module_ids]
 //   module[publish_final_grade]
 // }
-// return canvasRequest(create_module, {course_id}, query);
+// return canvasRequest(create_module, {course_id}, body);
 export const createModule = { type: 'CREATE_MODULE', method: 'post', key: 'create_modulecreate_module_course_id', required: ['course_id'] };
 
 // Update a module
@@ -55,7 +55,7 @@ export const createModule = { type: 'CREATE_MODULE', method: 'post', key: 'creat
 // API Url: courses/{course_id}/modules/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   module[name]
 //   module[unlock_at]
 //   module[position]
@@ -64,7 +64,7 @@ export const createModule = { type: 'CREATE_MODULE', method: 'post', key: 'creat
 //   module[publish_final_grade]
 //   module[published]
 // }
-// return canvasRequest(update_module, {course_id, id}, query);
+// return canvasRequest(update_module, {course_id, id}, body);
 export const updateModule = { type: 'UPDATE_MODULE', method: 'put', key: 'update_moduleupdate_module_{course_id}_{id}', required: ['course_id', 'id'] };
 
 // Delete module
@@ -92,7 +92,7 @@ export const deleteModule = { type: 'DELETE_MODULE', method: 'delete', key: 'del
 export const reLockModuleProgressions = { type: 'RE_LOCK_MODULE_PROGRESSIONS', method: 'put', key: 're_lock_module_progressionsre_lock_module_progressions_{course_id}_{id}', required: ['course_id', 'id'] };
 
 // List module items
-// List the items in a module
+// A paginated list of the items in a module
 //
 // API Docs: https://canvas.instructure.com/doc/api/modules.html
 // API Url: courses/{course_id}/modules/{module_id}/items
@@ -103,7 +103,7 @@ export const reLockModuleProgressions = { type: 'RE_LOCK_MODULE_PROGRESSIONS', m
 //   search_term
 //   student_id
 // }
-// return canvasRequest(list_module_items, {course_id, module_id}, query);
+// return canvasRequest(list_module_items, {course_id, module_id, ...query});
 export const listModuleItems = { type: 'LIST_MODULE_ITEMS', method: 'get', key: 'list_module_itemslist_module_items_{course_id}_{module_id}', required: ['course_id', 'module_id'] };
 
 // Show module item
@@ -117,7 +117,7 @@ export const listModuleItems = { type: 'LIST_MODULE_ITEMS', method: 'get', key: 
 //   include
 //   student_id
 // }
-// return canvasRequest(show_module_item, {course_id, module_id, id}, query);
+// return canvasRequest(show_module_item, {course_id, module_id, id, ...query});
 export const showModuleItem = { type: 'SHOW_MODULE_ITEM', method: 'get', key: 'show_module_itemshow_module_item_{course_id}_{module_id}_{id}', required: ['course_id', 'module_id', 'id'] };
 
 // Create a module item
@@ -127,7 +127,7 @@ export const showModuleItem = { type: 'SHOW_MODULE_ITEM', method: 'get', key: 's
 // API Url: courses/{course_id}/modules/{module_id}/items
 //
 // Example:
-// const query = {
+// const body = {
 //   module_item[title]
 //   module_item[type] (required)
 //   module_item[content_id] (required)
@@ -139,7 +139,7 @@ export const showModuleItem = { type: 'SHOW_MODULE_ITEM', method: 'get', key: 's
 //   module_item[completion_requirement][type]
 //   module_item[completion_requirement][min_score]
 // }
-// return canvasRequest(create_module_item, {course_id, module_id}, query);
+// return canvasRequest(create_module_item, {course_id, module_id}, body);
 export const createModuleItem = { type: 'CREATE_MODULE_ITEM', method: 'post', key: 'create_module_itemcreate_module_item_{course_id}_{module_id}', required: ['course_id', 'module_id'] };
 
 // Update a module item
@@ -149,7 +149,7 @@ export const createModuleItem = { type: 'CREATE_MODULE_ITEM', method: 'post', ke
 // API Url: courses/{course_id}/modules/{module_id}/items/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   module_item[title]
 //   module_item[position]
 //   module_item[indent]
@@ -160,7 +160,7 @@ export const createModuleItem = { type: 'CREATE_MODULE_ITEM', method: 'post', ke
 //   module_item[published]
 //   module_item[module_id]
 // }
-// return canvasRequest(update_module_item, {course_id, module_id, id}, query);
+// return canvasRequest(update_module_item, {course_id, module_id, id}, body);
 export const updateModuleItem = { type: 'UPDATE_MODULE_ITEM', method: 'put', key: 'update_module_itemupdate_module_item_{course_id}_{module_id}_{id}', required: ['course_id', 'module_id', 'id'] };
 
 // Select a mastery path
@@ -173,11 +173,11 @@ export const updateModuleItem = { type: 'UPDATE_MODULE_ITEM', method: 'put', key
 // API Url: courses/{course_id}/modules/{module_id}/items/{id}/select_mastery_path
 //
 // Example:
-// const query = {
+// const body = {
 //   assignment_set_id
 //   student_id
 // }
-// return canvasRequest(select_mastery_path, {course_id, module_id, id}, query);
+// return canvasRequest(select_mastery_path, {course_id, module_id, id}, body);
 export const selectMasteryPath = { type: 'SELECT_MASTERY_PATH', method: 'post', key: 'select_mastery_pathselect_mastery_path_{course_id}_{module_id}_{id}', required: ['course_id', 'module_id', 'id'] };
 
 // Delete module item
@@ -213,7 +213,7 @@ export const markModuleItemAsDoneNotDone = { type: 'MARK_MODULE_ITEM_AS_DONE_NOT
 //   asset_type
 //   asset_id
 // }
-// return canvasRequest(get_module_item_sequence, {course_id}, query);
+// return canvasRequest(get_module_item_sequence, {course_id, ...query});
 export const getModuleItemSequence = { type: 'GET_MODULE_ITEM_SEQUENCE', method: 'get', key: 'get_module_item_sequenceget_module_item_sequence_course_id', required: ['course_id'] };
 
 // Mark module item read

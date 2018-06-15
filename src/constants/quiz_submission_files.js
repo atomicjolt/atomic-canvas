@@ -13,9 +13,9 @@
 // API Url: courses/{course_id}/quizzes/{quiz_id}/submissions/self/files
 //
 // Example:
-// const query = {
+// const body = {
 //   name
 //   on_duplicate
 // }
-// return canvasRequest(quiz_submission_files_upload_file, {course_id, quiz_id}, query);
+// return canvasRequest(quiz_submission_files_upload_file, {course_id, quiz_id}, body);
 export const quizSubmissionFilesUploadFile = { type: 'QUIZ_SUBMISSION_FILES_UPLOAD_FILE', method: 'post', key: 'quiz_submission_files_upload_filequiz_submission_files_upload_file_{course_id}_{quiz_id}', required: ['course_id', 'quiz_id'] };

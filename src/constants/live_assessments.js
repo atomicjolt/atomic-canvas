@@ -12,7 +12,7 @@
 export const createLiveAssessmentResults = { type: 'CREATE_LIVE_ASSESSMENT_RESULTS', method: 'post', key: 'create_live_assessment_resultscreate_live_assessment_results_{course_id}_{assessment_id}', required: ['course_id', 'assessment_id'] };
 
 // List live assessment results
-// Returns a list of live assessment results
+// Returns a paginated list of live assessment results
 //
 // API Docs: https://canvas.instructure.com/doc/api/live_assessments.html
 // API Url: courses/{course_id}/live_assessments/{assessment_id}/results
@@ -21,7 +21,7 @@ export const createLiveAssessmentResults = { type: 'CREATE_LIVE_ASSESSMENT_RESUL
 // const query = {
 //   user_id
 // }
-// return canvasRequest(list_live_assessment_results, {course_id, assessment_id}, query);
+// return canvasRequest(list_live_assessment_results, {course_id, assessment_id, ...query});
 export const listLiveAssessmentResults = { type: 'LIST_LIVE_ASSESSMENT_RESULTS', method: 'get', key: 'list_live_assessment_resultslist_live_assessment_results_{course_id}_{assessment_id}', required: ['course_id', 'assessment_id'] };
 
 // Create or find a live assessment
@@ -36,7 +36,7 @@ export const listLiveAssessmentResults = { type: 'LIST_LIVE_ASSESSMENT_RESULTS',
 export const createOrFindLiveAssessment = { type: 'CREATE_OR_FIND_LIVE_ASSESSMENT', method: 'post', key: 'create_or_find_live_assessmentcreate_or_find_live_assessment_course_id', required: ['course_id'] };
 
 // List live assessments
-// Returns a list of live assessments.
+// Returns a paginated list of live assessments.
 //
 // API Docs: https://canvas.instructure.com/doc/api/live_assessments.html
 // API Url: courses/{course_id}/live_assessments

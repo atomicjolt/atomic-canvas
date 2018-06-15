@@ -2,7 +2,7 @@
 // Announcement External Feeds
 //
 // List external feeds
-// Returns the list of External Feeds this course or group.
+// Returns the paginated list of External Feeds this course or group.
 //
 // API Docs: https://canvas.instructure.com/doc/api/announcement_external_feeds.html
 // API Url: courses/{course_id}/external_feeds
@@ -12,7 +12,7 @@
 export const listExternalFeedsCourses = { type: 'LIST_EXTERNAL_FEEDS_COURSES', method: 'get', key: 'list_external_feeds_courseslist_external_feeds_courses_course_id', required: ['course_id'] };
 
 // List external feeds
-// Returns the list of External Feeds this course or group.
+// Returns the paginated list of External Feeds this course or group.
 //
 // API Docs: https://canvas.instructure.com/doc/api/announcement_external_feeds.html
 // API Url: groups/{group_id}/external_feeds
@@ -28,12 +28,12 @@ export const listExternalFeedsGroups = { type: 'LIST_EXTERNAL_FEEDS_GROUPS', met
 // API Url: courses/{course_id}/external_feeds
 //
 // Example:
-// const query = {
+// const body = {
 //   url (required)
 //   header_match
 //   verbosity
 // }
-// return canvasRequest(create_external_feed_courses, {course_id}, query);
+// return canvasRequest(create_external_feed_courses, {course_id}, body);
 export const createExternalFeedCourses = { type: 'CREATE_EXTERNAL_FEED_COURSES', method: 'post', key: 'create_external_feed_coursescreate_external_feed_courses_course_id', required: ['course_id'] };
 
 // Create an external feed
@@ -43,12 +43,12 @@ export const createExternalFeedCourses = { type: 'CREATE_EXTERNAL_FEED_COURSES',
 // API Url: groups/{group_id}/external_feeds
 //
 // Example:
-// const query = {
+// const body = {
 //   url (required)
 //   header_match
 //   verbosity
 // }
-// return canvasRequest(create_external_feed_groups, {group_id}, query);
+// return canvasRequest(create_external_feed_groups, {group_id}, body);
 export const createExternalFeedGroups = { type: 'CREATE_EXTERNAL_FEED_GROUPS', method: 'post', key: 'create_external_feed_groupscreate_external_feed_groups_group_id', required: ['group_id'] };
 
 // Delete an external feed

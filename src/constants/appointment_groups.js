@@ -2,8 +2,8 @@
 // Appointment Groups
 //
 // List appointment groups
-// Retrieve the list of appointment groups that can be reserved or managed by
-// the current user.
+// Retrieve the paginated list of appointment groups that can be reserved or
+// managed by the current user.
 //
 // API Docs: https://canvas.instructure.com/doc/api/appointment_groups.html
 // API Url: appointment_groups
@@ -15,7 +15,7 @@
 //   include_past_appointments
 //   include
 // }
-// return canvasRequest(list_appointment_groups, {}, query);
+// return canvasRequest(list_appointment_groups, {, ...query});
 export const listAppointmentGroups = { type: 'LIST_APPOINTMENT_GROUPS', method: 'get', key: 'list_appointment_groups', required: [] };
 
 // Create an appointment group
@@ -27,7 +27,7 @@ export const listAppointmentGroups = { type: 'LIST_APPOINTMENT_GROUPS', method: 
 // API Url: appointment_groups
 //
 // Example:
-// const query = {
+// const body = {
 //   appointment_group[context_codes] (required)
 //   appointment_group[sub_context_codes]
 //   appointment_group[title] (required)
@@ -41,7 +41,7 @@ export const listAppointmentGroups = { type: 'LIST_APPOINTMENT_GROUPS', method: 
 //   appointment_group[new_appointments][X]
 //   appointment_group[participant_visibility]
 // }
-// return canvasRequest(create_appointment_group, {}, query);
+// return canvasRequest(create_appointment_group, {}, body);
 export const createAppointmentGroup = { type: 'CREATE_APPOINTMENT_GROUP', method: 'post', key: 'create_appointment_group', required: [] };
 
 // Get a single appointment group
@@ -54,7 +54,7 @@ export const createAppointmentGroup = { type: 'CREATE_APPOINTMENT_GROUP', method
 // const query = {
 //   include
 // }
-// return canvasRequest(get_single_appointment_group, {id}, query);
+// return canvasRequest(get_single_appointment_group, {id, ...query});
 export const getSingleAppointmentGroup = { type: 'GET_SINGLE_APPOINTMENT_GROUP', method: 'get', key: 'get_single_appointment_groupget_single_appointment_group_id', required: ['id'] };
 
 // Update an appointment group
@@ -66,7 +66,7 @@ export const getSingleAppointmentGroup = { type: 'GET_SINGLE_APPOINTMENT_GROUP',
 // API Url: appointment_groups/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   appointment_group[context_codes] (required)
 //   appointment_group[sub_context_codes]
 //   appointment_group[title]
@@ -80,7 +80,7 @@ export const getSingleAppointmentGroup = { type: 'GET_SINGLE_APPOINTMENT_GROUP',
 //   appointment_group[new_appointments][X]
 //   appointment_group[participant_visibility]
 // }
-// return canvasRequest(update_appointment_group, {id}, query);
+// return canvasRequest(update_appointment_group, {id}, body);
 export const updateAppointmentGroup = { type: 'UPDATE_APPOINTMENT_GROUP', method: 'put', key: 'update_appointment_groupupdate_appointment_group_id', required: ['id'] };
 
 // Delete an appointment group
@@ -91,16 +91,16 @@ export const updateAppointmentGroup = { type: 'UPDATE_APPOINTMENT_GROUP', method
 // API Url: appointment_groups/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   cancel_reason
 // }
-// return canvasRequest(delete_appointment_group, {id}, query);
+// return canvasRequest(delete_appointment_group, {id}, body);
 export const deleteAppointmentGroup = { type: 'DELETE_APPOINTMENT_GROUP', method: 'delete', key: 'delete_appointment_groupdelete_appointment_group_id', required: ['id'] };
 
 // List user participants
-// List users that are (or may be) participating in this appointment group.
-// Refer to the Users API for the response fields. Returns no results for
-// appointment groups with the "Group" participant_type.
+// A paginated list of users that are (or may be) participating in this
+// appointment group.  Refer to the Users API for the response fields. Returns
+// no results for appointment groups with the "Group" participant_type.
 //
 // API Docs: https://canvas.instructure.com/doc/api/appointment_groups.html
 // API Url: appointment_groups/{id}/users
@@ -109,13 +109,13 @@ export const deleteAppointmentGroup = { type: 'DELETE_APPOINTMENT_GROUP', method
 // const query = {
 //   registration_status
 // }
-// return canvasRequest(list_user_participants, {id}, query);
+// return canvasRequest(list_user_participants, {id, ...query});
 export const listUserParticipants = { type: 'LIST_USER_PARTICIPANTS', method: 'get', key: 'list_user_participantslist_user_participants_id', required: ['id'] };
 
 // List student group participants
-// List student groups that are (or may be) participating in this appointment
-// group. Refer to the Groups API for the response fields. Returns no results
-// for appointment groups with the "User" participant_type.
+// A paginated list of student groups that are (or may be) participating in
+// this appointment group. Refer to the Groups API for the response fields.
+// Returns no results for appointment groups with the "User" participant_type.
 //
 // API Docs: https://canvas.instructure.com/doc/api/appointment_groups.html
 // API Url: appointment_groups/{id}/groups
@@ -124,7 +124,7 @@ export const listUserParticipants = { type: 'LIST_USER_PARTICIPANTS', method: 'g
 // const query = {
 //   registration_status
 // }
-// return canvasRequest(list_student_group_participants, {id}, query);
+// return canvasRequest(list_student_group_participants, {id, ...query});
 export const listStudentGroupParticipants = { type: 'LIST_STUDENT_GROUP_PARTICIPANTS', method: 'get', key: 'list_student_group_participantslist_student_group_participants_id', required: ['id'] };
 
 // Get next appointment
@@ -139,5 +139,5 @@ export const listStudentGroupParticipants = { type: 'LIST_STUDENT_GROUP_PARTICIP
 // const query = {
 //   appointment_group_ids
 // }
-// return canvasRequest(get_next_appointment, {}, query);
+// return canvasRequest(get_next_appointment, {, ...query});
 export const getNextAppointment = { type: 'GET_NEXT_APPOINTMENT', method: 'get', key: 'get_next_appointment', required: [] };

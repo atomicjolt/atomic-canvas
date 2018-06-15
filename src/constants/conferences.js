@@ -2,7 +2,7 @@
 // Conferences
 //
 // List conferences
-// Retrieve the list of conferences for this context
+// Retrieve the paginated list of conferences for this context
 // 
 // This API returns a JSON object containing the list of conferences,
 // the key for the list of conferences is "conferences"
@@ -15,7 +15,7 @@
 export const listConferencesCourses = { type: 'LIST_CONFERENCES_COURSES', method: 'get', key: 'list_conferences_courseslist_conferences_courses_course_id', required: ['course_id'] };
 
 // List conferences
-// Retrieve the list of conferences for this context
+// Retrieve the paginated list of conferences for this context
 // 
 // This API returns a JSON object containing the list of conferences,
 // the key for the list of conferences is "conferences"

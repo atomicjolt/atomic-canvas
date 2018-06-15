@@ -9,11 +9,11 @@
 // API Url: accounts/{account_id}/shared_brand_configs
 //
 // Example:
-// const query = {
+// const body = {
 //   shared_brand_config[name] (required)
 //   shared_brand_config[brand_config_md5] (required)
 // }
-// return canvasRequest(share_brandconfig_theme, {account_id}, query);
+// return canvasRequest(share_brandconfig_theme, {account_id}, body);
 export const shareBrandconfigTheme = { type: 'SHARE_BRANDCONFIG_THEME', method: 'post', key: 'share_brandconfig_themeshare_brandconfig_theme_account_id', required: ['account_id'] };
 
 // Update a shared theme

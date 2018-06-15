@@ -2,7 +2,7 @@
 // Sections
 //
 // List course sections
-// Returns the list of sections for this course.
+// A paginated list of the list of sections for this course.
 //
 // API Docs: https://canvas.instructure.com/doc/api/sections.html
 // API Url: courses/{course_id}/sections
@@ -11,7 +11,7 @@
 // const query = {
 //   include
 // }
-// return canvasRequest(list_course_sections, {course_id}, query);
+// return canvasRequest(list_course_sections, {course_id, ...query});
 export const listCourseSections = { type: 'LIST_COURSE_SECTIONS', method: 'get', key: 'list_course_sectionslist_course_sections_course_id', required: ['course_id'] };
 
 // Create course section
@@ -21,15 +21,16 @@ export const listCourseSections = { type: 'LIST_COURSE_SECTIONS', method: 'get',
 // API Url: courses/{course_id}/sections
 //
 // Example:
-// const query = {
+// const body = {
 //   course_section[name]
 //   course_section[sis_section_id]
+//   course_section[integration_id]
 //   course_section[start_at]
 //   course_section[end_at]
 //   course_section[restrict_enrollments_to_section_dates]
 //   enable_sis_reactivation
 // }
-// return canvasRequest(create_course_section, {course_id}, query);
+// return canvasRequest(create_course_section, {course_id}, body);
 export const createCourseSection = { type: 'CREATE_COURSE_SECTION', method: 'post', key: 'create_course_sectioncreate_course_section_course_id', required: ['course_id'] };
 
 // Cross-list a Section
@@ -60,14 +61,15 @@ export const deCrossListSection = { type: 'DE_CROSS_LIST_SECTION', method: 'dele
 // API Url: sections/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   course_section[name]
 //   course_section[sis_section_id]
+//   course_section[integration_id]
 //   course_section[start_at]
 //   course_section[end_at]
 //   course_section[restrict_enrollments_to_section_dates]
 // }
-// return canvasRequest(edit_section, {id}, query);
+// return canvasRequest(edit_section, {id}, body);
 export const editSection = { type: 'EDIT_SECTION', method: 'put', key: 'edit_sectionedit_section_id', required: ['id'] };
 
 // Get section information
@@ -80,7 +82,7 @@ export const editSection = { type: 'EDIT_SECTION', method: 'put', key: 'edit_sec
 // const query = {
 //   include
 // }
-// return canvasRequest(get_section_information_courses, {course_id, id}, query);
+// return canvasRequest(get_section_information_courses, {course_id, id, ...query});
 export const getSectionInformationCourses = { type: 'GET_SECTION_INFORMATION_COURSES', method: 'get', key: 'get_section_information_coursesget_section_information_courses_{course_id}_{id}', required: ['course_id', 'id'] };
 
 // Get section information
@@ -93,7 +95,7 @@ export const getSectionInformationCourses = { type: 'GET_SECTION_INFORMATION_COU
 // const query = {
 //   include
 // }
-// return canvasRequest(get_section_information_sections, {id}, query);
+// return canvasRequest(get_section_information_sections, {id, ...query});
 export const getSectionInformationSections = { type: 'GET_SECTION_INFORMATION_SECTIONS', method: 'get', key: 'get_section_information_sectionsget_section_information_sections_id', required: ['id'] };
 
 // Delete a section

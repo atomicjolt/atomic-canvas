@@ -24,8 +24,8 @@ export const createJwt = { type: 'CREATE_JWT', method: 'post', key: 'create_jwt'
 // API Url: jwts/refresh
 //
 // Example:
-// const query = {
+// const body = {
 //   jwt (required)
 // }
-// return canvasRequest(refresh_jwt, {}, query);
+// return canvasRequest(refresh_jwt, {}, body);
 export const refreshJwt = { type: 'REFRESH_JWT', method: 'post', key: 'refresh_jwt', required: [] };

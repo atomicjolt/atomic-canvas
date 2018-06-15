@@ -8,7 +8,7 @@
 // API Url: accounts/{account_id}/terms
 //
 // Example:
-// const query = {
+// const body = {
 //   enrollment_term[name]
 //   enrollment_term[start_at]
 //   enrollment_term[end_at]
@@ -16,7 +16,7 @@
 //   enrollment_term[overrides][enrollment_type][start_at]
 //   enrollment_term[overrides][enrollment_type][end_at]
 // }
-// return canvasRequest(create_enrollment_term, {account_id}, query);
+// return canvasRequest(create_enrollment_term, {account_id}, body);
 export const createEnrollmentTerm = { type: 'CREATE_ENROLLMENT_TERM', method: 'post', key: 'create_enrollment_termcreate_enrollment_term_account_id', required: ['account_id'] };
 
 // Update enrollment term
@@ -26,7 +26,7 @@ export const createEnrollmentTerm = { type: 'CREATE_ENROLLMENT_TERM', method: 'p
 // API Url: accounts/{account_id}/terms/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   enrollment_term[name]
 //   enrollment_term[start_at]
 //   enrollment_term[end_at]
@@ -34,7 +34,7 @@ export const createEnrollmentTerm = { type: 'CREATE_ENROLLMENT_TERM', method: 'p
 //   enrollment_term[overrides][enrollment_type][start_at]
 //   enrollment_term[overrides][enrollment_type][end_at]
 // }
-// return canvasRequest(update_enrollment_term, {account_id, id}, query);
+// return canvasRequest(update_enrollment_term, {account_id, id}, body);
 export const updateEnrollmentTerm = { type: 'UPDATE_ENROLLMENT_TERM', method: 'put', key: 'update_enrollment_termupdate_enrollment_term_{account_id}_{id}', required: ['account_id', 'id'] };
 
 // Delete enrollment term
@@ -48,7 +48,7 @@ export const updateEnrollmentTerm = { type: 'UPDATE_ENROLLMENT_TERM', method: 'p
 export const deleteEnrollmentTerm = { type: 'DELETE_ENROLLMENT_TERM', method: 'delete', key: 'delete_enrollment_termdelete_enrollment_term_{account_id}_{id}', required: ['account_id', 'id'] };
 
 // List enrollment terms
-// Return all of the terms in the account.
+// A paginated list of all of the terms in the account.
 //
 // API Docs: https://canvas.instructure.com/doc/api/enrollment_terms.html
 // API Url: accounts/{account_id}/terms
@@ -58,5 +58,5 @@ export const deleteEnrollmentTerm = { type: 'DELETE_ENROLLMENT_TERM', method: 'd
 //   workflow_state
 //   include
 // }
-// return canvasRequest(list_enrollment_terms, {account_id}, query);
+// return canvasRequest(list_enrollment_terms, {account_id, ...query});
 export const listEnrollmentTerms = { type: 'LIST_ENROLLMENT_TERMS', method: 'get', key: 'list_enrollment_termslist_enrollment_terms_account_id', required: ['account_id'] };

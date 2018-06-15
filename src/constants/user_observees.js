@@ -2,10 +2,14 @@
 // User Observees
 //
 // List observees
-// List the users that the given user is observing.
+// A paginated list of the users that the given user is observing.
 // 
 // *Note:* all users are allowed to list their own observees. Administrators can list
 // other users' observees.
+// 
+// The returned observees will include an attribute "observation_link_root_account_ids", a list
+// of ids for the root accounts the observer and observee are linked on. The observer will only be able to
+// observe in courses associated with these root accounts.
 //
 // API Docs: https://canvas.instructure.com/doc/api/user_observees.html
 // API Url: users/{user_id}/observees
@@ -14,7 +18,7 @@
 // const query = {
 //   include
 // }
-// return canvasRequest(list_observees, {user_id}, query);
+// return canvasRequest(list_observees, {user_id, ...query});
 export const listObservees = { type: 'LIST_OBSERVEES', method: 'get', key: 'list_observeeslist_observees_user_id', required: ['user_id'] };
 
 // Add an observee with credentials
@@ -28,12 +32,13 @@ export const listObservees = { type: 'LIST_OBSERVEES', method: 'get', key: 'list
 // API Url: users/{user_id}/observees
 //
 // Example:
-// const query = {
+// const body = {
 //   observee[unique_id]
 //   observee[password]
 //   access_token
+//   root_account_id
 // }
-// return canvasRequest(add_observee_with_credentials, {user_id}, query);
+// return canvasRequest(add_observee_with_credentials, {user_id}, body);
 export const addObserveeWithCredentials = { type: 'ADD_OBSERVEE_WITH_CREDENTIALS', method: 'post', key: 'add_observee_with_credentialsadd_observee_with_credentials_user_id', required: ['user_id'] };
 
 // Show an observee
@@ -55,7 +60,10 @@ export const showObservee = { type: 'SHOW_OBSERVEE', method: 'get', key: 'show_o
 // API Url: users/{user_id}/observees/{observee_id}
 //
 // Example:
-// return canvasRequest(add_observee, {user_id, observee_id});
+// const body = {
+//   root_account_id
+// }
+// return canvasRequest(add_observee, {user_id, observee_id}, body);
 export const addObservee = { type: 'ADD_OBSERVEE', method: 'put', key: 'add_observeeadd_observee_{user_id}_{observee_id}', required: ['user_id', 'observee_id'] };
 
 // Remove an observee
@@ -65,5 +73,8 @@ export const addObservee = { type: 'ADD_OBSERVEE', method: 'put', key: 'add_obse
 // API Url: users/{user_id}/observees/{observee_id}
 //
 // Example:
-// return canvasRequest(remove_observee, {user_id, observee_id});
+// const body = {
+//   root_account_id
+// }
+// return canvasRequest(remove_observee, {user_id, observee_id}, body);
 export const removeObservee = { type: 'REMOVE_OBSERVEE', method: 'delete', key: 'remove_observeeremove_observee_{user_id}_{observee_id}', required: ['user_id', 'observee_id'] };

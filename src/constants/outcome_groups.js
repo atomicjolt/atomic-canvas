@@ -65,7 +65,7 @@ export const getAllOutcomeGroupsForContextCourses = { type: 'GET_ALL_OUTCOME_GRO
 //   outcome_style
 //   outcome_group_style
 // }
-// return canvasRequest(get_all_outcome_links_for_context_accounts, {account_id}, query);
+// return canvasRequest(get_all_outcome_links_for_context_accounts, {account_id, ...query});
 export const getAllOutcomeLinksForContextAccounts = { type: 'GET_ALL_OUTCOME_LINKS_FOR_CONTEXT_ACCOUNTS', method: 'get', key: 'get_all_outcome_links_for_context_accountsget_all_outcome_links_for_context_accounts_account_id', required: ['account_id'] };
 
 // Get all outcome links for context
@@ -79,7 +79,7 @@ export const getAllOutcomeLinksForContextAccounts = { type: 'GET_ALL_OUTCOME_LIN
 //   outcome_style
 //   outcome_group_style
 // }
-// return canvasRequest(get_all_outcome_links_for_context_courses, {course_id}, query);
+// return canvasRequest(get_all_outcome_links_for_context_courses, {course_id, ...query});
 export const getAllOutcomeLinksForContextCourses = { type: 'GET_ALL_OUTCOME_LINKS_FOR_CONTEXT_COURSES', method: 'get', key: 'get_all_outcome_links_for_context_coursesget_all_outcome_links_for_context_courses_course_id', required: ['course_id'] };
 
 // Show an outcome group
@@ -124,13 +124,13 @@ export const showOutcomeGroupCourses = { type: 'SHOW_OUTCOME_GROUP_COURSES', met
 // API Url: global/outcome_groups/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   title
 //   description
 //   vendor_guid
 //   parent_outcome_group_id
 // }
-// return canvasRequest(update_outcome_group_global, {id}, query);
+// return canvasRequest(update_outcome_group_global, {id}, body);
 export const updateOutcomeGroupGlobal = { type: 'UPDATE_OUTCOME_GROUP_GLOBAL', method: 'put', key: 'update_outcome_group_globalupdate_outcome_group_global_id', required: ['id'] };
 
 // Update an outcome group
@@ -145,13 +145,13 @@ export const updateOutcomeGroupGlobal = { type: 'UPDATE_OUTCOME_GROUP_GLOBAL', m
 // API Url: accounts/{account_id}/outcome_groups/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   title
 //   description
 //   vendor_guid
 //   parent_outcome_group_id
 // }
-// return canvasRequest(update_outcome_group_accounts, {account_id, id}, query);
+// return canvasRequest(update_outcome_group_accounts, {account_id, id}, body);
 export const updateOutcomeGroupAccounts = { type: 'UPDATE_OUTCOME_GROUP_ACCOUNTS', method: 'put', key: 'update_outcome_group_accountsupdate_outcome_group_accounts_{account_id}_{id}', required: ['account_id', 'id'] };
 
 // Update an outcome group
@@ -166,13 +166,13 @@ export const updateOutcomeGroupAccounts = { type: 'UPDATE_OUTCOME_GROUP_ACCOUNTS
 // API Url: courses/{course_id}/outcome_groups/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   title
 //   description
 //   vendor_guid
 //   parent_outcome_group_id
 // }
-// return canvasRequest(update_outcome_group_courses, {course_id, id}, query);
+// return canvasRequest(update_outcome_group_courses, {course_id, id}, body);
 export const updateOutcomeGroupCourses = { type: 'UPDATE_OUTCOME_GROUP_COURSES', method: 'put', key: 'update_outcome_group_coursesupdate_outcome_group_courses_{course_id}_{id}', required: ['course_id', 'id'] };
 
 // Delete an outcome group
@@ -224,7 +224,7 @@ export const deleteOutcomeGroupAccounts = { type: 'DELETE_OUTCOME_GROUP_ACCOUNTS
 export const deleteOutcomeGroupCourses = { type: 'DELETE_OUTCOME_GROUP_COURSES', method: 'delete', key: 'delete_outcome_group_coursesdelete_outcome_group_courses_{course_id}_{id}', required: ['course_id', 'id'] };
 
 // List linked outcomes
-// List the immediate OutcomeLink children of the outcome group. Paginated.
+// A paginated list of the immediate OutcomeLink children of the outcome group.
 //
 // API Docs: https://canvas.instructure.com/doc/api/outcome_groups.html
 // API Url: global/outcome_groups/{id}/outcomes
@@ -233,11 +233,11 @@ export const deleteOutcomeGroupCourses = { type: 'DELETE_OUTCOME_GROUP_COURSES',
 // const query = {
 //   outcome_style
 // }
-// return canvasRequest(list_linked_outcomes_global, {id}, query);
+// return canvasRequest(list_linked_outcomes_global, {id, ...query});
 export const listLinkedOutcomesGlobal = { type: 'LIST_LINKED_OUTCOMES_GLOBAL', method: 'get', key: 'list_linked_outcomes_globallist_linked_outcomes_global_id', required: ['id'] };
 
 // List linked outcomes
-// List the immediate OutcomeLink children of the outcome group. Paginated.
+// A paginated list of the immediate OutcomeLink children of the outcome group.
 //
 // API Docs: https://canvas.instructure.com/doc/api/outcome_groups.html
 // API Url: accounts/{account_id}/outcome_groups/{id}/outcomes
@@ -246,11 +246,11 @@ export const listLinkedOutcomesGlobal = { type: 'LIST_LINKED_OUTCOMES_GLOBAL', m
 // const query = {
 //   outcome_style
 // }
-// return canvasRequest(list_linked_outcomes_accounts, {account_id, id}, query);
+// return canvasRequest(list_linked_outcomes_accounts, {account_id, id, ...query});
 export const listLinkedOutcomesAccounts = { type: 'LIST_LINKED_OUTCOMES_ACCOUNTS', method: 'get', key: 'list_linked_outcomes_accountslist_linked_outcomes_accounts_{account_id}_{id}', required: ['account_id', 'id'] };
 
 // List linked outcomes
-// List the immediate OutcomeLink children of the outcome group. Paginated.
+// A paginated list of the immediate OutcomeLink children of the outcome group.
 //
 // API Docs: https://canvas.instructure.com/doc/api/outcome_groups.html
 // API Url: courses/{course_id}/outcome_groups/{id}/outcomes
@@ -259,7 +259,7 @@ export const listLinkedOutcomesAccounts = { type: 'LIST_LINKED_OUTCOMES_ACCOUNTS
 // const query = {
 //   outcome_style
 // }
-// return canvasRequest(list_linked_outcomes_courses, {course_id, id}, query);
+// return canvasRequest(list_linked_outcomes_courses, {course_id, id, ...query});
 export const listLinkedOutcomesCourses = { type: 'LIST_LINKED_OUTCOMES_COURSES', method: 'get', key: 'list_linked_outcomes_courseslist_linked_outcomes_courses_{course_id}_{id}', required: ['course_id', 'id'] };
 
 // Create/link an outcome
@@ -271,7 +271,7 @@ export const listLinkedOutcomesCourses = { type: 'LIST_LINKED_OUTCOMES_COURSES',
 // If linking an existing outcome, the outcome_id must identify an outcome
 // available to this context; i.e. an outcome owned by this group's context,
 // an outcome owned by an associated account, or a global outcome. With
-// outcome_id present, any other parameters are ignored.
+// outcome_id present, any other parameters (except move_from) are ignored.
 // 
 // If defining a new outcome, the outcome is created in the outcome group's
 // context using the provided title, description, ratings, and mastery points;
@@ -290,8 +290,9 @@ export const listLinkedOutcomesCourses = { type: 'LIST_LINKED_OUTCOMES_COURSES',
 // API Url: global/outcome_groups/{id}/outcomes
 //
 // Example:
-// const query = {
+// const body = {
 //   outcome_id
+//   move_from
 //   title
 //   display_name
 //   description
@@ -302,7 +303,7 @@ export const listLinkedOutcomesCourses = { type: 'LIST_LINKED_OUTCOMES_COURSES',
 //   calculation_method
 //   calculation_int
 // }
-// return canvasRequest(create_link_outcome_global, {id}, query);
+// return canvasRequest(create_link_outcome_global, {id}, body);
 export const createLinkOutcomeGlobal = { type: 'CREATE_LINK_OUTCOME_GLOBAL', method: 'post', key: 'create_link_outcome_globalcreate_link_outcome_global_id', required: ['id'] };
 
 // Create/link an outcome
@@ -314,7 +315,7 @@ export const createLinkOutcomeGlobal = { type: 'CREATE_LINK_OUTCOME_GLOBAL', met
 // If linking an existing outcome, the outcome_id must identify an outcome
 // available to this context; i.e. an outcome owned by this group's context,
 // an outcome owned by an associated account, or a global outcome. With
-// outcome_id present, any other parameters are ignored.
+// outcome_id present, any other parameters (except move_from) are ignored.
 // 
 // If defining a new outcome, the outcome is created in the outcome group's
 // context using the provided title, description, ratings, and mastery points;
@@ -333,7 +334,8 @@ export const createLinkOutcomeGlobal = { type: 'CREATE_LINK_OUTCOME_GLOBAL', met
 // API Url: global/outcome_groups/{id}/outcomes/{outcome_id}
 //
 // Example:
-// const query = {
+// const body = {
+//   move_from
 //   title
 //   display_name
 //   description
@@ -344,7 +346,7 @@ export const createLinkOutcomeGlobal = { type: 'CREATE_LINK_OUTCOME_GLOBAL', met
 //   calculation_method
 //   calculation_int
 // }
-// return canvasRequest(create_link_outcome_global_outcome_id, {id, outcome_id}, query);
+// return canvasRequest(create_link_outcome_global_outcome_id, {id, outcome_id}, body);
 export const createLinkOutcomeGlobalOutcomeId = { type: 'CREATE_LINK_OUTCOME_GLOBAL_OUTCOME_ID', method: 'put', key: 'create_link_outcome_global_outcome_idcreate_link_outcome_global_outcome_id_{id}_{outcome_id}', required: ['id', 'outcome_id'] };
 
 // Create/link an outcome
@@ -356,7 +358,7 @@ export const createLinkOutcomeGlobalOutcomeId = { type: 'CREATE_LINK_OUTCOME_GLO
 // If linking an existing outcome, the outcome_id must identify an outcome
 // available to this context; i.e. an outcome owned by this group's context,
 // an outcome owned by an associated account, or a global outcome. With
-// outcome_id present, any other parameters are ignored.
+// outcome_id present, any other parameters (except move_from) are ignored.
 // 
 // If defining a new outcome, the outcome is created in the outcome group's
 // context using the provided title, description, ratings, and mastery points;
@@ -375,8 +377,9 @@ export const createLinkOutcomeGlobalOutcomeId = { type: 'CREATE_LINK_OUTCOME_GLO
 // API Url: accounts/{account_id}/outcome_groups/{id}/outcomes
 //
 // Example:
-// const query = {
+// const body = {
 //   outcome_id
+//   move_from
 //   title
 //   display_name
 //   description
@@ -387,7 +390,7 @@ export const createLinkOutcomeGlobalOutcomeId = { type: 'CREATE_LINK_OUTCOME_GLO
 //   calculation_method
 //   calculation_int
 // }
-// return canvasRequest(create_link_outcome_accounts, {account_id, id}, query);
+// return canvasRequest(create_link_outcome_accounts, {account_id, id}, body);
 export const createLinkOutcomeAccounts = { type: 'CREATE_LINK_OUTCOME_ACCOUNTS', method: 'post', key: 'create_link_outcome_accountscreate_link_outcome_accounts_{account_id}_{id}', required: ['account_id', 'id'] };
 
 // Create/link an outcome
@@ -399,7 +402,7 @@ export const createLinkOutcomeAccounts = { type: 'CREATE_LINK_OUTCOME_ACCOUNTS',
 // If linking an existing outcome, the outcome_id must identify an outcome
 // available to this context; i.e. an outcome owned by this group's context,
 // an outcome owned by an associated account, or a global outcome. With
-// outcome_id present, any other parameters are ignored.
+// outcome_id present, any other parameters (except move_from) are ignored.
 // 
 // If defining a new outcome, the outcome is created in the outcome group's
 // context using the provided title, description, ratings, and mastery points;
@@ -418,7 +421,8 @@ export const createLinkOutcomeAccounts = { type: 'CREATE_LINK_OUTCOME_ACCOUNTS',
 // API Url: accounts/{account_id}/outcome_groups/{id}/outcomes/{outcome_id}
 //
 // Example:
-// const query = {
+// const body = {
+//   move_from
 //   title
 //   display_name
 //   description
@@ -429,7 +433,7 @@ export const createLinkOutcomeAccounts = { type: 'CREATE_LINK_OUTCOME_ACCOUNTS',
 //   calculation_method
 //   calculation_int
 // }
-// return canvasRequest(create_link_outcome_accounts_outcome_id, {account_id, id, outcome_id}, query);
+// return canvasRequest(create_link_outcome_accounts_outcome_id, {account_id, id, outcome_id}, body);
 export const createLinkOutcomeAccountsOutcomeId = { type: 'CREATE_LINK_OUTCOME_ACCOUNTS_OUTCOME_ID', method: 'put', key: 'create_link_outcome_accounts_outcome_idcreate_link_outcome_accounts_outcome_id_{account_id}_{id}_{outcome_id}', required: ['account_id', 'id', 'outcome_id'] };
 
 // Create/link an outcome
@@ -441,7 +445,7 @@ export const createLinkOutcomeAccountsOutcomeId = { type: 'CREATE_LINK_OUTCOME_A
 // If linking an existing outcome, the outcome_id must identify an outcome
 // available to this context; i.e. an outcome owned by this group's context,
 // an outcome owned by an associated account, or a global outcome. With
-// outcome_id present, any other parameters are ignored.
+// outcome_id present, any other parameters (except move_from) are ignored.
 // 
 // If defining a new outcome, the outcome is created in the outcome group's
 // context using the provided title, description, ratings, and mastery points;
@@ -460,8 +464,9 @@ export const createLinkOutcomeAccountsOutcomeId = { type: 'CREATE_LINK_OUTCOME_A
 // API Url: courses/{course_id}/outcome_groups/{id}/outcomes
 //
 // Example:
-// const query = {
+// const body = {
 //   outcome_id
+//   move_from
 //   title
 //   display_name
 //   description
@@ -472,7 +477,7 @@ export const createLinkOutcomeAccountsOutcomeId = { type: 'CREATE_LINK_OUTCOME_A
 //   calculation_method
 //   calculation_int
 // }
-// return canvasRequest(create_link_outcome_courses, {course_id, id}, query);
+// return canvasRequest(create_link_outcome_courses, {course_id, id}, body);
 export const createLinkOutcomeCourses = { type: 'CREATE_LINK_OUTCOME_COURSES', method: 'post', key: 'create_link_outcome_coursescreate_link_outcome_courses_{course_id}_{id}', required: ['course_id', 'id'] };
 
 // Create/link an outcome
@@ -484,7 +489,7 @@ export const createLinkOutcomeCourses = { type: 'CREATE_LINK_OUTCOME_COURSES', m
 // If linking an existing outcome, the outcome_id must identify an outcome
 // available to this context; i.e. an outcome owned by this group's context,
 // an outcome owned by an associated account, or a global outcome. With
-// outcome_id present, any other parameters are ignored.
+// outcome_id present, any other parameters (except move_from) are ignored.
 // 
 // If defining a new outcome, the outcome is created in the outcome group's
 // context using the provided title, description, ratings, and mastery points;
@@ -503,7 +508,8 @@ export const createLinkOutcomeCourses = { type: 'CREATE_LINK_OUTCOME_COURSES', m
 // API Url: courses/{course_id}/outcome_groups/{id}/outcomes/{outcome_id}
 //
 // Example:
-// const query = {
+// const body = {
+//   move_from
 //   title
 //   display_name
 //   description
@@ -514,7 +520,7 @@ export const createLinkOutcomeCourses = { type: 'CREATE_LINK_OUTCOME_COURSES', m
 //   calculation_method
 //   calculation_int
 // }
-// return canvasRequest(create_link_outcome_courses_outcome_id, {course_id, id, outcome_id}, query);
+// return canvasRequest(create_link_outcome_courses_outcome_id, {course_id, id, outcome_id}, body);
 export const createLinkOutcomeCoursesOutcomeId = { type: 'CREATE_LINK_OUTCOME_COURSES_OUTCOME_ID', method: 'put', key: 'create_link_outcome_courses_outcome_idcreate_link_outcome_courses_outcome_id_{course_id}_{id}_{outcome_id}', required: ['course_id', 'id', 'outcome_id'] };
 
 // Unlink an outcome
@@ -557,7 +563,7 @@ export const unlinkOutcomeAccounts = { type: 'UNLINK_OUTCOME_ACCOUNTS', method: 
 export const unlinkOutcomeCourses = { type: 'UNLINK_OUTCOME_COURSES', method: 'delete', key: 'unlink_outcome_coursesunlink_outcome_courses_{course_id}_{id}_{outcome_id}', required: ['course_id', 'id', 'outcome_id'] };
 
 // List subgroups
-// List the immediate OutcomeGroup children of the outcome group. Paginated.
+// A paginated list of the immediate OutcomeGroup children of the outcome group.
 //
 // API Docs: https://canvas.instructure.com/doc/api/outcome_groups.html
 // API Url: global/outcome_groups/{id}/subgroups
@@ -567,7 +573,7 @@ export const unlinkOutcomeCourses = { type: 'UNLINK_OUTCOME_COURSES', method: 'd
 export const listSubgroupsGlobal = { type: 'LIST_SUBGROUPS_GLOBAL', method: 'get', key: 'list_subgroups_globallist_subgroups_global_id', required: ['id'] };
 
 // List subgroups
-// List the immediate OutcomeGroup children of the outcome group. Paginated.
+// A paginated list of the immediate OutcomeGroup children of the outcome group.
 //
 // API Docs: https://canvas.instructure.com/doc/api/outcome_groups.html
 // API Url: accounts/{account_id}/outcome_groups/{id}/subgroups
@@ -577,7 +583,7 @@ export const listSubgroupsGlobal = { type: 'LIST_SUBGROUPS_GLOBAL', method: 'get
 export const listSubgroupsAccounts = { type: 'LIST_SUBGROUPS_ACCOUNTS', method: 'get', key: 'list_subgroups_accountslist_subgroups_accounts_{account_id}_{id}', required: ['account_id', 'id'] };
 
 // List subgroups
-// List the immediate OutcomeGroup children of the outcome group. Paginated.
+// A paginated list of the immediate OutcomeGroup children of the outcome group.
 //
 // API Docs: https://canvas.instructure.com/doc/api/outcome_groups.html
 // API Url: courses/{course_id}/outcome_groups/{id}/subgroups
@@ -594,12 +600,12 @@ export const listSubgroupsCourses = { type: 'LIST_SUBGROUPS_COURSES', method: 'g
 // API Url: global/outcome_groups/{id}/subgroups
 //
 // Example:
-// const query = {
+// const body = {
 //   title (required)
 //   description
 //   vendor_guid
 // }
-// return canvasRequest(create_subgroup_global, {id}, query);
+// return canvasRequest(create_subgroup_global, {id}, body);
 export const createSubgroupGlobal = { type: 'CREATE_SUBGROUP_GLOBAL', method: 'post', key: 'create_subgroup_globalcreate_subgroup_global_id', required: ['id'] };
 
 // Create a subgroup
@@ -610,12 +616,12 @@ export const createSubgroupGlobal = { type: 'CREATE_SUBGROUP_GLOBAL', method: 'p
 // API Url: accounts/{account_id}/outcome_groups/{id}/subgroups
 //
 // Example:
-// const query = {
+// const body = {
 //   title (required)
 //   description
 //   vendor_guid
 // }
-// return canvasRequest(create_subgroup_accounts, {account_id, id}, query);
+// return canvasRequest(create_subgroup_accounts, {account_id, id}, body);
 export const createSubgroupAccounts = { type: 'CREATE_SUBGROUP_ACCOUNTS', method: 'post', key: 'create_subgroup_accountscreate_subgroup_accounts_{account_id}_{id}', required: ['account_id', 'id'] };
 
 // Create a subgroup
@@ -626,12 +632,12 @@ export const createSubgroupAccounts = { type: 'CREATE_SUBGROUP_ACCOUNTS', method
 // API Url: courses/{course_id}/outcome_groups/{id}/subgroups
 //
 // Example:
-// const query = {
+// const body = {
 //   title (required)
 //   description
 //   vendor_guid
 // }
-// return canvasRequest(create_subgroup_courses, {course_id, id}, query);
+// return canvasRequest(create_subgroup_courses, {course_id, id}, body);
 export const createSubgroupCourses = { type: 'CREATE_SUBGROUP_COURSES', method: 'post', key: 'create_subgroup_coursescreate_subgroup_courses_{course_id}_{id}', required: ['course_id', 'id'] };
 
 // Import an outcome group
@@ -652,10 +658,10 @@ export const createSubgroupCourses = { type: 'CREATE_SUBGROUP_COURSES', method: 
 // API Url: global/outcome_groups/{id}/import
 //
 // Example:
-// const query = {
+// const body = {
 //   source_outcome_group_id (required)
 // }
-// return canvasRequest(import_outcome_group_global, {id}, query);
+// return canvasRequest(import_outcome_group_global, {id}, body);
 export const importOutcomeGroupGlobal = { type: 'IMPORT_OUTCOME_GROUP_GLOBAL', method: 'post', key: 'import_outcome_group_globalimport_outcome_group_global_id', required: ['id'] };
 
 // Import an outcome group
@@ -676,10 +682,10 @@ export const importOutcomeGroupGlobal = { type: 'IMPORT_OUTCOME_GROUP_GLOBAL', m
 // API Url: accounts/{account_id}/outcome_groups/{id}/import
 //
 // Example:
-// const query = {
+// const body = {
 //   source_outcome_group_id (required)
 // }
-// return canvasRequest(import_outcome_group_accounts, {account_id, id}, query);
+// return canvasRequest(import_outcome_group_accounts, {account_id, id}, body);
 export const importOutcomeGroupAccounts = { type: 'IMPORT_OUTCOME_GROUP_ACCOUNTS', method: 'post', key: 'import_outcome_group_accountsimport_outcome_group_accounts_{account_id}_{id}', required: ['account_id', 'id'] };
 
 // Import an outcome group
@@ -700,8 +706,8 @@ export const importOutcomeGroupAccounts = { type: 'IMPORT_OUTCOME_GROUP_ACCOUNTS
 // API Url: courses/{course_id}/outcome_groups/{id}/import
 //
 // Example:
-// const query = {
+// const body = {
 //   source_outcome_group_id (required)
 // }
-// return canvasRequest(import_outcome_group_courses, {course_id, id}, query);
+// return canvasRequest(import_outcome_group_courses, {course_id, id}, body);
 export const importOutcomeGroupCourses = { type: 'IMPORT_OUTCOME_GROUP_COURSES', method: 'post', key: 'import_outcome_group_coursesimport_outcome_group_courses_{course_id}_{id}', required: ['course_id', 'id'] };

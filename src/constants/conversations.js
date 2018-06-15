@@ -2,7 +2,8 @@
 // Conversations
 //
 // List conversations
-// Returns the list of conversations for the current user, most recent ones first.
+// Returns the paginated list of conversations for the current user, most
+// recent ones first.
 //
 // API Docs: https://canvas.instructure.com/doc/api/conversations.html
 // API Url: conversations
@@ -16,7 +17,7 @@
 //   include_all_conversation_ids
 //   include
 // }
-// return canvasRequest(list_conversations, {}, query);
+// return canvasRequest(list_conversations, {, ...query});
 export const listConversations = { type: 'LIST_CONVERSATIONS', method: 'get', key: 'list_conversations', required: [] };
 
 // Create a conversation
@@ -28,7 +29,7 @@ export const listConversations = { type: 'LIST_CONVERSATIONS', method: 'get', ke
 // API Url: conversations
 //
 // Example:
-// const query = {
+// const body = {
 //   recipients (required)
 //   subject
 //   body (required)
@@ -43,7 +44,7 @@ export const listConversations = { type: 'LIST_CONVERSATIONS', method: 'get', ke
 //   filter_mode
 //   context_code
 // }
-// return canvasRequest(create_conversation, {}, query);
+// return canvasRequest(create_conversation, {}, body);
 export const createConversation = { type: 'CREATE_CONVERSATION', method: 'post', key: 'create_conversation', required: [] };
 
 // Get running batches
@@ -74,7 +75,7 @@ export const getRunningBatches = { type: 'GET_RUNNING_BATCHES', method: 'get', k
 //   filter_mode
 //   auto_mark_as_read
 // }
-// return canvasRequest(get_single_conversation, {id}, query);
+// return canvasRequest(get_single_conversation, {id, ...query});
 export const getSingleConversation = { type: 'GET_SINGLE_CONVERSATION', method: 'get', key: 'get_single_conversationget_single_conversation_id', required: ['id'] };
 
 // Edit a conversation
@@ -84,7 +85,7 @@ export const getSingleConversation = { type: 'GET_SINGLE_CONVERSATION', method: 
 // API Url: conversations/{id}
 //
 // Example:
-// const query = {
+// const body = {
 //   conversation[workflow_state]
 //   conversation[subscribed]
 //   conversation[starred]
@@ -92,7 +93,7 @@ export const getSingleConversation = { type: 'GET_SINGLE_CONVERSATION', method: 
 //   filter
 //   filter_mode
 // }
-// return canvasRequest(edit_conversation, {id}, query);
+// return canvasRequest(edit_conversation, {id}, body);
 export const editConversation = { type: 'EDIT_CONVERSATION', method: 'put', key: 'edit_conversationedit_conversation_id', required: ['id'] };
 
 // Mark all as read
@@ -127,10 +128,10 @@ export const deleteConversation = { type: 'DELETE_CONVERSATION', method: 'delete
 // API Url: conversations/{id}/add_recipients
 //
 // Example:
-// const query = {
+// const body = {
 //   recipients (required)
 // }
-// return canvasRequest(add_recipients, {id}, query);
+// return canvasRequest(add_recipients, {id}, body);
 export const addRecipients = { type: 'ADD_RECIPIENTS', method: 'post', key: 'add_recipientsadd_recipients_id', required: ['id'] };
 
 // Add a message
@@ -150,7 +151,7 @@ export const addRecipients = { type: 'ADD_RECIPIENTS', method: 'post', key: 'add
 // API Url: conversations/{id}/add_message
 //
 // Example:
-// const query = {
+// const body = {
 //   body (required)
 //   attachment_ids
 //   media_comment_id
@@ -159,7 +160,7 @@ export const addRecipients = { type: 'ADD_RECIPIENTS', method: 'post', key: 'add
 //   included_messages
 //   user_note
 // }
-// return canvasRequest(add_message, {id}, query);
+// return canvasRequest(add_message, {id}, body);
 export const addMessage = { type: 'ADD_MESSAGE', method: 'post', key: 'add_messageadd_message_id', required: ['id'] };
 
 // Delete a message
@@ -171,10 +172,10 @@ export const addMessage = { type: 'ADD_MESSAGE', method: 'post', key: 'add_messa
 // API Url: conversations/{id}/remove_messages
 //
 // Example:
-// const query = {
+// const body = {
 //   remove (required)
 // }
-// return canvasRequest(delete_message, {id}, query);
+// return canvasRequest(delete_message, {id}, body);
 export const deleteMessage = { type: 'DELETE_MESSAGE', method: 'post', key: 'delete_messagedelete_message_id', required: ['id'] };
 
 // Batch update conversations
@@ -185,11 +186,11 @@ export const deleteMessage = { type: 'DELETE_MESSAGE', method: 'post', key: 'del
 // API Url: conversations
 //
 // Example:
-// const query = {
+// const body = {
 //   conversation_ids (required)
 //   event (required)
 // }
-// return canvasRequest(batch_update_conversations, {}, query);
+// return canvasRequest(batch_update_conversations, {}, body);
 export const batchUpdateConversations = { type: 'BATCH_UPDATE_CONVERSATIONS', method: 'put', key: 'batch_update_conversations', required: [] };
 
 // Find recipients

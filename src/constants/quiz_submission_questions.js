@@ -13,7 +13,7 @@
 // const query = {
 //   include
 // }
-// return canvasRequest(get_all_quiz_submission_questions, {quiz_submission_id}, query);
+// return canvasRequest(get_all_quiz_submission_questions, {quiz_submission_id, ...query});
 export const getAllQuizSubmissionQuestions = { type: 'GET_ALL_QUIZ_SUBMISSION_QUESTIONS', method: 'get', key: 'get_all_quiz_submission_questionsget_all_quiz_submission_questions_quiz_submission_id', required: ['quiz_submission_id'] };
 
 // Answering questions
@@ -23,13 +23,13 @@ export const getAllQuizSubmissionQuestions = { type: 'GET_ALL_QUIZ_SUBMISSION_QU
 // API Url: quiz_submissions/{quiz_submission_id}/questions
 //
 // Example:
-// const query = {
+// const body = {
 //   attempt (required)
 //   validation_token (required)
 //   access_code
 //   quiz_questions
 // }
-// return canvasRequest(answering_questions, {quiz_submission_id}, query);
+// return canvasRequest(answering_questions, {quiz_submission_id}, body);
 export const answeringQuestions = { type: 'ANSWERING_QUESTIONS', method: 'post', key: 'answering_questionsanswering_questions_quiz_submission_id', required: ['quiz_submission_id'] };
 
 // Flagging a question.
@@ -40,12 +40,12 @@ export const answeringQuestions = { type: 'ANSWERING_QUESTIONS', method: 'post',
 // API Url: quiz_submissions/{quiz_submission_id}/questions/{id}/flag
 //
 // Example:
-// const query = {
+// const body = {
 //   attempt (required)
 //   validation_token (required)
 //   access_code
 // }
-// return canvasRequest(flagging_question, {quiz_submission_id, id}, query);
+// return canvasRequest(flagging_question, {quiz_submission_id, id}, body);
 export const flaggingQuestion = { type: 'FLAGGING_QUESTION', method: 'put', key: 'flagging_questionflagging_question_{quiz_submission_id}_{id}', required: ['quiz_submission_id', 'id'] };
 
 // Unflagging a question.
@@ -56,10 +56,10 @@ export const flaggingQuestion = { type: 'FLAGGING_QUESTION', method: 'put', key:
 // API Url: quiz_submissions/{quiz_submission_id}/questions/{id}/unflag
 //
 // Example:
-// const query = {
+// const body = {
 //   attempt (required)
 //   validation_token (required)
 //   access_code
 // }
-// return canvasRequest(unflagging_question, {quiz_submission_id, id}, query);
+// return canvasRequest(unflagging_question, {quiz_submission_id, id}, body);
 export const unflaggingQuestion = { type: 'UNFLAGGING_QUESTION', method: 'put', key: 'unflagging_questionunflagging_question_{quiz_submission_id}_{id}', required: ['quiz_submission_id', 'id'] };

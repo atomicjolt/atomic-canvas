@@ -31,11 +31,11 @@ export const getAssociatedCourseInformation = { type: 'GET_ASSOCIATED_COURSE_INF
 // API Url: courses/{course_id}/blueprint_templates/{template_id}/update_associations
 //
 // Example:
-// const query = {
+// const body = {
 //   course_ids_to_add
 //   course_ids_to_remove
 // }
-// return canvasRequest(update_associated_courses, {course_id, template_id}, query);
+// return canvasRequest(update_associated_courses, {course_id, template_id}, body);
 export const updateAssociatedCourses = { type: 'UPDATE_ASSOCIATED_COURSES', method: 'put', key: 'update_associated_coursesupdate_associated_courses_{course_id}_{template_id}', required: ['course_id', 'template_id'] };
 
 // Begin a migration to push to associated courses
@@ -46,12 +46,12 @@ export const updateAssociatedCourses = { type: 'UPDATE_ASSOCIATED_COURSES', meth
 // API Url: courses/{course_id}/blueprint_templates/{template_id}/migrations
 //
 // Example:
-// const query = {
+// const body = {
 //   comment
 //   send_notification
 //   copy_settings
 // }
-// return canvasRequest(begin_migration_to_push_to_associated_courses, {course_id, template_id}, query);
+// return canvasRequest(begin_migration_to_push_to_associated_courses, {course_id, template_id}, body);
 export const beginMigrationToPushToAssociatedCourses = { type: 'BEGIN_MIGRATION_TO_PUSH_TO_ASSOCIATED_COURSES', method: 'post', key: 'begin_migration_to_push_to_associated_coursesbegin_migration_to_push_to_associated_courses_{course_id}_{template_id}', required: ['course_id', 'template_id'] };
 
 // Set or remove restrictions on a blueprint course object
@@ -61,13 +61,13 @@ export const beginMigrationToPushToAssociatedCourses = { type: 'BEGIN_MIGRATION_
 // API Url: courses/{course_id}/blueprint_templates/{template_id}/restrict_item
 //
 // Example:
-// const query = {
+// const body = {
 //   content_type
 //   content_id
 //   restricted
 //   restrictions
 // }
-// return canvasRequest(set_or_remove_restrictions_on_blueprint_course_object, {course_id, template_id}, query);
+// return canvasRequest(set_or_remove_restrictions_on_blueprint_course_object, {course_id, template_id}, body);
 export const setOrRemoveRestrictionsOnBlueprintCourseObject = { type: 'SET_OR_REMOVE_RESTRICTIONS_ON_BLUEPRINT_COURSE_OBJECT', method: 'put', key: 'set_or_remove_restrictions_on_blueprint_course_objectset_or_remove_restrictions_on_blueprint_course_object_{course_id}_{template_id}', required: ['course_id', 'template_id'] };
 
 // Get unsynced changes
@@ -81,7 +81,7 @@ export const setOrRemoveRestrictionsOnBlueprintCourseObject = { type: 'SET_OR_RE
 export const getUnsyncedChanges = { type: 'GET_UNSYNCED_CHANGES', method: 'get', key: 'get_unsynced_changesget_unsynced_changes_{course_id}_{template_id}', required: ['course_id', 'template_id'] };
 
 // List blueprint migrations
-// Shows migrations for the template, starting with the most recent. This endpoint can be called on a
+// Shows a paginated list of migrations for the template, starting with the most recent. This endpoint can be called on a
 // blueprint course. See also {api:MasterCourses::MasterTemplatesController#imports_index the associated course side}.
 //
 // API Docs: https://canvas.instructure.com/doc/api/blueprint_courses.html
@@ -114,7 +114,7 @@ export const showBlueprintMigration = { type: 'SHOW_BLUEPRINT_MIGRATION', method
 export const getMigrationDetails = { type: 'GET_MIGRATION_DETAILS', method: 'get', key: 'get_migration_detailsget_migration_details_{course_id}_{template_id}_{id}', required: ['course_id', 'template_id', 'id'] };
 
 // List blueprint imports
-// Shows migrations imported into a course associated with a blueprint, starting with the most recent. See also
+// Shows a paginated list of migrations imported into a course associated with a blueprint, starting with the most recent. See also
 // {api:MasterCourses::MasterTemplatesController#migrations_index the blueprint course side}.
 // 
 // Use 'default' as the subscription_id to use the currently active blueprint subscription.

@@ -2,7 +2,7 @@
 // Groups
 //
 // List your groups
-// Returns a list of active groups for the current user.
+// Returns a paginated list of active groups for the current user.
 //
 // API Docs: https://canvas.instructure.com/doc/api/groups.html
 // API Url: users/self/groups
@@ -12,11 +12,11 @@
 //   context_type
 //   include
 // }
-// return canvasRequest(list_your_groups, {}, query);
+// return canvasRequest(list_your_groups, {, ...query});
 export const listYourGroups = { type: 'LIST_YOUR_GROUPS', method: 'get', key: 'list_your_groups', required: [] };
 
 // List the groups available in a context.
-// Returns the list of active groups in the given context that are visible to user.
+// Returns the paginated list of active groups in the given context that are visible to user.
 //
 // API Docs: https://canvas.instructure.com/doc/api/groups.html
 // API Url: accounts/{account_id}/groups
@@ -26,11 +26,11 @@ export const listYourGroups = { type: 'LIST_YOUR_GROUPS', method: 'get', key: 'l
 //   only_own_groups
 //   include
 // }
-// return canvasRequest(list_groups_available_in_context_accounts, {account_id}, query);
+// return canvasRequest(list_groups_available_in_context_accounts, {account_id, ...query});
 export const listGroupsAvailableInContextAccounts = { type: 'LIST_GROUPS_AVAILABLE_IN_CONTEXT_ACCOUNTS', method: 'get', key: 'list_groups_available_in_context_accountslist_groups_available_in_context_accounts_account_id', required: ['account_id'] };
 
 // List the groups available in a context.
-// Returns the list of active groups in the given context that are visible to user.
+// Returns the paginated list of active groups in the given context that are visible to user.
 //
 // API Docs: https://canvas.instructure.com/doc/api/groups.html
 // API Url: courses/{course_id}/groups
@@ -40,7 +40,7 @@ export const listGroupsAvailableInContextAccounts = { type: 'LIST_GROUPS_AVAILAB
 //   only_own_groups
 //   include
 // }
-// return canvasRequest(list_groups_available_in_context_courses, {course_id}, query);
+// return canvasRequest(list_groups_available_in_context_courses, {course_id, ...query});
 export const listGroupsAvailableInContextCourses = { type: 'LIST_GROUPS_AVAILABLE_IN_CONTEXT_COURSES', method: 'get', key: 'list_groups_available_in_context_courseslist_groups_available_in_context_courses_course_id', required: ['course_id'] };
 
 // Get a single group
@@ -54,7 +54,7 @@ export const listGroupsAvailableInContextCourses = { type: 'LIST_GROUPS_AVAILABL
 // const query = {
 //   include
 // }
-// return canvasRequest(get_single_group, {group_id}, query);
+// return canvasRequest(get_single_group, {group_id, ...query});
 export const getSingleGroup = { type: 'GET_SINGLE_GROUP', method: 'get', key: 'get_single_groupget_single_group_group_id', required: ['group_id'] };
 
 // Create a group
@@ -65,14 +65,15 @@ export const getSingleGroup = { type: 'GET_SINGLE_GROUP', method: 'get', key: 'g
 // API Url: groups
 //
 // Example:
-// const query = {
+// const body = {
 //   name
 //   description
 //   is_public
 //   join_level
 //   storage_quota_mb
+//   sis_group_id
 // }
-// return canvasRequest(create_group_groups, {}, query);
+// return canvasRequest(create_group_groups, {}, body);
 export const createGroupGroups = { type: 'CREATE_GROUP_GROUPS', method: 'post', key: 'create_group_groups', required: [] };
 
 // Create a group
@@ -83,14 +84,15 @@ export const createGroupGroups = { type: 'CREATE_GROUP_GROUPS', method: 'post', 
 // API Url: group_categories/{group_category_id}/groups
 //
 // Example:
-// const query = {
+// const body = {
 //   name
 //   description
 //   is_public
 //   join_level
 //   storage_quota_mb
+//   sis_group_id
 // }
-// return canvasRequest(create_group_group_categories, {group_category_id}, query);
+// return canvasRequest(create_group_group_categories, {group_category_id}, body);
 export const createGroupGroupCategories = { type: 'CREATE_GROUP_GROUP_CATEGORIES', method: 'post', key: 'create_group_group_categoriescreate_group_group_categories_group_category_id', required: ['group_category_id'] };
 
 // Edit a group
@@ -104,7 +106,7 @@ export const createGroupGroupCategories = { type: 'CREATE_GROUP_GROUP_CATEGORIES
 // API Url: groups/{group_id}
 //
 // Example:
-// const query = {
+// const body = {
 //   name
 //   description
 //   is_public
@@ -112,8 +114,9 @@ export const createGroupGroupCategories = { type: 'CREATE_GROUP_GROUP_CATEGORIES
 //   avatar_id
 //   storage_quota_mb
 //   members
+//   sis_group_id
 // }
-// return canvasRequest(edit_group, {group_id}, query);
+// return canvasRequest(edit_group, {group_id}, body);
 export const editGroup = { type: 'EDIT_GROUP', method: 'put', key: 'edit_groupedit_group_group_id', required: ['group_id'] };
 
 // Delete a group
@@ -134,14 +137,14 @@ export const deleteGroup = { type: 'DELETE_GROUP', method: 'delete', key: 'delet
 // API Url: groups/{group_id}/invite
 //
 // Example:
-// const query = {
+// const body = {
 //   invitees (required)
 // }
-// return canvasRequest(invite_others_to_group, {group_id}, query);
+// return canvasRequest(invite_others_to_group, {group_id}, body);
 export const inviteOthersToGroup = { type: 'INVITE_OTHERS_TO_GROUP', method: 'post', key: 'invite_others_to_groupinvite_others_to_group_group_id', required: ['group_id'] };
 
 // List group's users
-// Returns a list of users in the group.
+// Returns a paginated list of users in the group.
 //
 // API Docs: https://canvas.instructure.com/doc/api/groups.html
 // API Url: groups/{group_id}/users
@@ -151,7 +154,7 @@ export const inviteOthersToGroup = { type: 'INVITE_OTHERS_TO_GROUP', method: 'po
 //   search_term
 //   include
 // }
-// return canvasRequest(list_group_s_users, {group_id}, query);
+// return canvasRequest(list_group_s_users, {group_id, ...query});
 export const listGroupSUsers = { type: 'LIST_GROUP_S_USERS', method: 'get', key: 'list_group_s_userslist_group_s_users_group_id', required: ['group_id'] };
 
 // Upload a file
@@ -179,10 +182,10 @@ export const groupsUploadFile = { type: 'GROUPS_UPLOAD_FILE', method: 'post', ke
 // API Url: groups/{group_id}/preview_html
 //
 // Example:
-// const query = {
+// const body = {
 //   html
 // }
-// return canvasRequest(groups_preview_processed_html, {group_id}, query);
+// return canvasRequest(groups_preview_processed_html, {group_id}, body);
 export const groupsPreviewProcessedHtml = { type: 'GROUPS_PREVIEW_PROCESSED_HTML', method: 'post', key: 'groups_preview_processed_htmlgroups_preview_processed_html_group_id', required: ['group_id'] };
 
 // Group activity stream
@@ -212,7 +215,7 @@ export const groupActivityStream = { type: 'GROUP_ACTIVITY_STREAM', method: 'get
 export const groupActivityStreamSummary = { type: 'GROUP_ACTIVITY_STREAM_SUMMARY', method: 'get', key: 'group_activity_stream_summarygroup_activity_stream_summary_group_id', required: ['group_id'] };
 
 // List group memberships
-// List the members of a group.
+// A paginated list of the members of a group.
 //
 // API Docs: https://canvas.instructure.com/doc/api/groups.html
 // API Url: groups/{group_id}/memberships
@@ -221,7 +224,7 @@ export const groupActivityStreamSummary = { type: 'GROUP_ACTIVITY_STREAM_SUMMARY
 // const query = {
 //   filter_states
 // }
-// return canvasRequest(list_group_memberships, {group_id}, query);
+// return canvasRequest(list_group_memberships, {group_id, ...query});
 export const listGroupMemberships = { type: 'LIST_GROUP_MEMBERSHIPS', method: 'get', key: 'list_group_membershipslist_group_memberships_group_id', required: ['group_id'] };
 
 // Get a single group membership
@@ -253,10 +256,10 @@ export const getSingleGroupMembershipUsers = { type: 'GET_SINGLE_GROUP_MEMBERSHI
 // API Url: groups/{group_id}/memberships
 //
 // Example:
-// const query = {
+// const body = {
 //   user_id
 // }
-// return canvasRequest(create_membership, {group_id}, query);
+// return canvasRequest(create_membership, {group_id}, body);
 export const createMembership = { type: 'CREATE_MEMBERSHIP', method: 'post', key: 'create_membershipcreate_membership_group_id', required: ['group_id'] };
 
 // Update a membership
@@ -266,11 +269,11 @@ export const createMembership = { type: 'CREATE_MEMBERSHIP', method: 'post', key
 // API Url: groups/{group_id}/memberships/{membership_id}
 //
 // Example:
-// const query = {
+// const body = {
 //   workflow_state
 //   moderator
 // }
-// return canvasRequest(update_membership_memberships, {group_id, membership_id}, query);
+// return canvasRequest(update_membership_memberships, {group_id, membership_id}, body);
 export const updateMembershipMemberships = { type: 'UPDATE_MEMBERSHIP_MEMBERSHIPS', method: 'put', key: 'update_membership_membershipsupdate_membership_memberships_{group_id}_{membership_id}', required: ['group_id', 'membership_id'] };
 
 // Update a membership
@@ -280,11 +283,11 @@ export const updateMembershipMemberships = { type: 'UPDATE_MEMBERSHIP_MEMBERSHIP
 // API Url: groups/{group_id}/users/{user_id}
 //
 // Example:
-// const query = {
+// const body = {
 //   workflow_state
 //   moderator
 // }
-// return canvasRequest(update_membership_users, {group_id, user_id}, query);
+// return canvasRequest(update_membership_users, {group_id, user_id}, body);
 export const updateMembershipUsers = { type: 'UPDATE_MEMBERSHIP_USERS', method: 'put', key: 'update_membership_usersupdate_membership_users_{group_id}_{user_id}', required: ['group_id', 'user_id'] };
 
 // Leave a group

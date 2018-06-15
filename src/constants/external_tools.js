@@ -14,7 +14,7 @@
 //   selectable
 //   include_parents
 // }
-// return canvasRequest(list_external_tools_courses, {course_id}, query);
+// return canvasRequest(list_external_tools_courses, {course_id, ...query});
 export const listExternalToolsCourses = { type: 'LIST_EXTERNAL_TOOLS_COURSES', method: 'get', key: 'list_external_tools_courseslist_external_tools_courses_course_id', required: ['course_id'] };
 
 // List external tools
@@ -30,7 +30,7 @@ export const listExternalToolsCourses = { type: 'LIST_EXTERNAL_TOOLS_COURSES', m
 //   selectable
 //   include_parents
 // }
-// return canvasRequest(list_external_tools_accounts, {account_id}, query);
+// return canvasRequest(list_external_tools_accounts, {account_id, ...query});
 export const listExternalToolsAccounts = { type: 'LIST_EXTERNAL_TOOLS_ACCOUNTS', method: 'get', key: 'list_external_tools_accountslist_external_tools_accounts_account_id', required: ['account_id'] };
 
 // List external tools
@@ -46,7 +46,7 @@ export const listExternalToolsAccounts = { type: 'LIST_EXTERNAL_TOOLS_ACCOUNTS',
 //   selectable
 //   include_parents
 // }
-// return canvasRequest(list_external_tools_groups, {group_id}, query);
+// return canvasRequest(list_external_tools_groups, {group_id, ...query});
 export const listExternalToolsGroups = { type: 'LIST_EXTERNAL_TOOLS_GROUPS', method: 'get', key: 'list_external_tools_groupslist_external_tools_groups_group_id', required: ['group_id'] };
 
 // Get a sessionless launch url for an external tool.
@@ -65,7 +65,7 @@ export const listExternalToolsGroups = { type: 'LIST_EXTERNAL_TOOLS_GROUPS', met
 //   module_item_id
 //   launch_type
 // }
-// return canvasRequest(get_sessionless_launch_url_for_external_tool_courses, {course_id}, query);
+// return canvasRequest(get_sessionless_launch_url_for_external_tool_courses, {course_id, ...query});
 export const getSessionlessLaunchUrlForExternalToolCourses = { type: 'GET_SESSIONLESS_LAUNCH_URL_FOR_EXTERNAL_TOOL_COURSES', method: 'get', key: 'get_sessionless_launch_url_for_external_tool_coursesget_sessionless_launch_url_for_external_tool_courses_course_id', required: ['course_id'] };
 
 // Get a sessionless launch url for an external tool.
@@ -84,7 +84,7 @@ export const getSessionlessLaunchUrlForExternalToolCourses = { type: 'GET_SESSIO
 //   module_item_id
 //   launch_type
 // }
-// return canvasRequest(get_sessionless_launch_url_for_external_tool_accounts, {account_id}, query);
+// return canvasRequest(get_sessionless_launch_url_for_external_tool_accounts, {account_id, ...query});
 export const getSessionlessLaunchUrlForExternalToolAccounts = { type: 'GET_SESSIONLESS_LAUNCH_URL_FOR_EXTERNAL_TOOL_ACCOUNTS', method: 'get', key: 'get_sessionless_launch_url_for_external_tool_accountsget_sessionless_launch_url_for_external_tool_accounts_account_id', required: ['account_id'] };
 
 // Get a single external tool
@@ -115,7 +115,7 @@ export const getSingleExternalToolAccounts = { type: 'GET_SINGLE_EXTERNAL_TOOL_A
 // API Url: courses/{course_id}/external_tools
 //
 // Example:
-// const query = {
+// const body = {
 //   name (required)
 //   privacy_level (required)
 //   consumer_key (required)
@@ -131,9 +131,11 @@ export const getSingleExternalToolAccounts = { type: 'GET_SINGLE_EXTERNAL_TOOL_A
 //   account_navigation[text]
 //   account_navigation[selection_width]
 //   account_navigation[selection_height]
+//   account_navigation[display_type]
 //   user_navigation[url]
 //   user_navigation[enabled]
 //   user_navigation[text]
+//   user_navigation[visibility]
 //   course_home_sub_navigation[url]
 //   course_home_sub_navigation[enabled]
 //   course_home_sub_navigation[text]
@@ -143,6 +145,7 @@ export const getSingleExternalToolAccounts = { type: 'GET_SINGLE_EXTERNAL_TOOL_A
 //   course_navigation[visibility]
 //   course_navigation[windowTarget]
 //   course_navigation[default]
+//   course_navigation[display_type]
 //   editor_button[url]
 //   editor_button[enabled]
 //   editor_button[icon_url]
@@ -175,7 +178,7 @@ export const getSingleExternalToolAccounts = { type: 'GET_SINGLE_EXTERNAL_TOOL_A
 //   not_selectable
 //   oauth_compliant
 // }
-// return canvasRequest(create_external_tool_courses, {course_id}, query);
+// return canvasRequest(create_external_tool_courses, {course_id}, body);
 export const createExternalToolCourses = { type: 'CREATE_EXTERNAL_TOOL_COURSES', method: 'post', key: 'create_external_tool_coursescreate_external_tool_courses_course_id', required: ['course_id'] };
 
 // Create an external tool
@@ -186,7 +189,7 @@ export const createExternalToolCourses = { type: 'CREATE_EXTERNAL_TOOL_COURSES',
 // API Url: accounts/{account_id}/external_tools
 //
 // Example:
-// const query = {
+// const body = {
 //   name (required)
 //   privacy_level (required)
 //   consumer_key (required)
@@ -202,9 +205,11 @@ export const createExternalToolCourses = { type: 'CREATE_EXTERNAL_TOOL_COURSES',
 //   account_navigation[text]
 //   account_navigation[selection_width]
 //   account_navigation[selection_height]
+//   account_navigation[display_type]
 //   user_navigation[url]
 //   user_navigation[enabled]
 //   user_navigation[text]
+//   user_navigation[visibility]
 //   course_home_sub_navigation[url]
 //   course_home_sub_navigation[enabled]
 //   course_home_sub_navigation[text]
@@ -214,6 +219,7 @@ export const createExternalToolCourses = { type: 'CREATE_EXTERNAL_TOOL_COURSES',
 //   course_navigation[visibility]
 //   course_navigation[windowTarget]
 //   course_navigation[default]
+//   course_navigation[display_type]
 //   editor_button[url]
 //   editor_button[enabled]
 //   editor_button[icon_url]
@@ -246,7 +252,7 @@ export const createExternalToolCourses = { type: 'CREATE_EXTERNAL_TOOL_COURSES',
 //   not_selectable
 //   oauth_compliant
 // }
-// return canvasRequest(create_external_tool_accounts, {account_id}, query);
+// return canvasRequest(create_external_tool_accounts, {account_id}, body);
 export const createExternalToolAccounts = { type: 'CREATE_EXTERNAL_TOOL_ACCOUNTS', method: 'post', key: 'create_external_tool_accountscreate_external_tool_accounts_account_id', required: ['account_id'] };
 
 // Edit an external tool
