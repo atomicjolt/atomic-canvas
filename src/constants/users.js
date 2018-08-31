@@ -299,7 +299,7 @@ export const listUpcomingAssignmentsCalendarEvents = { type: 'LIST_UPCOMING_ASSI
 
 // List Missing Submissions
 // A paginated list of past-due assignments for which the student does not have a submission.
-// The user sending the request must either be an admin or a parent observer using the parent app
+// The user sending the request must either be the student, an admin or a parent observer using the parent app
 //
 // API Docs: https://canvas.instructure.com/doc/api/users.html
 // API Url: users/{user_id}/missing_submissions
@@ -307,6 +307,7 @@ export const listUpcomingAssignmentsCalendarEvents = { type: 'LIST_UPCOMING_ASSI
 // Example:
 // const query = {
 //   include
+//   filter
 // }
 // return canvasRequest(list_missing_submissions, {user_id, ...query});
 export const listMissingSubmissions = { type: 'LIST_MISSING_SUBMISSIONS', method: 'get', key: 'list_missing_submissionslist_missing_submissions_user_id', required: ['user_id'] };
@@ -587,18 +588,21 @@ export const mergeUserIntoAnotherUserAccounts = { type: 'MERGE_USER_INTO_ANOTHER
 // return canvasRequest(split_merged_users_into_separate_users, {id});
 export const splitMergedUsersIntoSeparateUsers = { type: 'SPLIT_MERGED_USERS_INTO_SEPARATE_USERS', method: 'post', key: 'split_merged_users_into_separate_userssplit_merged_users_into_separate_users_id', required: ['id'] };
 
-// Get a Pandata jwt token and its expiration date
-// Returns a jwt token that can be used to send events to Pandata
+// Get a Pandata Events jwt token and its expiration date
+// Returns a jwt auth and props token that can be used to send events to
+// Pandata.
+// 
+// NOTE: This is currently only available to the mobile developer keys.
 //
 // API Docs: https://canvas.instructure.com/doc/api/users.html
-// API Url: users/{id}/pandata_token
+// API Url: users/self/pandata_events_token
 //
 // Example:
 // const body = {
 //   app_key
 // }
-// return canvasRequest(get_pandata_jwt_token_and_its_expiration_date, {id}, body);
-export const getPandataJwtTokenAndItsExpirationDate = { type: 'GET_PANDATA_JWT_TOKEN_AND_ITS_EXPIRATION_DATE', method: 'post', key: 'get_pandata_jwt_token_and_its_expiration_dateget_pandata_jwt_token_and_its_expiration_date_id', required: ['id'] };
+// return canvasRequest(get_pandata_events_jwt_token_and_its_expiration_date, {}, body);
+export const getPandataEventsJwtTokenAndItsExpirationDate = { type: 'GET_PANDATA_EVENTS_JWT_TOKEN_AND_ITS_EXPIRATION_DATE', method: 'post', key: 'get_pandata_events_jwt_token_and_its_expiration_date', required: [] };
 
 // Get user profile
 // Returns user profile data, including user id, name, and profile pic.

@@ -101,6 +101,11 @@ export function ltiLaunch(name, launchURL) {
       url: launchURL,
       title: name,
     },
+  ]);
+}
+
+export function ltiLineItem(name, launchURL) {
+  return contentItems([
     {
       '@type': 'LtiLinkItem',
       mediaType: 'application/vnd.ims.lti.v1.ltilink',

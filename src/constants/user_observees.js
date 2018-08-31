@@ -36,6 +36,7 @@ export const listObservees = { type: 'LIST_OBSERVEES', method: 'get', key: 'list
 //   observee[unique_id]
 //   observee[password]
 //   access_token
+//   pairing_code
 //   root_account_id
 // }
 // return canvasRequest(add_observee_with_credentials, {user_id}, body);
