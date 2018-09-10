@@ -1,11 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-
-const select = state => ({
-  settings: state.settings
-});
+import { withSettings } from 'atomic-fuel/libs/components/settings';
 
 export class CanvasAuthentication extends React.Component {
   static defaultProps = {
@@ -58,4 +54,4 @@ export class CanvasAuthentication extends React.Component {
   }
 }
 
-export default connect(select)(CanvasAuthentication);
+export default withSettings(CanvasAuthentication);
