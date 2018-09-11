@@ -43,15 +43,9 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactRedux = require('react-redux');
+var _settings = require('atomic-fuel/libs/components/settings');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var select = function select(state) {
-  return {
-    settings: state.settings
-  };
-};
 
 var CanvasAuthentication = exports.CanvasAuthentication = (_temp = _class = function (_React$Component) {
   (0, _inherits3.default)(CanvasAuthentication, _React$Component);
@@ -108,4 +102,4 @@ var CanvasAuthentication = exports.CanvasAuthentication = (_temp = _class = func
   buttonClassName: "",
   buttonText: null
 }, _temp);
-exports.default = (0, _reactRedux.connect)(select)(CanvasAuthentication);
+exports.default = (0, _settings.withSettings)(CanvasAuthentication);
