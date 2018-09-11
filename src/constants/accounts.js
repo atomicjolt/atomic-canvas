@@ -68,15 +68,15 @@ export const permissions = { type: 'PERMISSIONS', method: 'get', key: 'permissio
 // return canvasRequest(get_sub_accounts_of_account, {account_id, ...query});
 export const getSubAccountsOfAccount = { type: 'GET_SUB_ACCOUNTS_OF_ACCOUNT', method: 'get', key: 'get_sub_accounts_of_accountget_sub_accounts_of_account_account_id', required: ['account_id'] };
 
+// Get the Terms of Service
 // Returns the terms of service for that account
-// 
 //
 // API Docs: https://canvas.instructure.com/doc/api/accounts.html
 // API Url: accounts/{account_id}/terms_of_service
 //
 // Example:
-// return canvasRequest(returns_terms_of_service_for_that_account, {account_id});
-export const returnsTermsOfServiceForThatAccount = { type: 'RETURNS_TERMS_OF_SERVICE_FOR_THAT_ACCOUNT', method: 'get', key: 'returns_terms_of_service_for_that_accountreturns_terms_of_service_for_that_account_account_id', required: ['account_id'] };
+// return canvasRequest(get_terms_of_service, {account_id});
+export const getTermsOfService = { type: 'GET_TERMS_OF_SERVICE', method: 'get', key: 'get_terms_of_serviceget_terms_of_service_account_id', required: ['account_id'] };
 
 // List active courses in an account
 // Retrieve a paginated list of courses in this account.

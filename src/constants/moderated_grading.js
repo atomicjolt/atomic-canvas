@@ -39,7 +39,7 @@ export const showProvisionalGradeStatusForStudent = { type: 'SHOW_PROVISIONAL_GR
 
 // Select provisional grade
 // Choose which provisional grade the student should receive for a submission.
-// The caller must have :moderate_grades rights.
+// The caller must be the final grader for the assignment or an admin with :select_final_grade rights.
 //
 // API Docs: https://canvas.instructure.com/doc/api/moderated_grading.html
 // API Url: courses/{course_id}/assignments/{assignment_id}/provisional_grades/{provisional_grade_id}/select
