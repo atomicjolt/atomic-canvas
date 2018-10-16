@@ -15,8 +15,8 @@ describe('error reducer', () => {
         type: 'AnythingisDone',
         error: {
           response: {
-            status: 403,
-            text: '{ message: "canvas_authorization_required" }'
+            status: 401,
+            text: '{"errors":[{"message":"Canvas API Token has expired."}],"canvas_authorization_required":true}'
           },
         },
       };
@@ -26,3 +26,4 @@ describe('error reducer', () => {
   });
 
 });
+

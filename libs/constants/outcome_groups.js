@@ -665,6 +665,7 @@ var createSubgroupCourses = exports.createSubgroupCourses = { type: 'CREATE_SUBG
 // Example:
 // const body = {
 //   source_outcome_group_id (required)
+//   async
 // }
 // return canvasRequest(import_outcome_group_global, {id}, body);
 var importOutcomeGroupGlobal = exports.importOutcomeGroupGlobal = { type: 'IMPORT_OUTCOME_GROUP_GLOBAL', method: 'post', key: 'import_outcome_group_globalimport_outcome_group_global_id', required: ['id'] };
@@ -689,6 +690,7 @@ var importOutcomeGroupGlobal = exports.importOutcomeGroupGlobal = { type: 'IMPOR
 // Example:
 // const body = {
 //   source_outcome_group_id (required)
+//   async
 // }
 // return canvasRequest(import_outcome_group_accounts, {account_id, id}, body);
 var importOutcomeGroupAccounts = exports.importOutcomeGroupAccounts = { type: 'IMPORT_OUTCOME_GROUP_ACCOUNTS', method: 'post', key: 'import_outcome_group_accountsimport_outcome_group_accounts_{account_id}_{id}', required: ['account_id', 'id'] };
@@ -713,6 +715,7 @@ var importOutcomeGroupAccounts = exports.importOutcomeGroupAccounts = { type: 'I
 // Example:
 // const body = {
 //   source_outcome_group_id (required)
+//   async
 // }
 // return canvasRequest(import_outcome_group_courses, {course_id, id}, body);
 var importOutcomeGroupCourses = exports.importOutcomeGroupCourses = { type: 'IMPORT_OUTCOME_GROUP_COURSES', method: 'post', key: 'import_outcome_group_coursesimport_outcome_group_courses_{course_id}_{id}', required: ['course_id', 'id'] };

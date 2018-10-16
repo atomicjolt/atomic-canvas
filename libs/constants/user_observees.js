@@ -41,6 +41,7 @@ var listObservees = exports.listObservees = { type: 'LIST_OBSERVEES', method: 'g
 //   observee[unique_id]
 //   observee[password]
 //   access_token
+//   pairing_code
 //   root_account_id
 // }
 // return canvasRequest(add_observee_with_credentials, {user_id}, body);

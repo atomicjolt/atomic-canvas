@@ -10,8 +10,8 @@ Object.defineProperty(exports, "__esModule", {
 // Returns the list of SIS imports for an account
 // 
 // Example:
-//   curl 'https://<canvas>/api/v1/accounts/<account_id>/sis_imports' \
-//     -H "Authorization: Bearer <token>"
+//   curl https://<canvas>/api/v1/accounts/<account_id>/sis_imports \
+//     -H 'Authorization: Bearer <token>'
 //
 // API Docs: https://canvas.instructure.com/doc/api/sis_imports.html
 // API Url: accounts/{account_id}/sis_imports
@@ -57,8 +57,8 @@ var importSisData = exports.importSisData = { type: 'IMPORT_SIS_DATA', method: '
 // Get the status of an already created SIS import.
 // 
 //   Examples:
-//     curl 'https://<canvas>/api/v1/accounts/<account_id>/sis_imports/<sis_import_id>' \
-//         -H "Authorization: Bearer <token>"
+//     curl https://<canvas>/api/v1/accounts/<account_id>/sis_imports/<sis_import_id> \
+//         -H 'Authorization: Bearer <token>'
 //
 // API Docs: https://canvas.instructure.com/doc/api/sis_imports.html
 // API Url: accounts/{account_id}/sis_imports/{id}
@@ -66,6 +66,29 @@ var importSisData = exports.importSisData = { type: 'IMPORT_SIS_DATA', method: '
 // Example:
 // return canvasRequest(get_sis_import_status, {account_id, id});
 var getSisImportStatus = exports.getSisImportStatus = { type: 'GET_SIS_IMPORT_STATUS', method: 'get', key: 'get_sis_import_statusget_sis_import_status_{account_id}_{id}', required: ['account_id', 'id'] };
+
+// Restore workflow_states of SIS imported items
+// This will restore the the workflow_state for all the items that changed
+// their workflow_state during the import being restored.
+// This will restore states for items imported with the following importers:
+// accounts.csv terms.csv courses.csv sections.csv group_categories.csv
+// groups.csv users.csv admins.csv
+// This also restores states for other items that changed during the import.
+// An example would be if an enrollment was deleted from a sis import and the
+// group_membership was also deleted as a result of the enrollment deletion,
+// both items would be restored when the sis batch is restored.
+//
+// API Docs: https://canvas.instructure.com/doc/api/sis_imports.html
+// API Url: accounts/{account_id}/sis_imports/{id}/restore_states
+//
+// Example:
+// const body = {
+//   batch_mode
+//   undelete_only
+//   unconclude_only
+// }
+// return canvasRequest(restore_workflow_states_of_sis_imported_items, {account_id, id}, body);
+var restoreWorkflowStatesOfSisImportedItems = exports.restoreWorkflowStatesOfSisImportedItems = { type: 'RESTORE_WORKFLOW_STATES_OF_SIS_IMPORTED_ITEMS', method: 'put', key: 'restore_workflow_states_of_sis_imported_itemsrestore_workflow_states_of_sis_imported_items_{account_id}_{id}', required: ['account_id', 'id'] };
 
 // Abort SIS import
 // Abort a SIS import that has not completed.

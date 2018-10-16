@@ -91,3 +91,31 @@ export const listEntriesForColumn = { type: 'LIST_ENTRIES_FOR_COLUMN', method: '
 // }
 // return canvasRequest(update_column_data, {course_id, id, user_id}, body);
 export const updateColumnData = { type: 'UPDATE_COLUMN_DATA', method: 'put', key: 'update_column_dataupdate_column_data_{course_id}_{id}_{user_id}', required: ['course_id', 'id', 'user_id'] };
+
+// Bulk update column data
+// Set the content of custom columns
+// 
+// {
+//   "column_data": [
+//     {
+//       "column_id": example_column_id,
+//       "user_id": example_student_id,
+//       "content": example_content
+//       },
+//       {
+//       "column_id": example_column_id,
+//       "user_id": example_student_id,
+//       "content: example_content
+//     }
+//   ]
+// }
+//
+// API Docs: https://canvas.instructure.com/doc/api/custom_gradebook_columns.html
+// API Url: courses/{course_id}/custom_gradebook_column_data
+//
+// Example:
+// const body = {
+//   column_data (required)
+// }
+// return canvasRequest(bulk_update_column_data, {course_id}, body);
+export const bulkUpdateColumnData = { type: 'BULK_UPDATE_COLUMN_DATA', method: 'put', key: 'bulk_update_column_databulk_update_column_data_course_id', required: ['course_id'] };

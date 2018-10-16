@@ -29,6 +29,17 @@ var listStudentsSelectedForModeration = exports.listStudentsSelectedForModeratio
 // return canvasRequest(select_students_for_moderation, {course_id, assignment_id}, body);
 var selectStudentsForModeration = exports.selectStudentsForModeration = { type: 'SELECT_STUDENTS_FOR_MODERATION', method: 'post', key: 'select_students_for_moderationselect_students_for_moderation_{course_id}_{assignment_id}', required: ['course_id', 'assignment_id'] };
 
+// Bulk select provisional grades
+// Choose which provisional grades will be received by associated students for an assignment.
+// The caller must be the final grader for the assignment or an admin with :select_final_grade rights.
+//
+// API Docs: https://canvas.instructure.com/doc/api/moderated_grading.html
+// API Url: courses/{course_id}/assignments/{assignment_id}/provisional_grades/bulk_select
+//
+// Example:
+// return canvasRequest(bulk_select_provisional_grades, {course_id, assignment_id});
+var bulkSelectProvisionalGrades = exports.bulkSelectProvisionalGrades = { type: 'BULK_SELECT_PROVISIONAL_GRADES', method: 'put', key: 'bulk_select_provisional_gradesbulk_select_provisional_grades_{course_id}_{assignment_id}', required: ['course_id', 'assignment_id'] };
+
 // Show provisional grade status for a student
 // Tell whether the student's submission needs one or more provisional grades.
 //
@@ -44,7 +55,7 @@ var showProvisionalGradeStatusForStudent = exports.showProvisionalGradeStatusFor
 
 // Select provisional grade
 // Choose which provisional grade the student should receive for a submission.
-// The caller must have :moderate_grades rights.
+// The caller must be the final grader for the assignment or an admin with :select_final_grade rights.
 //
 // API Docs: https://canvas.instructure.com/doc/api/moderated_grading.html
 // API Url: courses/{course_id}/assignments/{assignment_id}/provisional_grades/{provisional_grade_id}/select

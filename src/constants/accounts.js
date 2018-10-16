@@ -43,7 +43,10 @@ export const getSingleAccount = { type: 'GET_SINGLE_ACCOUNT', method: 'get', key
 // Returns permission information for the calling user and the given account.
 // You may use `self` as the account id to check permissions against the domain root account.
 // The caller must have an account role or admin (teacher/TA/designer) enrollment in a course
-// in the account. See also {api:CoursesController#permissions the Course counterpart}.
+// in the account.
+// 
+// See also the {api:CoursesController#permissions Course} and {api:GroupsController#permissions Group}
+// counterparts.
 //
 // API Docs: https://canvas.instructure.com/doc/api/accounts.html
 // API Url: accounts/{account_id}/permissions
@@ -77,6 +80,16 @@ export const getSubAccountsOfAccount = { type: 'GET_SUB_ACCOUNTS_OF_ACCOUNT', me
 // Example:
 // return canvasRequest(get_terms_of_service, {account_id});
 export const getTermsOfService = { type: 'GET_TERMS_OF_SERVICE', method: 'get', key: 'get_terms_of_serviceget_terms_of_service_account_id', required: ['account_id'] };
+
+// Get help links
+// Returns the help links for that account
+//
+// API Docs: https://canvas.instructure.com/doc/api/accounts.html
+// API Url: accounts/{account_id}/help_links
+//
+// Example:
+// return canvasRequest(get_help_links, {account_id});
+export const getHelpLinks = { type: 'GET_HELP_LINKS', method: 'get', key: 'get_help_linksget_help_links_account_id', required: ['account_id'] };
 
 // List active courses in an account
 // Retrieve a paginated list of courses in this account.

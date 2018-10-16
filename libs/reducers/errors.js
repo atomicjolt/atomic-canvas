@@ -16,7 +16,7 @@ exports.default = function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments[1];
 
-  if (action.error && action.error.response && action.error.response.status == 403 && action.error.response.text.indexOf('canvas_authorization_required') >= 0) {
+  if (action.error && action.error.response && action.error.response.text.indexOf('canvas_authorization_required') >= 0) {
     var newState = _lodash2.default.cloneDeep(state);
     newState.canvasReAuthorizationRequired = true;
     return newState;

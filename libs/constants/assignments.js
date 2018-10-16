@@ -48,7 +48,6 @@ var listAssignmentsForUser = exports.listAssignmentsForUser = { type: 'LIST_ASSI
 
 // Get a single assignment
 // Returns the assignment with the given id.
-//  "observed_users" is passed, submissions for observed users will also be included.
 //
 // API Docs: https://canvas.instructure.com/doc/api/assignments.html
 // API Url: courses/{course_id}/assignments/{id}

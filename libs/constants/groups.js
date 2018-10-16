@@ -219,6 +219,21 @@ var groupActivityStream = exports.groupActivityStream = { type: 'GROUP_ACTIVITY_
 // return canvasRequest(group_activity_stream_summary, {group_id});
 var groupActivityStreamSummary = exports.groupActivityStreamSummary = { type: 'GROUP_ACTIVITY_STREAM_SUMMARY', method: 'get', key: 'group_activity_stream_summarygroup_activity_stream_summary_group_id', required: ['group_id'] };
 
+// Permissions
+// Returns permission information for the calling user in the given group.
+// See also the {api:AccountsController#permissions Account} and
+// {api:CoursesController#permissions Course} counterparts.
+//
+// API Docs: https://canvas.instructure.com/doc/api/groups.html
+// API Url: groups/{group_id}/permissions
+//
+// Example:
+// const query = {
+//   permissions
+// }
+// return canvasRequest(permissions, {group_id, ...query});
+var permissions = exports.permissions = { type: 'PERMISSIONS', method: 'get', key: 'permissionspermissions_group_id', required: ['group_id'] };
+
 // List group memberships
 // A paginated list of the members of a group.
 //

@@ -412,7 +412,8 @@ export const getEffectiveDueDates = { type: 'GET_EFFECTIVE_DUE_DATES', method: '
 
 // Permissions
 // Returns permission information for the calling user in the given course.
-// See also {api:AccountsController#permissions the Account counterpart}.
+// See also the {api:AccountsController#permissions Account} and
+// {api:GroupsController#permissions Group} counterparts.
 //
 // API Docs: https://canvas.instructure.com/doc/api/courses.html
 // API Url: courses/{course_id}/permissions

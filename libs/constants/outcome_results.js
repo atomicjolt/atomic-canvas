@@ -17,6 +17,7 @@ Object.defineProperty(exports, "__esModule", {
 //   user_ids
 //   outcome_ids
 //   include
+//   include_hidden
 // }
 // return canvasRequest(get_outcome_results, {course_id, ...query});
 var getOutcomeResults = exports.getOutcomeResults = { type: 'GET_OUTCOME_RESULTS', method: 'get', key: 'get_outcome_resultsget_outcome_results_course_id', required: ['course_id'] };
@@ -31,9 +32,14 @@ var getOutcomeResults = exports.getOutcomeResults = { type: 'GET_OUTCOME_RESULTS
 // Example:
 // const query = {
 //   aggregate
+//   aggregate_stat
 //   user_ids
 //   outcome_ids
 //   include
+//   exclude
+//   sort_by
+//   sort_outcome_id
+//   sort_order
 // }
 // return canvasRequest(get_outcome_result_rollups, {course_id, ...query});
 var getOutcomeResultRollups = exports.getOutcomeResultRollups = { type: 'GET_OUTCOME_RESULT_ROLLUPS', method: 'get', key: 'get_outcome_result_rollupsget_outcome_result_rollups_course_id', required: ['course_id'] };

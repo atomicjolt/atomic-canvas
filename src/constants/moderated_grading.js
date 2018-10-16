@@ -24,6 +24,17 @@ export const listStudentsSelectedForModeration = { type: 'LIST_STUDENTS_SELECTED
 // return canvasRequest(select_students_for_moderation, {course_id, assignment_id}, body);
 export const selectStudentsForModeration = { type: 'SELECT_STUDENTS_FOR_MODERATION', method: 'post', key: 'select_students_for_moderationselect_students_for_moderation_{course_id}_{assignment_id}', required: ['course_id', 'assignment_id'] };
 
+// Bulk select provisional grades
+// Choose which provisional grades will be received by associated students for an assignment.
+// The caller must be the final grader for the assignment or an admin with :select_final_grade rights.
+//
+// API Docs: https://canvas.instructure.com/doc/api/moderated_grading.html
+// API Url: courses/{course_id}/assignments/{assignment_id}/provisional_grades/bulk_select
+//
+// Example:
+// return canvasRequest(bulk_select_provisional_grades, {course_id, assignment_id});
+export const bulkSelectProvisionalGrades = { type: 'BULK_SELECT_PROVISIONAL_GRADES', method: 'put', key: 'bulk_select_provisional_gradesbulk_select_provisional_grades_{course_id}_{assignment_id}', required: ['course_id', 'assignment_id'] };
+
 // Show provisional grade status for a student
 // Tell whether the student's submission needs one or more provisional grades.
 //
@@ -80,15 +91,3 @@ export const copyProvisionalGrade = { type: 'COPY_PROVISIONAL_GRADE', method: 'p
 // return canvasRequest(publish_provisional_grades_for_assignment, {course_id, assignment_id});
 export const publishProvisionalGradesForAssignment = { type: 'PUBLISH_PROVISIONAL_GRADES_FOR_ASSIGNMENT', method: 'post', key: 'publish_provisional_grades_for_assignmentpublish_provisional_grades_for_assignment_{course_id}_{assignment_id}', required: ['course_id', 'assignment_id'] };
 
-// Show provisional grade status for a student
-// Determine whether or not the student's submission needs one or more provisional grades.
-//
-// API Docs: https://canvas.instructure.com/doc/api/moderated_grading.html
-// API Url: courses/{course_id}/assignments/{assignment_id}/anonymous_provisional_grades/status
-//
-// Example:
-// const query = {
-//   anonymous_id
-// }
-// return canvasRequest(show_provisional_grade_status_for_student, {course_id, assignment_id, ...query});
-export const showProvisionalGradeStatusForStudent = { type: 'SHOW_PROVISIONAL_GRADE_STATUS_FOR_STUDENT', method: 'get', key: 'show_provisional_grade_status_for_studentshow_provisional_grade_status_for_student_{course_id}_{assignment_id}', required: ['course_id', 'assignment_id'] };

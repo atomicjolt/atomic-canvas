@@ -42,3 +42,16 @@ export const showOutcome = { type: 'SHOW_OUTCOME', method: 'get', key: 'show_out
 // }
 // return canvasRequest(update_outcome, {id}, body);
 export const updateOutcome = { type: 'UPDATE_OUTCOME', method: 'put', key: 'update_outcomeupdate_outcome_id', required: ['id'] };
+
+// Get aligned assignments for an outcome in a course for a particular student
+// 
+//
+// API Docs: https://canvas.instructure.com/doc/api/outcomes.html
+// API Url: courses/{course_id}/outcome_alignments
+//
+// Example:
+// const query = {
+//   student_id
+// }
+// return canvasRequest(get_aligned_assignments_for_outcome_in_course_for_particular_student, {course_id, ...query});
+export const getAlignedAssignmentsForOutcomeInCourseForParticularStudent = { type: 'GET_ALIGNED_ASSIGNMENTS_FOR_OUTCOME_IN_COURSE_FOR_PARTICULAR_STUDENT', method: 'get', key: 'get_aligned_assignments_for_outcome_in_course_for_particular_studentget_aligned_assignments_for_outcome_in_course_for_particular_student_course_id', required: ['course_id'] };

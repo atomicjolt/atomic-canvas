@@ -48,7 +48,10 @@ var getSingleAccount = exports.getSingleAccount = { type: 'GET_SINGLE_ACCOUNT', 
 // Returns permission information for the calling user and the given account.
 // You may use `self` as the account id to check permissions against the domain root account.
 // The caller must have an account role or admin (teacher/TA/designer) enrollment in a course
-// in the account. See also {api:CoursesController#permissions the Course counterpart}.
+// in the account.
+// 
+// See also the {api:CoursesController#permissions Course} and {api:GroupsController#permissions Group}
+// counterparts.
 //
 // API Docs: https://canvas.instructure.com/doc/api/accounts.html
 // API Url: accounts/{account_id}/permissions
@@ -73,15 +76,25 @@ var permissions = exports.permissions = { type: 'PERMISSIONS', method: 'get', ke
 // return canvasRequest(get_sub_accounts_of_account, {account_id, ...query});
 var getSubAccountsOfAccount = exports.getSubAccountsOfAccount = { type: 'GET_SUB_ACCOUNTS_OF_ACCOUNT', method: 'get', key: 'get_sub_accounts_of_accountget_sub_accounts_of_account_account_id', required: ['account_id'] };
 
+// Get the Terms of Service
 // Returns the terms of service for that account
-// 
 //
 // API Docs: https://canvas.instructure.com/doc/api/accounts.html
 // API Url: accounts/{account_id}/terms_of_service
 //
 // Example:
-// return canvasRequest(returns_terms_of_service_for_that_account, {account_id});
-var returnsTermsOfServiceForThatAccount = exports.returnsTermsOfServiceForThatAccount = { type: 'RETURNS_TERMS_OF_SERVICE_FOR_THAT_ACCOUNT', method: 'get', key: 'returns_terms_of_service_for_that_accountreturns_terms_of_service_for_that_account_account_id', required: ['account_id'] };
+// return canvasRequest(get_terms_of_service, {account_id});
+var getTermsOfService = exports.getTermsOfService = { type: 'GET_TERMS_OF_SERVICE', method: 'get', key: 'get_terms_of_serviceget_terms_of_service_account_id', required: ['account_id'] };
+
+// Get help links
+// Returns the help links for that account
+//
+// API Docs: https://canvas.instructure.com/doc/api/accounts.html
+// API Url: accounts/{account_id}/help_links
+//
+// Example:
+// return canvasRequest(get_help_links, {account_id});
+var getHelpLinks = exports.getHelpLinks = { type: 'GET_HELP_LINKS', method: 'get', key: 'get_help_linksget_help_links_account_id', required: ['account_id'] };
 
 // List active courses in an account
 // Retrieve a paginated list of courses in this account.

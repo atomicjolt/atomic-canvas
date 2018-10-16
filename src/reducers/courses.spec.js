@@ -14,7 +14,7 @@ describe('courses reducer', () => {
     });
   });
 
-  describe('canvas_authorization_required', () => {
+  describe('changes to courses', () => {
     it('responds to listYourCourses by adding courses', () => {
       const action = {
         type: `${listYourCourses.type}${DONE}`,

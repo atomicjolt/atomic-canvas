@@ -7,7 +7,7 @@ initialize {
       "action": "http://www.example.com",
       "enctype": "application/x-www-form-urlencoded",
       "method": "post",
-      "style": "display:none;",
+      "style": "display:none",
     },
     "children": Array [
       Object {

@@ -9,6 +9,7 @@ exports.embedMultipleHtml = embedMultipleHtml;
 exports.embedImage = embedImage;
 exports.imageLink = imageLink;
 exports.ltiLaunch = ltiLaunch;
+exports.ltiLineItem = ltiLineItem;
 exports.embedIframe = embedIframe;
 exports.embedLtiIframe = embedLtiIframe;
 exports.embedLtiIframeWriteBack = embedLtiIframeWriteBack;
@@ -104,7 +105,11 @@ function ltiLaunch(name, launchURL) {
     mediaType: 'application/vnd.ims.lti.v1.ltilink',
     url: launchURL,
     title: name
-  }, {
+  }]);
+}
+
+function ltiLineItem(name, launchURL) {
+  return contentItems([{
     '@type': 'LtiLinkItem',
     mediaType: 'application/vnd.ims.lti.v1.ltilink',
     url: launchURL,

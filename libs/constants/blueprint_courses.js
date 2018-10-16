@@ -118,6 +118,16 @@ var showBlueprintMigration = exports.showBlueprintMigration = { type: 'SHOW_BLUE
 // return canvasRequest(get_migration_details, {course_id, template_id, id});
 var getMigrationDetails = exports.getMigrationDetails = { type: 'GET_MIGRATION_DETAILS', method: 'get', key: 'get_migration_detailsget_migration_details_{course_id}_{template_id}_{id}', required: ['course_id', 'template_id', 'id'] };
 
+// List blueprint subscriptions
+// Returns a list of blueprint subscriptions for the given course. (Currently a course may have no more than one.)
+//
+// API Docs: https://canvas.instructure.com/doc/api/blueprint_courses.html
+// API Url: courses/{course_id}/blueprint_subscriptions
+//
+// Example:
+// return canvasRequest(list_blueprint_subscriptions, {course_id});
+var listBlueprintSubscriptions = exports.listBlueprintSubscriptions = { type: 'LIST_BLUEPRINT_SUBSCRIPTIONS', method: 'get', key: 'list_blueprint_subscriptionslist_blueprint_subscriptions_course_id', required: ['course_id'] };
+
 // List blueprint imports
 // Shows a paginated list of migrations imported into a course associated with a blueprint, starting with the most recent. See also
 // {api:MasterCourses::MasterTemplatesController#migrations_index the blueprint course side}.
