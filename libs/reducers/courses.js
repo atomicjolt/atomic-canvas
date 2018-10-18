@@ -23,10 +23,10 @@ exports.default = function () {
 
   switch (action.type) {
 
-    case '' + _courses.listYourCourses.type + _wrapper.DONE:
+    case '' + _courses.listYourCourses.type + _wrapper.DONE && action.payload:
       return _lodash2.default.concat(state, action.payload);
 
-    case '' + _courses.listCoursesForUser.type + _wrapper.DONE:
+    case '' + _courses.listCoursesForUser.type + _wrapper.DONE && action.payload:
       return _lodash2.default.concat(state, action.payload);
 
     default:
