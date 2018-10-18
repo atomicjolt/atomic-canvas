@@ -11,10 +11,10 @@ export default (state = initialState, action) => {
 
   switch (action.type) {
 
-    case `${listYourCourses.type}${DONE}`:
+    case `${listYourCourses.type}${DONE}` && action.payload:
       return _.concat(state, action.payload);
 
-    case `${listCoursesForUser.type}${DONE}`:
+    case `${listCoursesForUser.type}${DONE}` && action.payload:
       return _.concat(state, action.payload);
 
     default:
