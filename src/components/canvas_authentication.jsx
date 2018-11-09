@@ -36,9 +36,15 @@ export class CanvasAuthentication extends React.Component {
 
   renderSettings() {
     const settings = { ...this.props.settings, ...this.props.overrides };
-    return _.map(settings, (value, key) => (
-      <input key={key} type="hidden" value={value || ''} name={key} />
-    ));
+    return _.map(settings, (value, key) => {
+      let outValue = value || '';
+      if (_.isObjectLike(value)) {
+        outValue = JSON.stringify(outValue);
+      }
+      return (
+        <input key={key} type="hidden" value={outValue} name={key} />
+      )
+    });
   }
 
   render() {
