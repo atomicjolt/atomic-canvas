@@ -5,6 +5,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.CanvasAuthentication = undefined;
 
+var _stringify = require('babel-runtime/core-js/json/stringify');
+
+var _stringify2 = _interopRequireDefault(_stringify);
+
 var _extends2 = require('babel-runtime/helpers/extends');
 
 var _extends3 = _interopRequireDefault(_extends2);
@@ -73,7 +77,11 @@ var CanvasAuthentication = exports.CanvasAuthentication = (_temp = _class = func
     value: function renderSettings() {
       var settings = (0, _extends3.default)({}, this.props.settings, this.props.overrides);
       return _lodash2.default.map(settings, function (value, key) {
-        return _react2.default.createElement('input', { key: key, type: 'hidden', value: value || '', name: key });
+        var outValue = value || '';
+        if (_lodash2.default.isObjectLike(value)) {
+          outValue = (0, _stringify2.default)(outValue);
+        }
+        return _react2.default.createElement('input', { key: key, type: 'hidden', value: outValue, name: key });
       });
     }
   }, {

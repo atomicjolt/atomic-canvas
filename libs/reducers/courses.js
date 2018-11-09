@@ -20,13 +20,16 @@ exports.default = function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments[1];
 
+  if (!action.payload) {
+    return state;
+  }
 
   switch (action.type) {
 
-    case '' + _courses.listYourCourses.type + _wrapper.DONE && action.payload:
+    case '' + _courses.listYourCourses.type + _wrapper.DONE:
       return _lodash2.default.concat(state, action.payload);
 
-    case '' + _courses.listCoursesForUser.type + _wrapper.DONE && action.payload:
+    case '' + _courses.listCoursesForUser.type + _wrapper.DONE:
       return _lodash2.default.concat(state, action.payload);
 
     default:
