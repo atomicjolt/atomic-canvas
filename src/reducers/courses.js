@@ -8,13 +8,14 @@ import { DONE } from 'atomic-fuel/libs/constants/wrapper';
 const initialState = [];
 
 export default (state = initialState, action) => {
+  if (!action.payload) { return state; }
 
   switch (action.type) {
 
-    case `${listYourCourses.type}${DONE}` && action.payload:
+    case `${listYourCourses.type}${DONE}`:
       return _.concat(state, action.payload);
 
-    case `${listCoursesForUser.type}${DONE}` && action.payload:
+    case `${listCoursesForUser.type}${DONE}`:
       return _.concat(state, action.payload);
 
     default:
