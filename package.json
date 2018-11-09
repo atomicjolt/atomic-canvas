@@ -1,6 +1,6 @@
 {
   "name": "atomic-canvas",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "description": "Client side canvas api for Atomic Jolt",
   "scripts": {
     "test": "jest --config=jest_config.json",
