@@ -287,8 +287,7 @@ export const listTodoItems = { type: 'LIST_TODO_ITEMS', method: 'get', key: 'lis
 export const listCountsForTodoItems = { type: 'LIST_COUNTS_FOR_TODO_ITEMS', method: 'get', key: 'list_counts_for_todo_items', required: [] };
 
 // List upcoming assignments, calendar events
-// A paginated list of the current user's upcoming events, i.e. the same things shown
-// in the dashboard 'Coming Up' sidebar.
+// A paginated list of the current user's upcoming events.
 //
 // API Docs: https://canvas.instructure.com/doc/api/users.html
 // API Url: users/self/upcoming_events

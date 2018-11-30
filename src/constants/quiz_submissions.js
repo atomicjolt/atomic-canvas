@@ -91,9 +91,9 @@ export const createQuizSubmissionStartQuizTakingSession = { type: 'CREATE_QUIZ_S
 //
 // Example:
 // const body = {
-//   attempt (required)
-//   fudge_points
-//   questions
+//   quiz_submissions[attempt] (required)
+//   quiz_submissions[fudge_points]
+//   quiz_submissions[questions]
 // }
 // return canvasRequest(update_student_question_scores_and_comments, {course_id, quiz_id, id}, body);
 export const updateStudentQuestionScoresAndComments = { type: 'UPDATE_STUDENT_QUESTION_SCORES_AND_COMMENTS', method: 'put', key: 'update_student_question_scores_and_commentsupdate_student_question_scores_and_comments_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };

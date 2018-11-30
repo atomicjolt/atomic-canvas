@@ -12,12 +12,12 @@
 //
 // Example:
 // const body = {
-//   user_id (required)
-//   extra_attempts
-//   extra_time
-//   manually_unlocked
-//   extend_from_now
-//   extend_from_end_at
+//   quiz_extensions[user_id] (required)
+//   quiz_extensions[extra_attempts]
+//   quiz_extensions[extra_time]
+//   quiz_extensions[manually_unlocked]
+//   quiz_extensions[extend_from_now]
+//   quiz_extensions[extend_from_end_at]
 // }
 // return canvasRequest(quiz_extensions_set_extensions_for_student_quiz_submissions, {course_id, quiz_id}, body);
 export const quizExtensionsSetExtensionsForStudentQuizSubmissions = { type: 'QUIZ_EXTENSIONS_SET_EXTENSIONS_FOR_STUDENT_QUIZ_SUBMISSIONS', method: 'post', key: 'quiz_extensions_set_extensions_for_student_quiz_submissionsquiz_extensions_set_extensions_for_student_quiz_submissions_{course_id}_{quiz_id}', required: ['course_id', 'quiz_id'] };

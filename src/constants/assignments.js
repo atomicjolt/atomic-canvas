@@ -12,7 +12,7 @@
 export const deleteAssignment = { type: 'DELETE_ASSIGNMENT', method: 'delete', key: 'delete_assignmentdelete_assignment_{course_id}_{id}', required: ['course_id', 'id'] };
 
 // List assignments
-// Returns the paginated list of assignments for the current context.
+// Returns the paginated list of assignments for the current course or assignment group.
 //
 // API Docs: https://canvas.instructure.com/doc/api/assignments.html
 // API Url: courses/{course_id}/assignments
@@ -27,8 +27,27 @@ export const deleteAssignment = { type: 'DELETE_ASSIGNMENT', method: 'delete', k
 //   assignment_ids
 //   order_by
 // }
-// return canvasRequest(list_assignments, {course_id, ...query});
-export const listAssignments = { type: 'LIST_ASSIGNMENTS', method: 'get', key: 'list_assignmentslist_assignments_course_id', required: ['course_id'] };
+// return canvasRequest(list_assignments_assignments, {course_id, ...query});
+export const listAssignmentsAssignments = { type: 'LIST_ASSIGNMENTS_ASSIGNMENTS', method: 'get', key: 'list_assignments_assignmentslist_assignments_assignments_course_id', required: ['course_id'] };
+
+// List assignments
+// Returns the paginated list of assignments for the current course or assignment group.
+//
+// API Docs: https://canvas.instructure.com/doc/api/assignments.html
+// API Url: courses/{course_id}/assignment_groups/{assignment_group_id}/assignments
+//
+// Example:
+// const query = {
+//   include
+//   search_term
+//   override_assignment_dates
+//   needs_grading_count_by_section
+//   bucket
+//   assignment_ids
+//   order_by
+// }
+// return canvasRequest(list_assignments_assignment_groups, {course_id, assignment_group_id, ...query});
+export const listAssignmentsAssignmentGroups = { type: 'LIST_ASSIGNMENTS_ASSIGNMENT_GROUPS', method: 'get', key: 'list_assignments_assignment_groupslist_assignments_assignment_groups_{course_id}_{assignment_group_id}', required: ['course_id', 'assignment_group_id'] };
 
 // List assignments for user
 // Returns the paginated list of assignments for the specified user if the current user has rights to view.

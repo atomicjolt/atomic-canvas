@@ -1,6 +1,64 @@
 //
 // Rubrics
 //
+// Create a single rubric
+// Returns the rubric with the given id.
+// 
+// Unfortuantely this endpoint does not return a standard Rubric object,
+// instead it returns a hash that looks like
+//   { 'rubric': Rubric, 'rubric_association': RubricAssociation }
+// 
+// This may eventually be deprecated in favor of a more standardized return
+// value, but that is not currently planned.
+//
+// API Docs: https://canvas.instructure.com/doc/api/rubrics.html
+// API Url: courses/{course_id}/rubrics
+//
+// Example:
+// const body = {
+//   id
+//   rubric_association_id
+//   rubric[title]
+//   rubric[free_form_criterion_comments]
+//   rubric_association[association_id]
+//   rubric_association[association_type]
+//   rubric_association[use_for_grading]
+//   rubric_association[hide_score_total]
+//   rubric_association[purpose]
+//   rubric[criteria]
+// }
+// return canvasRequest(create_single_rubric, {course_id}, body);
+export const createSingleRubric = { type: 'CREATE_SINGLE_RUBRIC', method: 'post', key: 'create_single_rubriccreate_single_rubric_course_id', required: ['course_id'] };
+
+// Update a single rubric
+// Returns the rubric with the given id.
+// 
+// Unfortuantely this endpoint does not return a standard Rubric object,
+// instead it returns a hash that looks like
+//   { 'rubric': Rubric, 'rubric_association': RubricAssociation }
+// 
+// This may eventually be deprecated in favor of a more standardized return
+// value, but that is not currently planned.
+//
+// API Docs: https://canvas.instructure.com/doc/api/rubrics.html
+// API Url: courses/{course_id}/rubrics/{id}
+//
+// Example:
+// const body = {
+//   rubric_association_id
+//   rubric[title]
+//   rubric[free_form_criterion_comments]
+//   rubric[skip_updating_points_possible]
+//   rubric_association[association_id]
+//   rubric_association[association_type]
+//   rubric_association[use_for_grading]
+//   rubric_association[hide_score_total]
+//   rubric_association[purpose]
+//   rubric[criteria]
+// }
+// return canvasRequest(update_single_rubric, {course_id, id}, body);
+export const updateSingleRubric = { type: 'UPDATE_SINGLE_RUBRIC', method: 'put', key: 'update_single_rubricupdate_single_rubric_{course_id}_{id}', required: ['course_id', 'id'] };
+
 // List rubrics
 // Returns the paginated list of active rubrics for the current context.
 //
