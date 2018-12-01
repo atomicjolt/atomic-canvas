@@ -95,3 +95,16 @@ var copyProvisionalGrade = exports.copyProvisionalGrade = { type: 'COPY_PROVISIO
 // Example:
 // return canvasRequest(publish_provisional_grades_for_assignment, {course_id, assignment_id});
 var publishProvisionalGradesForAssignment = exports.publishProvisionalGradesForAssignment = { type: 'PUBLISH_PROVISIONAL_GRADES_FOR_ASSIGNMENT', method: 'post', key: 'publish_provisional_grades_for_assignmentpublish_provisional_grades_for_assignment_{course_id}_{assignment_id}', required: ['course_id', 'assignment_id'] };
+
+// Show provisional grade status for a student
+// Determine whether or not the student's submission needs one or more provisional grades.
+//
+// API Docs: https://canvas.instructure.com/doc/api/moderated_grading.html
+// API Url: courses/{course_id}/assignments/{assignment_id}/anonymous_provisional_grades/status
+//
+// Example:
+// const query = {
+//   anonymous_id
+// }
+// return canvasRequest(Moderated_Grading_show_provisional_grade_status_for_student, {course_id, assignment_id, ...query});
+var moderatedGradingShowProvisionalGradeStatusForStudent = exports.moderatedGradingShowProvisionalGradeStatusForStudent = { type: 'MODERATED_GRADING_SHOW_PROVISIONAL_GRADE_STATUS_FOR_STUDENT', method: 'get', key: 'Moderated_Grading_show_provisional_grade_status_for_studentModerated_Grading_show_provisional_grade_status_for_student_{course_id}_{assignment_id}', required: ['course_id', 'assignment_id'] };

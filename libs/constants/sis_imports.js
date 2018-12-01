@@ -23,6 +23,21 @@ Object.defineProperty(exports, "__esModule", {
 // return canvasRequest(get_sis_import_list, {account_id, ...query});
 var getSisImportList = exports.getSisImportList = { type: 'GET_SIS_IMPORT_LIST', method: 'get', key: 'get_sis_import_listget_sis_import_list_account_id', required: ['account_id'] };
 
+// Get the current importing SIS import
+// Returns the SIS imports that are currently processing for an account. If no
+// imports are running, will return an empty array.
+// 
+// Example:
+//   curl https://<canvas>/api/v1/accounts/<account_id>/sis_imports/importing \
+//     -H 'Authorization: Bearer <token>'
+//
+// API Docs: https://canvas.instructure.com/doc/api/sis_imports.html
+// API Url: accounts/{account_id}/sis_imports/importing
+//
+// Example:
+// return canvasRequest(get_current_importing_sis_import, {account_id});
+var getCurrentImportingSisImport = exports.getCurrentImportingSisImport = { type: 'GET_CURRENT_IMPORTING_SIS_IMPORT', method: 'get', key: 'get_current_importing_sis_importget_current_importing_sis_import_account_id', required: ['account_id'] };
+
 // Import SIS data
 // Import SIS data into Canvas. Must be on a root account with SIS imports
 // enabled.

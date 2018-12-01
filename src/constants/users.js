@@ -346,8 +346,8 @@ export const hideAllStreamItems = { type: 'HIDE_ALL_STREAM_ITEMS', method: 'dele
 // API Url: users/{user_id}/files
 //
 // Example:
-// return canvasRequest(users_upload_file, {user_id});
-export const usersUploadFile = { type: 'USERS_UPLOAD_FILE', method: 'post', key: 'users_upload_fileusers_upload_file_user_id', required: ['user_id'] };
+// return canvasRequest(Users_upload_file, {user_id});
+export const usersUploadFile = { type: 'USERS_UPLOAD_FILE', method: 'post', key: 'Users_upload_fileUsers_upload_file_user_id', required: ['user_id'] };
 
 // Show user details
 // Shows details for user.

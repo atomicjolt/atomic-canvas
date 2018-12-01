@@ -177,8 +177,8 @@ var listGroupSUsers = exports.listGroupSUsers = { type: 'LIST_GROUP_S_USERS', me
 // API Url: groups/{group_id}/files
 //
 // Example:
-// return canvasRequest(groups_upload_file, {group_id});
-var groupsUploadFile = exports.groupsUploadFile = { type: 'GROUPS_UPLOAD_FILE', method: 'post', key: 'groups_upload_filegroups_upload_file_group_id', required: ['group_id'] };
+// return canvasRequest(Groups_upload_file, {group_id});
+var groupsUploadFile = exports.groupsUploadFile = { type: 'GROUPS_UPLOAD_FILE', method: 'post', key: 'Groups_upload_fileGroups_upload_file_group_id', required: ['group_id'] };
 
 // Preview processed html
 // Preview html content processed for this group
@@ -190,8 +190,8 @@ var groupsUploadFile = exports.groupsUploadFile = { type: 'GROUPS_UPLOAD_FILE', 
 // const body = {
 //   html
 // }
-// return canvasRequest(groups_preview_processed_html, {group_id}, body);
-var groupsPreviewProcessedHtml = exports.groupsPreviewProcessedHtml = { type: 'GROUPS_PREVIEW_PROCESSED_HTML', method: 'post', key: 'groups_preview_processed_htmlgroups_preview_processed_html_group_id', required: ['group_id'] };
+// return canvasRequest(Groups_preview_processed_html, {group_id}, body);
+var groupsPreviewProcessedHtml = exports.groupsPreviewProcessedHtml = { type: 'GROUPS_PREVIEW_PROCESSED_HTML', method: 'post', key: 'Groups_preview_processed_htmlGroups_preview_processed_html_group_id', required: ['group_id'] };
 
 // Group activity stream
 // Returns the current user's group-specific activity stream, paginated.
@@ -231,8 +231,8 @@ var groupActivityStreamSummary = exports.groupActivityStreamSummary = { type: 'G
 // const query = {
 //   permissions
 // }
-// return canvasRequest(permissions, {group_id, ...query});
-var permissions = exports.permissions = { type: 'PERMISSIONS', method: 'get', key: 'permissionspermissions_group_id', required: ['group_id'] };
+// return canvasRequest(Groups_permissions, {group_id, ...query});
+var groupsPermissions = exports.groupsPermissions = { type: 'GROUPS_PERMISSIONS', method: 'get', key: 'Groups_permissionsGroups_permissions_group_id', required: ['group_id'] };
 
 // List group memberships
 // A paginated list of the members of a group.

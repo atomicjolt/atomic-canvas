@@ -292,8 +292,7 @@ var listTodoItems = exports.listTodoItems = { type: 'LIST_TODO_ITEMS', method: '
 var listCountsForTodoItems = exports.listCountsForTodoItems = { type: 'LIST_COUNTS_FOR_TODO_ITEMS', method: 'get', key: 'list_counts_for_todo_items', required: [] };
 
 // List upcoming assignments, calendar events
-// A paginated list of the current user's upcoming events, i.e. the same things shown
-// in the dashboard 'Coming Up' sidebar.
+// A paginated list of the current user's upcoming events.
 //
 // API Docs: https://canvas.instructure.com/doc/api/users.html
 // API Url: users/self/upcoming_events
@@ -352,8 +351,8 @@ var hideAllStreamItems = exports.hideAllStreamItems = { type: 'HIDE_ALL_STREAM_I
 // API Url: users/{user_id}/files
 //
 // Example:
-// return canvasRequest(users_upload_file, {user_id});
-var usersUploadFile = exports.usersUploadFile = { type: 'USERS_UPLOAD_FILE', method: 'post', key: 'users_upload_fileusers_upload_file_user_id', required: ['user_id'] };
+// return canvasRequest(Users_upload_file, {user_id});
+var usersUploadFile = exports.usersUploadFile = { type: 'USERS_UPLOAD_FILE', method: 'post', key: 'Users_upload_fileUsers_upload_file_user_id', required: ['user_id'] };
 
 // Show user details
 // Shows details for user.

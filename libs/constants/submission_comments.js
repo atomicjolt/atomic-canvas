@@ -19,5 +19,5 @@ Object.defineProperty(exports, "__esModule", {
 // API Url: courses/{course_id}/assignments/{assignment_id}/submissions/{user_id}/comments/files
 //
 // Example:
-// return canvasRequest(submission_comments_upload_file, {course_id, assignment_id, user_id});
-var submissionCommentsUploadFile = exports.submissionCommentsUploadFile = { type: 'SUBMISSION_COMMENTS_UPLOAD_FILE', method: 'post', key: 'submission_comments_upload_filesubmission_comments_upload_file_{course_id}_{assignment_id}_{user_id}', required: ['course_id', 'assignment_id', 'user_id'] };
+// return canvasRequest(Submission_Comments_upload_file, {course_id, assignment_id, user_id});
+var submissionCommentsUploadFile = exports.submissionCommentsUploadFile = { type: 'SUBMISSION_COMMENTS_UPLOAD_FILE', method: 'post', key: 'Submission_Comments_upload_fileSubmission_Comments_upload_file_{course_id}_{assignment_id}_{user_id}', required: ['course_id', 'assignment_id', 'user_id'] };

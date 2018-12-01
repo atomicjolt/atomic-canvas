@@ -422,8 +422,8 @@ export const getEffectiveDueDates = { type: 'GET_EFFECTIVE_DUE_DATES', method: '
 // const query = {
 //   permissions
 // }
-// return canvasRequest(permissions, {course_id, ...query});
-export const permissions = { type: 'PERMISSIONS', method: 'get', key: 'permissionspermissions_course_id', required: ['course_id'] };
+// return canvasRequest(Courses_permissions, {course_id, ...query});
+export const coursesPermissions = { type: 'COURSES_PERMISSIONS', method: 'get', key: 'Courses_permissionsCourses_permissions_course_id', required: ['course_id'] };
 
 // Get course copy status
 // DEPRECATED: Please use the {api:ContentMigrationsController#create Content Migrations API}

@@ -101,5 +101,5 @@ export const publishProvisionalGradesForAssignment = { type: 'PUBLISH_PROVISIONA
 // const query = {
 //   anonymous_id
 // }
-// return canvasRequest(show_provisional_grade_status_for_student, {course_id, assignment_id, ...query});
-export const showProvisionalGradeStatusForStudent = { type: 'SHOW_PROVISIONAL_GRADE_STATUS_FOR_STUDENT', method: 'get', key: 'show_provisional_grade_status_for_studentshow_provisional_grade_status_for_student_{course_id}_{assignment_id}', required: ['course_id', 'assignment_id'] };
+// return canvasRequest(Moderated_Grading_show_provisional_grade_status_for_student, {course_id, assignment_id, ...query});
+export const moderatedGradingShowProvisionalGradeStatusForStudent = { type: 'MODERATED_GRADING_SHOW_PROVISIONAL_GRADE_STATUS_FOR_STUDENT', method: 'get', key: 'Moderated_Grading_show_provisional_grade_status_for_studentModerated_Grading_show_provisional_grade_status_for_student_{course_id}_{assignment_id}', required: ['course_id', 'assignment_id'] };

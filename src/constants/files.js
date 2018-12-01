@@ -512,8 +512,8 @@ export const deleteFolder = { type: 'DELETE_FOLDER', method: 'delete', key: 'del
 // API Url: folders/{folder_id}/files
 //
 // Example:
-// return canvasRequest(files_upload_file, {folder_id});
-export const filesUploadFile = { type: 'FILES_UPLOAD_FILE', method: 'post', key: 'files_upload_filefiles_upload_file_folder_id', required: ['folder_id'] };
+// return canvasRequest(Files_upload_file, {folder_id});
+export const filesUploadFile = { type: 'FILES_UPLOAD_FILE', method: 'post', key: 'Files_upload_fileFiles_upload_file_folder_id', required: ['folder_id'] };
 
 // Copy a file
 // Copy a file from elsewhere in Canvas into a folder.
