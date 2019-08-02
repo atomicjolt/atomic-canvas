@@ -22,5 +22,5 @@ Object.defineProperty(exports, "__esModule", {
 //   name
 //   on_duplicate
 // }
-// return canvasRequest(Quiz_Submission_Files_upload_file, {course_id, quiz_id}, body);
-var quizSubmissionFilesUploadFile = exports.quizSubmissionFilesUploadFile = { type: 'QUIZ_SUBMISSION_FILES_UPLOAD_FILE', method: 'post', key: 'Quiz_Submission_Files_upload_fileQuiz_Submission_Files_upload_file_{course_id}_{quiz_id}', required: ['course_id', 'quiz_id'] };
+// return canvasRequest(quiz_submission_files_upload_file, {course_id, quiz_id}, body);
+var quizSubmissionFilesUploadFile = exports.quizSubmissionFilesUploadFile = { type: 'QUIZ_SUBMISSION_FILES_UPLOAD_FILE', method: 'post', key: 'quiz_submission_files_upload_filequiz_submission_files_upload_file_{course_id}_{quiz_id}', required: ['course_id', 'quiz_id'] };

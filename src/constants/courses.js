@@ -280,6 +280,7 @@ export const updateCourseSettings = { type: 'UPDATE_COURSE_SETTINGS', method: 'p
 // Example:
 // const query = {
 //   include
+//   teacher_limit
 // }
 // return canvasRequest(get_single_course_courses, {id, ...query});
 export const getSingleCourseCourses = { type: 'GET_SINGLE_COURSE_COURSES', method: 'get', key: 'get_single_course_coursesget_single_course_courses_id', required: ['id'] };
@@ -295,6 +296,7 @@ export const getSingleCourseCourses = { type: 'GET_SINGLE_COURSE_COURSES', metho
 // Example:
 // const query = {
 //   include
+//   teacher_limit
 // }
 // return canvasRequest(get_single_course_accounts, {account_id, id, ...query});
 export const getSingleCourseAccounts = { type: 'GET_SINGLE_COURSE_ACCOUNTS', method: 'get', key: 'get_single_course_accountsget_single_course_accounts_{account_id}_{id}', required: ['account_id', 'id'] };
@@ -422,8 +424,8 @@ export const getEffectiveDueDates = { type: 'GET_EFFECTIVE_DUE_DATES', method: '
 // const query = {
 //   permissions
 // }
-// return canvasRequest(Courses_permissions, {course_id, ...query});
-export const coursesPermissions = { type: 'COURSES_PERMISSIONS', method: 'get', key: 'Courses_permissionsCourses_permissions_course_id', required: ['course_id'] };
+// return canvasRequest(courses_permissions, {course_id, ...query});
+export const coursesPermissions = { type: 'COURSES_PERMISSIONS', method: 'get', key: 'courses_permissionscourses_permissions_course_id', required: ['course_id'] };
 
 // Get course copy status
 // DEPRECATED: Please use the {api:ContentMigrationsController#create Content Migrations API}

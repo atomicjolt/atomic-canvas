@@ -172,8 +172,8 @@ export const listGroupSUsers = { type: 'LIST_GROUP_S_USERS', method: 'get', key:
 // API Url: groups/{group_id}/files
 //
 // Example:
-// return canvasRequest(Groups_upload_file, {group_id});
-export const groupsUploadFile = { type: 'GROUPS_UPLOAD_FILE', method: 'post', key: 'Groups_upload_fileGroups_upload_file_group_id', required: ['group_id'] };
+// return canvasRequest(groups_upload_file, {group_id});
+export const groupsUploadFile = { type: 'GROUPS_UPLOAD_FILE', method: 'post', key: 'groups_upload_filegroups_upload_file_group_id', required: ['group_id'] };
 
 // Preview processed html
 // Preview html content processed for this group
@@ -185,8 +185,8 @@ export const groupsUploadFile = { type: 'GROUPS_UPLOAD_FILE', method: 'post', ke
 // const body = {
 //   html
 // }
-// return canvasRequest(Groups_preview_processed_html, {group_id}, body);
-export const groupsPreviewProcessedHtml = { type: 'GROUPS_PREVIEW_PROCESSED_HTML', method: 'post', key: 'Groups_preview_processed_htmlGroups_preview_processed_html_group_id', required: ['group_id'] };
+// return canvasRequest(groups_preview_processed_html, {group_id}, body);
+export const groupsPreviewProcessedHtml = { type: 'GROUPS_PREVIEW_PROCESSED_HTML', method: 'post', key: 'groups_preview_processed_htmlgroups_preview_processed_html_group_id', required: ['group_id'] };
 
 // Group activity stream
 // Returns the current user's group-specific activity stream, paginated.
@@ -226,8 +226,8 @@ export const groupActivityStreamSummary = { type: 'GROUP_ACTIVITY_STREAM_SUMMARY
 // const query = {
 //   permissions
 // }
-// return canvasRequest(Groups_permissions, {group_id, ...query});
-export const groupsPermissions = { type: 'GROUPS_PERMISSIONS', method: 'get', key: 'Groups_permissionsGroups_permissions_group_id', required: ['group_id'] };
+// return canvasRequest(groups_permissions, {group_id, ...query});
+export const groupsPermissions = { type: 'GROUPS_PERMISSIONS', method: 'get', key: 'groups_permissionsgroups_permissions_group_id', required: ['group_id'] };
 
 // List group memberships
 // A paginated list of the members of a group.

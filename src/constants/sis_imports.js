@@ -14,6 +14,7 @@
 // Example:
 // const query = {
 //   created_since
+//   workflow_state
 // }
 // return canvasRequest(get_sis_import_list, {account_id, ...query});
 export const getSisImportList = { type: 'GET_SIS_IMPORT_LIST', method: 'get', key: 'get_sis_import_listget_sis_import_list_account_id', required: ['account_id'] };
@@ -102,6 +103,10 @@ export const restoreWorkflowStatesOfSisImportedItems = { type: 'RESTORE_WORKFLOW
 
 // Abort SIS import
 // Abort a SIS import that has not completed.
+// 
+// Aborting a sis batch that is running can take some time for every process to
+// see the abort event. Subsequent sis batches begin to process 10 minutes
+// after the abort to allow each process to clean up properly.
 //
 // API Docs: https://canvas.instructure.com/doc/api/sis_imports.html
 // API Url: accounts/{account_id}/sis_imports/{id}/abort

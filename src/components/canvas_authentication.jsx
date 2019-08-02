@@ -52,6 +52,7 @@ export class CanvasAuthentication extends React.Component {
       <form
         ref={(ref) => { this.form = ref; }}
         action={this.props.settings.canvas_oauth_url}
+        method="post"
       >
         { this.getButton() }
         { this.renderSettings() }

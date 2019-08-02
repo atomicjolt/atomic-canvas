@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", {
 //   {
 //     "context_type": "Course",
 //     "course_id": 1,
-//     "visible_in_planner": true, // Whether or not it is displayed on the student planner
 //     "planner_override": { ... planner override object ... }, // Associated PlannerOverride object if user has toggled visibility for the object on the planner
 //     "submissions": false, // The statuses of the user's submissions for this object
 //     "plannable_id": "123",
@@ -26,7 +25,6 @@ Object.defineProperty(exports, "__esModule", {
 //   {
 //     "context_type": "Course",
 //     "course_id": 1,
-//     "visible_in_planner": true,
 //     "planner_override": {
 //         "id": 3,
 //         "plannable_type": "Assignment",
@@ -53,7 +51,6 @@ Object.defineProperty(exports, "__esModule", {
 //     "html_url": "http://canvas.instructure.com/courses/1/assignments/1#submit"
 //   },
 //   {
-//     "visible_in_planner": true,
 //     "planner_override": null,
 //     "submissions": false, // false if no associated assignment exists for the plannable item
 //     "plannable_id": "789",
@@ -103,17 +100,17 @@ var listPlannerItems = exports.listPlannerItems = { type: 'LIST_PLANNER_ITEMS', 
 // return canvasRequest(list_planner_notes, {, ...query});
 var listPlannerNotes = exports.listPlannerNotes = { type: 'LIST_PLANNER_NOTES', method: 'get', key: 'list_planner_notes', required: [] };
 
-// Show a PlannerNote
+// Show a planner note
 // Retrieve a planner note for the current user
 //
 // API Docs: https://canvas.instructure.com/doc/api/planner.html
 // API Url: planner_notes/{id}
 //
 // Example:
-// return canvasRequest(show_plannernote, {id});
-var showPlannernote = exports.showPlannernote = { type: 'SHOW_PLANNERNOTE', method: 'get', key: 'show_plannernoteshow_plannernote_id', required: ['id'] };
+// return canvasRequest(show_planner_note, {id});
+var showPlannerNote = exports.showPlannerNote = { type: 'SHOW_PLANNER_NOTE', method: 'get', key: 'show_planner_noteshow_planner_note_id', required: ['id'] };
 
-// Update a PlannerNote
+// Update a planner note
 // Update a planner note for the current user
 //
 // API Docs: https://canvas.instructure.com/doc/api/planner.html
@@ -126,8 +123,8 @@ var showPlannernote = exports.showPlannernote = { type: 'SHOW_PLANNERNOTE', meth
 //   todo_date
 //   course_id
 // }
-// return canvasRequest(update_plannernote, {id}, body);
-var updatePlannernote = exports.updatePlannernote = { type: 'UPDATE_PLANNERNOTE', method: 'put', key: 'update_plannernoteupdate_plannernote_id', required: ['id'] };
+// return canvasRequest(update_planner_note, {id}, body);
+var updatePlannerNote = exports.updatePlannerNote = { type: 'UPDATE_PLANNER_NOTE', method: 'put', key: 'update_planner_noteupdate_planner_note_id', required: ['id'] };
 
 // Create a planner note
 // Create a planner note for the current user
@@ -199,8 +196,8 @@ var updatePlannerOverride = exports.updatePlannerOverride = { type: 'UPDATE_PLAN
 //
 // Example:
 // const body = {
-//   plannable_type
-//   plannable_id
+//   plannable_type (required)
+//   plannable_id (required)
 //   marked_complete
 //   dismissed
 // }

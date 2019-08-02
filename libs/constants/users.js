@@ -131,7 +131,10 @@ var listUsersInAccount = exports.listUsersInAccount = { type: 'LIST_USERS_IN_ACC
 // API Url: users/self/activity_stream
 //
 // Example:
-// return canvasRequest(list_activity_stream_self, {});
+// const query = {
+//   only_active_courses
+// }
+// return canvasRequest(list_activity_stream_self, {, ...query});
 var listActivityStreamSelf = exports.listActivityStreamSelf = { type: 'LIST_ACTIVITY_STREAM_SELF', method: 'get', key: 'list_activity_stream_self', required: [] };
 
 // List the activity stream
@@ -239,7 +242,10 @@ var listActivityStreamSelf = exports.listActivityStreamSelf = { type: 'LIST_ACTI
 // API Url: users/activity_stream
 //
 // Example:
-// return canvasRequest(list_activity_stream_activity_stream, {});
+// const query = {
+//   only_active_courses
+// }
+// return canvasRequest(list_activity_stream_activity_stream, {, ...query});
 var listActivityStreamActivityStream = exports.listActivityStreamActivityStream = { type: 'LIST_ACTIVITY_STREAM_ACTIVITY_STREAM', method: 'get', key: 'list_activity_stream_activity_stream', required: [] };
 
 // Activity stream summary
@@ -351,8 +357,8 @@ var hideAllStreamItems = exports.hideAllStreamItems = { type: 'HIDE_ALL_STREAM_I
 // API Url: users/{user_id}/files
 //
 // Example:
-// return canvasRequest(Users_upload_file, {user_id});
-var usersUploadFile = exports.usersUploadFile = { type: 'USERS_UPLOAD_FILE', method: 'post', key: 'Users_upload_fileUsers_upload_file_user_id', required: ['user_id'] };
+// return canvasRequest(users_upload_file, {user_id});
+var usersUploadFile = exports.usersUploadFile = { type: 'USERS_UPLOAD_FILE', method: 'post', key: 'users_upload_fileusers_upload_file_user_id', required: ['user_id'] };
 
 // Show user details
 // Shows details for user.
@@ -531,6 +537,8 @@ var updateDashboardPositions = exports.updateDashboardPositions = { type: 'UPDAT
 //   user[locale]
 //   user[avatar][token]
 //   user[avatar][url]
+//   user[title]
+//   user[bio]
 // }
 // return canvasRequest(edit_user, {id}, body);
 var editUser = exports.editUser = { type: 'EDIT_USER', method: 'put', key: 'edit_useredit_user_id', required: ['id'] };

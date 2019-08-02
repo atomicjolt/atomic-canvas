@@ -120,6 +120,7 @@ var getSingleAssignment = exports.getSingleAssignment = { type: 'GET_SINGLE_ASSI
 //   assignment[omit_from_final_grade]
 //   assignment[quiz_lti]
 //   assignment[moderated_grading]
+//   assignment[allowed_attempts]
 // }
 // return canvasRequest(create_assignment, {course_id}, body);
 var createAssignment = exports.createAssignment = { type: 'CREATE_ASSIGNMENT', method: 'post', key: 'create_assignmentcreate_assignment_course_id', required: ['course_id'] };
@@ -166,6 +167,7 @@ var createAssignment = exports.createAssignment = { type: 'CREATE_ASSIGNMENT', m
 //   assignment[grading_standard_id]
 //   assignment[omit_from_final_grade]
 //   assignment[moderated_grading]
+//   assignment[allowed_attempts]
 // }
 // return canvasRequest(edit_assignment, {course_id, id}, body);
 var editAssignment = exports.editAssignment = { type: 'EDIT_ASSIGNMENT', method: 'put', key: 'edit_assignmentedit_assignment_{course_id}_{id}', required: ['course_id', 'id'] };

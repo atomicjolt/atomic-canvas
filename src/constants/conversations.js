@@ -33,6 +33,7 @@ export const listConversations = { type: 'LIST_CONVERSATIONS', method: 'get', ke
 //   recipients (required)
 //   subject
 //   body (required)
+//   force_new
 //   group_conversation
 //   attachment_ids
 //   media_comment_id

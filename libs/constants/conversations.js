@@ -38,6 +38,7 @@ var listConversations = exports.listConversations = { type: 'LIST_CONVERSATIONS'
 //   recipients (required)
 //   subject
 //   body (required)
+//   force_new
 //   group_conversation
 //   attachment_ids
 //   media_comment_id

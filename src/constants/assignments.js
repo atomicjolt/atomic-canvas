@@ -115,6 +115,7 @@ export const getSingleAssignment = { type: 'GET_SINGLE_ASSIGNMENT', method: 'get
 //   assignment[omit_from_final_grade]
 //   assignment[quiz_lti]
 //   assignment[moderated_grading]
+//   assignment[allowed_attempts]
 // }
 // return canvasRequest(create_assignment, {course_id}, body);
 export const createAssignment = { type: 'CREATE_ASSIGNMENT', method: 'post', key: 'create_assignmentcreate_assignment_course_id', required: ['course_id'] };
@@ -161,6 +162,7 @@ export const createAssignment = { type: 'CREATE_ASSIGNMENT', method: 'post', key
 //   assignment[grading_standard_id]
 //   assignment[omit_from_final_grade]
 //   assignment[moderated_grading]
+//   assignment[allowed_attempts]
 // }
 // return canvasRequest(edit_assignment, {course_id, id}, body);
 export const editAssignment = { type: 'EDIT_ASSIGNMENT', method: 'put', key: 'edit_assignmentedit_assignment_{course_id}_{id}', required: ['course_id', 'id'] };

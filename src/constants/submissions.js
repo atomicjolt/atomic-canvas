@@ -248,9 +248,11 @@ export const gradeOrCommentOnSubmissionSections = { type: 'GRADE_OR_COMMENT_ON_S
 // List gradeable students
 // A paginated list of students eligible to submit the assignment. The caller must have permission to view grades.
 // 
-// Section-limited instructors will only see students in their own sections.
+// If anonymous grading is enabled for the current assignment and the allow_new_anonymous_id parameter is passed,
+// the returned data will not include any values identifying the student, but will instead include an
+// assignment-specific anonymous ID for each student.
 // 
-// returns [UserDisplay]
+// Section-limited instructors will only see students in their own sections.
 //
 // API Docs: https://canvas.instructure.com/doc/api/submissions.html
 // API Url: courses/{course_id}/assignments/{assignment_id}/gradeable_students

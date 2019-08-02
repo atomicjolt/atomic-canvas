@@ -126,7 +126,10 @@ export const listUsersInAccount = { type: 'LIST_USERS_IN_ACCOUNT', method: 'get'
 // API Url: users/self/activity_stream
 //
 // Example:
-// return canvasRequest(list_activity_stream_self, {});
+// const query = {
+//   only_active_courses
+// }
+// return canvasRequest(list_activity_stream_self, {, ...query});
 export const listActivityStreamSelf = { type: 'LIST_ACTIVITY_STREAM_SELF', method: 'get', key: 'list_activity_stream_self', required: [] };
 
 // List the activity stream
@@ -234,7 +237,10 @@ export const listActivityStreamSelf = { type: 'LIST_ACTIVITY_STREAM_SELF', metho
 // API Url: users/activity_stream
 //
 // Example:
-// return canvasRequest(list_activity_stream_activity_stream, {});
+// const query = {
+//   only_active_courses
+// }
+// return canvasRequest(list_activity_stream_activity_stream, {, ...query});
 export const listActivityStreamActivityStream = { type: 'LIST_ACTIVITY_STREAM_ACTIVITY_STREAM', method: 'get', key: 'list_activity_stream_activity_stream', required: [] };
 
 // Activity stream summary
@@ -346,8 +352,8 @@ export const hideAllStreamItems = { type: 'HIDE_ALL_STREAM_ITEMS', method: 'dele
 // API Url: users/{user_id}/files
 //
 // Example:
-// return canvasRequest(Users_upload_file, {user_id});
-export const usersUploadFile = { type: 'USERS_UPLOAD_FILE', method: 'post', key: 'Users_upload_fileUsers_upload_file_user_id', required: ['user_id'] };
+// return canvasRequest(users_upload_file, {user_id});
+export const usersUploadFile = { type: 'USERS_UPLOAD_FILE', method: 'post', key: 'users_upload_fileusers_upload_file_user_id', required: ['user_id'] };
 
 // Show user details
 // Shows details for user.
@@ -526,6 +532,8 @@ export const updateDashboardPositions = { type: 'UPDATE_DASHBOARD_POSITIONS', me
 //   user[locale]
 //   user[avatar][token]
 //   user[avatar][url]
+//   user[title]
+//   user[bio]
 // }
 // return canvasRequest(edit_user, {id}, body);
 export const editUser = { type: 'EDIT_USER', method: 'put', key: 'edit_useredit_user_id', required: ['id'] };

@@ -59,22 +59,6 @@ export const showProvisionalGradeStatusForStudent = { type: 'SHOW_PROVISIONAL_GR
 // return canvasRequest(select_provisional_grade, {course_id, assignment_id, provisional_grade_id});
 export const selectProvisionalGrade = { type: 'SELECT_PROVISIONAL_GRADE', method: 'put', key: 'select_provisional_gradeselect_provisional_grade_{course_id}_{assignment_id}_{provisional_grade_id}', required: ['course_id', 'assignment_id', 'provisional_grade_id'] };
 
-// Copy provisional grade
-// Given a provisional grade, copy the grade (and associated submission comments and rubric assessments)
-// to a "final" mark which can be edited or commented upon by a moderator prior to publication of grades.
-// 
-// Notes:
-// * The student must be in the moderation set for the assignment.
-// * The newly created grade will be selected.
-// * The caller must have "Moderate Grades" rights in the course.
-//
-// API Docs: https://canvas.instructure.com/doc/api/moderated_grading.html
-// API Url: courses/{course_id}/assignments/{assignment_id}/provisional_grades/{provisional_grade_id}/copy_to_final_mark
-//
-// Example:
-// return canvasRequest(copy_provisional_grade, {course_id, assignment_id, provisional_grade_id});
-export const copyProvisionalGrade = { type: 'COPY_PROVISIONAL_GRADE', method: 'post', key: 'copy_provisional_gradecopy_provisional_grade_{course_id}_{assignment_id}_{provisional_grade_id}', required: ['course_id', 'assignment_id', 'provisional_grade_id'] };
-
 // Publish provisional grades for an assignment
 // Publish the selected provisional grade for all submissions to an assignment.
 // Use the "Select provisional grade" endpoint to choose which provisional grade to publish
@@ -101,5 +85,5 @@ export const publishProvisionalGradesForAssignment = { type: 'PUBLISH_PROVISIONA
 // const query = {
 //   anonymous_id
 // }
-// return canvasRequest(Moderated_Grading_show_provisional_grade_status_for_student, {course_id, assignment_id, ...query});
-export const moderatedGradingShowProvisionalGradeStatusForStudent = { type: 'MODERATED_GRADING_SHOW_PROVISIONAL_GRADE_STATUS_FOR_STUDENT', method: 'get', key: 'Moderated_Grading_show_provisional_grade_status_for_studentModerated_Grading_show_provisional_grade_status_for_student_{course_id}_{assignment_id}', required: ['course_id', 'assignment_id'] };
+// return canvasRequest(moderated_grading_show_provisional_grade_status_for_student, {course_id, assignment_id, ...query});
+export const moderatedGradingShowProvisionalGradeStatusForStudent = { type: 'MODERATED_GRADING_SHOW_PROVISIONAL_GRADE_STATUS_FOR_STUDENT', method: 'get', key: 'moderated_grading_show_provisional_grade_status_for_studentmoderated_grading_show_provisional_grade_status_for_student_{course_id}_{assignment_id}', required: ['course_id', 'assignment_id'] };

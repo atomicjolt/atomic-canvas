@@ -188,7 +188,11 @@ export const getFileUsers = { type: 'GET_FILE_USERS', method: 'get', key: 'get_f
 export const updateFile = { type: 'UPDATE_FILE', method: 'put', key: 'update_fileupdate_file_id', required: ['id'] };
 
 // Delete file
-// Remove the specified file
+// Remove the specified file. Unlike most other DELETE endpoints, using this
+// endpoint will result in comprehensive, irretrievable destruction of the file.
+// It should be used with the `replace` parameter set to true in cases where the
+// file preview also needs to be destroyed (such as to remove files that violate
+// privacy laws).
 //
 // API Docs: https://canvas.instructure.com/doc/api/files.html
 // API Url: files/{id}
@@ -512,8 +516,8 @@ export const deleteFolder = { type: 'DELETE_FOLDER', method: 'delete', key: 'del
 // API Url: folders/{folder_id}/files
 //
 // Example:
-// return canvasRequest(Files_upload_file, {folder_id});
-export const filesUploadFile = { type: 'FILES_UPLOAD_FILE', method: 'post', key: 'Files_upload_fileFiles_upload_file_folder_id', required: ['folder_id'] };
+// return canvasRequest(files_upload_file, {folder_id});
+export const filesUploadFile = { type: 'FILES_UPLOAD_FILE', method: 'post', key: 'files_upload_filefiles_upload_file_folder_id', required: ['folder_id'] };
 
 // Copy a file
 // Copy a file from elsewhere in Canvas into a folder.

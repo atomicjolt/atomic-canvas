@@ -95,7 +95,8 @@ var CanvasAuthentication = exports.CanvasAuthentication = (_temp = _class = func
           ref: function ref(_ref) {
             _this2.form = _ref;
           },
-          action: this.props.settings.canvas_oauth_url
+          action: this.props.settings.canvas_oauth_url,
+          method: 'post'
         },
         this.getButton(),
         this.renderSettings()

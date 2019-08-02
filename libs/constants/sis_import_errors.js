@@ -22,7 +22,10 @@ Object.defineProperty(exports, "__esModule", {
 // API Url: accounts/{account_id}/sis_imports/{id}/errors
 //
 // Example:
-// return canvasRequest(get_sis_import_error_list_sis_imports, {account_id, id});
+// const query = {
+//   failure
+// }
+// return canvasRequest(get_sis_import_error_list_sis_imports, {account_id, id, ...query});
 var getSisImportErrorListSisImports = exports.getSisImportErrorListSisImports = { type: 'GET_SIS_IMPORT_ERROR_LIST_SIS_IMPORTS', method: 'get', key: 'get_sis_import_error_list_sis_importsget_sis_import_error_list_sis_imports_{account_id}_{id}', required: ['account_id', 'id'] };
 
 // Get SIS import error list
@@ -41,5 +44,8 @@ var getSisImportErrorListSisImports = exports.getSisImportErrorListSisImports = 
 // API Url: accounts/{account_id}/sis_import_errors
 //
 // Example:
-// return canvasRequest(get_sis_import_error_list_sis_import_errors, {account_id});
+// const query = {
+//   failure
+// }
+// return canvasRequest(get_sis_import_error_list_sis_import_errors, {account_id, ...query});
 var getSisImportErrorListSisImportErrors = exports.getSisImportErrorListSisImportErrors = { type: 'GET_SIS_IMPORT_ERROR_LIST_SIS_IMPORT_ERRORS', method: 'get', key: 'get_sis_import_error_list_sis_import_errorsget_sis_import_error_list_sis_import_errors_account_id', required: ['account_id'] };
