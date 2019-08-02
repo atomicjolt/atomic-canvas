@@ -31,6 +31,7 @@ var deleteAssignment = exports.deleteAssignment = { type: 'DELETE_ASSIGNMENT', m
 //   bucket
 //   assignment_ids
 //   order_by
+//   post_to_sis
 // }
 // return canvasRequest(list_assignments_assignments, {course_id, ...query});
 var listAssignmentsAssignments = exports.listAssignmentsAssignments = { type: 'LIST_ASSIGNMENTS_ASSIGNMENTS', method: 'get', key: 'list_assignments_assignmentslist_assignments_assignments_course_id', required: ['course_id'] };
@@ -50,6 +51,7 @@ var listAssignmentsAssignments = exports.listAssignmentsAssignments = { type: 'L
 //   bucket
 //   assignment_ids
 //   order_by
+//   post_to_sis
 // }
 // return canvasRequest(list_assignments_assignment_groups, {course_id, assignment_group_id, ...query});
 var listAssignmentsAssignmentGroups = exports.listAssignmentsAssignmentGroups = { type: 'LIST_ASSIGNMENTS_ASSIGNMENT_GROUPS', method: 'get', key: 'list_assignments_assignment_groupslist_assignments_assignment_groups_{course_id}_{assignment_group_id}', required: ['course_id', 'assignment_group_id'] };
@@ -120,6 +122,12 @@ var getSingleAssignment = exports.getSingleAssignment = { type: 'GET_SINGLE_ASSI
 //   assignment[omit_from_final_grade]
 //   assignment[quiz_lti]
 //   assignment[moderated_grading]
+//   assignment[grader_count]
+//   assignment[final_grader_id]
+//   assignment[grader_comments_visible_to_graders]
+//   assignment[graders_anonymous_to_graders]
+//   assignment[graders_names_visible_to_final_grader]
+//   assignment[anonymous_grading]
 //   assignment[allowed_attempts]
 // }
 // return canvasRequest(create_assignment, {course_id}, body);
@@ -167,6 +175,12 @@ var createAssignment = exports.createAssignment = { type: 'CREATE_ASSIGNMENT', m
 //   assignment[grading_standard_id]
 //   assignment[omit_from_final_grade]
 //   assignment[moderated_grading]
+//   assignment[grader_count]
+//   assignment[final_grader_id]
+//   assignment[grader_comments_visible_to_graders]
+//   assignment[graders_anonymous_to_graders]
+//   assignment[graders_names_visible_to_final_grader]
+//   assignment[anonymous_grading]
 //   assignment[allowed_attempts]
 // }
 // return canvasRequest(edit_assignment, {course_id, id}, body);

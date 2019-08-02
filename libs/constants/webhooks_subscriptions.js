@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", {
 //
 // Example:
 // const body = {
-//   submission[ContextId] (required)
+//   subscription[ContextId] (required)
 //   subscription[ContextType] (required)
 //   subscription[EventTypes] (required)
 //   subscription[Format] (required)

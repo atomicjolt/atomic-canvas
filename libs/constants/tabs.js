@@ -10,6 +10,19 @@ Object.defineProperty(exports, "__esModule", {
 // Returns a paginated list of navigation tabs available in the current context.
 //
 // API Docs: https://canvas.instructure.com/doc/api/tabs.html
+// API Url: accounts/{account_id}/tabs
+//
+// Example:
+// const query = {
+//   include
+// }
+// return canvasRequest(list_available_tabs_for_course_or_group_accounts, {account_id, ...query});
+var listAvailableTabsForCourseOrGroupAccounts = exports.listAvailableTabsForCourseOrGroupAccounts = { type: 'LIST_AVAILABLE_TABS_FOR_COURSE_OR_GROUP_ACCOUNTS', method: 'get', key: 'list_available_tabs_for_course_or_group_accountslist_available_tabs_for_course_or_group_accounts_account_id', required: ['account_id'] };
+
+// List available tabs for a course or group
+// Returns a paginated list of navigation tabs available in the current context.
+//
+// API Docs: https://canvas.instructure.com/doc/api/tabs.html
 // API Url: courses/{course_id}/tabs
 //
 // Example:

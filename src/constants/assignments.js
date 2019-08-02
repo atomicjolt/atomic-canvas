@@ -26,6 +26,7 @@ export const deleteAssignment = { type: 'DELETE_ASSIGNMENT', method: 'delete', k
 //   bucket
 //   assignment_ids
 //   order_by
+//   post_to_sis
 // }
 // return canvasRequest(list_assignments_assignments, {course_id, ...query});
 export const listAssignmentsAssignments = { type: 'LIST_ASSIGNMENTS_ASSIGNMENTS', method: 'get', key: 'list_assignments_assignmentslist_assignments_assignments_course_id', required: ['course_id'] };
@@ -45,6 +46,7 @@ export const listAssignmentsAssignments = { type: 'LIST_ASSIGNMENTS_ASSIGNMENTS'
 //   bucket
 //   assignment_ids
 //   order_by
+//   post_to_sis
 // }
 // return canvasRequest(list_assignments_assignment_groups, {course_id, assignment_group_id, ...query});
 export const listAssignmentsAssignmentGroups = { type: 'LIST_ASSIGNMENTS_ASSIGNMENT_GROUPS', method: 'get', key: 'list_assignments_assignment_groupslist_assignments_assignment_groups_{course_id}_{assignment_group_id}', required: ['course_id', 'assignment_group_id'] };
@@ -115,6 +117,12 @@ export const getSingleAssignment = { type: 'GET_SINGLE_ASSIGNMENT', method: 'get
 //   assignment[omit_from_final_grade]
 //   assignment[quiz_lti]
 //   assignment[moderated_grading]
+//   assignment[grader_count]
+//   assignment[final_grader_id]
+//   assignment[grader_comments_visible_to_graders]
+//   assignment[graders_anonymous_to_graders]
+//   assignment[graders_names_visible_to_final_grader]
+//   assignment[anonymous_grading]
 //   assignment[allowed_attempts]
 // }
 // return canvasRequest(create_assignment, {course_id}, body);
@@ -162,6 +170,12 @@ export const createAssignment = { type: 'CREATE_ASSIGNMENT', method: 'post', key
 //   assignment[grading_standard_id]
 //   assignment[omit_from_final_grade]
 //   assignment[moderated_grading]
+//   assignment[grader_count]
+//   assignment[final_grader_id]
+//   assignment[grader_comments_visible_to_graders]
+//   assignment[graders_anonymous_to_graders]
+//   assignment[graders_names_visible_to_final_grader]
+//   assignment[anonymous_grading]
 //   assignment[allowed_attempts]
 // }
 // return canvasRequest(edit_assignment, {course_id, id}, body);

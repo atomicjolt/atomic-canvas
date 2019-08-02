@@ -35,6 +35,7 @@ Object.defineProperty(exports, "__esModule", {
 //   sis_course_id
 //   sis_section_id
 //   sis_user_id
+//   created_for_sis_id
 // }
 // return canvasRequest(list_enrollments_courses, {course_id, ...query});
 var listEnrollmentsCourses = exports.listEnrollmentsCourses = { type: 'LIST_ENROLLMENTS_COURSES', method: 'get', key: 'list_enrollments_courseslist_enrollments_courses_course_id', required: ['course_id'] };
@@ -68,6 +69,7 @@ var listEnrollmentsCourses = exports.listEnrollmentsCourses = { type: 'LIST_ENRO
 //   sis_course_id
 //   sis_section_id
 //   sis_user_id
+//   created_for_sis_id
 // }
 // return canvasRequest(list_enrollments_sections, {section_id, ...query});
 var listEnrollmentsSections = exports.listEnrollmentsSections = { type: 'LIST_ENROLLMENTS_SECTIONS', method: 'get', key: 'list_enrollments_sectionslist_enrollments_sections_section_id', required: ['section_id'] };
@@ -100,6 +102,7 @@ var listEnrollmentsSections = exports.listEnrollmentsSections = { type: 'LIST_EN
 //   sis_course_id
 //   sis_section_id
 //   sis_user_id
+//   created_for_sis_id
 // }
 // return canvasRequest(list_enrollments_users, {user_id, ...query});
 var listEnrollmentsUsers = exports.listEnrollmentsUsers = { type: 'LIST_ENROLLMENTS_USERS', method: 'get', key: 'list_enrollments_userslist_enrollments_users_user_id', required: ['user_id'] };

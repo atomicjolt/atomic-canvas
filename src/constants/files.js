@@ -40,6 +40,7 @@ export const getQuotaInformationUsers = { type: 'GET_QUOTA_INFORMATION_USERS', m
 // Example:
 // const query = {
 //   content_types
+//   exclude_content_types
 //   search_term
 //   include
 //   only
@@ -58,6 +59,7 @@ export const listFilesCourses = { type: 'LIST_FILES_COURSES', method: 'get', key
 // Example:
 // const query = {
 //   content_types
+//   exclude_content_types
 //   search_term
 //   include
 //   only
@@ -76,6 +78,7 @@ export const listFilesUsers = { type: 'LIST_FILES_USERS', method: 'get', key: 'l
 // Example:
 // const query = {
 //   content_types
+//   exclude_content_types
 //   search_term
 //   include
 //   only
@@ -94,6 +97,7 @@ export const listFilesGroups = { type: 'LIST_FILES_GROUPS', method: 'get', key: 
 // Example:
 // const query = {
 //   content_types
+//   exclude_content_types
 //   search_term
 //   include
 //   only
@@ -555,6 +559,34 @@ export const copyFile = { type: 'COPY_FILE', method: 'post', key: 'copy_filecopy
 // }
 // return canvasRequest(copy_folder, {dest_folder_id}, body);
 export const copyFolder = { type: 'COPY_FOLDER', method: 'post', key: 'copy_foldercopy_folder_dest_folder_id', required: ['dest_folder_id'] };
+
+// Get uploaded media folder for user
+// Returns the details for a designated upload folder that the user has rights to
+// upload to, and creates it if it doesn't exist.
+// 
+// If the current user does not have the permissions to manage files
+// in the course or group, the folder will belong to the current user directly.
+//
+// API Docs: https://canvas.instructure.com/doc/api/files.html
+// API Url: courses/{course_id}/folders/media
+//
+// Example:
+// return canvasRequest(get_uploaded_media_folder_for_user_courses, {course_id});
+export const getUploadedMediaFolderForUserCourses = { type: 'GET_UPLOADED_MEDIA_FOLDER_FOR_USER_COURSES', method: 'get', key: 'get_uploaded_media_folder_for_user_coursesget_uploaded_media_folder_for_user_courses_course_id', required: ['course_id'] };
+
+// Get uploaded media folder for user
+// Returns the details for a designated upload folder that the user has rights to
+// upload to, and creates it if it doesn't exist.
+// 
+// If the current user does not have the permissions to manage files
+// in the course or group, the folder will belong to the current user directly.
+//
+// API Docs: https://canvas.instructure.com/doc/api/files.html
+// API Url: groups/{group_id}/folders/media
+//
+// Example:
+// return canvasRequest(get_uploaded_media_folder_for_user_groups, {group_id});
+export const getUploadedMediaFolderForUserGroups = { type: 'GET_UPLOADED_MEDIA_FOLDER_FOR_USER_GROUPS', method: 'get', key: 'get_uploaded_media_folder_for_user_groupsget_uploaded_media_folder_for_user_groups_group_id', required: ['group_id'] };
 
 // Set usage rights
 // Sets copyright and license information for one or more files

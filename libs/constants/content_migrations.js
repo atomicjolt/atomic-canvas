@@ -268,6 +268,7 @@ var getContentMigrationUsers = exports.getContentMigrationUsers = { type: 'GET_C
 //   date_shift_options[new_end_date]
 //   date_shift_options[day_substitutions][X]
 //   date_shift_options[remove_dates]
+//   selective_import
 // }
 // return canvasRequest(create_content_migration_accounts, {account_id}, body);
 var createContentMigrationAccounts = exports.createContentMigrationAccounts = { type: 'CREATE_CONTENT_MIGRATION_ACCOUNTS', method: 'post', key: 'create_content_migration_accountscreate_content_migration_accounts_account_id', required: ['account_id'] };
@@ -322,6 +323,7 @@ var createContentMigrationAccounts = exports.createContentMigrationAccounts = { 
 //   date_shift_options[new_end_date]
 //   date_shift_options[day_substitutions][X]
 //   date_shift_options[remove_dates]
+//   selective_import
 // }
 // return canvasRequest(create_content_migration_courses, {course_id}, body);
 var createContentMigrationCourses = exports.createContentMigrationCourses = { type: 'CREATE_CONTENT_MIGRATION_COURSES', method: 'post', key: 'create_content_migration_coursescreate_content_migration_courses_course_id', required: ['course_id'] };
@@ -376,6 +378,7 @@ var createContentMigrationCourses = exports.createContentMigrationCourses = { ty
 //   date_shift_options[new_end_date]
 //   date_shift_options[day_substitutions][X]
 //   date_shift_options[remove_dates]
+//   selective_import
 // }
 // return canvasRequest(create_content_migration_groups, {group_id}, body);
 var createContentMigrationGroups = exports.createContentMigrationGroups = { type: 'CREATE_CONTENT_MIGRATION_GROUPS', method: 'post', key: 'create_content_migration_groupscreate_content_migration_groups_group_id', required: ['group_id'] };
@@ -430,17 +433,18 @@ var createContentMigrationGroups = exports.createContentMigrationGroups = { type
 //   date_shift_options[new_end_date]
 //   date_shift_options[day_substitutions][X]
 //   date_shift_options[remove_dates]
+//   selective_import
 // }
 // return canvasRequest(create_content_migration_users, {user_id}, body);
 var createContentMigrationUsers = exports.createContentMigrationUsers = { type: 'CREATE_CONTENT_MIGRATION_USERS', method: 'post', key: 'create_content_migration_userscreate_content_migration_users_user_id', required: ['user_id'] };
 
 // Update a content migration
-// Update a content migration. Takes same arguments as create except that you
+// Update a content migration. Takes same arguments as {api:ContentMigrationsController#create create} except that you
 // can't change the migration type. However, changing most settings after the
 // migration process has started will not do anything. Generally updating the
-// content migration will be used when there is a file upload problem. If the
-// first upload has a problem you can supply new _pre_attachment_ values to
-// start the process again.
+// content migration will be used when there is a file upload problem, or when
+// importing content selectively. If the first upload has a problem you can
+// supply new _pre_attachment_ values to start the process again.
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
 // API Url: accounts/{account_id}/content_migrations/{id}
@@ -450,12 +454,12 @@ var createContentMigrationUsers = exports.createContentMigrationUsers = { type: 
 var updateContentMigrationAccounts = exports.updateContentMigrationAccounts = { type: 'UPDATE_CONTENT_MIGRATION_ACCOUNTS', method: 'put', key: 'update_content_migration_accountsupdate_content_migration_accounts_{account_id}_{id}', required: ['account_id', 'id'] };
 
 // Update a content migration
-// Update a content migration. Takes same arguments as create except that you
+// Update a content migration. Takes same arguments as {api:ContentMigrationsController#create create} except that you
 // can't change the migration type. However, changing most settings after the
 // migration process has started will not do anything. Generally updating the
-// content migration will be used when there is a file upload problem. If the
-// first upload has a problem you can supply new _pre_attachment_ values to
-// start the process again.
+// content migration will be used when there is a file upload problem, or when
+// importing content selectively. If the first upload has a problem you can
+// supply new _pre_attachment_ values to start the process again.
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
 // API Url: courses/{course_id}/content_migrations/{id}
@@ -465,12 +469,12 @@ var updateContentMigrationAccounts = exports.updateContentMigrationAccounts = { 
 var updateContentMigrationCourses = exports.updateContentMigrationCourses = { type: 'UPDATE_CONTENT_MIGRATION_COURSES', method: 'put', key: 'update_content_migration_coursesupdate_content_migration_courses_{course_id}_{id}', required: ['course_id', 'id'] };
 
 // Update a content migration
-// Update a content migration. Takes same arguments as create except that you
+// Update a content migration. Takes same arguments as {api:ContentMigrationsController#create create} except that you
 // can't change the migration type. However, changing most settings after the
 // migration process has started will not do anything. Generally updating the
-// content migration will be used when there is a file upload problem. If the
-// first upload has a problem you can supply new _pre_attachment_ values to
-// start the process again.
+// content migration will be used when there is a file upload problem, or when
+// importing content selectively. If the first upload has a problem you can
+// supply new _pre_attachment_ values to start the process again.
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
 // API Url: groups/{group_id}/content_migrations/{id}
@@ -480,12 +484,12 @@ var updateContentMigrationCourses = exports.updateContentMigrationCourses = { ty
 var updateContentMigrationGroups = exports.updateContentMigrationGroups = { type: 'UPDATE_CONTENT_MIGRATION_GROUPS', method: 'put', key: 'update_content_migration_groupsupdate_content_migration_groups_{group_id}_{id}', required: ['group_id', 'id'] };
 
 // Update a content migration
-// Update a content migration. Takes same arguments as create except that you
+// Update a content migration. Takes same arguments as {api:ContentMigrationsController#create create} except that you
 // can't change the migration type. However, changing most settings after the
 // migration process has started will not do anything. Generally updating the
-// content migration will be used when there is a file upload problem. If the
-// first upload has a problem you can supply new _pre_attachment_ values to
-// start the process again.
+// content migration will be used when there is a file upload problem, or when
+// importing content selectively. If the first upload has a problem you can
+// supply new _pre_attachment_ values to start the process again.
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
 // API Url: users/{user_id}/content_migrations/{id}
@@ -533,3 +537,263 @@ var listMigrationSystemsGroups = exports.listMigrationSystemsGroups = { type: 'L
 // Example:
 // return canvasRequest(list_migration_systems_users, {user_id});
 var listMigrationSystemsUsers = exports.listMigrationSystemsUsers = { type: 'LIST_MIGRATION_SYSTEMS_USERS', method: 'get', key: 'list_migration_systems_userslist_migration_systems_users_user_id', required: ['user_id'] };
+
+// List items for selective import
+// Enumerates the content available for selective import in a tree structure. Each node provides
+// a +property+ copy argument that can be supplied to the {api:ContentMigrationsController#update Update endpoint}
+// to selectively copy the content associated with that tree node and its children. Each node may also
+// provide a +sub_items_url+ or an array of +sub_items+ which you can use to obtain copy parameters
+// for a subset of the resources in a given node.
+// 
+// If no +type+ is sent you will get a list of the top-level sections in the content. It will look something like this:
+// 
+//   [{
+//     "type": "course_settings",
+//     "property": "copy[all_course_settings]",
+//     "title": "Course Settings"
+//   },
+//   {
+//     "type": "context_modules",
+//     "property": "copy[all_context_modules]",
+//     "title": "Modules",
+//     "count": 5,
+//     "sub_items_url": "http://example.com/api/v1/courses/22/content_migrations/77/selective_data?type=context_modules"
+//   },
+//   {
+//     "type": "assignments",
+//     "property": "copy[all_assignments]",
+//     "title": "Assignments",
+//     "count": 2,
+//     "sub_items_url": "http://localhost:3000/api/v1/courses/22/content_migrations/77/selective_data?type=assignments"
+//   }]
+// 
+// When a +type+ is provided, nodes may be further divided via +sub_items+. For example, using +type=assignments+
+// results in a node for each assignment group and a sub_item for each assignment, like this:
+// 
+//   [{
+//     "type": "assignment_groups",
+//     "title": "An Assignment Group",
+//     "property": "copy[assignment_groups][id_i855cf145e5acc7435e1bf1c6e2126e5f]",
+//     "sub_items": [{
+//         "type": "assignments",
+//         "title": "Assignment 1",
+//         "property": "copy[assignments][id_i2102a7fa93b29226774949298626719d]"
+//     }, {
+//         "type": "assignments",
+//         "title": "Assignment 2",
+//         "property": "copy[assignments][id_i310cba275dc3f4aa8a3306bbbe380979]"
+//     }]
+//   }]
+// 
+// 
+// To import the items corresponding to a particular tree node, use the +property+ as a parameter to the
+// {api:ContentMigrationsController#update Update endpoint} and assign a value of 1, for example:
+// 
+//   copy[assignments][id_i310cba275dc3f4aa8a3306bbbe380979]=1
+// 
+// You can include multiple copy parameters to selectively import multiple items or groups of items.
+//
+// API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
+// API Url: accounts/{account_id}/content_migrations/{id}/selective_data
+//
+// Example:
+// const query = {
+//   type
+// }
+// return canvasRequest(list_items_for_selective_import_accounts, {account_id, id, ...query});
+var listItemsForSelectiveImportAccounts = exports.listItemsForSelectiveImportAccounts = { type: 'LIST_ITEMS_FOR_SELECTIVE_IMPORT_ACCOUNTS', method: 'get', key: 'list_items_for_selective_import_accountslist_items_for_selective_import_accounts_{account_id}_{id}', required: ['account_id', 'id'] };
+
+// List items for selective import
+// Enumerates the content available for selective import in a tree structure. Each node provides
+// a +property+ copy argument that can be supplied to the {api:ContentMigrationsController#update Update endpoint}
+// to selectively copy the content associated with that tree node and its children. Each node may also
+// provide a +sub_items_url+ or an array of +sub_items+ which you can use to obtain copy parameters
+// for a subset of the resources in a given node.
+// 
+// If no +type+ is sent you will get a list of the top-level sections in the content. It will look something like this:
+// 
+//   [{
+//     "type": "course_settings",
+//     "property": "copy[all_course_settings]",
+//     "title": "Course Settings"
+//   },
+//   {
+//     "type": "context_modules",
+//     "property": "copy[all_context_modules]",
+//     "title": "Modules",
+//     "count": 5,
+//     "sub_items_url": "http://example.com/api/v1/courses/22/content_migrations/77/selective_data?type=context_modules"
+//   },
+//   {
+//     "type": "assignments",
+//     "property": "copy[all_assignments]",
+//     "title": "Assignments",
+//     "count": 2,
+//     "sub_items_url": "http://localhost:3000/api/v1/courses/22/content_migrations/77/selective_data?type=assignments"
+//   }]
+// 
+// When a +type+ is provided, nodes may be further divided via +sub_items+. For example, using +type=assignments+
+// results in a node for each assignment group and a sub_item for each assignment, like this:
+// 
+//   [{
+//     "type": "assignment_groups",
+//     "title": "An Assignment Group",
+//     "property": "copy[assignment_groups][id_i855cf145e5acc7435e1bf1c6e2126e5f]",
+//     "sub_items": [{
+//         "type": "assignments",
+//         "title": "Assignment 1",
+//         "property": "copy[assignments][id_i2102a7fa93b29226774949298626719d]"
+//     }, {
+//         "type": "assignments",
+//         "title": "Assignment 2",
+//         "property": "copy[assignments][id_i310cba275dc3f4aa8a3306bbbe380979]"
+//     }]
+//   }]
+// 
+// 
+// To import the items corresponding to a particular tree node, use the +property+ as a parameter to the
+// {api:ContentMigrationsController#update Update endpoint} and assign a value of 1, for example:
+// 
+//   copy[assignments][id_i310cba275dc3f4aa8a3306bbbe380979]=1
+// 
+// You can include multiple copy parameters to selectively import multiple items or groups of items.
+//
+// API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
+// API Url: courses/{course_id}/content_migrations/{id}/selective_data
+//
+// Example:
+// const query = {
+//   type
+// }
+// return canvasRequest(list_items_for_selective_import_courses, {course_id, id, ...query});
+var listItemsForSelectiveImportCourses = exports.listItemsForSelectiveImportCourses = { type: 'LIST_ITEMS_FOR_SELECTIVE_IMPORT_COURSES', method: 'get', key: 'list_items_for_selective_import_courseslist_items_for_selective_import_courses_{course_id}_{id}', required: ['course_id', 'id'] };
+
+// List items for selective import
+// Enumerates the content available for selective import in a tree structure. Each node provides
+// a +property+ copy argument that can be supplied to the {api:ContentMigrationsController#update Update endpoint}
+// to selectively copy the content associated with that tree node and its children. Each node may also
+// provide a +sub_items_url+ or an array of +sub_items+ which you can use to obtain copy parameters
+// for a subset of the resources in a given node.
+// 
+// If no +type+ is sent you will get a list of the top-level sections in the content. It will look something like this:
+// 
+//   [{
+//     "type": "course_settings",
+//     "property": "copy[all_course_settings]",
+//     "title": "Course Settings"
+//   },
+//   {
+//     "type": "context_modules",
+//     "property": "copy[all_context_modules]",
+//     "title": "Modules",
+//     "count": 5,
+//     "sub_items_url": "http://example.com/api/v1/courses/22/content_migrations/77/selective_data?type=context_modules"
+//   },
+//   {
+//     "type": "assignments",
+//     "property": "copy[all_assignments]",
+//     "title": "Assignments",
+//     "count": 2,
+//     "sub_items_url": "http://localhost:3000/api/v1/courses/22/content_migrations/77/selective_data?type=assignments"
+//   }]
+// 
+// When a +type+ is provided, nodes may be further divided via +sub_items+. For example, using +type=assignments+
+// results in a node for each assignment group and a sub_item for each assignment, like this:
+// 
+//   [{
+//     "type": "assignment_groups",
+//     "title": "An Assignment Group",
+//     "property": "copy[assignment_groups][id_i855cf145e5acc7435e1bf1c6e2126e5f]",
+//     "sub_items": [{
+//         "type": "assignments",
+//         "title": "Assignment 1",
+//         "property": "copy[assignments][id_i2102a7fa93b29226774949298626719d]"
+//     }, {
+//         "type": "assignments",
+//         "title": "Assignment 2",
+//         "property": "copy[assignments][id_i310cba275dc3f4aa8a3306bbbe380979]"
+//     }]
+//   }]
+// 
+// 
+// To import the items corresponding to a particular tree node, use the +property+ as a parameter to the
+// {api:ContentMigrationsController#update Update endpoint} and assign a value of 1, for example:
+// 
+//   copy[assignments][id_i310cba275dc3f4aa8a3306bbbe380979]=1
+// 
+// You can include multiple copy parameters to selectively import multiple items or groups of items.
+//
+// API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
+// API Url: groups/{group_id}/content_migrations/{id}/selective_data
+//
+// Example:
+// const query = {
+//   type
+// }
+// return canvasRequest(list_items_for_selective_import_groups, {group_id, id, ...query});
+var listItemsForSelectiveImportGroups = exports.listItemsForSelectiveImportGroups = { type: 'LIST_ITEMS_FOR_SELECTIVE_IMPORT_GROUPS', method: 'get', key: 'list_items_for_selective_import_groupslist_items_for_selective_import_groups_{group_id}_{id}', required: ['group_id', 'id'] };
+
+// List items for selective import
+// Enumerates the content available for selective import in a tree structure. Each node provides
+// a +property+ copy argument that can be supplied to the {api:ContentMigrationsController#update Update endpoint}
+// to selectively copy the content associated with that tree node and its children. Each node may also
+// provide a +sub_items_url+ or an array of +sub_items+ which you can use to obtain copy parameters
+// for a subset of the resources in a given node.
+// 
+// If no +type+ is sent you will get a list of the top-level sections in the content. It will look something like this:
+// 
+//   [{
+//     "type": "course_settings",
+//     "property": "copy[all_course_settings]",
+//     "title": "Course Settings"
+//   },
+//   {
+//     "type": "context_modules",
+//     "property": "copy[all_context_modules]",
+//     "title": "Modules",
+//     "count": 5,
+//     "sub_items_url": "http://example.com/api/v1/courses/22/content_migrations/77/selective_data?type=context_modules"
+//   },
+//   {
+//     "type": "assignments",
+//     "property": "copy[all_assignments]",
+//     "title": "Assignments",
+//     "count": 2,
+//     "sub_items_url": "http://localhost:3000/api/v1/courses/22/content_migrations/77/selective_data?type=assignments"
+//   }]
+// 
+// When a +type+ is provided, nodes may be further divided via +sub_items+. For example, using +type=assignments+
+// results in a node for each assignment group and a sub_item for each assignment, like this:
+// 
+//   [{
+//     "type": "assignment_groups",
+//     "title": "An Assignment Group",
+//     "property": "copy[assignment_groups][id_i855cf145e5acc7435e1bf1c6e2126e5f]",
+//     "sub_items": [{
+//         "type": "assignments",
+//         "title": "Assignment 1",
+//         "property": "copy[assignments][id_i2102a7fa93b29226774949298626719d]"
+//     }, {
+//         "type": "assignments",
+//         "title": "Assignment 2",
+//         "property": "copy[assignments][id_i310cba275dc3f4aa8a3306bbbe380979]"
+//     }]
+//   }]
+// 
+// 
+// To import the items corresponding to a particular tree node, use the +property+ as a parameter to the
+// {api:ContentMigrationsController#update Update endpoint} and assign a value of 1, for example:
+// 
+//   copy[assignments][id_i310cba275dc3f4aa8a3306bbbe380979]=1
+// 
+// You can include multiple copy parameters to selectively import multiple items or groups of items.
+//
+// API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
+// API Url: users/{user_id}/content_migrations/{id}/selective_data
+//
+// Example:
+// const query = {
+//   type
+// }
+// return canvasRequest(list_items_for_selective_import_users, {user_id, id, ...query});
+var listItemsForSelectiveImportUsers = exports.listItemsForSelectiveImportUsers = { type: 'LIST_ITEMS_FOR_SELECTIVE_IMPORT_USERS', method: 'get', key: 'list_items_for_selective_import_userslist_items_for_selective_import_users_{user_id}_{id}', required: ['user_id', 'id'] };

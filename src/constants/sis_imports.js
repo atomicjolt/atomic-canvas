@@ -60,6 +60,7 @@ export const getCurrentImportingSisImport = { type: 'GET_CURRENT_IMPORTING_SIS_I
 //   diffing_remaster_data_set
 //   diffing_drop_status
 //   change_threshold
+//   diff_row_count_threshold
 // }
 // return canvasRequest(import_sis_data, {account_id}, body);
 export const importSisData = { type: 'IMPORT_SIS_DATA', method: 'post', key: 'import_sis_dataimport_sis_data_account_id', required: ['account_id'] };

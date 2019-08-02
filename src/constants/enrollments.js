@@ -30,6 +30,7 @@
 //   sis_course_id
 //   sis_section_id
 //   sis_user_id
+//   created_for_sis_id
 // }
 // return canvasRequest(list_enrollments_courses, {course_id, ...query});
 export const listEnrollmentsCourses = { type: 'LIST_ENROLLMENTS_COURSES', method: 'get', key: 'list_enrollments_courseslist_enrollments_courses_course_id', required: ['course_id'] };
@@ -63,6 +64,7 @@ export const listEnrollmentsCourses = { type: 'LIST_ENROLLMENTS_COURSES', method
 //   sis_course_id
 //   sis_section_id
 //   sis_user_id
+//   created_for_sis_id
 // }
 // return canvasRequest(list_enrollments_sections, {section_id, ...query});
 export const listEnrollmentsSections = { type: 'LIST_ENROLLMENTS_SECTIONS', method: 'get', key: 'list_enrollments_sectionslist_enrollments_sections_section_id', required: ['section_id'] };
@@ -95,6 +97,7 @@ export const listEnrollmentsSections = { type: 'LIST_ENROLLMENTS_SECTIONS', meth
 //   sis_course_id
 //   sis_section_id
 //   sis_user_id
+//   created_for_sis_id
 // }
 // return canvasRequest(list_enrollments_users, {user_id, ...query});
 export const listEnrollmentsUsers = { type: 'LIST_ENROLLMENTS_USERS', method: 'get', key: 'list_enrollments_userslist_enrollments_users_user_id', required: ['user_id'] };

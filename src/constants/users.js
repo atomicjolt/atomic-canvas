@@ -15,6 +15,7 @@
 // Example:
 // const query = {
 //   search_term
+//   enrollment_type
 //   sort
 //   order
 // }
@@ -254,7 +255,7 @@ export const listActivityStreamActivityStream = { type: 'LIST_ACTIVITY_STREAM_AC
 export const activityStreamSummary = { type: 'ACTIVITY_STREAM_SUMMARY', method: 'get', key: 'activity_stream_summary', required: [] };
 
 // List the TODO items
-// A paginated list of the current user's list of todo items, as seen on the user dashboard.
+// A paginated list of the current user's list of todo items.
 // 
 // There is a limit to the number of items returned.
 // 
@@ -370,7 +371,10 @@ export const usersUploadFile = { type: 'USERS_UPLOAD_FILE', method: 'post', key:
 // API Url: users/{id}
 //
 // Example:
-// return canvasRequest(show_user_details, {id});
+// const query = {
+//   include
+// }
+// return canvasRequest(show_user_details, {id, ...query});
 export const showUserDetails = { type: 'SHOW_USER_DETAILS', method: 'get', key: 'show_user_detailsshow_user_details_id', required: ['id'] };
 
 // Create a user
@@ -447,6 +451,7 @@ export const selfRegisterUser = { type: 'SELF_REGISTER_USER', method: 'post', ke
 // const query = {
 //   manual_mark_as_read
 //   collapse_global_nav
+//   hide_dashcard_color_overlays
 // }
 // return canvasRequest(update_user_settings, {id, ...query});
 export const updateUserSettings = { type: 'UPDATE_USER_SETTINGS', method: 'get', key: 'update_user_settingsupdate_user_settings_id', required: ['id'] };
@@ -544,6 +549,54 @@ export const editUser = { type: 'EDIT_USER', method: 'put', key: 'edit_useredit_
 // should be considered irreversible. This will delete the user and move all
 // the data into the destination user.
 // 
+// User merge details and caveats:
+// The from_user is the user that was deleted in the user_merge process.
+// The destination_user is the user that remains, that is being split.
+// 
+// Avatars:
+// When both users have avatars, only the destination_users avatar will remain.
+// When one user has an avatar, will it will end up on the destination_user.
+// 
+// Terms of Use:
+// If either user has accepted terms of use, it will be be left as accepted.
+// 
+// Communication Channels:
+// All unique communication channels moved to the destination_user.
+// All notification preferences are moved to the destination_user.
+// 
+// Enrollments:
+// All unique enrollments are moved to the destination_user.
+// When there is an enrollment that would end up making it so that a user would
+// be observing themselves, the enrollment is not moved over.
+// Everything that is tied to the from_user at the course level relating to the
+// enrollment is also moved to the destination_user.
+// 
+// Submissions:
+// All submissions are moved to the destination_user. If there are enrollments
+// for both users in the same course, we prefer submissions that have grades
+// then submissions that have work in them, and if there are no grades or no
+// work, they are not moved.
+// 
+// Other notes:
+// Access Tokens are moved on merge.
+// Conversations are moved on merge.
+// Favorites are moved on merge.
+// Courses will commonly use LTI tools. LTI tools reference the user with IDs
+// that are stored on a user object. Merging users deletes one user and moves
+// all records from the deleted user to the destination_user. These IDs are
+// kept for all enrollments, group_membership, and account_users for the
+// from_user at the time of the merge. When the destination_user launches an
+// LTI tool from a course that used to be the from_user's, it doesn't appear as
+// a new user to the tool provider. Instead it will send the stored ids. The
+// destination_user's LTI IDs remain as they were for the courses that they
+// originally had. Future enrollments for the destination_user will use the IDs
+// that are on the destination_user object. LTI IDs that are kept and tracked
+// per context include lti_context_id, lti_id and uuid. APIs that return the
+// LTI ids will return the one for the context that it is called for, except
+// for the user uuid. The user UUID will display the destination_users uuid,
+// and when getting the uuid from an api that is in a context that was
+// recorded from a merge event, an additional attribute is added as past_uuid.
+// 
 // When finding users by SIS ids in different accounts the
 // destination_account_id is required.
 // 
@@ -561,6 +614,54 @@ export const mergeUserIntoAnotherUserDestinationUserId = { type: 'MERGE_USER_INT
 // To merge users, the caller must have permissions to manage both users. This
 // should be considered irreversible. This will delete the user and move all
 // the data into the destination user.
+// 
+// User merge details and caveats:
+// The from_user is the user that was deleted in the user_merge process.
+// The destination_user is the user that remains, that is being split.
+// 
+// Avatars:
+// When both users have avatars, only the destination_users avatar will remain.
+// When one user has an avatar, will it will end up on the destination_user.
+// 
+// Terms of Use:
+// If either user has accepted terms of use, it will be be left as accepted.
+// 
+// Communication Channels:
+// All unique communication channels moved to the destination_user.
+// All notification preferences are moved to the destination_user.
+// 
+// Enrollments:
+// All unique enrollments are moved to the destination_user.
+// When there is an enrollment that would end up making it so that a user would
+// be observing themselves, the enrollment is not moved over.
+// Everything that is tied to the from_user at the course level relating to the
+// enrollment is also moved to the destination_user.
+// 
+// Submissions:
+// All submissions are moved to the destination_user. If there are enrollments
+// for both users in the same course, we prefer submissions that have grades
+// then submissions that have work in them, and if there are no grades or no
+// work, they are not moved.
+// 
+// Other notes:
+// Access Tokens are moved on merge.
+// Conversations are moved on merge.
+// Favorites are moved on merge.
+// Courses will commonly use LTI tools. LTI tools reference the user with IDs
+// that are stored on a user object. Merging users deletes one user and moves
+// all records from the deleted user to the destination_user. These IDs are
+// kept for all enrollments, group_membership, and account_users for the
+// from_user at the time of the merge. When the destination_user launches an
+// LTI tool from a course that used to be the from_user's, it doesn't appear as
+// a new user to the tool provider. Instead it will send the stored ids. The
+// destination_user's LTI IDs remain as they were for the courses that they
+// originally had. Future enrollments for the destination_user will use the IDs
+// that are on the destination_user object. LTI IDs that are kept and tracked
+// per context include lti_context_id, lti_id and uuid. APIs that return the
+// LTI ids will return the one for the context that it is called for, except
+// for the user uuid. The user UUID will display the destination_users uuid,
+// and when getting the uuid from an api that is in a context that was
+// recorded from a merge event, an additional attribute is added as past_uuid.
 // 
 // When finding users by SIS ids in different accounts the
 // destination_account_id is required.
@@ -587,6 +688,57 @@ export const mergeUserIntoAnotherUserAccounts = { type: 'MERGE_USER_INTO_ANOTHER
 // previous user. Some items may have been deleted during a user_merge that
 // cannot be restored, and/or the data has become stale because of other
 // changes to the objects since the time of the user_merge.
+// 
+// Split users details and caveats:
+// 
+// The from_user is the user that was deleted in the user_merge process.
+// The destination_user is the user that remains, that is being split.
+// 
+// Avatars:
+// When both users had avatars, both will be remain.
+// When from_user had an avatar and destination_user did not have an avatar,
+// the destination_user's avatar will be deleted if it still matches what was
+// there are the time of the merge.
+// If the destination_user's avatar was changed at anytime after the merge, it
+// will remain on the destination user.
+// If the from_user had an avatar it will be there after split.
+// 
+// Terms of Use:
+// If from_user had not accepted terms of use, they will be prompted again
+// to accept terms of use after the split.
+// If the destination_user had not accepted terms of use, hey will be prompted
+// again to accept terms of use after the split.
+// If neither user had accepted the terms of use, but since the time of the
+// merge had accepted, both will be prompted to accept terms of use.
+// If both had accepted terms of use, this will remain.
+// 
+// Communication Channels:
+// All communication channels are restored to what they were prior to the
+// merge. If a communication channel was added after the merge, it will remain
+// on the destination_user.
+// Notification preferences remain with the communication channels.
+// 
+// Enrollments:
+// All enrollments from the time of the merge will be moved back to where they
+// were. Enrollments created since the time of the merge that were created by
+// sis_import will go to the user that owns that sis_id used for the import.
+// Other new enrollments will remain on the destination_user.
+// Everything that is tied to the destination_user at the course level relating
+// to an enrollment is moved to the from_user. When both users are in the same
+// course prior to merge this can cause some unexpected items to move.
+// 
+// Submissions:
+// Unlike other items tied to a course, submissions are explicitly recorded to
+// avoid problems with grades.
+// All submissions were moved are restored to the spot prior to merge.
+// All submission that were created in a course that was moved in enrollments
+// are moved over to the from_user.
+// 
+// Other notes:
+// Access Tokens are moved back on split.
+// Conversations are moved back on split.
+// Favorites that existing at the time of merge are moved back on split.
+// LTI ids are restored to how they were prior to merge.
 //
 // API Docs: https://canvas.instructure.com/doc/api/users.html
 // API Url: users/{id}/split
@@ -610,6 +762,19 @@ export const splitMergedUsersIntoSeparateUsers = { type: 'SPLIT_MERGED_USERS_INT
 // }
 // return canvasRequest(get_pandata_events_jwt_token_and_its_expiration_date, {}, body);
 export const getPandataEventsJwtTokenAndItsExpirationDate = { type: 'GET_PANDATA_EVENTS_JWT_TOKEN_AND_ITS_EXPIRATION_DATE', method: 'post', key: 'get_pandata_events_jwt_token_and_its_expiration_date', required: [] };
+
+// Get a users most recently graded submissions
+// 
+//
+// API Docs: https://canvas.instructure.com/doc/api/users.html
+// API Url: users/{id}/graded_submissions
+//
+// Example:
+// const query = {
+//   include
+// }
+// return canvasRequest(get_users_most_recently_graded_submissions, {id, ...query});
+export const getUsersMostRecentlyGradedSubmissions = { type: 'GET_USERS_MOST_RECENTLY_GRADED_SUBMISSIONS', method: 'get', key: 'get_users_most_recently_graded_submissionsget_users_most_recently_graded_submissions_id', required: ['id'] };
 
 // Get user profile
 // Returns user profile data, including user id, name, and profile pic.

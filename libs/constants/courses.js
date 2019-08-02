@@ -120,6 +120,7 @@ var listStudents = exports.listStudents = { type: 'LIST_STUDENTS', method: 'get'
 // Example:
 // const query = {
 //   search_term
+//   sort
 //   enrollment_type
 //   enrollment_role
 //   enrollment_role_id
@@ -140,6 +141,7 @@ var listUsersInCourseUsers = exports.listUsersInCourseUsers = { type: 'LIST_USER
 // Example:
 // const query = {
 //   search_term
+//   sort
 //   enrollment_type
 //   enrollment_role
 //   enrollment_role_id
@@ -263,6 +265,7 @@ var getCourseSettings = exports.getCourseSettings = { type: 'GET_COURSE_SETTINGS
 //   allow_student_forum_attachments
 //   allow_student_discussion_editing
 //   allow_student_organized_groups
+//   filter_speed_grader_by_student_group
 //   hide_final_grades
 //   hide_distribution_graphs
 //   lock_all_announcements

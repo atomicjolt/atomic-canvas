@@ -21,6 +21,7 @@ Object.defineProperty(exports, "__esModule", {
 //   originality_report[tool_setting][resource_type_code]
 //   originality_report[tool_setting][resource_url]
 //   originality_report[workflow_state]
+//   originality_report[error_message]
 // }
 // return canvasRequest(create_originality_report, {assignment_id, submission_id}, body);
 var createOriginalityReport = exports.createOriginalityReport = { type: 'CREATE_ORIGINALITY_REPORT', method: 'post', key: 'create_originality_reportcreate_originality_report_{assignment_id}_{submission_id}', required: ['assignment_id', 'submission_id'] };
@@ -40,6 +41,7 @@ var createOriginalityReport = exports.createOriginalityReport = { type: 'CREATE_
 //   originality_report[tool_setting][resource_type_code]
 //   originality_report[tool_setting][resource_url]
 //   originality_report[workflow_state]
+//   originality_report[error_message]
 // }
 // return canvasRequest(edit_originality_report_submissions, {assignment_id, submission_id, id}, body);
 var editOriginalityReportSubmissions = exports.editOriginalityReportSubmissions = { type: 'EDIT_ORIGINALITY_REPORT_SUBMISSIONS', method: 'put', key: 'edit_originality_report_submissionsedit_originality_report_submissions_{assignment_id}_{submission_id}_{id}', required: ['assignment_id', 'submission_id', 'id'] };
@@ -59,6 +61,7 @@ var editOriginalityReportSubmissions = exports.editOriginalityReportSubmissions 
 //   originality_report[tool_setting][resource_type_code]
 //   originality_report[tool_setting][resource_url]
 //   originality_report[workflow_state]
+//   originality_report[error_message]
 // }
 // return canvasRequest(edit_originality_report_files, {assignment_id, file_id}, body);
 var editOriginalityReportFiles = exports.editOriginalityReportFiles = { type: 'EDIT_ORIGINALITY_REPORT_FILES', method: 'put', key: 'edit_originality_report_filesedit_originality_report_files_{assignment_id}_{file_id}', required: ['assignment_id', 'file_id'] };

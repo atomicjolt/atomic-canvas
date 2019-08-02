@@ -115,6 +115,7 @@ export const listStudents = { type: 'LIST_STUDENTS', method: 'get', key: 'list_s
 // Example:
 // const query = {
 //   search_term
+//   sort
 //   enrollment_type
 //   enrollment_role
 //   enrollment_role_id
@@ -135,6 +136,7 @@ export const listUsersInCourseUsers = { type: 'LIST_USERS_IN_COURSE_USERS', meth
 // Example:
 // const query = {
 //   search_term
+//   sort
 //   enrollment_type
 //   enrollment_role
 //   enrollment_role_id
@@ -258,6 +260,7 @@ export const getCourseSettings = { type: 'GET_COURSE_SETTINGS', method: 'get', k
 //   allow_student_forum_attachments
 //   allow_student_discussion_editing
 //   allow_student_organized_groups
+//   filter_speed_grader_by_student_group
 //   hide_final_grades
 //   hide_distribution_graphs
 //   lock_all_announcements

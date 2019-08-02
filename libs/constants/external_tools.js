@@ -115,12 +115,15 @@ var getSingleExternalToolAccounts = exports.getSingleExternalToolAccounts = { ty
 // Create an external tool
 // Create an external tool in the specified course/account.
 // The created tool will be returned, see the "show" endpoint for an example.
+// If a client ID is supplied canvas will attempt to create a context external
+// tool using the LTI 1.3 standard.
 //
 // API Docs: https://canvas.instructure.com/doc/api/external_tools.html
 // API Url: courses/{course_id}/external_tools
 //
 // Example:
 // const body = {
+//   client_id (required)
 //   name (required)
 //   privacy_level (required)
 //   consumer_key (required)
@@ -189,12 +192,15 @@ var createExternalToolCourses = exports.createExternalToolCourses = { type: 'CRE
 // Create an external tool
 // Create an external tool in the specified course/account.
 // The created tool will be returned, see the "show" endpoint for an example.
+// If a client ID is supplied canvas will attempt to create a context external
+// tool using the LTI 1.3 standard.
 //
 // API Docs: https://canvas.instructure.com/doc/api/external_tools.html
 // API Url: accounts/{account_id}/external_tools
 //
 // Example:
 // const body = {
+//   client_id (required)
 //   name (required)
 //   privacy_level (required)
 //   consumer_key (required)
