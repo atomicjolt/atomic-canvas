@@ -5,20 +5,14 @@
 //   body      - The body of the request. Used for POST and PUT
 //   localData - An object containing data that the action will hold onto for local usage
 //               but will not be passed to the server.
-export default function(canvas, params, body, localData = {}) {
+//   timeout   - Override the default network timeout for this request
+export default function(canvas, params, body, localData = {}, timeout) {
   return {
     type: canvas.type,
     canvas,
     params,
     body,
     localData,
-
-    /**
-     * Usage of this utility method:
-     * canvasRequest(canvas, params, body).withTimeout(60e3);
-     */
-    withTimeout(timeout) {
-      return { ...this, timeout };
-    },
+    timeout,
   };
 }
