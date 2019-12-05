@@ -45,7 +45,7 @@ function proxyCanvas(store, action, params) {
     lms_proxy_call_type: action.canvas.type,
     context_id: state.settings.context_id,
     oauth_consumer_key: state.settings.oauth_consumer_key
-  }), action.body);
+  }), action.body, undefined, action.timeout);
 
   if (promise) {
     promise.then(function (response) {

@@ -32,7 +32,9 @@ export function proxyCanvas(store, action, params) {
       context_id: state.settings.context_id,
       oauth_consumer_key: state.settings.oauth_consumer_key
     },
-    action.body
+    action.body,
+    undefined,
+    action.timeout,
   );
 
   if (promise) {
