@@ -45,6 +45,18 @@ var listContentSharesSent = exports.listContentSharesSent = { type: 'LIST_CONTEN
 // return canvasRequest(list_content_shares_received, {user_id});
 var listContentSharesReceived = exports.listContentSharesReceived = { type: 'LIST_CONTENT_SHARES_RECEIVED', method: 'get', key: 'list_content_shares_receivedlist_content_shares_received_user_id', required: ['user_id'] };
 
+// Get unread shares count
+// Return the number of content shares a user has received that have not yet been read. Use +self+ as the user_id
+// to retrieve your own content shares. Only linked observers and administrators may view other users'
+// content shares.
+//
+// API Docs: https://canvas.instructure.com/doc/api/content_shares.html
+// API Url: users/{user_id}/content_shares/unread_count
+//
+// Example:
+// return canvasRequest(get_unread_shares_count, {user_id});
+var getUnreadSharesCount = exports.getUnreadSharesCount = { type: 'GET_UNREAD_SHARES_COUNT', method: 'get', key: 'get_unread_shares_countget_unread_shares_count_user_id', required: ['user_id'] };
+
 // Get content share
 // Return information about a single content share. You may use +self+ as the user_id to retrieve your own content share.
 //

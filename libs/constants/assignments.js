@@ -114,7 +114,6 @@ var getSingleAssignment = exports.getSingleAssignment = { type: 'GET_SINGLE_ASSI
 //   assignment[unlock_at]
 //   assignment[description]
 //   assignment[assignment_group_id]
-//   assignment[muted]
 //   assignment[assignment_overrides]
 //   assignment[only_visible_to_overrides]
 //   assignment[published]
@@ -129,6 +128,7 @@ var getSingleAssignment = exports.getSingleAssignment = { type: 'GET_SINGLE_ASSI
 //   assignment[graders_names_visible_to_final_grader]
 //   assignment[anonymous_grading]
 //   assignment[allowed_attempts]
+//   assignment[muted]
 // }
 // return canvasRequest(create_assignment, {course_id}, body);
 var createAssignment = exports.createAssignment = { type: 'CREATE_ASSIGNMENT', method: 'post', key: 'create_assignmentcreate_assignment_course_id', required: ['course_id'] };
@@ -169,7 +169,6 @@ var createAssignment = exports.createAssignment = { type: 'CREATE_ASSIGNMENT', m
 //   assignment[unlock_at]
 //   assignment[description]
 //   assignment[assignment_group_id]
-//   assignment[muted]
 //   assignment[assignment_overrides]
 //   assignment[only_visible_to_overrides]
 //   assignment[published]
@@ -183,6 +182,7 @@ var createAssignment = exports.createAssignment = { type: 'CREATE_ASSIGNMENT', m
 //   assignment[graders_names_visible_to_final_grader]
 //   assignment[anonymous_grading]
 //   assignment[allowed_attempts]
+//   assignment[muted]
 // }
 // return canvasRequest(edit_assignment, {course_id, id}, body);
 var editAssignment = exports.editAssignment = { type: 'EDIT_ASSIGNMENT', method: 'put', key: 'edit_assignmentedit_assignment_{course_id}_{id}', required: ['course_id', 'id'] };

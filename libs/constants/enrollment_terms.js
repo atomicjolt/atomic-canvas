@@ -53,7 +53,7 @@ var updateEnrollmentTerm = exports.updateEnrollmentTerm = { type: 'UPDATE_ENROLL
 var deleteEnrollmentTerm = exports.deleteEnrollmentTerm = { type: 'DELETE_ENROLLMENT_TERM', method: 'delete', key: 'delete_enrollment_termdelete_enrollment_term_{account_id}_{id}', required: ['account_id', 'id'] };
 
 // List enrollment terms
-// A paginated list of all of the terms in the account.
+// An object with a paginated list of all of the terms in the account.
 //
 // API Docs: https://canvas.instructure.com/doc/api/enrollment_terms.html
 // API Url: accounts/{account_id}/terms
