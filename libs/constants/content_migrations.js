@@ -256,6 +256,7 @@ var getContentMigrationUsers = exports.getContentMigrationUsers = { type: 'GET_C
 //   pre_attachment[name]
 //   pre_attachment[*]
 //   settings[file_url]
+//   settings[content_export_id]
 //   settings[source_course_id]
 //   settings[folder_id]
 //   settings[overwrite_quizzes]
@@ -269,6 +270,7 @@ var getContentMigrationUsers = exports.getContentMigrationUsers = { type: 'GET_C
 //   date_shift_options[day_substitutions][X]
 //   date_shift_options[remove_dates]
 //   selective_import
+//   select
 // }
 // return canvasRequest(create_content_migration_accounts, {account_id}, body);
 var createContentMigrationAccounts = exports.createContentMigrationAccounts = { type: 'CREATE_CONTENT_MIGRATION_ACCOUNTS', method: 'post', key: 'create_content_migration_accountscreate_content_migration_accounts_account_id', required: ['account_id'] };
@@ -311,6 +313,7 @@ var createContentMigrationAccounts = exports.createContentMigrationAccounts = { 
 //   pre_attachment[name]
 //   pre_attachment[*]
 //   settings[file_url]
+//   settings[content_export_id]
 //   settings[source_course_id]
 //   settings[folder_id]
 //   settings[overwrite_quizzes]
@@ -324,6 +327,7 @@ var createContentMigrationAccounts = exports.createContentMigrationAccounts = { 
 //   date_shift_options[day_substitutions][X]
 //   date_shift_options[remove_dates]
 //   selective_import
+//   select
 // }
 // return canvasRequest(create_content_migration_courses, {course_id}, body);
 var createContentMigrationCourses = exports.createContentMigrationCourses = { type: 'CREATE_CONTENT_MIGRATION_COURSES', method: 'post', key: 'create_content_migration_coursescreate_content_migration_courses_course_id', required: ['course_id'] };
@@ -366,6 +370,7 @@ var createContentMigrationCourses = exports.createContentMigrationCourses = { ty
 //   pre_attachment[name]
 //   pre_attachment[*]
 //   settings[file_url]
+//   settings[content_export_id]
 //   settings[source_course_id]
 //   settings[folder_id]
 //   settings[overwrite_quizzes]
@@ -379,6 +384,7 @@ var createContentMigrationCourses = exports.createContentMigrationCourses = { ty
 //   date_shift_options[day_substitutions][X]
 //   date_shift_options[remove_dates]
 //   selective_import
+//   select
 // }
 // return canvasRequest(create_content_migration_groups, {group_id}, body);
 var createContentMigrationGroups = exports.createContentMigrationGroups = { type: 'CREATE_CONTENT_MIGRATION_GROUPS', method: 'post', key: 'create_content_migration_groupscreate_content_migration_groups_group_id', required: ['group_id'] };
@@ -421,6 +427,7 @@ var createContentMigrationGroups = exports.createContentMigrationGroups = { type
 //   pre_attachment[name]
 //   pre_attachment[*]
 //   settings[file_url]
+//   settings[content_export_id]
 //   settings[source_course_id]
 //   settings[folder_id]
 //   settings[overwrite_quizzes]
@@ -434,6 +441,7 @@ var createContentMigrationGroups = exports.createContentMigrationGroups = { type
 //   date_shift_options[day_substitutions][X]
 //   date_shift_options[remove_dates]
 //   selective_import
+//   select
 // }
 // return canvasRequest(create_content_migration_users, {user_id}, body);
 var createContentMigrationUsers = exports.createContentMigrationUsers = { type: 'CREATE_CONTENT_MIGRATION_USERS', method: 'post', key: 'create_content_migration_userscreate_content_migration_users_user_id', required: ['user_id'] };

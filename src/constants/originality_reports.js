@@ -17,6 +17,7 @@
 //   originality_report[tool_setting][resource_url]
 //   originality_report[workflow_state]
 //   originality_report[error_message]
+//   originality_report[attempt]
 // }
 // return canvasRequest(create_originality_report, {assignment_id, submission_id}, body);
 export const createOriginalityReport = { type: 'CREATE_ORIGINALITY_REPORT', method: 'post', key: 'create_originality_reportcreate_originality_report_{assignment_id}_{submission_id}', required: ['assignment_id', 'submission_id'] };

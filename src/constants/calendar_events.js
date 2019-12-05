@@ -37,6 +37,8 @@ export const listCalendarEvents = { type: 'LIST_CALENDAR_EVENTS', method: 'get',
 //   all_events
 //   context_codes
 //   excludes
+//   submission_types
+//   exclude_submission_types
 // }
 // return canvasRequest(list_calendar_events_for_user, {user_id, ...query});
 export const listCalendarEventsForUser = { type: 'LIST_CALENDAR_EVENTS_FOR_USER', method: 'get', key: 'list_calendar_events_for_userlist_calendar_events_for_user_user_id', required: ['user_id'] };

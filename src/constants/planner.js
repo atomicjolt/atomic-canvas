@@ -6,64 +6,8 @@
 // current user with the associated planner override to override an item's
 // visibility if set.
 // 
-// [
-//   {
-//     "context_type": "Course",
-//     "course_id": 1,
-//     "planner_override": { ... planner override object ... }, // Associated PlannerOverride object if user has toggled visibility for the object on the planner
-//     "submissions": false, // The statuses of the user's submissions for this object
-//     "plannable_id": "123",
-//     "plannable_type": "discussion_topic",
-//     "plannable": { ... discussion topic object },
-//     "html_url": "/courses/1/discussion_topics/8"
-//   },
-//   {
-//     "context_type": "Course",
-//     "course_id": 1,
-//     "planner_override": {
-//         "id": 3,
-//         "plannable_type": "Assignment",
-//         "plannable_id": 1,
-//         "user_id": 2,
-//         "workflow_state": "active",
-//         "marked_complete": true, // A user-defined setting for marking items complete in the planner
-//         "dismissed": false, // A user-defined setting for hiding items from the opportunities list
-//         "deleted_at": null,
-//         "created_at": "2017-05-18T18:35:55Z",
-//         "updated_at": "2017-05-18T18:35:55Z"
-//     },
-//     "submissions": { // The status as it pertains to the current user
-//       "excused": false,
-//       "graded": false,
-//       "late": false,
-//       "missing": true,
-//       "needs_grading": false,
-//       "with_feedback": false
-//     },
-//     "plannable_id": "456",
-//     "plannable_type": "assignment",
-//     "plannable": { ... assignment object ...  },
-//     "html_url": "http://canvas.instructure.com/courses/1/assignments/1#submit"
-//   },
-//   {
-//     "planner_override": null,
-//     "submissions": false, // false if no associated assignment exists for the plannable item
-//     "plannable_id": "789",
-//     "plannable_type": "planner_note",
-//     "plannable": {
-//       "id": 1,
-//       "todo_date": "2017-05-30T06:00:00Z",
-//       "title": "hello",
-//       "details": "world",
-//       "user_id": 2,
-//       "course_id": null,
-//       "workflow_state": "active",
-//       "created_at": "2017-05-30T16:29:04Z",
-//       "updated_at": "2017-05-30T16:29:15Z"
-//     },
-//     "html_url": "http://canvas.instructure.com/api/v1/planner_notes.1"
-//   }
-// ]
+// Planner items for a student may also be retrieved by a linked observer. Use
+// the path that accepts a user_id and supply the student's id.
 //
 // API Docs: https://canvas.instructure.com/doc/api/planner.html
 // API Url: planner/items
@@ -75,8 +19,29 @@
 //   context_codes
 //   filter
 // }
-// return canvasRequest(list_planner_items, {, ...query});
-export const listPlannerItems = { type: 'LIST_PLANNER_ITEMS', method: 'get', key: 'list_planner_items', required: [] };
+// return canvasRequest(list_planner_items_planner, {, ...query});
+export const listPlannerItemsPlanner = { type: 'LIST_PLANNER_ITEMS_PLANNER', method: 'get', key: 'list_planner_items_planner', required: [] };
+
+// List planner items
+// Retrieve the paginated list of objects to be shown on the planner for the
+// current user with the associated planner override to override an item's
+// visibility if set.
+// 
+// Planner items for a student may also be retrieved by a linked observer. Use
+// the path that accepts a user_id and supply the student's id.
+//
+// API Docs: https://canvas.instructure.com/doc/api/planner.html
+// API Url: users/{user_id}/planner/items
+//
+// Example:
+// const query = {
+//   start_date
+//   end_date
+//   context_codes
+//   filter
+// }
+// return canvasRequest(list_planner_items_users, {user_id, ...query});
+export const listPlannerItemsUsers = { type: 'LIST_PLANNER_ITEMS_USERS', method: 'get', key: 'list_planner_items_userslist_planner_items_users_user_id', required: ['user_id'] };
 
 // List planner notes
 // Retrieve the paginated list of planner notes

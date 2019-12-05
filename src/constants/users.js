@@ -772,6 +772,7 @@ export const getPandataEventsJwtTokenAndItsExpirationDate = { type: 'GET_PANDATA
 // Example:
 // const query = {
 //   include
+//   only_current_enrollments
 // }
 // return canvasRequest(get_users_most_recently_graded_submissions, {id, ...query});
 export const getUsersMostRecentlyGradedSubmissions = { type: 'GET_USERS_MOST_RECENTLY_GRADED_SUBMISSIONS', method: 'get', key: 'get_users_most_recently_graded_submissionsget_users_most_recently_graded_submissions_id', required: ['id'] };

@@ -183,7 +183,6 @@ var deleteSingleRubricAssessment = exports.deleteSingleRubricAssessment = { type
 //   rubric_association[use_for_grading]
 //   rubric_association[hide_score_total]
 //   rubric_association[purpose]
-//   rubric_association[url]
 //   rubric_association[bookmarked]
 // }
 // return canvasRequest(create_rubricassociation, {course_id}, body);
@@ -204,7 +203,6 @@ var createRubricassociation = exports.createRubricassociation = { type: 'CREATE_
 //   rubric_association[use_for_grading]
 //   rubric_association[hide_score_total]
 //   rubric_association[purpose]
-//   rubric_association[url]
 //   rubric_association[bookmarked]
 // }
 // return canvasRequest(update_rubricassociation, {course_id, id}, body);

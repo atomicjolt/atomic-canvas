@@ -178,7 +178,6 @@ export const deleteSingleRubricAssessment = { type: 'DELETE_SINGLE_RUBRIC_ASSESS
 //   rubric_association[use_for_grading]
 //   rubric_association[hide_score_total]
 //   rubric_association[purpose]
-//   rubric_association[url]
 //   rubric_association[bookmarked]
 // }
 // return canvasRequest(create_rubricassociation, {course_id}, body);
@@ -199,7 +198,6 @@ export const createRubricassociation = { type: 'CREATE_RUBRICASSOCIATION', metho
 //   rubric_association[use_for_grading]
 //   rubric_association[hide_score_total]
 //   rubric_association[purpose]
-//   rubric_association[url]
 //   rubric_association[bookmarked]
 // }
 // return canvasRequest(update_rubricassociation, {course_id, id}, body);
