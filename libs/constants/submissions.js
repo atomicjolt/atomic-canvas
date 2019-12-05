@@ -29,6 +29,8 @@ Object.defineProperty(exports, "__esModule", {
 //   submission[file_ids]
 //   submission[media_comment_id]
 //   submission[media_comment_type]
+//   submission[user_id]
+//   submission[submitted_at]
 // }
 // return canvasRequest(submit_assignment_courses, {course_id, assignment_id}, body);
 var submitAssignmentCourses = exports.submitAssignmentCourses = { type: 'SUBMIT_ASSIGNMENT_COURSES', method: 'post', key: 'submit_assignment_coursessubmit_assignment_courses_{course_id}_{assignment_id}', required: ['course_id', 'assignment_id'] };
@@ -56,6 +58,8 @@ var submitAssignmentCourses = exports.submitAssignmentCourses = { type: 'SUBMIT_
 //   submission[file_ids]
 //   submission[media_comment_id]
 //   submission[media_comment_type]
+//   submission[user_id]
+//   submission[submitted_at]
 // }
 // return canvasRequest(submit_assignment_sections, {section_id, assignment_id}, body);
 var submitAssignmentSections = exports.submitAssignmentSections = { type: 'SUBMIT_ASSIGNMENT_SECTIONS', method: 'post', key: 'submit_assignment_sectionssubmit_assignment_sections_{section_id}_{assignment_id}', required: ['section_id', 'assignment_id'] };

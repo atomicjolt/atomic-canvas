@@ -251,11 +251,16 @@ export const getContentMigrationUsers = { type: 'GET_CONTENT_MIGRATION_USERS', m
 //   pre_attachment[name]
 //   pre_attachment[*]
 //   settings[file_url]
+//   settings[content_export_id]
 //   settings[source_course_id]
 //   settings[folder_id]
 //   settings[overwrite_quizzes]
 //   settings[question_bank_id]
 //   settings[question_bank_name]
+//   settings[insert_into_module_id]
+//   settings[insert_into_module_type]
+//   settings[insert_into_module_position]
+//   settings[move_to_assignment_group_id]
 //   date_shift_options[shift_dates]
 //   date_shift_options[old_start_date]
 //   date_shift_options[old_end_date]
@@ -264,6 +269,7 @@ export const getContentMigrationUsers = { type: 'GET_CONTENT_MIGRATION_USERS', m
 //   date_shift_options[day_substitutions][X]
 //   date_shift_options[remove_dates]
 //   selective_import
+//   select
 // }
 // return canvasRequest(create_content_migration_accounts, {account_id}, body);
 export const createContentMigrationAccounts = { type: 'CREATE_CONTENT_MIGRATION_ACCOUNTS', method: 'post', key: 'create_content_migration_accountscreate_content_migration_accounts_account_id', required: ['account_id'] };
@@ -306,11 +312,16 @@ export const createContentMigrationAccounts = { type: 'CREATE_CONTENT_MIGRATION_
 //   pre_attachment[name]
 //   pre_attachment[*]
 //   settings[file_url]
+//   settings[content_export_id]
 //   settings[source_course_id]
 //   settings[folder_id]
 //   settings[overwrite_quizzes]
 //   settings[question_bank_id]
 //   settings[question_bank_name]
+//   settings[insert_into_module_id]
+//   settings[insert_into_module_type]
+//   settings[insert_into_module_position]
+//   settings[move_to_assignment_group_id]
 //   date_shift_options[shift_dates]
 //   date_shift_options[old_start_date]
 //   date_shift_options[old_end_date]
@@ -319,6 +330,7 @@ export const createContentMigrationAccounts = { type: 'CREATE_CONTENT_MIGRATION_
 //   date_shift_options[day_substitutions][X]
 //   date_shift_options[remove_dates]
 //   selective_import
+//   select
 // }
 // return canvasRequest(create_content_migration_courses, {course_id}, body);
 export const createContentMigrationCourses = { type: 'CREATE_CONTENT_MIGRATION_COURSES', method: 'post', key: 'create_content_migration_coursescreate_content_migration_courses_course_id', required: ['course_id'] };
@@ -361,11 +373,16 @@ export const createContentMigrationCourses = { type: 'CREATE_CONTENT_MIGRATION_C
 //   pre_attachment[name]
 //   pre_attachment[*]
 //   settings[file_url]
+//   settings[content_export_id]
 //   settings[source_course_id]
 //   settings[folder_id]
 //   settings[overwrite_quizzes]
 //   settings[question_bank_id]
 //   settings[question_bank_name]
+//   settings[insert_into_module_id]
+//   settings[insert_into_module_type]
+//   settings[insert_into_module_position]
+//   settings[move_to_assignment_group_id]
 //   date_shift_options[shift_dates]
 //   date_shift_options[old_start_date]
 //   date_shift_options[old_end_date]
@@ -374,6 +391,7 @@ export const createContentMigrationCourses = { type: 'CREATE_CONTENT_MIGRATION_C
 //   date_shift_options[day_substitutions][X]
 //   date_shift_options[remove_dates]
 //   selective_import
+//   select
 // }
 // return canvasRequest(create_content_migration_groups, {group_id}, body);
 export const createContentMigrationGroups = { type: 'CREATE_CONTENT_MIGRATION_GROUPS', method: 'post', key: 'create_content_migration_groupscreate_content_migration_groups_group_id', required: ['group_id'] };
@@ -416,11 +434,16 @@ export const createContentMigrationGroups = { type: 'CREATE_CONTENT_MIGRATION_GR
 //   pre_attachment[name]
 //   pre_attachment[*]
 //   settings[file_url]
+//   settings[content_export_id]
 //   settings[source_course_id]
 //   settings[folder_id]
 //   settings[overwrite_quizzes]
 //   settings[question_bank_id]
 //   settings[question_bank_name]
+//   settings[insert_into_module_id]
+//   settings[insert_into_module_type]
+//   settings[insert_into_module_position]
+//   settings[move_to_assignment_group_id]
 //   date_shift_options[shift_dates]
 //   date_shift_options[old_start_date]
 //   date_shift_options[old_end_date]
@@ -429,6 +452,7 @@ export const createContentMigrationGroups = { type: 'CREATE_CONTENT_MIGRATION_GR
 //   date_shift_options[day_substitutions][X]
 //   date_shift_options[remove_dates]
 //   selective_import
+//   select
 // }
 // return canvasRequest(create_content_migration_users, {user_id}, body);
 export const createContentMigrationUsers = { type: 'CREATE_CONTENT_MIGRATION_USERS', method: 'post', key: 'create_content_migration_userscreate_content_migration_users_user_id', required: ['user_id'] };

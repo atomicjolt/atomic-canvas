@@ -153,6 +153,7 @@ var createAssignment = exports.createAssignment = { type: 'CREATE_ASSIGNMENT', m
 //   assignment[turnitin_enabled]
 //   assignment[vericite_enabled]
 //   assignment[turnitin_settings]
+//   assignment[sis_assignment_id]
 //   assignment[integration_data]
 //   assignment[integration_id]
 //   assignment[peer_reviews]

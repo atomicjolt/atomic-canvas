@@ -32,6 +32,7 @@ Object.defineProperty(exports, "__esModule", {
 //   scoreGiven
 //   scoreMaximum
 //   comment
+//   https://canvas.instructure.com/lti/submission
 // }
 // return canvasRequest(create_score, {course_id, line_item_id}, body);
 var createScore = exports.createScore = { type: 'CREATE_SCORE', method: 'post', key: 'create_scorecreate_score_{course_id}_{line_item_id}', required: ['course_id', 'line_item_id'] };

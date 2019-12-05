@@ -70,6 +70,7 @@ export const listCoursesForUser = { type: 'LIST_COURSES_FOR_USER', method: 'get'
 //   course[default_view]
 //   course[syllabus_body]
 //   course[grading_standard_id]
+//   course[grade_passback_setting]
 //   course[course_format]
 //   enable_sis_reactivation
 // }
@@ -174,6 +175,20 @@ export const listRecentlyLoggedInStudents = { type: 'LIST_RECENTLY_LOGGED_IN_STU
 // return canvasRequest(get_single_user, {course_id, id});
 export const getSingleUser = { type: 'GET_SINGLE_USER', method: 'get', key: 'get_single_userget_single_user_{course_id}_{id}', required: ['course_id', 'id'] };
 
+// Search for content share users
+// Returns a paginated list of users you can share content with.  Requires the content share
+// feature and the user must have the manage content permission for the course.
+//
+// API Docs: https://canvas.instructure.com/doc/api/courses.html
+// API Url: courses/{course_id}/content_share_users
+//
+// Example:
+// const query = {
+//   search_term (required)
+// }
+// return canvasRequest(search_for_content_share_users, {course_id, ...query});
+export const searchForContentShareUsers = { type: 'SEARCH_FOR_CONTENT_SHARE_USERS', method: 'get', key: 'search_for_content_share_userssearch_for_content_share_users_course_id', required: ['course_id'] };
+
 // Preview processed html
 // Preview html content processed for this course
 //
@@ -264,6 +279,7 @@ export const getCourseSettings = { type: 'GET_COURSE_SETTINGS', method: 'get', k
 //   hide_final_grades
 //   hide_distribution_graphs
 //   lock_all_announcements
+//   usage_rights_required
 //   restrict_student_past_view
 //   restrict_student_future_view
 //   show_announcements_on_home_page
@@ -346,6 +362,7 @@ export const getSingleCourseAccounts = { type: 'GET_SINGLE_COURSE_ACCOUNTS', met
 //   course[default_view]
 //   course[syllabus_body]
 //   course[grading_standard_id]
+//   course[grade_passback_setting]
 //   course[course_format]
 //   course[image_id]
 //   course[image_url]

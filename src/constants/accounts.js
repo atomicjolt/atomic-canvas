@@ -139,6 +139,8 @@ export const listActiveCoursesInAccount = { type: 'LIST_ACTIVE_COURSES_IN_ACCOUN
 //   account[settings][restrict_student_future_view][locked]
 //   account[settings][lock_all_announcements][value]
 //   account[settings][lock_all_announcements][locked]
+//   account[settings][usage_rights_required][value]
+//   account[settings][usage_rights_required][locked]
 //   account[settings][restrict_student_future_listing][value]
 //   account[settings][restrict_student_future_listing][locked]
 //   account[services]
