@@ -4,18 +4,14 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-exports.default = (canvas, params, body, localData) => ({
-  type: canvas.type,
-  canvas,
-  params,
-  body,
-  localData,
+exports.default = function (canvas, params, body) {
+  var localData = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
 
-  /**
-   * Usage of this utility method:
-   * canvasRequest(canvas, params, body).withTimeout(60e3);
-   */
-  withTimeout(timeout) {
-    return { ...this, timeout };
-  },
-});
+  return {
+    type: canvas.type,
+    canvas: canvas,
+    params: params,
+    body: body,
+    localData: localData
+  };
+};

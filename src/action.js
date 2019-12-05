@@ -11,6 +11,14 @@ export default function(canvas, params, body, localData = {}) {
     canvas,
     params,
     body,
-    localData
+    localData,
+
+    /**
+     * Usage of this utility method:
+     * canvasRequest(canvas, params, body).withTimeout(60e3);
+     */
+    withTimeout(timeout) {
+      return { ...this, timeout };
+    },
   };
 }
