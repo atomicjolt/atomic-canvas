@@ -36,9 +36,23 @@ var listYourCourses = exports.listYourCourses = { type: 'LIST_YOUR_COURSES', met
 //   include
 //   state
 //   enrollment_state
+//   homeroom
 // }
 // return canvasRequest(list_courses_for_user, {user_id, ...query});
 var listCoursesForUser = exports.listCoursesForUser = { type: 'LIST_COURSES_FOR_USER', method: 'get', key: 'list_courses_for_userlist_courses_for_user_user_id', required: ['user_id'] };
+
+// Get user progress
+// Return progress information for the user and course
+// 
+// You can supply +self+ as the user_id to query your own progress in a course. To query another user's progress,
+// you must be a teacher in the course, an administrator, or a linked observer of the user.
+//
+// API Docs: https://canvas.instructure.com/doc/api/courses.html
+// API Url: courses/{course_id}/users/{user_id}/progress
+//
+// Example:
+// return canvasRequest(get_user_progress, {course_id, user_id});
+var getUserProgress = exports.getUserProgress = { type: 'GET_USER_PROGRESS', method: 'get', key: 'get_user_progressget_user_progress_{course_id}_{user_id}', required: ['course_id', 'user_id'] };
 
 // Create a new course
 // Create a new course
@@ -283,15 +297,29 @@ var getCourseSettings = exports.getCourseSettings = { type: 'GET_COURSE_SETTINGS
 //   filter_speed_grader_by_student_group
 //   hide_final_grades
 //   hide_distribution_graphs
+//   hide_sections_on_course_users_page
 //   lock_all_announcements
 //   usage_rights_required
 //   restrict_student_past_view
 //   restrict_student_future_view
 //   show_announcements_on_home_page
 //   home_page_announcement_limit
+//   syllabus_course_summary
 // }
 // return canvasRequest(update_course_settings, {course_id}, body);
 var updateCourseSettings = exports.updateCourseSettings = { type: 'UPDATE_COURSE_SETTINGS', method: 'put', key: 'update_course_settingsupdate_course_settings_course_id', required: ['course_id'] };
+
+// Return test student for course
+// Returns information for a test student in this course. Creates a test
+// student if one does not already exist for the course. The caller must have
+// permission to access the course's student view.
+//
+// API Docs: https://canvas.instructure.com/doc/api/courses.html
+// API Url: courses/{course_id}/student_view_student
+//
+// Example:
+// return canvasRequest(return_test_student_for_course, {course_id});
+var returnTestStudentForCourse = exports.returnTestStudentForCourse = { type: 'RETURN_TEST_STUDENT_FOR_COURSE', method: 'get', key: 'return_test_student_for_coursereturn_test_student_for_course_course_id', required: ['course_id'] };
 
 // Get a single course
 // Return information on a single course.
@@ -366,6 +394,7 @@ var getSingleCourseAccounts = exports.getSingleCourseAccounts = { type: 'GET_SIN
 //   course[event]
 //   course[default_view]
 //   course[syllabus_body]
+//   course[syllabus_course_summary]
 //   course[grading_standard_id]
 //   course[grade_passback_setting]
 //   course[course_format]
@@ -376,6 +405,11 @@ var getSingleCourseAccounts = exports.getSingleCourseAccounts = { type: 'GET_SIN
 //   course[blueprint_restrictions]
 //   course[use_blueprint_restrictions_by_object_type]
 //   course[blueprint_restrictions_by_object_type]
+//   course[homeroom_course]
+//   course[sync_enrollments_from_homeroom]
+//   course[homeroom_course_id]
+//   course[template]
+//   course[course_color]
 // }
 // return canvasRequest(update_course, {id}, body);
 var updateCourse = exports.updateCourse = { type: 'UPDATE_COURSE', method: 'put', key: 'update_courseupdate_course_id', required: ['id'] };

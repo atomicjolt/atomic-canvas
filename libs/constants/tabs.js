@@ -13,7 +13,10 @@ Object.defineProperty(exports, "__esModule", {
 // API Url: accounts/{account_id}/tabs
 //
 // Example:
-// return canvasRequest(list_available_tabs_for_course_or_group_accounts, {account_id});
+// const query = {
+//   include
+// }
+// return canvasRequest(list_available_tabs_for_course_or_group_accounts, {account_id, ...query});
 var listAvailableTabsForCourseOrGroupAccounts = exports.listAvailableTabsForCourseOrGroupAccounts = { type: 'LIST_AVAILABLE_TABS_FOR_COURSE_OR_GROUP_ACCOUNTS', method: 'get', key: 'list_available_tabs_for_course_or_group_accountslist_available_tabs_for_course_or_group_accounts_account_id', required: ['account_id'] };
 
 // List available tabs for a course or group
@@ -23,7 +26,10 @@ var listAvailableTabsForCourseOrGroupAccounts = exports.listAvailableTabsForCour
 // API Url: courses/{course_id}/tabs
 //
 // Example:
-// return canvasRequest(list_available_tabs_for_course_or_group_courses, {course_id});
+// const query = {
+//   include
+// }
+// return canvasRequest(list_available_tabs_for_course_or_group_courses, {course_id, ...query});
 var listAvailableTabsForCourseOrGroupCourses = exports.listAvailableTabsForCourseOrGroupCourses = { type: 'LIST_AVAILABLE_TABS_FOR_COURSE_OR_GROUP_COURSES', method: 'get', key: 'list_available_tabs_for_course_or_group_courseslist_available_tabs_for_course_or_group_courses_course_id', required: ['course_id'] };
 
 // List available tabs for a course or group
@@ -33,7 +39,10 @@ var listAvailableTabsForCourseOrGroupCourses = exports.listAvailableTabsForCours
 // API Url: groups/{group_id}/tabs
 //
 // Example:
-// return canvasRequest(list_available_tabs_for_course_or_group_groups, {group_id});
+// const query = {
+//   include
+// }
+// return canvasRequest(list_available_tabs_for_course_or_group_groups, {group_id, ...query});
 var listAvailableTabsForCourseOrGroupGroups = exports.listAvailableTabsForCourseOrGroupGroups = { type: 'LIST_AVAILABLE_TABS_FOR_COURSE_OR_GROUP_GROUPS', method: 'get', key: 'list_available_tabs_for_course_or_group_groupslist_available_tabs_for_course_or_group_groups_group_id', required: ['group_id'] };
 
 // List available tabs for a course or group
@@ -43,7 +52,10 @@ var listAvailableTabsForCourseOrGroupGroups = exports.listAvailableTabsForCourse
 // API Url: users/{user_id}/tabs
 //
 // Example:
-// return canvasRequest(list_available_tabs_for_course_or_group_users, {user_id});
+// const query = {
+//   include
+// }
+// return canvasRequest(list_available_tabs_for_course_or_group_users, {user_id, ...query});
 var listAvailableTabsForCourseOrGroupUsers = exports.listAvailableTabsForCourseOrGroupUsers = { type: 'LIST_AVAILABLE_TABS_FOR_COURSE_OR_GROUP_USERS', method: 'get', key: 'list_available_tabs_for_course_or_group_userslist_available_tabs_for_course_or_group_users_user_id', required: ['user_id'] };
 
 // Update a tab for a course

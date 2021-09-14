@@ -21,6 +21,18 @@ Object.defineProperty(exports, "__esModule", {
 // return canvasRequest(list_accounts, {, ...query});
 var listAccounts = exports.listAccounts = { type: 'LIST_ACCOUNTS', method: 'get', key: 'list_accounts', required: [] };
 
+// Get accounts that admins can manage
+// A paginated list of accounts where the current user has permission to create
+// or manage courses. List will be empty for students and teachers as only admins
+// can view which accounts they are in.
+//
+// API Docs: https://canvas.instructure.com/doc/api/accounts.html
+// API Url: manageable_accounts
+//
+// Example:
+// return canvasRequest(get_accounts_that_admins_can_manage, {});
+var getAccountsThatAdminsCanManage = exports.getAccountsThatAdminsCanManage = { type: 'GET_ACCOUNTS_THAT_ADMINS_CAN_MANAGE', method: 'get', key: 'get_accounts_that_admins_can_manage', required: [] };
+
 // List accounts for course admins
 // A paginated list of accounts that the current user can view through their
 // admin course enrollments. (Teacher, TA, or designer enrollments).
@@ -43,6 +55,17 @@ var listAccountsForCourseAdmins = exports.listAccountsForCourseAdmins = { type: 
 // Example:
 // return canvasRequest(get_single_account, {id});
 var getSingleAccount = exports.getSingleAccount = { type: 'GET_SINGLE_ACCOUNT', method: 'get', key: 'get_single_accountget_single_account_id', required: ['id'] };
+
+// Settings
+// Returns all of the settings for the specified account as a JSON object. The caller must be an Account
+// admin with the manage_account_settings permission.
+//
+// API Docs: https://canvas.instructure.com/doc/api/accounts.html
+// API Url: accounts/{account_id}/settings
+//
+// Example:
+// return canvasRequest(settings, {account_id});
+var settings = exports.settings = { type: 'SETTINGS', method: 'get', key: 'settingssettings_account_id', required: ['account_id'] };
 
 // Permissions
 // Returns permission information for the calling user and the given account.
@@ -120,6 +143,9 @@ var getHelpLinks = exports.getHelpLinks = { type: 'GET_HELP_LINKS', method: 'get
 //   sort
 //   order
 //   search_by
+//   starts_before
+//   ends_after
+//   homeroom
 // }
 // return canvasRequest(list_active_courses_in_account, {account_id, ...query});
 var listActiveCoursesInAccount = exports.listActiveCoursesInAccount = { type: 'LIST_ACTIVE_COURSES_IN_ACCOUNT', method: 'get', key: 'list_active_courses_in_accountlist_active_courses_in_account_account_id', required: ['account_id'] };
@@ -138,9 +164,15 @@ var listActiveCoursesInAccount = exports.listActiveCoursesInAccount = { type: 'L
 //   account[default_storage_quota_mb]
 //   account[default_user_storage_quota_mb]
 //   account[default_group_storage_quota_mb]
+//   account[course_template_id]
 //   account[settings][restrict_student_past_view][value]
 //   account[settings][restrict_student_past_view][locked]
 //   account[settings][restrict_student_future_view][value]
+//   account[settings][microsoft_sync_enabled]
+//   account[settings][microsoft_sync_tenant]
+//   account[settings][microsoft_sync_login_attribute]
+//   account[settings][microsoft_sync_login_attribute_suffix]
+//   account[settings][microsoft_sync_remote_attribute]
 //   account[settings][restrict_student_future_view][locked]
 //   account[settings][lock_all_announcements][value]
 //   account[settings][lock_all_announcements][locked]
@@ -148,6 +180,10 @@ var listActiveCoursesInAccount = exports.listActiveCoursesInAccount = { type: 'L
 //   account[settings][usage_rights_required][locked]
 //   account[settings][restrict_student_future_listing][value]
 //   account[settings][restrict_student_future_listing][locked]
+//   account[settings][lock_outcome_proficiency][value]
+//   account[lock_outcome_proficiency][locked]
+//   account[settings][lock_proficiency_calculation][value]
+//   account[lock_proficiency_calculation][locked]
 //   account[services]
 // }
 // return canvasRequest(update_account, {id}, body);

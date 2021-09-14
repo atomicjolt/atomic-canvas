@@ -75,6 +75,22 @@ var createGroupCategoryAccounts = exports.createGroupCategoryAccounts = { type: 
 // return canvasRequest(create_group_category_courses, {course_id}, body);
 var createGroupCategoryCourses = exports.createGroupCategoryCourses = { type: 'CREATE_GROUP_CATEGORY_COURSES', method: 'post', key: 'create_group_category_coursescreate_group_category_courses_course_id', required: ['course_id'] };
 
+// Import category groups
+// Create Groups in a Group Category through a CSV import
+// 
+// For more information on the format that's expected here, please see the
+// "Group Category CSV" section in the API docs.
+//
+// API Docs: https://canvas.instructure.com/doc/api/group_categories.html
+// API Url: group_categories/{group_category_id}/import
+//
+// Example:
+// const body = {
+//   attachment
+// }
+// return canvasRequest(import_category_groups, {group_category_id}, body);
+var importCategoryGroups = exports.importCategoryGroups = { type: 'IMPORT_CATEGORY_GROUPS', method: 'post', key: 'import_category_groupsimport_category_groups_group_category_id', required: ['group_category_id'] };
+
 // Update a Group Category
 // Modifies an existing group category.
 //
@@ -114,6 +130,16 @@ var deleteGroupCategory = exports.deleteGroupCategory = { type: 'DELETE_GROUP_CA
 // Example:
 // return canvasRequest(list_groups_in_group_category, {group_category_id});
 var listGroupsInGroupCategory = exports.listGroupsInGroupCategory = { type: 'LIST_GROUPS_IN_GROUP_CATEGORY', method: 'get', key: 'list_groups_in_group_categorylist_groups_in_group_category_group_category_id', required: ['group_category_id'] };
+
+// export groups in and users in category
+// Returns a csv file of users in format ready to import.
+//
+// API Docs: https://canvas.instructure.com/doc/api/group_categories.html
+// API Url: group_categories/{group_category_id}/export
+//
+// Example:
+// return canvasRequest(export_groups_in_and_users_in_category, {group_category_id});
+var exportGroupsInAndUsersInCategory = exports.exportGroupsInAndUsersInCategory = { type: 'EXPORT_GROUPS_IN_AND_USERS_IN_CATEGORY', method: 'get', key: 'export_groups_in_and_users_in_categoryexport_groups_in_and_users_in_category_group_category_id', required: ['group_category_id'] };
 
 // List users in group category
 // Returns a paginated list of users in the group category.

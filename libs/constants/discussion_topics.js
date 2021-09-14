@@ -414,6 +414,26 @@ var postEntryCourses = exports.postEntryCourses = { type: 'POST_ENTRY_COURSES', 
 // return canvasRequest(post_entry_groups, {group_id, topic_id}, body);
 var postEntryGroups = exports.postEntryGroups = { type: 'POST_ENTRY_GROUPS', method: 'post', key: 'post_entry_groupspost_entry_groups_{group_id}_{topic_id}', required: ['group_id', 'topic_id'] };
 
+// Duplicate discussion topic
+// Duplicate a discussion topic according to context (Course/Group)
+//
+// API Docs: https://canvas.instructure.com/doc/api/discussion_topics.html
+// API Url: courses/{course_id}/discussion_topics/{topic_id}/duplicate
+//
+// Example:
+// return canvasRequest(duplicate_discussion_topic_courses, {course_id, topic_id});
+var duplicateDiscussionTopicCourses = exports.duplicateDiscussionTopicCourses = { type: 'DUPLICATE_DISCUSSION_TOPIC_COURSES', method: 'post', key: 'duplicate_discussion_topic_coursesduplicate_discussion_topic_courses_{course_id}_{topic_id}', required: ['course_id', 'topic_id'] };
+
+// Duplicate discussion topic
+// Duplicate a discussion topic according to context (Course/Group)
+//
+// API Docs: https://canvas.instructure.com/doc/api/discussion_topics.html
+// API Url: groups/{group_id}/discussion_topics/{topic_id}/duplicate
+//
+// Example:
+// return canvasRequest(duplicate_discussion_topic_groups, {group_id, topic_id});
+var duplicateDiscussionTopicGroups = exports.duplicateDiscussionTopicGroups = { type: 'DUPLICATE_DISCUSSION_TOPIC_GROUPS', method: 'post', key: 'duplicate_discussion_topic_groupsduplicate_discussion_topic_groups_{group_id}_{topic_id}', required: ['group_id', 'topic_id'] };
+
 // List topic entries
 // Retrieve the (paginated) top-level entries in a discussion topic.
 // 

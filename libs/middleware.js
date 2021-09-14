@@ -23,9 +23,9 @@ var _wrapper = require('atomic-fuel/libs/constants/wrapper');
 
 var _urls = require('./urls');
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _constants = require('./constants');
 
-var canvasProxyUrl = 'api/canvas';
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function checkRequired(action) {
   if (action.canvas.required.length > 0) {
@@ -41,7 +41,7 @@ function proxyCanvas(store, action, params) {
 
   checkRequired(action);
 
-  var promise = _api2.default.execRequest(action.canvas.method, canvasProxyUrl, state.settings.api_url, state.jwt, state.settings.csrf_token, (0, _extends3.default)({}, action.params, params, {
+  var promise = _api2.default.execRequest(action.canvas.method, _constants.canvasProxyUrl, state.settings.api_url, state.jwt, state.settings.csrf_token, (0, _extends3.default)({}, action.params, params, {
     lms_proxy_call_type: action.canvas.type,
     context_id: state.settings.context_id,
     oauth_consumer_key: state.settings.oauth_consumer_key

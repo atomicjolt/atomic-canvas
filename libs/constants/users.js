@@ -319,6 +319,7 @@ var listUpcomingAssignmentsCalendarEvents = exports.listUpcomingAssignmentsCalen
 // const query = {
 //   include
 //   filter
+//   course_ids
 // }
 // return canvasRequest(list_missing_submissions, {user_id, ...query});
 var listMissingSubmissions = exports.listMissingSubmissions = { type: 'LIST_MISSING_SUBMISSIONS', method: 'get', key: 'list_missing_submissionslist_missing_submissions_user_id', required: ['user_id'] };
@@ -369,7 +370,8 @@ var usersUploadFile = exports.usersUploadFile = { type: 'USERS_UPLOAD_FILE', met
 //   !!!javascript
 //   "permissions": {
 //    "can_update_name": true, // Whether the user can update their name.
-//    "can_update_avatar": false // Whether the user can update their avatar.
+//    "can_update_avatar": false, // Whether the user can update their avatar.
+//    "limit_parent_app_web_access": false // Whether the user can interact with Canvas web from the Canvas Parent app.
 //   }
 //
 // API Docs: https://canvas.instructure.com/doc/api/users.html
@@ -385,10 +387,10 @@ var showUserDetails = exports.showUserDetails = { type: 'SHOW_USER_DETAILS', met
 // Create a user
 // Create and return a new user and pseudonym for an account.
 // 
-// If you don't have the "Modify login details for users" permission, but
-// self-registration is enabled on the account, you can still use this
-// endpoint to register new users. Certain fields will be required, and
-// others will be ignored (see below).
+// [DEPRECATED (for self-registration only)] If you don't have the "Modify
+// login details for users" permission, but self-registration is enabled
+// on the account, you can still use this endpoint to register new users.
+// Certain fields will be required, and others will be ignored (see below).
 //
 // API Docs: https://canvas.instructure.com/doc/api/users.html
 // API Url: accounts/{account_id}/users
@@ -400,7 +402,6 @@ var showUserDetails = exports.showUserDetails = { type: 'SHOW_USER_DETAILS', met
 //   user[sortable_name]
 //   user[time_zone]
 //   user[locale]
-//   user[birthdate]
 //   user[terms_of_use]
 //   user[skip_registration]
 //   pseudonym[unique_id] (required)
@@ -417,11 +418,13 @@ var showUserDetails = exports.showUserDetails = { type: 'SHOW_USER_DETAILS', met
 //   force_validations
 //   enable_sis_reactivation
 //   destination
+//   initial_enrollment_type
+//   pairing_code[code]
 // }
 // return canvasRequest(create_user, {account_id}, body);
 var createUser = exports.createUser = { type: 'CREATE_USER', method: 'post', key: 'create_usercreate_user_account_id', required: ['account_id'] };
 
-// Self register a user
+// [DEPRECATED] Self register a user
 // Self register and return a new user and pseudonym for an account.
 // 
 // If self-registration is enabled on the account, you can use this
@@ -437,14 +440,13 @@ var createUser = exports.createUser = { type: 'CREATE_USER', method: 'post', key
 //   user[sortable_name]
 //   user[time_zone]
 //   user[locale]
-//   user[birthdate]
 //   user[terms_of_use] (required)
 //   pseudonym[unique_id] (required)
 //   communication_channel[type]
 //   communication_channel[address]
 // }
-// return canvasRequest(self_register_user, {account_id}, body);
-var selfRegisterUser = exports.selfRegisterUser = { type: 'SELF_REGISTER_USER', method: 'post', key: 'self_register_userself_register_user_account_id', required: ['account_id'] };
+// return canvasRequest(deprecated_self_register_user, {account_id}, body);
+var deprecatedSelfRegisterUser = exports.deprecatedSelfRegisterUser = { type: 'DEPRECATED_SELF_REGISTER_USER', method: 'post', key: 'deprecated_self_register_userdeprecated_self_register_user_account_id', required: ['account_id'] };
 
 // Update user settings.
 // Update an existing user's settings.
@@ -455,8 +457,11 @@ var selfRegisterUser = exports.selfRegisterUser = { type: 'SELF_REGISTER_USER', 
 // Example:
 // const query = {
 //   manual_mark_as_read
+//   release_notes_badge_disabled
 //   collapse_global_nav
 //   hide_dashcard_color_overlays
+//   comment_library_suggestions_enabled
+//   elementary_dashboard_disabled
 // }
 // return canvasRequest(update_user_settings, {id, ...query});
 var updateUserSettings = exports.updateUserSettings = { type: 'UPDATE_USER_SETTINGS', method: 'get', key: 'update_user_settingsupdate_user_settings_id', required: ['id'] };
@@ -544,6 +549,7 @@ var updateDashboardPositions = exports.updateDashboardPositions = { type: 'UPDAT
 //   user[avatar][url]
 //   user[title]
 //   user[bio]
+//   user[pronouns]
 // }
 // return canvasRequest(edit_user, {id}, body);
 var editUser = exports.editUser = { type: 'EDIT_USER', method: 'put', key: 'edit_useredit_user_id', required: ['id'] };
@@ -778,6 +784,7 @@ var getPandataEventsJwtTokenAndItsExpirationDate = exports.getPandataEventsJwtTo
 // const query = {
 //   include
 //   only_current_enrollments
+//   only_published_assignments
 // }
 // return canvasRequest(get_users_most_recently_graded_submissions, {id, ...query});
 var getUsersMostRecentlyGradedSubmissions = exports.getUsersMostRecentlyGradedSubmissions = { type: 'GET_USERS_MOST_RECENTLY_GRADED_SUBMISSIONS', method: 'get', key: 'get_users_most_recently_graded_submissionsget_users_most_recently_graded_submissions_id', required: ['id'] };

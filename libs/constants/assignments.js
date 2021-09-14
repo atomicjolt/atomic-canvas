@@ -67,6 +67,19 @@ var listAssignmentsAssignmentGroups = exports.listAssignmentsAssignmentGroups = 
 // return canvasRequest(list_assignments_for_user, {user_id, course_id});
 var listAssignmentsForUser = exports.listAssignmentsForUser = { type: 'LIST_ASSIGNMENTS_FOR_USER', method: 'get', key: 'list_assignments_for_userlist_assignments_for_user_{user_id}_{course_id}', required: ['user_id', 'course_id'] };
 
+// Duplicate assignnment
+// Duplicate an assignment and return a json based on result_type argument.
+//
+// API Docs: https://canvas.instructure.com/doc/api/assignments.html
+// API Url: courses/{course_id}/assignments/{assignment_id}/duplicate
+//
+// Example:
+// const body = {
+//   result_type
+// }
+// return canvasRequest(duplicate_assignnment, {course_id, assignment_id}, body);
+var duplicateAssignnment = exports.duplicateAssignnment = { type: 'DUPLICATE_ASSIGNNMENT', method: 'post', key: 'duplicate_assignnmentduplicate_assignnment_{course_id}_{assignment_id}', required: ['course_id', 'assignment_id'] };
+
 // Get a single assignment
 // Returns the assignment with the given id.
 //
@@ -128,18 +141,13 @@ var getSingleAssignment = exports.getSingleAssignment = { type: 'GET_SINGLE_ASSI
 //   assignment[graders_names_visible_to_final_grader]
 //   assignment[anonymous_grading]
 //   assignment[allowed_attempts]
-//   assignment[muted]
+//   assignment[annotatable_attachment_id]
 // }
 // return canvasRequest(create_assignment, {course_id}, body);
 var createAssignment = exports.createAssignment = { type: 'CREATE_ASSIGNMENT', method: 'post', key: 'create_assignmentcreate_assignment_course_id', required: ['course_id'] };
 
 // Edit an assignment
 // Modify an existing assignment.
-// 
-// If the assignment [assignment_overrides] key is absent, any existing
-// overrides are kept as is. If the assignment [assignment_overrides] key is
-// present, existing overrides are updated or deleted (and new ones created,
-// as necessary) to match the provided list.
 //
 // API Docs: https://canvas.instructure.com/doc/api/assignments.html
 // API Url: courses/{course_id}/assignments/{id}
@@ -182,10 +190,36 @@ var createAssignment = exports.createAssignment = { type: 'CREATE_ASSIGNMENT', m
 //   assignment[graders_names_visible_to_final_grader]
 //   assignment[anonymous_grading]
 //   assignment[allowed_attempts]
-//   assignment[muted]
+//   assignment[annotatable_attachment_id]
+//   assignment[submission_types]
 // }
 // return canvasRequest(edit_assignment, {course_id, id}, body);
 var editAssignment = exports.editAssignment = { type: 'EDIT_ASSIGNMENT', method: 'put', key: 'edit_assignmentedit_assignment_{course_id}_{id}', required: ['course_id', 'id'] };
+
+// Bulk update assignment dates
+// Update due dates and availability dates for multiple assignments in a course.
+// 
+// Accepts a JSON array of objects containing two keys each: +id+, the assignment id,
+// and +all_dates+, an array of +AssignmentDate+ structures containing the base and/or override
+// dates for the assignment, as returned from the {api:AssignmentsApiController#index List assignments}
+// endpoint with +include[]=all_dates+.
+// 
+// This endpoint cannot create or destroy assignment overrides; any existing assignment overrides
+// that are not referenced in the arguments will be left alone. If an override is given, any dates
+// that are not supplied with it will be defaulted. To clear a date, specify null explicitly.
+// 
+// All referenced assignments will be validated before any are saved. A list of errors will
+// be returned if any provided dates are invalid, and no changes will be saved.
+// 
+// The bulk update is performed in a background job, use the {api:ProgressController#show Progress API}
+// to check its status.
+//
+// API Docs: https://canvas.instructure.com/doc/api/assignments.html
+// API Url: courses/{course_id}/assignments/bulk_update
+//
+// Example:
+// return canvasRequest(bulk_update_assignment_dates, {course_id});
+var bulkUpdateAssignmentDates = exports.bulkUpdateAssignmentDates = { type: 'BULK_UPDATE_ASSIGNMENT_DATES', method: 'put', key: 'bulk_update_assignment_datesbulk_update_assignment_dates_course_id', required: ['course_id'] };
 
 // List assignment overrides
 // Returns the paginated list of overrides for this assignment that target

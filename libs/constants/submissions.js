@@ -30,6 +30,7 @@ Object.defineProperty(exports, "__esModule", {
 //   submission[media_comment_id]
 //   submission[media_comment_type]
 //   submission[user_id]
+//   submission[annotatable_attachment_id]
 //   submission[submitted_at]
 // }
 // return canvasRequest(submit_assignment_courses, {course_id, assignment_id}, body);
@@ -59,6 +60,7 @@ var submitAssignmentCourses = exports.submitAssignmentCourses = { type: 'SUBMIT_
 //   submission[media_comment_id]
 //   submission[media_comment_type]
 //   submission[user_id]
+//   submission[annotatable_attachment_id]
 //   submission[submitted_at]
 // }
 // return canvasRequest(submit_assignment_sections, {section_id, assignment_id}, body);
