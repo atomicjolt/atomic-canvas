@@ -28,7 +28,7 @@ var _api = require('atomic-fuel/libs/api/api');
 
 var _api2 = _interopRequireDefault(_api);
 
-var _constants = require('./constants');
+var _constants = require('../constants');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

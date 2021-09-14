@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Api from 'atomic-fuel/libs/api/api';
 
-import { canvasProxyUrl } from './constants';
+import { canvasProxyUrl } from '../constants';
 
 //
 // parameters:
