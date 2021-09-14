@@ -120,6 +120,8 @@ export const enrollmentById = { type: 'ENROLLMENT_BY_ID', method: 'get', key: 'e
 //
 // Example:
 // const body = {
+//   enrollment[start_at]
+//   enrollment[end_at]
 //   enrollment[user_id] (required)
 //   enrollment[type] (required)
 //   enrollment[role]
@@ -143,6 +145,8 @@ export const enrollUserCourses = { type: 'ENROLL_USER_COURSES', method: 'post', 
 //
 // Example:
 // const body = {
+//   enrollment[start_at]
+//   enrollment[end_at]
 //   enrollment[user_id] (required)
 //   enrollment[type] (required)
 //   enrollment[role]

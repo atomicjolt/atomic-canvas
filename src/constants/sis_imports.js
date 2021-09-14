@@ -14,6 +14,7 @@
 // Example:
 // const query = {
 //   created_since
+//   created_before
 //   workflow_state
 // }
 // return canvasRequest(get_sis_import_list, {account_id, ...query});
@@ -56,9 +57,11 @@ export const getCurrentImportingSisImport = { type: 'GET_CURRENT_IMPORTING_SIS_I
 //   override_sis_stickiness
 //   add_sis_stickiness
 //   clear_sis_stickiness
+//   update_sis_id_if_login_claimed
 //   diffing_data_set_identifier
 //   diffing_remaster_data_set
 //   diffing_drop_status
+//   batch_mode_enrollment_drop_status
 //   change_threshold
 //   diff_row_count_threshold
 // }

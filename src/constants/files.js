@@ -208,6 +208,20 @@ export const updateFile = { type: 'UPDATE_FILE', method: 'put', key: 'update_fil
 // return canvasRequest(delete_file, {id}, body);
 export const deleteFile = { type: 'DELETE_FILE', method: 'delete', key: 'delete_filedelete_file_id', required: ['id'] };
 
+// Reset link verifier
+// Resets the link verifier. Any existing links to the file using
+// the previous hard-coded "verifier" parameter will no longer
+// automatically grant access.
+// 
+// Must have manage files and become other users permissions
+//
+// API Docs: https://canvas.instructure.com/doc/api/files.html
+// API Url: files/{id}/reset_verifier
+//
+// Example:
+// return canvasRequest(reset_link_verifier, {id});
+export const resetLinkVerifier = { type: 'RESET_LINK_VERIFIER', method: 'post', key: 'reset_link_verifierreset_link_verifier_id', required: ['id'] };
+
 // List folders
 // Returns the paginated list of folders in the folder.
 //

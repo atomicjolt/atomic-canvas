@@ -25,6 +25,7 @@
 //   submission[media_comment_id]
 //   submission[media_comment_type]
 //   submission[user_id]
+//   submission[annotatable_attachment_id]
 //   submission[submitted_at]
 // }
 // return canvasRequest(submit_assignment_courses, {course_id, assignment_id}, body);
@@ -54,6 +55,7 @@ export const submitAssignmentCourses = { type: 'SUBMIT_ASSIGNMENT_COURSES', meth
 //   submission[media_comment_id]
 //   submission[media_comment_type]
 //   submission[user_id]
+//   submission[annotatable_attachment_id]
 //   submission[submitted_at]
 // }
 // return canvasRequest(submit_assignment_sections, {section_id, assignment_id}, body);

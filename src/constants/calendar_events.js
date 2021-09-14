@@ -16,6 +16,7 @@
 //   all_events
 //   context_codes
 //   excludes
+//   important_dates
 // }
 // return canvasRequest(list_calendar_events, {, ...query});
 export const listCalendarEvents = { type: 'LIST_CALENDAR_EVENTS', method: 'get', key: 'list_calendar_events', required: [] };
@@ -39,6 +40,7 @@ export const listCalendarEvents = { type: 'LIST_CALENDAR_EVENTS', method: 'get',
 //   excludes
 //   submission_types
 //   exclude_submission_types
+//   important_dates
 // }
 // return canvasRequest(list_calendar_events_for_user, {user_id, ...query});
 export const listCalendarEventsForUser = { type: 'LIST_CALENDAR_EVENTS_FOR_USER', method: 'get', key: 'list_calendar_events_for_userlist_calendar_events_for_user_user_id', required: ['user_id'] };
@@ -198,6 +200,7 @@ export const getCourseTimetable = { type: 'GET_COURSE_TIMETABLE', method: 'get',
 //   events[end_at]
 //   events[location_name]
 //   events[code]
+//   events[title]
 // }
 // return canvasRequest(create_or_update_events_directly_for_course_timetable, {course_id}, body);
 export const createOrUpdateEventsDirectlyForCourseTimetable = { type: 'CREATE_OR_UPDATE_EVENTS_DIRECTLY_FOR_COURSE_TIMETABLE', method: 'post', key: 'create_or_update_events_directly_for_course_timetablecreate_or_update_events_directly_for_course_timetable_course_id', required: ['course_id'] };

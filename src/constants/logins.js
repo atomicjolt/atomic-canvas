@@ -51,6 +51,7 @@ export const createUserLogin = { type: 'CREATE_USER_LOGIN', method: 'post', key:
 //   login[password]
 //   login[sis_user_id]
 //   login[integration_id]
+//   login[authentication_provider_id]
 // }
 // return canvasRequest(edit_user_login, {account_id, id}, body);
 export const editUserLogin = { type: 'EDIT_USER_LOGIN', method: 'put', key: 'edit_user_loginedit_user_login_{account_id}_{id}', required: ['account_id', 'id'] };
