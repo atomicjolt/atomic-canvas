@@ -64,6 +64,18 @@ export const listEnabledFeaturesAccounts = { type: 'LIST_ENABLED_FEATURES_ACCOUN
 // return canvasRequest(list_enabled_features_users, {user_id});
 export const listEnabledFeaturesUsers = { type: 'LIST_ENABLED_FEATURES_USERS', method: 'get', key: 'list_enabled_features_userslist_enabled_features_users_user_id', required: ['user_id'] };
 
+// List environment features
+// Return a hash of global feature settings that pertain to the
+// Canvas user interface. This is the same information supplied to the
+// web interface as +ENV.FEATURES+.
+//
+// API Docs: https://canvas.instructure.com/doc/api/feature_flags.html
+// API Url: features/environment
+//
+// Example:
+// return canvasRequest(list_environment_features, {});
+export const listEnvironmentFeatures = { type: 'LIST_ENVIRONMENT_FEATURES', method: 'get', key: 'list_environment_features', required: [] };
+
 // Get feature flag
 // Get the feature flag that applies to a given Account, Course, or User.
 // The flag may be defined on the object, or it may be inherited from a parent

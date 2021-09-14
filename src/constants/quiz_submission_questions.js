@@ -32,6 +32,20 @@ export const getAllQuizSubmissionQuestions = { type: 'GET_ALL_QUIZ_SUBMISSION_QU
 // return canvasRequest(answering_questions, {quiz_submission_id}, body);
 export const answeringQuestions = { type: 'ANSWERING_QUESTIONS', method: 'post', key: 'answering_questionsanswering_questions_quiz_submission_id', required: ['quiz_submission_id'] };
 
+// Get a formatted student numerical answer.
+// Matches the intended behavior of the UI when a numerical answer is entered
+// and returns the resulting formatted number
+//
+// API Docs: https://canvas.instructure.com/doc/api/quiz_submission_questions.html
+// API Url: quiz_submissions/{quiz_submission_id}/questions/{id}/formatted_answer
+//
+// Example:
+// const query = {
+//   answer (required)
+// }
+// return canvasRequest(get_formatted_student_numerical_answer, {quiz_submission_id, id, ...query});
+export const getFormattedStudentNumericalAnswer = { type: 'GET_FORMATTED_STUDENT_NUMERICAL_ANSWER', method: 'get', key: 'get_formatted_student_numerical_answerget_formatted_student_numerical_answer_{quiz_submission_id}_{id}', required: ['quiz_submission_id', 'id'] };
+
 // Flagging a question.
 // Set a flag on a quiz question to indicate that you want to return to it
 // later.

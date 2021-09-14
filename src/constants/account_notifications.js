@@ -3,13 +3,17 @@
 //
 // Index of active global notification for the user
 // Returns a list of all global notifications in the account for the current user
-// Any notifications that have been closed by the user will not be returned
+// Any notifications that have been closed by the user will not be returned, unless
+// a include_past parameter is passed in as true.
 //
 // API Docs: https://canvas.instructure.com/doc/api/account_notifications.html
 // API Url: accounts/{account_id}/account_notifications
 //
 // Example:
-// return canvasRequest(index_of_active_global_notification_for_user, {account_id});
+// const query = {
+//   include_past
+// }
+// return canvasRequest(index_of_active_global_notification_for_user, {account_id, ...query});
 export const indexOfActiveGlobalNotificationForUser = { type: 'INDEX_OF_ACTIVE_GLOBAL_NOTIFICATION_FOR_USER', method: 'get', key: 'index_of_active_global_notification_for_userindex_of_active_global_notification_for_user_account_id', required: ['account_id'] };
 
 // Show a global notification
