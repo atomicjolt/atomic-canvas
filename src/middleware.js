@@ -1,9 +1,9 @@
-import _                           from 'lodash';
-import api                         from 'atomic-fuel/libs/api/api';
-import { DONE }                    from 'atomic-fuel/libs/constants/wrapper';
+import _ from 'lodash';
+import api from 'atomic-fuel/libs/api/api';
+import { DONE } from 'atomic-fuel/libs/constants/wrapper';
 import { getNextUrl, parseParams } from './urls';
+import { canvasProxyUrl } from './constants';
 
-const canvasProxyUrl = 'api/canvas';
 
 function checkRequired(action) {
   if (action.canvas.required.length > 0) {

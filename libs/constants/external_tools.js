@@ -134,6 +134,7 @@ var getSingleExternalToolAccounts = exports.getSingleExternalToolAccounts = { ty
 //   icon_url
 //   text
 //   custom_fields[field_name]
+//   is_rce_favorite
 //   account_navigation[url]
 //   account_navigation[enabled]
 //   account_navigation[text]
@@ -211,6 +212,7 @@ var createExternalToolCourses = exports.createExternalToolCourses = { type: 'CRE
 //   icon_url
 //   text
 //   custom_fields[field_name]
+//   is_rce_favorite
 //   account_navigation[url]
 //   account_navigation[enabled]
 //   account_navigation[text]
@@ -305,3 +307,58 @@ var deleteExternalToolCourses = exports.deleteExternalToolCourses = { type: 'DEL
 // Example:
 // return canvasRequest(delete_external_tool_accounts, {account_id, external_tool_id});
 var deleteExternalToolAccounts = exports.deleteExternalToolAccounts = { type: 'DELETE_EXTERNAL_TOOL_ACCOUNTS', method: 'delete', key: 'delete_external_tool_accountsdelete_external_tool_accounts_{account_id}_{external_tool_id}', required: ['account_id', 'external_tool_id'] };
+
+// Add tool to RCE Favorites
+// Add the specified editor_button external tool to a preferred location in the RCE
+// for courses in the given account and its subaccounts (if the subaccounts
+// haven't set their own RCE Favorites). Cannot set more than 2 RCE Favorites.
+//
+// API Docs: https://canvas.instructure.com/doc/api/external_tools.html
+// API Url: accounts/{account_id}/external_tools/rce_favorites/{id}
+//
+// Example:
+// return canvasRequest(add_tool_to_rce_favorites, {account_id, id});
+var addToolToRceFavorites = exports.addToolToRceFavorites = { type: 'ADD_TOOL_TO_RCE_FAVORITES', method: 'post', key: 'add_tool_to_rce_favoritesadd_tool_to_rce_favorites_{account_id}_{id}', required: ['account_id', 'id'] };
+
+// Remove tool from RCE Favorites
+// Remove the specified external tool from a preferred location in the RCE
+// for the given account
+//
+// API Docs: https://canvas.instructure.com/doc/api/external_tools.html
+// API Url: accounts/{account_id}/external_tools/rce_favorites/{id}
+//
+// Example:
+// return canvasRequest(remove_tool_from_rce_favorites, {account_id, id});
+var removeToolFromRceFavorites = exports.removeToolFromRceFavorites = { type: 'REMOVE_TOOL_FROM_RCE_FAVORITES', method: 'delete', key: 'remove_tool_from_rce_favoritesremove_tool_from_rce_favorites_{account_id}_{id}', required: ['account_id', 'id'] };
+
+// Get visible course navigation tools
+// Get a list of external tools with the course_navigation placement that have not been hidden in
+// course settings and whose visibility settings apply to the requesting user. These tools are the
+// same that appear in the course navigation.
+// 
+// The response format is the same as for List external tools, but with additional context_id and
+// context_name fields on each element in the array.
+//
+// API Docs: https://canvas.instructure.com/doc/api/external_tools.html
+// API Url: external_tools/visible_course_nav_tools
+//
+// Example:
+// const query = {
+//   context_codes (required)
+// }
+// return canvasRequest(get_visible_course_navigation_tools, {, ...query});
+var getVisibleCourseNavigationTools = exports.getVisibleCourseNavigationTools = { type: 'GET_VISIBLE_COURSE_NAVIGATION_TOOLS', method: 'get', key: 'get_visible_course_navigation_tools', required: [] };
+
+// Get visible course navigation tools for a single course
+// Get a list of external tools with the course_navigation placement that have not been hidden in
+// course settings and whose visibility settings apply to the requesting user. These tools are the
+// same that appear in the course navigation.
+// 
+// The response format is the same as Get visible course navigation tools.
+//
+// API Docs: https://canvas.instructure.com/doc/api/external_tools.html
+// API Url: courses/{course_id}/external_tools/visible_course_nav_tools
+//
+// Example:
+// return canvasRequest(get_visible_course_navigation_tools_for_single_course, {course_id});
+var getVisibleCourseNavigationToolsForSingleCourse = exports.getVisibleCourseNavigationToolsForSingleCourse = { type: 'GET_VISIBLE_COURSE_NAVIGATION_TOOLS_FOR_SINGLE_COURSE', method: 'get', key: 'get_visible_course_navigation_tools_for_single_courseget_visible_course_navigation_tools_for_single_course_course_id', required: ['course_id'] };

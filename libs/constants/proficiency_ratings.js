@@ -20,8 +20,25 @@ Object.defineProperty(exports, "__esModule", {
 //   ratings[mastery]
 //   ratings[color]
 // }
-// return canvasRequest(create_update_proficiency_ratings, {account_id}, body);
-var createUpdateProficiencyRatings = exports.createUpdateProficiencyRatings = { type: 'CREATE_UPDATE_PROFICIENCY_RATINGS', method: 'post', key: 'create_update_proficiency_ratingscreate_update_proficiency_ratings_account_id', required: ['account_id'] };
+// return canvasRequest(create_update_proficiency_ratings_accounts, {account_id}, body);
+var createUpdateProficiencyRatingsAccounts = exports.createUpdateProficiencyRatingsAccounts = { type: 'CREATE_UPDATE_PROFICIENCY_RATINGS_ACCOUNTS', method: 'post', key: 'create_update_proficiency_ratings_accountscreate_update_proficiency_ratings_accounts_account_id', required: ['account_id'] };
+
+// Create/update proficiency ratings
+// Create or update account-level proficiency ratings. These ratings will apply to all
+// sub-accounts, unless they have their own account-level proficiency ratings defined.
+//
+// API Docs: https://canvas.instructure.com/doc/api/proficiency_ratings.html
+// API Url: courses/{course_id}/outcome_proficiency
+//
+// Example:
+// const body = {
+//   ratings[description]
+//   ratings[points]
+//   ratings[mastery]
+//   ratings[color]
+// }
+// return canvasRequest(create_update_proficiency_ratings_courses, {course_id}, body);
+var createUpdateProficiencyRatingsCourses = exports.createUpdateProficiencyRatingsCourses = { type: 'CREATE_UPDATE_PROFICIENCY_RATINGS_COURSES', method: 'post', key: 'create_update_proficiency_ratings_coursescreate_update_proficiency_ratings_courses_course_id', required: ['course_id'] };
 
 // Get proficiency ratings
 // Get account-level proficiency ratings. If not defined for this account,
@@ -36,5 +53,21 @@ var createUpdateProficiencyRatings = exports.createUpdateProficiencyRatings = { 
 // API Url: accounts/{account_id}/outcome_proficiency
 //
 // Example:
-// return canvasRequest(get_proficiency_ratings, {account_id});
-var getProficiencyRatings = exports.getProficiencyRatings = { type: 'GET_PROFICIENCY_RATINGS', method: 'get', key: 'get_proficiency_ratingsget_proficiency_ratings_account_id', required: ['account_id'] };
+// return canvasRequest(get_proficiency_ratings_accounts, {account_id});
+var getProficiencyRatingsAccounts = exports.getProficiencyRatingsAccounts = { type: 'GET_PROFICIENCY_RATINGS_ACCOUNTS', method: 'get', key: 'get_proficiency_ratings_accountsget_proficiency_ratings_accounts_account_id', required: ['account_id'] };
+
+// Get proficiency ratings
+// Get account-level proficiency ratings. If not defined for this account,
+// it will return proficiency ratings for the nearest super-account with ratings defined.
+// Will return 404 if none found.
+// 
+//   Examples:
+//     curl https://<canvas>/api/v1/accounts/<account_id>/outcome_proficiency \
+//         -H 'Authorization: Bearer <token>'
+//
+// API Docs: https://canvas.instructure.com/doc/api/proficiency_ratings.html
+// API Url: courses/{course_id}/outcome_proficiency
+//
+// Example:
+// return canvasRequest(get_proficiency_ratings_courses, {course_id});
+var getProficiencyRatingsCourses = exports.getProficiencyRatingsCourses = { type: 'GET_PROFICIENCY_RATINGS_COURSES', method: 'get', key: 'get_proficiency_ratings_coursesget_proficiency_ratings_courses_course_id', required: ['course_id'] };

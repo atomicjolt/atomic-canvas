@@ -158,6 +158,7 @@ var inviteOthersToGroup = exports.inviteOthersToGroup = { type: 'INVITE_OTHERS_T
 // const query = {
 //   search_term
 //   include
+//   exclude_inactive
 // }
 // return canvasRequest(list_group_s_users, {group_id, ...query});
 var listGroupSUsers = exports.listGroupSUsers = { type: 'LIST_GROUP_S_USERS', method: 'get', key: 'list_group_s_userslist_group_s_users_group_id', required: ['group_id'] };

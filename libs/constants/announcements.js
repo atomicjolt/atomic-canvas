@@ -20,6 +20,7 @@ Object.defineProperty(exports, "__esModule", {
 //   start_date
 //   end_date
 //   active_only
+//   latest_only
 //   include
 // }
 // return canvasRequest(list_announcements, {, ...query});

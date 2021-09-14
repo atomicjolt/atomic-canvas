@@ -21,6 +21,7 @@ Object.defineProperty(exports, "__esModule", {
 //   all_events
 //   context_codes
 //   excludes
+//   important_dates
 // }
 // return canvasRequest(list_calendar_events, {, ...query});
 var listCalendarEvents = exports.listCalendarEvents = { type: 'LIST_CALENDAR_EVENTS', method: 'get', key: 'list_calendar_events', required: [] };
@@ -44,6 +45,7 @@ var listCalendarEvents = exports.listCalendarEvents = { type: 'LIST_CALENDAR_EVE
 //   excludes
 //   submission_types
 //   exclude_submission_types
+//   important_dates
 // }
 // return canvasRequest(list_calendar_events_for_user, {user_id, ...query});
 var listCalendarEventsForUser = exports.listCalendarEventsForUser = { type: 'LIST_CALENDAR_EVENTS_FOR_USER', method: 'get', key: 'list_calendar_events_for_userlist_calendar_events_for_user_user_id', required: ['user_id'] };
@@ -203,6 +205,7 @@ var getCourseTimetable = exports.getCourseTimetable = { type: 'GET_COURSE_TIMETA
 //   events[end_at]
 //   events[location_name]
 //   events[code]
+//   events[title]
 // }
 // return canvasRequest(create_or_update_events_directly_for_course_timetable, {course_id}, body);
 var createOrUpdateEventsDirectlyForCourseTimetable = exports.createOrUpdateEventsDirectlyForCourseTimetable = { type: 'CREATE_OR_UPDATE_EVENTS_DIRECTLY_FOR_COURSE_TIMETABLE', method: 'post', key: 'create_or_update_events_directly_for_course_timetablecreate_or_update_events_directly_for_course_timetable_course_id', required: ['course_id'] };

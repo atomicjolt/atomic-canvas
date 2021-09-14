@@ -57,6 +57,7 @@ var updateAssociatedCourses = exports.updateAssociatedCourses = { type: 'UPDATE_
 //   comment
 //   send_notification
 //   copy_settings
+//   publish_after_initial_sync
 // }
 // return canvasRequest(begin_migration_to_push_to_associated_courses, {course_id, template_id}, body);
 var beginMigrationToPushToAssociatedCourses = exports.beginMigrationToPushToAssociatedCourses = { type: 'BEGIN_MIGRATION_TO_PUSH_TO_ASSOCIATED_COURSES', method: 'post', key: 'begin_migration_to_push_to_associated_coursesbegin_migration_to_push_to_associated_courses_{course_id}_{template_id}', required: ['course_id', 'template_id'] };

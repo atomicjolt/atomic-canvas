@@ -31,3 +31,20 @@ var listConferencesCourses = exports.listConferencesCourses = { type: 'LIST_CONF
 // Example:
 // return canvasRequest(list_conferences_groups, {group_id});
 var listConferencesGroups = exports.listConferencesGroups = { type: 'LIST_CONFERENCES_GROUPS', method: 'get', key: 'list_conferences_groupslist_conferences_groups_group_id', required: ['group_id'] };
+
+// List conferences for the current user
+// Retrieve the paginated list of conferences for all courses and groups
+// the current user belongs to
+// 
+// This API returns a JSON object containing the list of conferences.
+// The key for the list of conferences is "conferences".
+//
+// API Docs: https://canvas.instructure.com/doc/api/conferences.html
+// API Url: conferences
+//
+// Example:
+// const query = {
+//   state
+// }
+// return canvasRequest(list_conferences_for_current_user, {, ...query});
+var listConferencesForCurrentUser = exports.listConferencesForCurrentUser = { type: 'LIST_CONFERENCES_FOR_CURRENT_USER', method: 'get', key: 'list_conferences_for_current_user', required: [] };

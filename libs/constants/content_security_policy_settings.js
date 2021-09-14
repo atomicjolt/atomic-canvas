@@ -73,8 +73,8 @@ var enableDisableOrClearExplicitCspSettingAccounts = exports.enableDisableOrClea
 // return canvasRequest(lock_or_unlock_current_csp_settings_for_sub_accounts_and_courses, {account_id}, body);
 var lockOrUnlockCurrentCspSettingsForSubAccountsAndCourses = exports.lockOrUnlockCurrentCspSettingsForSubAccountsAndCourses = { type: 'LOCK_OR_UNLOCK_CURRENT_CSP_SETTINGS_FOR_SUB_ACCOUNTS_AND_COURSES', method: 'put', key: 'lock_or_unlock_current_csp_settings_for_sub_accounts_and_courseslock_or_unlock_current_csp_settings_for_sub_accounts_and_courses_account_id', required: ['account_id'] };
 
-// Add a domain to account whitelist
-// Adds a domain to the whitelist for the current account. Note: this will not take effect
+// Add an allowed domain to account
+// Adds an allowed domain for the current account. Note: this will not take effect
 // unless CSP is explicitly enabled on this account.
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_security_policy_settings.html
@@ -84,11 +84,11 @@ var lockOrUnlockCurrentCspSettingsForSubAccountsAndCourses = exports.lockOrUnloc
 // const body = {
 //   domain (required)
 // }
-// return canvasRequest(add_domain_to_account_whitelist, {account_id}, body);
-var addDomainToAccountWhitelist = exports.addDomainToAccountWhitelist = { type: 'ADD_DOMAIN_TO_ACCOUNT_WHITELIST', method: 'post', key: 'add_domain_to_account_whitelistadd_domain_to_account_whitelist_account_id', required: ['account_id'] };
+// return canvasRequest(add_allowed_domain_to_account, {account_id}, body);
+var addAllowedDomainToAccount = exports.addAllowedDomainToAccount = { type: 'ADD_ALLOWED_DOMAIN_TO_ACCOUNT', method: 'post', key: 'add_allowed_domain_to_accountadd_allowed_domain_to_account_account_id', required: ['account_id'] };
 
-// Add multiple domains to account whitelist
-// Adds multiple domains to the whitelist for the current account. Note: this will not take effect
+// Add multiple allowed domains to an account
+// Adds multiple allowed domains for the current account. Note: this will not take effect
 // unless CSP is explicitly enabled on this account.
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_security_policy_settings.html
@@ -98,8 +98,8 @@ var addDomainToAccountWhitelist = exports.addDomainToAccountWhitelist = { type: 
 // const body = {
 //   domains (required)
 // }
-// return canvasRequest(add_multiple_domains_to_account_whitelist, {account_id}, body);
-var addMultipleDomainsToAccountWhitelist = exports.addMultipleDomainsToAccountWhitelist = { type: 'ADD_MULTIPLE_DOMAINS_TO_ACCOUNT_WHITELIST', method: 'post', key: 'add_multiple_domains_to_account_whitelistadd_multiple_domains_to_account_whitelist_account_id', required: ['account_id'] };
+// return canvasRequest(add_multiple_allowed_domains_to_account, {account_id}, body);
+var addMultipleAllowedDomainsToAccount = exports.addMultipleAllowedDomainsToAccount = { type: 'ADD_MULTIPLE_ALLOWED_DOMAINS_TO_ACCOUNT', method: 'post', key: 'add_multiple_allowed_domains_to_accountadd_multiple_allowed_domains_to_account_account_id', required: ['account_id'] };
 
 // Retrieve reported CSP Violations for account
 // Must be called on a root account.
@@ -111,8 +111,8 @@ var addMultipleDomainsToAccountWhitelist = exports.addMultipleDomainsToAccountWh
 // return canvasRequest(retrieve_reported_csp_violations_for_account, {account_id});
 var retrieveReportedCspViolationsForAccount = exports.retrieveReportedCspViolationsForAccount = { type: 'RETRIEVE_REPORTED_CSP_VIOLATIONS_FOR_ACCOUNT', method: 'get', key: 'retrieve_reported_csp_violations_for_accountretrieve_reported_csp_violations_for_account_account_id', required: ['account_id'] };
 
-// Remove a domain from account whitelist
-// Removes a domain from the whitelist for the current account.
+// Remove a domain from account
+// Removes an allowed domain from the current account.
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_security_policy_settings.html
 // API Url: accounts/{account_id}/csp_settings/domains
@@ -121,5 +121,5 @@ var retrieveReportedCspViolationsForAccount = exports.retrieveReportedCspViolati
 // const body = {
 //   domain (required)
 // }
-// return canvasRequest(remove_domain_from_account_whitelist, {account_id}, body);
-var removeDomainFromAccountWhitelist = exports.removeDomainFromAccountWhitelist = { type: 'REMOVE_DOMAIN_FROM_ACCOUNT_WHITELIST', method: 'delete', key: 'remove_domain_from_account_whitelistremove_domain_from_account_whitelist_account_id', required: ['account_id'] };
+// return canvasRequest(remove_domain_from_account, {account_id}, body);
+var removeDomainFromAccount = exports.removeDomainFromAccount = { type: 'REMOVE_DOMAIN_FROM_ACCOUNT', method: 'delete', key: 'remove_domain_from_accountremove_domain_from_account_account_id', required: ['account_id'] };

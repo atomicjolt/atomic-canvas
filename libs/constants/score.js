@@ -19,6 +19,14 @@ Object.defineProperty(exports, "__esModule", {
 // 
 // A submission comment with an unknown author will be created when the comment value is included.
 // This also supposes the line_item meets the condition to create a submission.
+// 
+// NOTE: Upcoming Feature
+// It will soon be possible to submit a file along with this score, which will attach the file to the
+// submission that is created. Files should be formatted as Content Items, with the correct syntax
+// below.
+// 
+// Returns a url pointing to the Result. If any files were submitted, also returns the Content Items
+// which were sent in the request, each with a url pointing to the Progress of the file upload.
 //
 // API Docs: https://canvas.instructure.com/doc/api/score.html
 // API Url: /lti/courses/{course_id}/line_items/{line_item_id}/scores

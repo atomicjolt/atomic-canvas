@@ -37,7 +37,7 @@ var listPreferencesType = exports.listPreferencesType = { type: 'LIST_PREFERENCE
 var listOfPreferenceCategories = exports.listOfPreferenceCategories = { type: 'LIST_OF_PREFERENCE_CATEGORIES', method: 'get', key: 'list_of_preference_categorieslist_of_preference_categories_{user_id}_{communication_channel_id}', required: ['user_id', 'communication_channel_id'] };
 
 // Get a preference
-// Fetch the preference for the given notification for the given communicaiton channel
+// Fetch the preference for the given notification for the given communication channel
 //
 // API Docs: https://canvas.instructure.com/doc/api/notification_preferences.html
 // API Url: users/{user_id}/communication_channels/{communication_channel_id}/notification_preferences/{notification}
@@ -47,7 +47,7 @@ var listOfPreferenceCategories = exports.listOfPreferenceCategories = { type: 'L
 var getPreferenceCommunicationChannelId = exports.getPreferenceCommunicationChannelId = { type: 'GET_PREFERENCE_COMMUNICATION_CHANNEL_ID', method: 'get', key: 'get_preference_communication_channel_idget_preference_communication_channel_id_{user_id}_{communication_channel_id}_{notification}', required: ['user_id', 'communication_channel_id', 'notification'] };
 
 // Get a preference
-// Fetch the preference for the given notification for the given communicaiton channel
+// Fetch the preference for the given notification for the given communication channel
 //
 // API Docs: https://canvas.instructure.com/doc/api/notification_preferences.html
 // API Url: users/{user_id}/communication_channels/{type}/{address}/notification_preferences/{notification}
