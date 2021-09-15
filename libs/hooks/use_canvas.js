@@ -48,6 +48,11 @@ function useCanvas(jwt, settings, canvasType) {
       result = _useState2[0],
       setResult = _useState2[1];
 
+  var _useState3 = (0, _react.useState)(),
+      _useState4 = (0, _slicedToArray3.default)(_useState3, 2),
+      error = _useState4[0],
+      setError = _useState4[1];
+
   (0, _react.useEffect)(function () {
     var callCanvasProxy = function () {
       var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee() {
@@ -56,24 +61,33 @@ function useCanvas(jwt, settings, canvasType) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                _context.prev = 0;
+                _context.next = 3;
                 return _api2.default.execRequest(canvasType.method, _constants.canvasProxyUrl, settings.api_url, jwt, settings.csrf_token, (0, _extends3.default)({}, params, {
                   lms_proxy_call_type: canvasType.type,
                   context_id: settings.context_id,
                   oauth_consumer_key: settings.oauth_consumer_key
                 }), body, undefined, timeout);
 
-              case 2:
+              case 3:
                 res = _context.sent;
 
                 setResult(res);
+                _context.next = 10;
+                break;
 
-              case 4:
+              case 7:
+                _context.prev = 7;
+                _context.t0 = _context['catch'](0);
+
+                setError(_context.t0);
+
+              case 10:
               case 'end':
                 return _context.stop();
             }
           }
-        }, _callee, this);
+        }, _callee, this, [[0, 7]]);
       }));
 
       return function callCanvasProxy() {
@@ -84,5 +98,8 @@ function useCanvas(jwt, settings, canvasType) {
     callCanvasProxy();
   }, []);
 
-  return result;
+  return {
+    result: result,
+    error: error
+  };
 }
