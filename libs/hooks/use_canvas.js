@@ -38,10 +38,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //   params     - The params passed to Canvas
 //   body       - The body of the request. Used for POST and PUT
 //   timeout    - Override the default network timeout for this request
-function useCanvas(jwt, settings, canvasType) {
-  var params = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
-  var body = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : {};
-  var timeout = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 30000;
+function useCanvas(canvasType) {
+  var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  var body = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+  var timeout = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 30000;
 
   var _useState = (0, _react.useState)(),
       _useState2 = (0, _slicedToArray3.default)(_useState, 2),
@@ -52,6 +52,18 @@ function useCanvas(jwt, settings, canvasType) {
       _useState4 = (0, _slicedToArray3.default)(_useState3, 2),
       error = _useState4[0],
       setError = _useState4[1];
+
+  var _useState5 = (0, _react.useState)(true),
+      _useState6 = (0, _slicedToArray3.default)(_useState5, 2),
+      loading = _useState6[0],
+      setLoading = _useState6[1];
+
+  var settings = useSelector(function (state) {
+    return state.settings;
+  });
+  var jwt = useSelector(function (state) {
+    return state.jwt;
+  });
 
   (0, _react.useEffect)(function () {
     var callCanvasProxy = function () {
@@ -83,6 +95,9 @@ function useCanvas(jwt, settings, canvasType) {
                 setError(_context.t0);
 
               case 10:
+                setLoading(false);
+
+              case 11:
               case 'end':
                 return _context.stop();
             }
@@ -100,6 +115,7 @@ function useCanvas(jwt, settings, canvasType) {
 
   return {
     result: result,
-    error: error
+    error: error,
+    loading: loading
   };
 }

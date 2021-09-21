@@ -9,9 +9,13 @@ import { canvasProxyUrl } from '../constants';
 //   params     - The params passed to Canvas
 //   body       - The body of the request. Used for POST and PUT
 //   timeout    - Override the default network timeout for this request
-export default function useCanvas(jwt, settings, canvasType, params = {}, body = {}, timeout = 30000) {
+export default function useCanvas(canvasType, params = {}, body = {}, timeout = 30000) {
   const [result, setResult] = useState();
   const [error, setError] = useState();
+  const [loading, setLoading] = useState(true);
+
+  const settings = useSelector(state => state.settings);
+  const jwt = useSelector(state => state.jwt);
 
   useEffect(() => {
     async function callCanvasProxy() {
@@ -36,6 +40,7 @@ export default function useCanvas(jwt, settings, canvasType, params = {}, body =
       } catch (err) {
         setError(err);
       }
+      setLoading(false);
     }
 
     callCanvasProxy();
@@ -44,5 +49,6 @@ export default function useCanvas(jwt, settings, canvasType, params = {}, body =
   return {
     result,
     error,
+    loading,
   };
 }
