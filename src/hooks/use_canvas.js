@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import Api from 'atomic-fuel/libs/api/api';
 
 import { canvasProxyUrl } from '../constants';

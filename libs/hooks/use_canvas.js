@@ -24,6 +24,8 @@ exports.default = useCanvas;
 
 var _react = require('react');
 
+var _reactRedux = require('react-redux');
+
 var _api = require('atomic-fuel/libs/api/api');
 
 var _api2 = _interopRequireDefault(_api);
@@ -58,10 +60,10 @@ function useCanvas(canvasType) {
       loading = _useState6[0],
       setLoading = _useState6[1];
 
-  var settings = useSelector(function (state) {
+  var settings = (0, _reactRedux.useSelector)(function (state) {
     return state.settings;
   });
-  var jwt = useSelector(function (state) {
+  var jwt = (0, _reactRedux.useSelector)(function (state) {
     return state.jwt;
   });
 
