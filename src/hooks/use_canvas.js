@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import Api from 'atomic-fuel/libs/api/api';
 
-import { canvasProxyUrl } from '../constants';
+import callCanvasProxy from '../canvas_proxy';
 
 //
 // parameters:
@@ -19,32 +18,16 @@ export default function useCanvas(canvasType, params = {}, body = {}, timeout = 
   const jwt = useSelector(state => state.jwt);
 
   useEffect(() => {
-    async function callCanvasProxy() {
+    async function send() {
       try {
-        const res = await Api.execRequest(
-          canvasType.method,
-          canvasProxyUrl,
-          settings.api_url,
-          jwt,
-          settings.csrf_token,
-          {
-            ...params,
-            lms_proxy_call_type: canvasType.type,
-            context_id: settings.context_id,
-            oauth_consumer_key: settings.oauth_consumer_key
-          },
-          body,
-          undefined,
-          timeout,
-        );
+        const res = callCanvasProxy(canvasType, params, body, timeout, settings, jwt);
         setResult(res);
       } catch (err) {
         setError(err);
       }
       setLoading(false);
     }
-
-    callCanvasProxy();
+    send();
   }, []);
 
   return {
