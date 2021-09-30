@@ -20,7 +20,7 @@ export default function useCanvas(canvasType, params = {}, body = {}, timeout = 
   useEffect(() => {
     async function send() {
       try {
-        const res = callCanvasProxy(canvasType, params, body, timeout, settings, jwt);
+        const res = await callCanvasProxy(canvasType, params, body, timeout, settings, jwt);
         setResult(res);
       } catch (err) {
         setError(err);
