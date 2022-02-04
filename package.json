@@ -2,6 +2,9 @@
   "name": "atomic-canvas",
   "version": "1.10.6",
   "description": "Client side canvas api for Atomic Jolt",
+  "engines": {
+    "node": ">=14.18.2"
+  },
   "scripts": {
     "test": "jest --config=jest_config.json",
     "watch": "jest --config=jest_config.json --watch",
@@ -21,7 +24,7 @@
   },
   "bin": "./inspect.js",
   "dependencies": {
-    "cli-highlight": "^1.1.4"
+    "cli-highlight": "^2.1"
   },
   "devDependencies": {
     "atomic-fuel": "^2.6.0",
