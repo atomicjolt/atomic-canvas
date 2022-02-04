@@ -11,8 +11,11 @@
 // and a student or in multiple course sections), each enrollment will be
 // listed separately.
 // 
-// note: Currently, only a root level admin user can return other users' enrollments. A
-// user can, however, return his/her own enrollments.
+// note: Currently, only a root level admin user can return other users' enrollments.
+// A user can, however, return his/her own enrollments.
+// 
+// Enrollments scoped to a course context will include inactive states by default
+// if the caller has account admin authorization and the state[] parameter is omitted.
 //
 // API Docs: https://canvas.instructure.com/doc/api/enrollments.html
 // API Url: courses/{course_id}/enrollments
@@ -45,8 +48,11 @@ export const listEnrollmentsCourses = { type: 'LIST_ENROLLMENTS_COURSES', method
 // and a student or in multiple course sections), each enrollment will be
 // listed separately.
 // 
-// note: Currently, only a root level admin user can return other users' enrollments. A
-// user can, however, return his/her own enrollments.
+// note: Currently, only a root level admin user can return other users' enrollments.
+// A user can, however, return his/her own enrollments.
+// 
+// Enrollments scoped to a course context will include inactive states by default
+// if the caller has account admin authorization and the state[] parameter is omitted.
 //
 // API Docs: https://canvas.instructure.com/doc/api/enrollments.html
 // API Url: sections/{section_id}/enrollments
@@ -79,8 +85,11 @@ export const listEnrollmentsSections = { type: 'LIST_ENROLLMENTS_SECTIONS', meth
 // and a student or in multiple course sections), each enrollment will be
 // listed separately.
 // 
-// note: Currently, only a root level admin user can return other users' enrollments. A
-// user can, however, return his/her own enrollments.
+// note: Currently, only a root level admin user can return other users' enrollments.
+// A user can, however, return his/her own enrollments.
+// 
+// Enrollments scoped to a course context will include inactive states by default
+// if the caller has account admin authorization and the state[] parameter is omitted.
 //
 // API Docs: https://canvas.instructure.com/doc/api/enrollments.html
 // API Url: users/{user_id}/enrollments

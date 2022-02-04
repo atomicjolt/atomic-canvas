@@ -17,6 +17,7 @@
 //   start_date
 //   end_date
 //   context_codes
+//   observed_user_id
 //   filter
 // }
 // return canvasRequest(list_planner_items_planner, {, ...query});
@@ -38,6 +39,7 @@ export const listPlannerItemsPlanner = { type: 'LIST_PLANNER_ITEMS_PLANNER', met
 //   start_date
 //   end_date
 //   context_codes
+//   observed_user_id
 //   filter
 // }
 // return canvasRequest(list_planner_items_users, {user_id, ...query});

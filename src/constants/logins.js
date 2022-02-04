@@ -35,6 +35,7 @@ export const listUserLoginsUsers = { type: 'LIST_USER_LOGINS_USERS', method: 'ge
 //   login[sis_user_id]
 //   login[integration_id]
 //   login[authentication_provider_id]
+//   login[declared_user_type]
 // }
 // return canvasRequest(create_user_login, {account_id}, body);
 export const createUserLogin = { type: 'CREATE_USER_LOGIN', method: 'post', key: 'create_user_logincreate_user_login_account_id', required: ['account_id'] };
@@ -52,6 +53,8 @@ export const createUserLogin = { type: 'CREATE_USER_LOGIN', method: 'post', key:
 //   login[sis_user_id]
 //   login[integration_id]
 //   login[authentication_provider_id]
+//   login[workflow_state]
+//   login[declared_user_type]
 // }
 // return canvasRequest(edit_user_login, {account_id, id}, body);
 export const editUserLogin = { type: 'EDIT_USER_LOGIN', method: 'put', key: 'edit_user_loginedit_user_login_{account_id}_{id}', required: ['account_id', 'id'] };

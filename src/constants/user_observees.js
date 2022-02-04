@@ -22,12 +22,12 @@
 export const listObservees = { type: 'LIST_OBSERVEES', method: 'get', key: 'list_observeeslist_observees_user_id', required: ['user_id'] };
 
 // List observers
-// A paginated list of the users that the given user is observing.
+// A paginated list of the observers of a given user.
 // 
-// *Note:* all users are allowed to list their own observees. Administrators can list
-// other users' observees.
+// *Note:* all users are allowed to list their own observers. Administrators can list
+// other users' observers.
 // 
-// The returned observees will include an attribute "observation_link_root_account_ids", a list
+// The returned observers will include an attribute "observation_link_root_account_ids", a list
 // of ids for the root accounts the observer and observee are linked on. The observer will only be able to
 // observe in courses associated with these root accounts.
 //
@@ -75,7 +75,7 @@ export const addObserveeWithCredentials = { type: 'ADD_OBSERVEE_WITH_CREDENTIALS
 export const showObservee = { type: 'SHOW_OBSERVEE', method: 'get', key: 'show_observeeshow_observee_{user_id}_{observee_id}', required: ['user_id', 'observee_id'] };
 
 // Show an observer
-// Gets information about an observed user.
+// Gets information about an observer.
 // 
 // *Note:* all users are allowed to view their own observers.
 //
