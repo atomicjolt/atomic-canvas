@@ -11,7 +11,10 @@
 // API Url: jwts
 //
 // Example:
-// return canvasRequest(create_jwt, {});
+// const body = {
+//   workflows
+// }
+// return canvasRequest(create_jwt, {}, body);
 export const createJwt = { type: 'CREATE_JWT', method: 'post', key: 'create_jwt', required: [] };
 
 // Refresh JWT

@@ -65,7 +65,7 @@ export const listEnabledFeaturesAccounts = { type: 'LIST_ENABLED_FEATURES_ACCOUN
 export const listEnabledFeaturesUsers = { type: 'LIST_ENABLED_FEATURES_USERS', method: 'get', key: 'list_enabled_features_userslist_enabled_features_users_user_id', required: ['user_id'] };
 
 // List environment features
-// Return a hash of global feature settings that pertain to the
+// Return a hash of global feature options that pertain to the
 // Canvas user interface. This is the same information supplied to the
 // web interface as +ENV.FEATURES+.
 //

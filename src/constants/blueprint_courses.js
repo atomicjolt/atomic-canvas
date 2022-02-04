@@ -75,6 +75,7 @@ export const setOrRemoveRestrictionsOnBlueprintCourseObject = { type: 'SET_OR_RE
 
 // Get unsynced changes
 // Retrieve a list of learning objects that have changed since the last blueprint sync operation.
+// If no syncs have been completed, a ChangeRecord with a change_type of +initial_sync+ is returned.
 //
 // API Docs: https://canvas.instructure.com/doc/api/blueprint_courses.html
 // API Url: courses/{course_id}/blueprint_templates/{template_id}/unsynced_changes

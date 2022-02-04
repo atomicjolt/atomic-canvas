@@ -312,6 +312,7 @@ export const listUpcomingAssignmentsCalendarEvents = { type: 'LIST_UPCOMING_ASSI
 //
 // Example:
 // const query = {
+//   observed_user_id
 //   include
 //   filter
 //   course_ids
@@ -454,6 +455,7 @@ export const deprecatedSelfRegisterUser = { type: 'DEPRECATED_SELF_REGISTER_USER
 //   manual_mark_as_read
 //   release_notes_badge_disabled
 //   collapse_global_nav
+//   collapse_course_nav
 //   hide_dashcard_color_overlays
 //   comment_library_suggestions_enabled
 //   elementary_dashboard_disabled
@@ -545,9 +547,24 @@ export const updateDashboardPositions = { type: 'UPDATE_DASHBOARD_POSITIONS', me
 //   user[title]
 //   user[bio]
 //   user[pronouns]
+//   user[event]
 // }
 // return canvasRequest(edit_user, {id}, body);
 export const editUser = { type: 'EDIT_USER', method: 'put', key: 'edit_useredit_user_id', required: ['id'] };
+
+// Terminate all user sessions
+// Terminates all sessions for a user. This includes all browser-based
+// sessions and all access tokens, including manually generated ones.
+// The user can immediately re-authenticate to access Canvas again if
+// they have the current credentials. All integrations will need to
+// be re-authorized.
+//
+// API Docs: https://canvas.instructure.com/doc/api/users.html
+// API Url: users/{id}/sessions
+//
+// Example:
+// return canvasRequest(terminate_all_user_sessions, {id});
+export const terminateAllUserSessions = { type: 'TERMINATE_ALL_USER_SESSIONS', method: 'delete', key: 'terminate_all_user_sessionsterminate_all_user_sessions_id', required: ['id'] };
 
 // Merge user into another user
 // Merge a user into another user.
