@@ -16,7 +16,10 @@ Object.defineProperty(exports, "__esModule", {
 // API Url: jwts
 //
 // Example:
-// return canvasRequest(create_jwt, {});
+// const body = {
+//   workflows
+// }
+// return canvasRequest(create_jwt, {}, body);
 var createJwt = exports.createJwt = { type: 'CREATE_JWT', method: 'post', key: 'create_jwt', required: [] };
 
 // Refresh JWT

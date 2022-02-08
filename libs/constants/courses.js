@@ -294,6 +294,8 @@ var getCourseSettings = exports.getCourseSettings = { type: 'GET_COURSE_SETTINGS
 //   allow_student_forum_attachments
 //   allow_student_discussion_editing
 //   allow_student_organized_groups
+//   allow_student_discussion_reporting
+//   allow_student_anonymous_discussion_topics
 //   filter_speed_grader_by_student_group
 //   hide_final_grades
 //   hide_distribution_graphs
@@ -401,6 +403,7 @@ var getSingleCourseAccounts = exports.getSingleCourseAccounts = { type: 'GET_SIN
 //   course[image_id]
 //   course[image_url]
 //   course[remove_image]
+//   course[remove_banner_image]
 //   course[blueprint]
 //   course[blueprint_restrictions]
 //   course[use_blueprint_restrictions_by_object_type]
@@ -410,6 +413,8 @@ var getSingleCourseAccounts = exports.getSingleCourseAccounts = { type: 'GET_SIN
 //   course[homeroom_course_id]
 //   course[template]
 //   course[course_color]
+//   course[friendly_name]
+//   course[enable_pace_plans]
 // }
 // return canvasRequest(update_course, {id}, body);
 var updateCourse = exports.updateCourse = { type: 'UPDATE_COURSE', method: 'put', key: 'update_courseupdate_course_id', required: ['id'] };
@@ -417,16 +422,6 @@ var updateCourse = exports.updateCourse = { type: 'UPDATE_COURSE', method: 'put'
 // Update courses
 // Update multiple courses in an account.  Operates asynchronously; use the {api:ProgressController#show progress endpoint}
 // to query the status of an operation.
-// 
-// The action to take on each course.  Must be one of 'offer', 'conclude', 'delete', or 'undelete'.
-//   * 'offer' makes a course visible to students. This action is also called "publish" on the web site.
-//   * 'conclude' prevents future enrollments and makes a course read-only for all participants. The course still appears
-//     in prior-enrollment lists.
-//   * 'delete' completely removes the course from the web site (including course menus and prior-enrollment lists).
-//     All enrollments are deleted. Course content may be physically deleted at a future date.
-//   * 'undelete' attempts to recover a course that has been deleted. (Recovery is not guaranteed; please conclude
-//     rather than delete a course if there is any possibility the course will be used again.) The recovered course
-//     will be unpublished. Deleted enrollments will not be recovered.
 //
 // API Docs: https://canvas.instructure.com/doc/api/courses.html
 // API Url: accounts/{account_id}/courses
@@ -485,6 +480,31 @@ var getEffectiveDueDates = exports.getEffectiveDueDates = { type: 'GET_EFFECTIVE
 // }
 // return canvasRequest(courses_permissions, {course_id, ...query});
 var coursesPermissions = exports.coursesPermissions = { type: 'COURSES_PERMISSIONS', method: 'get', key: 'courses_permissionscourses_permissions_course_id', required: ['course_id'] };
+
+// Get bulk user progress
+// Returns progress information for all users enrolled in the given course.
+// 
+// You must be a user who has permission to view all grades in the course (such as a teacher or administrator).
+//
+// API Docs: https://canvas.instructure.com/doc/api/courses.html
+// API Url: courses/{course_id}/bulk_user_progress
+//
+// Example:
+// return canvasRequest(get_bulk_user_progress, {course_id});
+var getBulkUserProgress = exports.getBulkUserProgress = { type: 'GET_BULK_USER_PROGRESS', method: 'get', key: 'get_bulk_user_progressget_bulk_user_progress_course_id', required: ['course_id'] };
+
+// Remove quiz migration alert
+// Remove alert about the limitations of quiz migrations that is displayed
+// to a user in a course
+// 
+// you must be logged in to use this endpoint
+//
+// API Docs: https://canvas.instructure.com/doc/api/courses.html
+// API Url: courses/{id}/dismiss_migration_limitation_message
+//
+// Example:
+// return canvasRequest(remove_quiz_migration_alert, {id});
+var removeQuizMigrationAlert = exports.removeQuizMigrationAlert = { type: 'REMOVE_QUIZ_MIGRATION_ALERT', method: 'post', key: 'remove_quiz_migration_alertremove_quiz_migration_alert_id', required: ['id'] };
 
 // Get course copy status
 // DEPRECATED: Please use the {api:ContentMigrationsController#create Content Migrations API}

@@ -35,7 +35,9 @@ var listFavoriteGroups = exports.listFavoriteGroups = { type: 'LIST_FAVORITE_GRO
 
 // Add course to favorites
 // Add a course to the current user's favorites.  If the course is already
-// in the user's favorites, nothing happens.
+// in the user's favorites, nothing happens. Canvas for Elementary subject
+// and homeroom courses can be added to favorites, but this has no effect in
+// the UI.
 //
 // API Docs: https://canvas.instructure.com/doc/api/favorites.html
 // API Url: users/self/favorites/courses/{id}

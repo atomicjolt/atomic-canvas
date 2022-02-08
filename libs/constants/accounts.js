@@ -119,6 +119,16 @@ var getTermsOfService = exports.getTermsOfService = { type: 'GET_TERMS_OF_SERVIC
 // return canvasRequest(get_help_links, {account_id});
 var getHelpLinks = exports.getHelpLinks = { type: 'GET_HELP_LINKS', method: 'get', key: 'get_help_linksget_help_links_account_id', required: ['account_id'] };
 
+// Get the manually-created courses sub-account for the domain root account
+// 
+//
+// API Docs: https://canvas.instructure.com/doc/api/accounts.html
+// API Url: manually_created_courses_account
+//
+// Example:
+// return canvasRequest(get_manually_created_courses_sub_account_for_domain_root_account, {});
+var getManuallyCreatedCoursesSubAccountForDomainRootAccount = exports.getManuallyCreatedCoursesSubAccountForDomainRootAccount = { type: 'GET_MANUALLY_CREATED_COURSES_SUB_ACCOUNT_FOR_DOMAIN_ROOT_ACCOUNT', method: 'get', key: 'get_manually_created_courses_sub_account_for_domain_root_account', required: [] };
+
 // List active courses in an account
 // Retrieve a paginated list of courses in this account.
 //
