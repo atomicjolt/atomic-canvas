@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.getSingleAssignmentLti = void 0;
 //
 // Plagiarism Detection Platform Assignments
 //
@@ -18,4 +19,10 @@ Object.defineProperty(exports, "__esModule", {
 //   user_id
 // }
 // return canvasRequest(get_single_assignment_lti, {assignment_id, ...query});
-var getSingleAssignmentLti = exports.getSingleAssignmentLti = { type: 'GET_SINGLE_ASSIGNMENT_LTI', method: 'get', key: 'get_single_assignment_ltiget_single_assignment_lti_assignment_id', required: ['assignment_id'] };
+var getSingleAssignmentLti = {
+  type: 'GET_SINGLE_ASSIGNMENT_LTI',
+  method: 'get',
+  key: 'get_single_assignment_ltiget_single_assignment_lti_assignment_id',
+  required: ['assignment_id']
+};
+exports.getSingleAssignmentLti = getSingleAssignmentLti;

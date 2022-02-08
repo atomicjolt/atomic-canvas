@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.createInstid = void 0;
 //
 // InstIDs
 //
@@ -17,4 +18,10 @@ Object.defineProperty(exports, "__esModule", {
 //
 // Example:
 // return canvasRequest(create_instid, {});
-var createInstid = exports.createInstid = { type: 'CREATE_INSTID', method: 'post', key: 'create_instid', required: [] };
+var createInstid = {
+  type: 'CREATE_INSTID',
+  method: 'post',
+  key: 'create_instid',
+  required: []
+};
+exports.createInstid = createInstid;

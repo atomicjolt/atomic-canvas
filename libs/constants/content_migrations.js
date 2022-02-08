@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.updateMigrationIssueUsers = exports.updateMigrationIssueGroups = exports.updateMigrationIssueCourses = exports.updateMigrationIssueAccounts = exports.updateContentMigrationUsers = exports.updateContentMigrationGroups = exports.updateContentMigrationCourses = exports.updateContentMigrationAccounts = exports.listMigrationSystemsUsers = exports.listMigrationSystemsGroups = exports.listMigrationSystemsCourses = exports.listMigrationSystemsAccounts = exports.listMigrationIssuesUsers = exports.listMigrationIssuesGroups = exports.listMigrationIssuesCourses = exports.listMigrationIssuesAccounts = exports.listItemsForSelectiveImportUsers = exports.listItemsForSelectiveImportGroups = exports.listItemsForSelectiveImportCourses = exports.listItemsForSelectiveImportAccounts = exports.listContentMigrationsUsers = exports.listContentMigrationsGroups = exports.listContentMigrationsCourses = exports.listContentMigrationsAccounts = exports.getMigrationIssueUsers = exports.getMigrationIssueGroups = exports.getMigrationIssueCourses = exports.getMigrationIssueAccounts = exports.getContentMigrationUsers = exports.getContentMigrationGroups = exports.getContentMigrationCourses = exports.getContentMigrationAccounts = exports.createContentMigrationUsers = exports.createContentMigrationGroups = exports.createContentMigrationCourses = exports.createContentMigrationAccounts = void 0;
 //
 // Content Migrations
 //
@@ -14,9 +15,12 @@ Object.defineProperty(exports, "__esModule", {
 //
 // Example:
 // return canvasRequest(list_migration_issues_accounts, {account_id, content_migration_id});
-var listMigrationIssuesAccounts = exports.listMigrationIssuesAccounts = { type: 'LIST_MIGRATION_ISSUES_ACCOUNTS', method: 'get', key: 'list_migration_issues_accountslist_migration_issues_accounts_{account_id}_{content_migration_id}', required: ['account_id', 'content_migration_id'] };
-
-// List migration issues
+var listMigrationIssuesAccounts = {
+  type: 'LIST_MIGRATION_ISSUES_ACCOUNTS',
+  method: 'get',
+  key: 'list_migration_issues_accountslist_migration_issues_accounts_{account_id}_{content_migration_id}',
+  required: ['account_id', 'content_migration_id']
+}; // List migration issues
 // Returns paginated migration issues
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
@@ -24,9 +28,14 @@ var listMigrationIssuesAccounts = exports.listMigrationIssuesAccounts = { type: 
 //
 // Example:
 // return canvasRequest(list_migration_issues_courses, {course_id, content_migration_id});
-var listMigrationIssuesCourses = exports.listMigrationIssuesCourses = { type: 'LIST_MIGRATION_ISSUES_COURSES', method: 'get', key: 'list_migration_issues_courseslist_migration_issues_courses_{course_id}_{content_migration_id}', required: ['course_id', 'content_migration_id'] };
 
-// List migration issues
+exports.listMigrationIssuesAccounts = listMigrationIssuesAccounts;
+var listMigrationIssuesCourses = {
+  type: 'LIST_MIGRATION_ISSUES_COURSES',
+  method: 'get',
+  key: 'list_migration_issues_courseslist_migration_issues_courses_{course_id}_{content_migration_id}',
+  required: ['course_id', 'content_migration_id']
+}; // List migration issues
 // Returns paginated migration issues
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
@@ -34,9 +43,14 @@ var listMigrationIssuesCourses = exports.listMigrationIssuesCourses = { type: 'L
 //
 // Example:
 // return canvasRequest(list_migration_issues_groups, {group_id, content_migration_id});
-var listMigrationIssuesGroups = exports.listMigrationIssuesGroups = { type: 'LIST_MIGRATION_ISSUES_GROUPS', method: 'get', key: 'list_migration_issues_groupslist_migration_issues_groups_{group_id}_{content_migration_id}', required: ['group_id', 'content_migration_id'] };
 
-// List migration issues
+exports.listMigrationIssuesCourses = listMigrationIssuesCourses;
+var listMigrationIssuesGroups = {
+  type: 'LIST_MIGRATION_ISSUES_GROUPS',
+  method: 'get',
+  key: 'list_migration_issues_groupslist_migration_issues_groups_{group_id}_{content_migration_id}',
+  required: ['group_id', 'content_migration_id']
+}; // List migration issues
 // Returns paginated migration issues
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
@@ -44,9 +58,14 @@ var listMigrationIssuesGroups = exports.listMigrationIssuesGroups = { type: 'LIS
 //
 // Example:
 // return canvasRequest(list_migration_issues_users, {user_id, content_migration_id});
-var listMigrationIssuesUsers = exports.listMigrationIssuesUsers = { type: 'LIST_MIGRATION_ISSUES_USERS', method: 'get', key: 'list_migration_issues_userslist_migration_issues_users_{user_id}_{content_migration_id}', required: ['user_id', 'content_migration_id'] };
 
-// Get a migration issue
+exports.listMigrationIssuesGroups = listMigrationIssuesGroups;
+var listMigrationIssuesUsers = {
+  type: 'LIST_MIGRATION_ISSUES_USERS',
+  method: 'get',
+  key: 'list_migration_issues_userslist_migration_issues_users_{user_id}_{content_migration_id}',
+  required: ['user_id', 'content_migration_id']
+}; // Get a migration issue
 // Returns data on an individual migration issue
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
@@ -54,9 +73,14 @@ var listMigrationIssuesUsers = exports.listMigrationIssuesUsers = { type: 'LIST_
 //
 // Example:
 // return canvasRequest(get_migration_issue_accounts, {account_id, content_migration_id, id});
-var getMigrationIssueAccounts = exports.getMigrationIssueAccounts = { type: 'GET_MIGRATION_ISSUE_ACCOUNTS', method: 'get', key: 'get_migration_issue_accountsget_migration_issue_accounts_{account_id}_{content_migration_id}_{id}', required: ['account_id', 'content_migration_id', 'id'] };
 
-// Get a migration issue
+exports.listMigrationIssuesUsers = listMigrationIssuesUsers;
+var getMigrationIssueAccounts = {
+  type: 'GET_MIGRATION_ISSUE_ACCOUNTS',
+  method: 'get',
+  key: 'get_migration_issue_accountsget_migration_issue_accounts_{account_id}_{content_migration_id}_{id}',
+  required: ['account_id', 'content_migration_id', 'id']
+}; // Get a migration issue
 // Returns data on an individual migration issue
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
@@ -64,9 +88,14 @@ var getMigrationIssueAccounts = exports.getMigrationIssueAccounts = { type: 'GET
 //
 // Example:
 // return canvasRequest(get_migration_issue_courses, {course_id, content_migration_id, id});
-var getMigrationIssueCourses = exports.getMigrationIssueCourses = { type: 'GET_MIGRATION_ISSUE_COURSES', method: 'get', key: 'get_migration_issue_coursesget_migration_issue_courses_{course_id}_{content_migration_id}_{id}', required: ['course_id', 'content_migration_id', 'id'] };
 
-// Get a migration issue
+exports.getMigrationIssueAccounts = getMigrationIssueAccounts;
+var getMigrationIssueCourses = {
+  type: 'GET_MIGRATION_ISSUE_COURSES',
+  method: 'get',
+  key: 'get_migration_issue_coursesget_migration_issue_courses_{course_id}_{content_migration_id}_{id}',
+  required: ['course_id', 'content_migration_id', 'id']
+}; // Get a migration issue
 // Returns data on an individual migration issue
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
@@ -74,9 +103,14 @@ var getMigrationIssueCourses = exports.getMigrationIssueCourses = { type: 'GET_M
 //
 // Example:
 // return canvasRequest(get_migration_issue_groups, {group_id, content_migration_id, id});
-var getMigrationIssueGroups = exports.getMigrationIssueGroups = { type: 'GET_MIGRATION_ISSUE_GROUPS', method: 'get', key: 'get_migration_issue_groupsget_migration_issue_groups_{group_id}_{content_migration_id}_{id}', required: ['group_id', 'content_migration_id', 'id'] };
 
-// Get a migration issue
+exports.getMigrationIssueCourses = getMigrationIssueCourses;
+var getMigrationIssueGroups = {
+  type: 'GET_MIGRATION_ISSUE_GROUPS',
+  method: 'get',
+  key: 'get_migration_issue_groupsget_migration_issue_groups_{group_id}_{content_migration_id}_{id}',
+  required: ['group_id', 'content_migration_id', 'id']
+}; // Get a migration issue
 // Returns data on an individual migration issue
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
@@ -84,9 +118,14 @@ var getMigrationIssueGroups = exports.getMigrationIssueGroups = { type: 'GET_MIG
 //
 // Example:
 // return canvasRequest(get_migration_issue_users, {user_id, content_migration_id, id});
-var getMigrationIssueUsers = exports.getMigrationIssueUsers = { type: 'GET_MIGRATION_ISSUE_USERS', method: 'get', key: 'get_migration_issue_usersget_migration_issue_users_{user_id}_{content_migration_id}_{id}', required: ['user_id', 'content_migration_id', 'id'] };
 
-// Update a migration issue
+exports.getMigrationIssueGroups = getMigrationIssueGroups;
+var getMigrationIssueUsers = {
+  type: 'GET_MIGRATION_ISSUE_USERS',
+  method: 'get',
+  key: 'get_migration_issue_usersget_migration_issue_users_{user_id}_{content_migration_id}_{id}',
+  required: ['user_id', 'content_migration_id', 'id']
+}; // Update a migration issue
 // Update the workflow_state of a migration issue
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
@@ -97,9 +136,14 @@ var getMigrationIssueUsers = exports.getMigrationIssueUsers = { type: 'GET_MIGRA
 //   workflow_state (required)
 // }
 // return canvasRequest(update_migration_issue_accounts, {account_id, content_migration_id, id}, body);
-var updateMigrationIssueAccounts = exports.updateMigrationIssueAccounts = { type: 'UPDATE_MIGRATION_ISSUE_ACCOUNTS', method: 'put', key: 'update_migration_issue_accountsupdate_migration_issue_accounts_{account_id}_{content_migration_id}_{id}', required: ['account_id', 'content_migration_id', 'id'] };
 
-// Update a migration issue
+exports.getMigrationIssueUsers = getMigrationIssueUsers;
+var updateMigrationIssueAccounts = {
+  type: 'UPDATE_MIGRATION_ISSUE_ACCOUNTS',
+  method: 'put',
+  key: 'update_migration_issue_accountsupdate_migration_issue_accounts_{account_id}_{content_migration_id}_{id}',
+  required: ['account_id', 'content_migration_id', 'id']
+}; // Update a migration issue
 // Update the workflow_state of a migration issue
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
@@ -110,9 +154,14 @@ var updateMigrationIssueAccounts = exports.updateMigrationIssueAccounts = { type
 //   workflow_state (required)
 // }
 // return canvasRequest(update_migration_issue_courses, {course_id, content_migration_id, id}, body);
-var updateMigrationIssueCourses = exports.updateMigrationIssueCourses = { type: 'UPDATE_MIGRATION_ISSUE_COURSES', method: 'put', key: 'update_migration_issue_coursesupdate_migration_issue_courses_{course_id}_{content_migration_id}_{id}', required: ['course_id', 'content_migration_id', 'id'] };
 
-// Update a migration issue
+exports.updateMigrationIssueAccounts = updateMigrationIssueAccounts;
+var updateMigrationIssueCourses = {
+  type: 'UPDATE_MIGRATION_ISSUE_COURSES',
+  method: 'put',
+  key: 'update_migration_issue_coursesupdate_migration_issue_courses_{course_id}_{content_migration_id}_{id}',
+  required: ['course_id', 'content_migration_id', 'id']
+}; // Update a migration issue
 // Update the workflow_state of a migration issue
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
@@ -123,9 +172,14 @@ var updateMigrationIssueCourses = exports.updateMigrationIssueCourses = { type: 
 //   workflow_state (required)
 // }
 // return canvasRequest(update_migration_issue_groups, {group_id, content_migration_id, id}, body);
-var updateMigrationIssueGroups = exports.updateMigrationIssueGroups = { type: 'UPDATE_MIGRATION_ISSUE_GROUPS', method: 'put', key: 'update_migration_issue_groupsupdate_migration_issue_groups_{group_id}_{content_migration_id}_{id}', required: ['group_id', 'content_migration_id', 'id'] };
 
-// Update a migration issue
+exports.updateMigrationIssueCourses = updateMigrationIssueCourses;
+var updateMigrationIssueGroups = {
+  type: 'UPDATE_MIGRATION_ISSUE_GROUPS',
+  method: 'put',
+  key: 'update_migration_issue_groupsupdate_migration_issue_groups_{group_id}_{content_migration_id}_{id}',
+  required: ['group_id', 'content_migration_id', 'id']
+}; // Update a migration issue
 // Update the workflow_state of a migration issue
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
@@ -136,9 +190,14 @@ var updateMigrationIssueGroups = exports.updateMigrationIssueGroups = { type: 'U
 //   workflow_state (required)
 // }
 // return canvasRequest(update_migration_issue_users, {user_id, content_migration_id, id}, body);
-var updateMigrationIssueUsers = exports.updateMigrationIssueUsers = { type: 'UPDATE_MIGRATION_ISSUE_USERS', method: 'put', key: 'update_migration_issue_usersupdate_migration_issue_users_{user_id}_{content_migration_id}_{id}', required: ['user_id', 'content_migration_id', 'id'] };
 
-// List content migrations
+exports.updateMigrationIssueGroups = updateMigrationIssueGroups;
+var updateMigrationIssueUsers = {
+  type: 'UPDATE_MIGRATION_ISSUE_USERS',
+  method: 'put',
+  key: 'update_migration_issue_usersupdate_migration_issue_users_{user_id}_{content_migration_id}_{id}',
+  required: ['user_id', 'content_migration_id', 'id']
+}; // List content migrations
 // Returns paginated content migrations
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
@@ -146,9 +205,14 @@ var updateMigrationIssueUsers = exports.updateMigrationIssueUsers = { type: 'UPD
 //
 // Example:
 // return canvasRequest(list_content_migrations_accounts, {account_id});
-var listContentMigrationsAccounts = exports.listContentMigrationsAccounts = { type: 'LIST_CONTENT_MIGRATIONS_ACCOUNTS', method: 'get', key: 'list_content_migrations_accountslist_content_migrations_accounts_account_id', required: ['account_id'] };
 
-// List content migrations
+exports.updateMigrationIssueUsers = updateMigrationIssueUsers;
+var listContentMigrationsAccounts = {
+  type: 'LIST_CONTENT_MIGRATIONS_ACCOUNTS',
+  method: 'get',
+  key: 'list_content_migrations_accountslist_content_migrations_accounts_account_id',
+  required: ['account_id']
+}; // List content migrations
 // Returns paginated content migrations
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
@@ -156,9 +220,14 @@ var listContentMigrationsAccounts = exports.listContentMigrationsAccounts = { ty
 //
 // Example:
 // return canvasRequest(list_content_migrations_courses, {course_id});
-var listContentMigrationsCourses = exports.listContentMigrationsCourses = { type: 'LIST_CONTENT_MIGRATIONS_COURSES', method: 'get', key: 'list_content_migrations_courseslist_content_migrations_courses_course_id', required: ['course_id'] };
 
-// List content migrations
+exports.listContentMigrationsAccounts = listContentMigrationsAccounts;
+var listContentMigrationsCourses = {
+  type: 'LIST_CONTENT_MIGRATIONS_COURSES',
+  method: 'get',
+  key: 'list_content_migrations_courseslist_content_migrations_courses_course_id',
+  required: ['course_id']
+}; // List content migrations
 // Returns paginated content migrations
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
@@ -166,9 +235,14 @@ var listContentMigrationsCourses = exports.listContentMigrationsCourses = { type
 //
 // Example:
 // return canvasRequest(list_content_migrations_groups, {group_id});
-var listContentMigrationsGroups = exports.listContentMigrationsGroups = { type: 'LIST_CONTENT_MIGRATIONS_GROUPS', method: 'get', key: 'list_content_migrations_groupslist_content_migrations_groups_group_id', required: ['group_id'] };
 
-// List content migrations
+exports.listContentMigrationsCourses = listContentMigrationsCourses;
+var listContentMigrationsGroups = {
+  type: 'LIST_CONTENT_MIGRATIONS_GROUPS',
+  method: 'get',
+  key: 'list_content_migrations_groupslist_content_migrations_groups_group_id',
+  required: ['group_id']
+}; // List content migrations
 // Returns paginated content migrations
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
@@ -176,9 +250,14 @@ var listContentMigrationsGroups = exports.listContentMigrationsGroups = { type: 
 //
 // Example:
 // return canvasRequest(list_content_migrations_users, {user_id});
-var listContentMigrationsUsers = exports.listContentMigrationsUsers = { type: 'LIST_CONTENT_MIGRATIONS_USERS', method: 'get', key: 'list_content_migrations_userslist_content_migrations_users_user_id', required: ['user_id'] };
 
-// Get a content migration
+exports.listContentMigrationsGroups = listContentMigrationsGroups;
+var listContentMigrationsUsers = {
+  type: 'LIST_CONTENT_MIGRATIONS_USERS',
+  method: 'get',
+  key: 'list_content_migrations_userslist_content_migrations_users_user_id',
+  required: ['user_id']
+}; // Get a content migration
 // Returns data on an individual content migration
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
@@ -186,9 +265,14 @@ var listContentMigrationsUsers = exports.listContentMigrationsUsers = { type: 'L
 //
 // Example:
 // return canvasRequest(get_content_migration_accounts, {account_id, id});
-var getContentMigrationAccounts = exports.getContentMigrationAccounts = { type: 'GET_CONTENT_MIGRATION_ACCOUNTS', method: 'get', key: 'get_content_migration_accountsget_content_migration_accounts_{account_id}_{id}', required: ['account_id', 'id'] };
 
-// Get a content migration
+exports.listContentMigrationsUsers = listContentMigrationsUsers;
+var getContentMigrationAccounts = {
+  type: 'GET_CONTENT_MIGRATION_ACCOUNTS',
+  method: 'get',
+  key: 'get_content_migration_accountsget_content_migration_accounts_{account_id}_{id}',
+  required: ['account_id', 'id']
+}; // Get a content migration
 // Returns data on an individual content migration
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
@@ -196,9 +280,14 @@ var getContentMigrationAccounts = exports.getContentMigrationAccounts = { type: 
 //
 // Example:
 // return canvasRequest(get_content_migration_courses, {course_id, id});
-var getContentMigrationCourses = exports.getContentMigrationCourses = { type: 'GET_CONTENT_MIGRATION_COURSES', method: 'get', key: 'get_content_migration_coursesget_content_migration_courses_{course_id}_{id}', required: ['course_id', 'id'] };
 
-// Get a content migration
+exports.getContentMigrationAccounts = getContentMigrationAccounts;
+var getContentMigrationCourses = {
+  type: 'GET_CONTENT_MIGRATION_COURSES',
+  method: 'get',
+  key: 'get_content_migration_coursesget_content_migration_courses_{course_id}_{id}',
+  required: ['course_id', 'id']
+}; // Get a content migration
 // Returns data on an individual content migration
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
@@ -206,9 +295,14 @@ var getContentMigrationCourses = exports.getContentMigrationCourses = { type: 'G
 //
 // Example:
 // return canvasRequest(get_content_migration_groups, {group_id, id});
-var getContentMigrationGroups = exports.getContentMigrationGroups = { type: 'GET_CONTENT_MIGRATION_GROUPS', method: 'get', key: 'get_content_migration_groupsget_content_migration_groups_{group_id}_{id}', required: ['group_id', 'id'] };
 
-// Get a content migration
+exports.getContentMigrationCourses = getContentMigrationCourses;
+var getContentMigrationGroups = {
+  type: 'GET_CONTENT_MIGRATION_GROUPS',
+  method: 'get',
+  key: 'get_content_migration_groupsget_content_migration_groups_{group_id}_{id}',
+  required: ['group_id', 'id']
+}; // Get a content migration
 // Returns data on an individual content migration
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
@@ -216,9 +310,14 @@ var getContentMigrationGroups = exports.getContentMigrationGroups = { type: 'GET
 //
 // Example:
 // return canvasRequest(get_content_migration_users, {user_id, id});
-var getContentMigrationUsers = exports.getContentMigrationUsers = { type: 'GET_CONTENT_MIGRATION_USERS', method: 'get', key: 'get_content_migration_usersget_content_migration_users_{user_id}_{id}', required: ['user_id', 'id'] };
 
-// Create a content migration
+exports.getContentMigrationGroups = getContentMigrationGroups;
+var getContentMigrationUsers = {
+  type: 'GET_CONTENT_MIGRATION_USERS',
+  method: 'get',
+  key: 'get_content_migration_usersget_content_migration_users_{user_id}_{id}',
+  required: ['user_id', 'id']
+}; // Create a content migration
 // Create a content migration. If the migration requires a file to be uploaded
 // the actual processing of the file will start once the file upload process is completed.
 // File uploading works as described in the {file:file_uploads.html File Upload Documentation}
@@ -277,9 +376,14 @@ var getContentMigrationUsers = exports.getContentMigrationUsers = { type: 'GET_C
 //   select
 // }
 // return canvasRequest(create_content_migration_accounts, {account_id}, body);
-var createContentMigrationAccounts = exports.createContentMigrationAccounts = { type: 'CREATE_CONTENT_MIGRATION_ACCOUNTS', method: 'post', key: 'create_content_migration_accountscreate_content_migration_accounts_account_id', required: ['account_id'] };
 
-// Create a content migration
+exports.getContentMigrationUsers = getContentMigrationUsers;
+var createContentMigrationAccounts = {
+  type: 'CREATE_CONTENT_MIGRATION_ACCOUNTS',
+  method: 'post',
+  key: 'create_content_migration_accountscreate_content_migration_accounts_account_id',
+  required: ['account_id']
+}; // Create a content migration
 // Create a content migration. If the migration requires a file to be uploaded
 // the actual processing of the file will start once the file upload process is completed.
 // File uploading works as described in the {file:file_uploads.html File Upload Documentation}
@@ -338,9 +442,14 @@ var createContentMigrationAccounts = exports.createContentMigrationAccounts = { 
 //   select
 // }
 // return canvasRequest(create_content_migration_courses, {course_id}, body);
-var createContentMigrationCourses = exports.createContentMigrationCourses = { type: 'CREATE_CONTENT_MIGRATION_COURSES', method: 'post', key: 'create_content_migration_coursescreate_content_migration_courses_course_id', required: ['course_id'] };
 
-// Create a content migration
+exports.createContentMigrationAccounts = createContentMigrationAccounts;
+var createContentMigrationCourses = {
+  type: 'CREATE_CONTENT_MIGRATION_COURSES',
+  method: 'post',
+  key: 'create_content_migration_coursescreate_content_migration_courses_course_id',
+  required: ['course_id']
+}; // Create a content migration
 // Create a content migration. If the migration requires a file to be uploaded
 // the actual processing of the file will start once the file upload process is completed.
 // File uploading works as described in the {file:file_uploads.html File Upload Documentation}
@@ -399,9 +508,14 @@ var createContentMigrationCourses = exports.createContentMigrationCourses = { ty
 //   select
 // }
 // return canvasRequest(create_content_migration_groups, {group_id}, body);
-var createContentMigrationGroups = exports.createContentMigrationGroups = { type: 'CREATE_CONTENT_MIGRATION_GROUPS', method: 'post', key: 'create_content_migration_groupscreate_content_migration_groups_group_id', required: ['group_id'] };
 
-// Create a content migration
+exports.createContentMigrationCourses = createContentMigrationCourses;
+var createContentMigrationGroups = {
+  type: 'CREATE_CONTENT_MIGRATION_GROUPS',
+  method: 'post',
+  key: 'create_content_migration_groupscreate_content_migration_groups_group_id',
+  required: ['group_id']
+}; // Create a content migration
 // Create a content migration. If the migration requires a file to be uploaded
 // the actual processing of the file will start once the file upload process is completed.
 // File uploading works as described in the {file:file_uploads.html File Upload Documentation}
@@ -460,9 +574,14 @@ var createContentMigrationGroups = exports.createContentMigrationGroups = { type
 //   select
 // }
 // return canvasRequest(create_content_migration_users, {user_id}, body);
-var createContentMigrationUsers = exports.createContentMigrationUsers = { type: 'CREATE_CONTENT_MIGRATION_USERS', method: 'post', key: 'create_content_migration_userscreate_content_migration_users_user_id', required: ['user_id'] };
 
-// Update a content migration
+exports.createContentMigrationGroups = createContentMigrationGroups;
+var createContentMigrationUsers = {
+  type: 'CREATE_CONTENT_MIGRATION_USERS',
+  method: 'post',
+  key: 'create_content_migration_userscreate_content_migration_users_user_id',
+  required: ['user_id']
+}; // Update a content migration
 // Update a content migration. Takes same arguments as {api:ContentMigrationsController#create create} except that you
 // can't change the migration type. However, changing most settings after the
 // migration process has started will not do anything. Generally updating the
@@ -475,9 +594,14 @@ var createContentMigrationUsers = exports.createContentMigrationUsers = { type: 
 //
 // Example:
 // return canvasRequest(update_content_migration_accounts, {account_id, id});
-var updateContentMigrationAccounts = exports.updateContentMigrationAccounts = { type: 'UPDATE_CONTENT_MIGRATION_ACCOUNTS', method: 'put', key: 'update_content_migration_accountsupdate_content_migration_accounts_{account_id}_{id}', required: ['account_id', 'id'] };
 
-// Update a content migration
+exports.createContentMigrationUsers = createContentMigrationUsers;
+var updateContentMigrationAccounts = {
+  type: 'UPDATE_CONTENT_MIGRATION_ACCOUNTS',
+  method: 'put',
+  key: 'update_content_migration_accountsupdate_content_migration_accounts_{account_id}_{id}',
+  required: ['account_id', 'id']
+}; // Update a content migration
 // Update a content migration. Takes same arguments as {api:ContentMigrationsController#create create} except that you
 // can't change the migration type. However, changing most settings after the
 // migration process has started will not do anything. Generally updating the
@@ -490,9 +614,14 @@ var updateContentMigrationAccounts = exports.updateContentMigrationAccounts = { 
 //
 // Example:
 // return canvasRequest(update_content_migration_courses, {course_id, id});
-var updateContentMigrationCourses = exports.updateContentMigrationCourses = { type: 'UPDATE_CONTENT_MIGRATION_COURSES', method: 'put', key: 'update_content_migration_coursesupdate_content_migration_courses_{course_id}_{id}', required: ['course_id', 'id'] };
 
-// Update a content migration
+exports.updateContentMigrationAccounts = updateContentMigrationAccounts;
+var updateContentMigrationCourses = {
+  type: 'UPDATE_CONTENT_MIGRATION_COURSES',
+  method: 'put',
+  key: 'update_content_migration_coursesupdate_content_migration_courses_{course_id}_{id}',
+  required: ['course_id', 'id']
+}; // Update a content migration
 // Update a content migration. Takes same arguments as {api:ContentMigrationsController#create create} except that you
 // can't change the migration type. However, changing most settings after the
 // migration process has started will not do anything. Generally updating the
@@ -505,9 +634,14 @@ var updateContentMigrationCourses = exports.updateContentMigrationCourses = { ty
 //
 // Example:
 // return canvasRequest(update_content_migration_groups, {group_id, id});
-var updateContentMigrationGroups = exports.updateContentMigrationGroups = { type: 'UPDATE_CONTENT_MIGRATION_GROUPS', method: 'put', key: 'update_content_migration_groupsupdate_content_migration_groups_{group_id}_{id}', required: ['group_id', 'id'] };
 
-// Update a content migration
+exports.updateContentMigrationCourses = updateContentMigrationCourses;
+var updateContentMigrationGroups = {
+  type: 'UPDATE_CONTENT_MIGRATION_GROUPS',
+  method: 'put',
+  key: 'update_content_migration_groupsupdate_content_migration_groups_{group_id}_{id}',
+  required: ['group_id', 'id']
+}; // Update a content migration
 // Update a content migration. Takes same arguments as {api:ContentMigrationsController#create create} except that you
 // can't change the migration type. However, changing most settings after the
 // migration process has started will not do anything. Generally updating the
@@ -520,9 +654,14 @@ var updateContentMigrationGroups = exports.updateContentMigrationGroups = { type
 //
 // Example:
 // return canvasRequest(update_content_migration_users, {user_id, id});
-var updateContentMigrationUsers = exports.updateContentMigrationUsers = { type: 'UPDATE_CONTENT_MIGRATION_USERS', method: 'put', key: 'update_content_migration_usersupdate_content_migration_users_{user_id}_{id}', required: ['user_id', 'id'] };
 
-// List Migration Systems
+exports.updateContentMigrationGroups = updateContentMigrationGroups;
+var updateContentMigrationUsers = {
+  type: 'UPDATE_CONTENT_MIGRATION_USERS',
+  method: 'put',
+  key: 'update_content_migration_usersupdate_content_migration_users_{user_id}_{id}',
+  required: ['user_id', 'id']
+}; // List Migration Systems
 // Lists the currently available migration types. These values may change.
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
@@ -530,9 +669,14 @@ var updateContentMigrationUsers = exports.updateContentMigrationUsers = { type: 
 //
 // Example:
 // return canvasRequest(list_migration_systems_accounts, {account_id});
-var listMigrationSystemsAccounts = exports.listMigrationSystemsAccounts = { type: 'LIST_MIGRATION_SYSTEMS_ACCOUNTS', method: 'get', key: 'list_migration_systems_accountslist_migration_systems_accounts_account_id', required: ['account_id'] };
 
-// List Migration Systems
+exports.updateContentMigrationUsers = updateContentMigrationUsers;
+var listMigrationSystemsAccounts = {
+  type: 'LIST_MIGRATION_SYSTEMS_ACCOUNTS',
+  method: 'get',
+  key: 'list_migration_systems_accountslist_migration_systems_accounts_account_id',
+  required: ['account_id']
+}; // List Migration Systems
 // Lists the currently available migration types. These values may change.
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
@@ -540,9 +684,14 @@ var listMigrationSystemsAccounts = exports.listMigrationSystemsAccounts = { type
 //
 // Example:
 // return canvasRequest(list_migration_systems_courses, {course_id});
-var listMigrationSystemsCourses = exports.listMigrationSystemsCourses = { type: 'LIST_MIGRATION_SYSTEMS_COURSES', method: 'get', key: 'list_migration_systems_courseslist_migration_systems_courses_course_id', required: ['course_id'] };
 
-// List Migration Systems
+exports.listMigrationSystemsAccounts = listMigrationSystemsAccounts;
+var listMigrationSystemsCourses = {
+  type: 'LIST_MIGRATION_SYSTEMS_COURSES',
+  method: 'get',
+  key: 'list_migration_systems_courseslist_migration_systems_courses_course_id',
+  required: ['course_id']
+}; // List Migration Systems
 // Lists the currently available migration types. These values may change.
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
@@ -550,9 +699,14 @@ var listMigrationSystemsCourses = exports.listMigrationSystemsCourses = { type: 
 //
 // Example:
 // return canvasRequest(list_migration_systems_groups, {group_id});
-var listMigrationSystemsGroups = exports.listMigrationSystemsGroups = { type: 'LIST_MIGRATION_SYSTEMS_GROUPS', method: 'get', key: 'list_migration_systems_groupslist_migration_systems_groups_group_id', required: ['group_id'] };
 
-// List Migration Systems
+exports.listMigrationSystemsCourses = listMigrationSystemsCourses;
+var listMigrationSystemsGroups = {
+  type: 'LIST_MIGRATION_SYSTEMS_GROUPS',
+  method: 'get',
+  key: 'list_migration_systems_groupslist_migration_systems_groups_group_id',
+  required: ['group_id']
+}; // List Migration Systems
 // Lists the currently available migration types. These values may change.
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
@@ -560,9 +714,14 @@ var listMigrationSystemsGroups = exports.listMigrationSystemsGroups = { type: 'L
 //
 // Example:
 // return canvasRequest(list_migration_systems_users, {user_id});
-var listMigrationSystemsUsers = exports.listMigrationSystemsUsers = { type: 'LIST_MIGRATION_SYSTEMS_USERS', method: 'get', key: 'list_migration_systems_userslist_migration_systems_users_user_id', required: ['user_id'] };
 
-// List items for selective import
+exports.listMigrationSystemsGroups = listMigrationSystemsGroups;
+var listMigrationSystemsUsers = {
+  type: 'LIST_MIGRATION_SYSTEMS_USERS',
+  method: 'get',
+  key: 'list_migration_systems_userslist_migration_systems_users_user_id',
+  required: ['user_id']
+}; // List items for selective import
 // Enumerates the content available for selective import in a tree structure. Each node provides
 // a +property+ copy argument that can be supplied to the {api:ContentMigrationsController#update Update endpoint}
 // to selectively copy the content associated with that tree node and its children. Each node may also
@@ -625,9 +784,14 @@ var listMigrationSystemsUsers = exports.listMigrationSystemsUsers = { type: 'LIS
 //   type
 // }
 // return canvasRequest(list_items_for_selective_import_accounts, {account_id, id, ...query});
-var listItemsForSelectiveImportAccounts = exports.listItemsForSelectiveImportAccounts = { type: 'LIST_ITEMS_FOR_SELECTIVE_IMPORT_ACCOUNTS', method: 'get', key: 'list_items_for_selective_import_accountslist_items_for_selective_import_accounts_{account_id}_{id}', required: ['account_id', 'id'] };
 
-// List items for selective import
+exports.listMigrationSystemsUsers = listMigrationSystemsUsers;
+var listItemsForSelectiveImportAccounts = {
+  type: 'LIST_ITEMS_FOR_SELECTIVE_IMPORT_ACCOUNTS',
+  method: 'get',
+  key: 'list_items_for_selective_import_accountslist_items_for_selective_import_accounts_{account_id}_{id}',
+  required: ['account_id', 'id']
+}; // List items for selective import
 // Enumerates the content available for selective import in a tree structure. Each node provides
 // a +property+ copy argument that can be supplied to the {api:ContentMigrationsController#update Update endpoint}
 // to selectively copy the content associated with that tree node and its children. Each node may also
@@ -690,9 +854,14 @@ var listItemsForSelectiveImportAccounts = exports.listItemsForSelectiveImportAcc
 //   type
 // }
 // return canvasRequest(list_items_for_selective_import_courses, {course_id, id, ...query});
-var listItemsForSelectiveImportCourses = exports.listItemsForSelectiveImportCourses = { type: 'LIST_ITEMS_FOR_SELECTIVE_IMPORT_COURSES', method: 'get', key: 'list_items_for_selective_import_courseslist_items_for_selective_import_courses_{course_id}_{id}', required: ['course_id', 'id'] };
 
-// List items for selective import
+exports.listItemsForSelectiveImportAccounts = listItemsForSelectiveImportAccounts;
+var listItemsForSelectiveImportCourses = {
+  type: 'LIST_ITEMS_FOR_SELECTIVE_IMPORT_COURSES',
+  method: 'get',
+  key: 'list_items_for_selective_import_courseslist_items_for_selective_import_courses_{course_id}_{id}',
+  required: ['course_id', 'id']
+}; // List items for selective import
 // Enumerates the content available for selective import in a tree structure. Each node provides
 // a +property+ copy argument that can be supplied to the {api:ContentMigrationsController#update Update endpoint}
 // to selectively copy the content associated with that tree node and its children. Each node may also
@@ -755,9 +924,14 @@ var listItemsForSelectiveImportCourses = exports.listItemsForSelectiveImportCour
 //   type
 // }
 // return canvasRequest(list_items_for_selective_import_groups, {group_id, id, ...query});
-var listItemsForSelectiveImportGroups = exports.listItemsForSelectiveImportGroups = { type: 'LIST_ITEMS_FOR_SELECTIVE_IMPORT_GROUPS', method: 'get', key: 'list_items_for_selective_import_groupslist_items_for_selective_import_groups_{group_id}_{id}', required: ['group_id', 'id'] };
 
-// List items for selective import
+exports.listItemsForSelectiveImportCourses = listItemsForSelectiveImportCourses;
+var listItemsForSelectiveImportGroups = {
+  type: 'LIST_ITEMS_FOR_SELECTIVE_IMPORT_GROUPS',
+  method: 'get',
+  key: 'list_items_for_selective_import_groupslist_items_for_selective_import_groups_{group_id}_{id}',
+  required: ['group_id', 'id']
+}; // List items for selective import
 // Enumerates the content available for selective import in a tree structure. Each node provides
 // a +property+ copy argument that can be supplied to the {api:ContentMigrationsController#update Update endpoint}
 // to selectively copy the content associated with that tree node and its children. Each node may also
@@ -820,4 +994,12 @@ var listItemsForSelectiveImportGroups = exports.listItemsForSelectiveImportGroup
 //   type
 // }
 // return canvasRequest(list_items_for_selective_import_users, {user_id, id, ...query});
-var listItemsForSelectiveImportUsers = exports.listItemsForSelectiveImportUsers = { type: 'LIST_ITEMS_FOR_SELECTIVE_IMPORT_USERS', method: 'get', key: 'list_items_for_selective_import_userslist_items_for_selective_import_users_{user_id}_{id}', required: ['user_id', 'id'] };
+
+exports.listItemsForSelectiveImportGroups = listItemsForSelectiveImportGroups;
+var listItemsForSelectiveImportUsers = {
+  type: 'LIST_ITEMS_FOR_SELECTIVE_IMPORT_USERS',
+  method: 'get',
+  key: 'list_items_for_selective_import_userslist_items_for_selective_import_users_{user_id}_{id}',
+  required: ['user_id', 'id']
+};
+exports.listItemsForSelectiveImportUsers = listItemsForSelectiveImportUsers;

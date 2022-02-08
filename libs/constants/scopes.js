@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.listScopes = void 0;
 //
 // Scopes
 //
@@ -17,4 +18,10 @@ Object.defineProperty(exports, "__esModule", {
 //   group_by
 // }
 // return canvasRequest(list_scopes, {account_id, ...query});
-var listScopes = exports.listScopes = { type: 'LIST_SCOPES', method: 'get', key: 'list_scopeslist_scopes_account_id', required: ['account_id'] };
+var listScopes = {
+  type: 'LIST_SCOPES',
+  method: 'get',
+  key: 'list_scopeslist_scopes_account_id',
+  required: ['account_id']
+};
+exports.listScopes = listScopes;

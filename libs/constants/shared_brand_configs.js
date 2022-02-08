@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.updateSharedTheme = exports.unShareBrandconfigTheme = exports.shareBrandconfigTheme = void 0;
 //
 // Shared Brand Configs
 //
@@ -19,9 +20,12 @@ Object.defineProperty(exports, "__esModule", {
 //   shared_brand_config[brand_config_md5] (required)
 // }
 // return canvasRequest(share_brandconfig_theme, {account_id}, body);
-var shareBrandconfigTheme = exports.shareBrandconfigTheme = { type: 'SHARE_BRANDCONFIG_THEME', method: 'post', key: 'share_brandconfig_themeshare_brandconfig_theme_account_id', required: ['account_id'] };
-
-// Update a shared theme
+var shareBrandconfigTheme = {
+  type: 'SHARE_BRANDCONFIG_THEME',
+  method: 'post',
+  key: 'share_brandconfig_themeshare_brandconfig_theme_account_id',
+  required: ['account_id']
+}; // Update a shared theme
 // Update the specified shared_brand_config with a new name or to point to a new brand_config.
 // Uses same parameters as create.
 //
@@ -30,9 +34,14 @@ var shareBrandconfigTheme = exports.shareBrandconfigTheme = { type: 'SHARE_BRAND
 //
 // Example:
 // return canvasRequest(update_shared_theme, {account_id, id});
-var updateSharedTheme = exports.updateSharedTheme = { type: 'UPDATE_SHARED_THEME', method: 'put', key: 'update_shared_themeupdate_shared_theme_{account_id}_{id}', required: ['account_id', 'id'] };
 
-// Un-share a BrandConfig (Theme)
+exports.shareBrandconfigTheme = shareBrandconfigTheme;
+var updateSharedTheme = {
+  type: 'UPDATE_SHARED_THEME',
+  method: 'put',
+  key: 'update_shared_themeupdate_shared_theme_{account_id}_{id}',
+  required: ['account_id', 'id']
+}; // Un-share a BrandConfig (Theme)
 // Delete a SharedBrandConfig, which will unshare it so you nor anyone else in
 // your account will see it as an option to pick from.
 //
@@ -41,4 +50,12 @@ var updateSharedTheme = exports.updateSharedTheme = { type: 'UPDATE_SHARED_THEME
 //
 // Example:
 // return canvasRequest(un_share_brandconfig_theme, {id});
-var unShareBrandconfigTheme = exports.unShareBrandconfigTheme = { type: 'UN_SHARE_BRANDCONFIG_THEME', method: 'delete', key: 'un_share_brandconfig_themeun_share_brandconfig_theme_id', required: ['id'] };
+
+exports.updateSharedTheme = updateSharedTheme;
+var unShareBrandconfigTheme = {
+  type: 'UN_SHARE_BRANDCONFIG_THEME',
+  method: 'delete',
+  key: 'un_share_brandconfig_themeun_share_brandconfig_theme_id',
+  required: ['id']
+};
+exports.unShareBrandconfigTheme = unShareBrandconfigTheme;

@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.getSingleUserLti = exports.getAllUsersInGroupLti = void 0;
 //
 // Plagiarism Detection Platform Users
 //
@@ -15,9 +16,12 @@ Object.defineProperty(exports, "__esModule", {
 //
 // Example:
 // return canvasRequest(get_single_user_lti, {id});
-var getSingleUserLti = exports.getSingleUserLti = { type: 'GET_SINGLE_USER_LTI', method: 'get', key: 'get_single_user_ltiget_single_user_lti_id', required: ['id'] };
-
-// Get all users in a group (lti)
+var getSingleUserLti = {
+  type: 'GET_SINGLE_USER_LTI',
+  method: 'get',
+  key: 'get_single_user_ltiget_single_user_lti_id',
+  required: ['id']
+}; // Get all users in a group (lti)
 // Get all Canvas users in a group. Tool providers may only access
 // groups that belong to the context the tool is installed in.
 //
@@ -26,4 +30,12 @@ var getSingleUserLti = exports.getSingleUserLti = { type: 'GET_SINGLE_USER_LTI',
 //
 // Example:
 // return canvasRequest(get_all_users_in_group_lti, {group_id});
-var getAllUsersInGroupLti = exports.getAllUsersInGroupLti = { type: 'GET_ALL_USERS_IN_GROUP_LTI', method: 'get', key: 'get_all_users_in_group_ltiget_all_users_in_group_lti_group_id', required: ['group_id'] };
+
+exports.getSingleUserLti = getSingleUserLti;
+var getAllUsersInGroupLti = {
+  type: 'GET_ALL_USERS_IN_GROUP_LTI',
+  method: 'get',
+  key: 'get_all_users_in_group_ltiget_all_users_in_group_lti_group_id',
+  required: ['group_id']
+};
+exports.getAllUsersInGroupLti = getAllUsersInGroupLti;

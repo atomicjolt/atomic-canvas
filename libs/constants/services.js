@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.startKalturaSession = exports.getKalturaConfig = void 0;
 //
 // Services
 //
@@ -14,9 +15,12 @@ Object.defineProperty(exports, "__esModule", {
 //
 // Example:
 // return canvasRequest(get_kaltura_config, {});
-var getKalturaConfig = exports.getKalturaConfig = { type: 'GET_KALTURA_CONFIG', method: 'get', key: 'get_kaltura_config', required: [] };
-
-// Start Kaltura session
+var getKalturaConfig = {
+  type: 'GET_KALTURA_CONFIG',
+  method: 'get',
+  key: 'get_kaltura_config',
+  required: []
+}; // Start Kaltura session
 // Start a new Kaltura session, so that new media can be recorded and uploaded
 // to this Canvas instance's Kaltura instance.
 //
@@ -25,4 +29,12 @@ var getKalturaConfig = exports.getKalturaConfig = { type: 'GET_KALTURA_CONFIG', 
 //
 // Example:
 // return canvasRequest(start_kaltura_session, {});
-var startKalturaSession = exports.startKalturaSession = { type: 'START_KALTURA_SESSION', method: 'post', key: 'start_kaltura_session', required: [] };
+
+exports.getKalturaConfig = getKalturaConfig;
+var startKalturaSession = {
+  type: 'START_KALTURA_SESSION',
+  method: 'post',
+  key: 'start_kaltura_session',
+  required: []
+};
+exports.startKalturaSession = startKalturaSession;

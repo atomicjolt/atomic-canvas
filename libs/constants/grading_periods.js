@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.updateSingleGradingPeriod = exports.listGradingPeriodsCourses = exports.listGradingPeriodsAccounts = exports.getSingleGradingPeriod = exports.deleteGradingPeriodCourses = exports.deleteGradingPeriodAccounts = void 0;
 //
 // Grading Periods
 //
@@ -14,9 +15,12 @@ Object.defineProperty(exports, "__esModule", {
 //
 // Example:
 // return canvasRequest(list_grading_periods_accounts, {account_id});
-var listGradingPeriodsAccounts = exports.listGradingPeriodsAccounts = { type: 'LIST_GRADING_PERIODS_ACCOUNTS', method: 'get', key: 'list_grading_periods_accountslist_grading_periods_accounts_account_id', required: ['account_id'] };
-
-// List grading periods
+var listGradingPeriodsAccounts = {
+  type: 'LIST_GRADING_PERIODS_ACCOUNTS',
+  method: 'get',
+  key: 'list_grading_periods_accountslist_grading_periods_accounts_account_id',
+  required: ['account_id']
+}; // List grading periods
 // Returns the paginated list of grading periods for the current course.
 //
 // API Docs: https://canvas.instructure.com/doc/api/grading_periods.html
@@ -24,9 +28,14 @@ var listGradingPeriodsAccounts = exports.listGradingPeriodsAccounts = { type: 'L
 //
 // Example:
 // return canvasRequest(list_grading_periods_courses, {course_id});
-var listGradingPeriodsCourses = exports.listGradingPeriodsCourses = { type: 'LIST_GRADING_PERIODS_COURSES', method: 'get', key: 'list_grading_periods_courseslist_grading_periods_courses_course_id', required: ['course_id'] };
 
-// Get a single grading period
+exports.listGradingPeriodsAccounts = listGradingPeriodsAccounts;
+var listGradingPeriodsCourses = {
+  type: 'LIST_GRADING_PERIODS_COURSES',
+  method: 'get',
+  key: 'list_grading_periods_courseslist_grading_periods_courses_course_id',
+  required: ['course_id']
+}; // Get a single grading period
 // Returns the grading period with the given id
 //
 // API Docs: https://canvas.instructure.com/doc/api/grading_periods.html
@@ -34,9 +43,14 @@ var listGradingPeriodsCourses = exports.listGradingPeriodsCourses = { type: 'LIS
 //
 // Example:
 // return canvasRequest(get_single_grading_period, {course_id, id});
-var getSingleGradingPeriod = exports.getSingleGradingPeriod = { type: 'GET_SINGLE_GRADING_PERIOD', method: 'get', key: 'get_single_grading_periodget_single_grading_period_{course_id}_{id}', required: ['course_id', 'id'] };
 
-// Update a single grading period
+exports.listGradingPeriodsCourses = listGradingPeriodsCourses;
+var getSingleGradingPeriod = {
+  type: 'GET_SINGLE_GRADING_PERIOD',
+  method: 'get',
+  key: 'get_single_grading_periodget_single_grading_period_{course_id}_{id}',
+  required: ['course_id', 'id']
+}; // Update a single grading period
 // Update an existing grading period.
 //
 // API Docs: https://canvas.instructure.com/doc/api/grading_periods.html
@@ -49,9 +63,14 @@ var getSingleGradingPeriod = exports.getSingleGradingPeriod = { type: 'GET_SINGL
 //   grading_periods[weight]
 // }
 // return canvasRequest(update_single_grading_period, {course_id, id}, body);
-var updateSingleGradingPeriod = exports.updateSingleGradingPeriod = { type: 'UPDATE_SINGLE_GRADING_PERIOD', method: 'put', key: 'update_single_grading_periodupdate_single_grading_period_{course_id}_{id}', required: ['course_id', 'id'] };
 
-// Delete a grading period
+exports.getSingleGradingPeriod = getSingleGradingPeriod;
+var updateSingleGradingPeriod = {
+  type: 'UPDATE_SINGLE_GRADING_PERIOD',
+  method: 'put',
+  key: 'update_single_grading_periodupdate_single_grading_period_{course_id}_{id}',
+  required: ['course_id', 'id']
+}; // Delete a grading period
 // <b>204 No Content</b> response code is returned if the deletion was
 // successful.
 //
@@ -60,9 +79,14 @@ var updateSingleGradingPeriod = exports.updateSingleGradingPeriod = { type: 'UPD
 //
 // Example:
 // return canvasRequest(delete_grading_period_courses, {course_id, id});
-var deleteGradingPeriodCourses = exports.deleteGradingPeriodCourses = { type: 'DELETE_GRADING_PERIOD_COURSES', method: 'delete', key: 'delete_grading_period_coursesdelete_grading_period_courses_{course_id}_{id}', required: ['course_id', 'id'] };
 
-// Delete a grading period
+exports.updateSingleGradingPeriod = updateSingleGradingPeriod;
+var deleteGradingPeriodCourses = {
+  type: 'DELETE_GRADING_PERIOD_COURSES',
+  method: 'delete',
+  key: 'delete_grading_period_coursesdelete_grading_period_courses_{course_id}_{id}',
+  required: ['course_id', 'id']
+}; // Delete a grading period
 // <b>204 No Content</b> response code is returned if the deletion was
 // successful.
 //
@@ -71,4 +95,12 @@ var deleteGradingPeriodCourses = exports.deleteGradingPeriodCourses = { type: 'D
 //
 // Example:
 // return canvasRequest(delete_grading_period_accounts, {account_id, id});
-var deleteGradingPeriodAccounts = exports.deleteGradingPeriodAccounts = { type: 'DELETE_GRADING_PERIOD_ACCOUNTS', method: 'delete', key: 'delete_grading_period_accountsdelete_grading_period_accounts_{account_id}_{id}', required: ['account_id', 'id'] };
+
+exports.deleteGradingPeriodCourses = deleteGradingPeriodCourses;
+var deleteGradingPeriodAccounts = {
+  type: 'DELETE_GRADING_PERIOD_ACCOUNTS',
+  method: 'delete',
+  key: 'delete_grading_period_accountsdelete_grading_period_accounts_{account_id}_{id}',
+  required: ['account_id', 'id']
+};
+exports.deleteGradingPeriodAccounts = deleteGradingPeriodAccounts;

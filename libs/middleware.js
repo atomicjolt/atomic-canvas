@@ -1,47 +1,44 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = undefined;
-
-var _extends2 = require('babel-runtime/helpers/extends');
-
-var _extends3 = _interopRequireDefault(_extends2);
-
+exports["default"] = void 0;
 exports.proxyCanvas = proxyCanvas;
 
-var _lodash = require('lodash');
+var _lodash = _interopRequireDefault(require("lodash"));
 
-var _lodash2 = _interopRequireDefault(_lodash);
+var _api = _interopRequireDefault(require("atomic-fuel/libs/api/api"));
 
-var _api = require('atomic-fuel/libs/api/api');
+var _wrapper = require("atomic-fuel/libs/constants/wrapper");
 
-var _api2 = _interopRequireDefault(_api);
+var _urls = require("./urls");
 
-var _wrapper = require('atomic-fuel/libs/constants/wrapper');
+var _constants = require("./constants");
 
-var _urls = require('./urls');
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var _constants = require('./constants');
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function checkRequired(action) {
   if (action.canvas.required.length > 0) {
-    var missing = _lodash2.default.difference(action.canvas.required, _lodash2.default.keys(action.params));
+    var missing = _lodash["default"].difference(action.canvas.required, _lodash["default"].keys(action.params));
+
     if (missing.length > 0) {
-      throw new Error('Missing required parameter(s): ' + missing.join(', '));
+      throw new Error("Missing required parameter(s): ".concat(missing.join(', ')));
     }
   }
 }
 
 function proxyCanvas(store, action, params) {
   var state = store.getState();
-
   checkRequired(action);
 
-  var promise = _api2.default.execRequest(action.canvas.method, _constants.canvasProxyUrl, state.settings.api_url, state.jwt, state.settings.csrf_token, (0, _extends3.default)({}, action.params, params, {
+  var promise = _api["default"].execRequest(action.canvas.method, _constants.canvasProxyUrl, state.settings.api_url, state.jwt, state.settings.csrf_token, _objectSpread(_objectSpread(_objectSpread({}, action.params), params), {}, {
     lms_proxy_call_type: action.canvas.type,
     context_id: state.settings.context_id,
     oauth_consumer_key: state.settings.oauth_consumer_key
@@ -53,8 +50,10 @@ function proxyCanvas(store, action, params) {
 
       if (action.canvas.method === 'get' && response.header) {
         var nextUrl = (0, _urls.getNextUrl)(response.headers.link);
+
         if (nextUrl) {
           var newParams = (0, _urls.parseParams)(nextUrl);
+
           if (newParams) {
             proxyCanvas(store, action, newParams);
           }
@@ -70,7 +69,7 @@ function proxyCanvas(store, action, params) {
         lastPage: lastPage,
         response: response
       }); // Dispatch the new data
-    }).catch(function (error) {
+    })["catch"](function (error) {
       store.dispatch({
         type: action.canvas.type + _wrapper.DONE,
         original: action,
@@ -87,12 +86,12 @@ var CanvasApi = function CanvasApi(store) {
     return function (action) {
       if (action.canvas) {
         proxyCanvas(store, action, {});
-      }
+      } // call the next middleWare
 
-      // call the next middleWare
+
       next(action);
     };
   };
 };
 
-exports.default = CanvasApi;
+exports["default"] = CanvasApi;

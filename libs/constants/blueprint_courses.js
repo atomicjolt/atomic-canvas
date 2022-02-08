@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.updateAssociatedCourses = exports.showBlueprintMigration = exports.showBlueprintImport = exports.setOrRemoveRestrictionsOnBlueprintCourseObject = exports.listBlueprintSubscriptions = exports.listBlueprintMigrations = exports.listBlueprintImports = exports.getUnsyncedChanges = exports.getMigrationDetails = exports.getImportDetails = exports.getBlueprintInformation = exports.getAssociatedCourseInformation = exports.beginMigrationToPushToAssociatedCourses = void 0;
 //
 // Blueprint Courses
 //
@@ -15,9 +16,12 @@ Object.defineProperty(exports, "__esModule", {
 //
 // Example:
 // return canvasRequest(get_blueprint_information, {course_id, template_id});
-var getBlueprintInformation = exports.getBlueprintInformation = { type: 'GET_BLUEPRINT_INFORMATION', method: 'get', key: 'get_blueprint_informationget_blueprint_information_{course_id}_{template_id}', required: ['course_id', 'template_id'] };
-
-// Get associated course information
+var getBlueprintInformation = {
+  type: 'GET_BLUEPRINT_INFORMATION',
+  method: 'get',
+  key: 'get_blueprint_informationget_blueprint_information_{course_id}_{template_id}',
+  required: ['course_id', 'template_id']
+}; // Get associated course information
 // Returns a list of courses that are configured to receive updates from this blueprint
 //
 // API Docs: https://canvas.instructure.com/doc/api/blueprint_courses.html
@@ -25,9 +29,14 @@ var getBlueprintInformation = exports.getBlueprintInformation = { type: 'GET_BLU
 //
 // Example:
 // return canvasRequest(get_associated_course_information, {course_id, template_id});
-var getAssociatedCourseInformation = exports.getAssociatedCourseInformation = { type: 'GET_ASSOCIATED_COURSE_INFORMATION', method: 'get', key: 'get_associated_course_informationget_associated_course_information_{course_id}_{template_id}', required: ['course_id', 'template_id'] };
 
-// Update associated courses
+exports.getBlueprintInformation = getBlueprintInformation;
+var getAssociatedCourseInformation = {
+  type: 'GET_ASSOCIATED_COURSE_INFORMATION',
+  method: 'get',
+  key: 'get_associated_course_informationget_associated_course_information_{course_id}_{template_id}',
+  required: ['course_id', 'template_id']
+}; // Update associated courses
 // Send a list of course ids to add or remove new associations for the template.
 // Cannot add courses that do not belong to the blueprint course's account. Also cannot add
 // other blueprint courses or courses that already have an association with another blueprint course.
@@ -43,9 +52,14 @@ var getAssociatedCourseInformation = exports.getAssociatedCourseInformation = { 
 //   course_ids_to_remove
 // }
 // return canvasRequest(update_associated_courses, {course_id, template_id}, body);
-var updateAssociatedCourses = exports.updateAssociatedCourses = { type: 'UPDATE_ASSOCIATED_COURSES', method: 'put', key: 'update_associated_coursesupdate_associated_courses_{course_id}_{template_id}', required: ['course_id', 'template_id'] };
 
-// Begin a migration to push to associated courses
+exports.getAssociatedCourseInformation = getAssociatedCourseInformation;
+var updateAssociatedCourses = {
+  type: 'UPDATE_ASSOCIATED_COURSES',
+  method: 'put',
+  key: 'update_associated_coursesupdate_associated_courses_{course_id}_{template_id}',
+  required: ['course_id', 'template_id']
+}; // Begin a migration to push to associated courses
 // Begins a migration to push recently updated content to all associated courses.
 // Only one migration can be running at a time.
 //
@@ -60,9 +74,14 @@ var updateAssociatedCourses = exports.updateAssociatedCourses = { type: 'UPDATE_
 //   publish_after_initial_sync
 // }
 // return canvasRequest(begin_migration_to_push_to_associated_courses, {course_id, template_id}, body);
-var beginMigrationToPushToAssociatedCourses = exports.beginMigrationToPushToAssociatedCourses = { type: 'BEGIN_MIGRATION_TO_PUSH_TO_ASSOCIATED_COURSES', method: 'post', key: 'begin_migration_to_push_to_associated_coursesbegin_migration_to_push_to_associated_courses_{course_id}_{template_id}', required: ['course_id', 'template_id'] };
 
-// Set or remove restrictions on a blueprint course object
+exports.updateAssociatedCourses = updateAssociatedCourses;
+var beginMigrationToPushToAssociatedCourses = {
+  type: 'BEGIN_MIGRATION_TO_PUSH_TO_ASSOCIATED_COURSES',
+  method: 'post',
+  key: 'begin_migration_to_push_to_associated_coursesbegin_migration_to_push_to_associated_courses_{course_id}_{template_id}',
+  required: ['course_id', 'template_id']
+}; // Set or remove restrictions on a blueprint course object
 // If a blueprint course object is restricted, editing will be limited for copies in associated courses.
 //
 // API Docs: https://canvas.instructure.com/doc/api/blueprint_courses.html
@@ -76,9 +95,14 @@ var beginMigrationToPushToAssociatedCourses = exports.beginMigrationToPushToAsso
 //   restrictions
 // }
 // return canvasRequest(set_or_remove_restrictions_on_blueprint_course_object, {course_id, template_id}, body);
-var setOrRemoveRestrictionsOnBlueprintCourseObject = exports.setOrRemoveRestrictionsOnBlueprintCourseObject = { type: 'SET_OR_REMOVE_RESTRICTIONS_ON_BLUEPRINT_COURSE_OBJECT', method: 'put', key: 'set_or_remove_restrictions_on_blueprint_course_objectset_or_remove_restrictions_on_blueprint_course_object_{course_id}_{template_id}', required: ['course_id', 'template_id'] };
 
-// Get unsynced changes
+exports.beginMigrationToPushToAssociatedCourses = beginMigrationToPushToAssociatedCourses;
+var setOrRemoveRestrictionsOnBlueprintCourseObject = {
+  type: 'SET_OR_REMOVE_RESTRICTIONS_ON_BLUEPRINT_COURSE_OBJECT',
+  method: 'put',
+  key: 'set_or_remove_restrictions_on_blueprint_course_objectset_or_remove_restrictions_on_blueprint_course_object_{course_id}_{template_id}',
+  required: ['course_id', 'template_id']
+}; // Get unsynced changes
 // Retrieve a list of learning objects that have changed since the last blueprint sync operation.
 // If no syncs have been completed, a ChangeRecord with a change_type of +initial_sync+ is returned.
 //
@@ -87,9 +111,14 @@ var setOrRemoveRestrictionsOnBlueprintCourseObject = exports.setOrRemoveRestrict
 //
 // Example:
 // return canvasRequest(get_unsynced_changes, {course_id, template_id});
-var getUnsyncedChanges = exports.getUnsyncedChanges = { type: 'GET_UNSYNCED_CHANGES', method: 'get', key: 'get_unsynced_changesget_unsynced_changes_{course_id}_{template_id}', required: ['course_id', 'template_id'] };
 
-// List blueprint migrations
+exports.setOrRemoveRestrictionsOnBlueprintCourseObject = setOrRemoveRestrictionsOnBlueprintCourseObject;
+var getUnsyncedChanges = {
+  type: 'GET_UNSYNCED_CHANGES',
+  method: 'get',
+  key: 'get_unsynced_changesget_unsynced_changes_{course_id}_{template_id}',
+  required: ['course_id', 'template_id']
+}; // List blueprint migrations
 // Shows a paginated list of migrations for the template, starting with the most recent. This endpoint can be called on a
 // blueprint course. See also {api:MasterCourses::MasterTemplatesController#imports_index the associated course side}.
 //
@@ -98,9 +127,14 @@ var getUnsyncedChanges = exports.getUnsyncedChanges = { type: 'GET_UNSYNCED_CHAN
 //
 // Example:
 // return canvasRequest(list_blueprint_migrations, {course_id, template_id});
-var listBlueprintMigrations = exports.listBlueprintMigrations = { type: 'LIST_BLUEPRINT_MIGRATIONS', method: 'get', key: 'list_blueprint_migrationslist_blueprint_migrations_{course_id}_{template_id}', required: ['course_id', 'template_id'] };
 
-// Show a blueprint migration
+exports.getUnsyncedChanges = getUnsyncedChanges;
+var listBlueprintMigrations = {
+  type: 'LIST_BLUEPRINT_MIGRATIONS',
+  method: 'get',
+  key: 'list_blueprint_migrationslist_blueprint_migrations_{course_id}_{template_id}',
+  required: ['course_id', 'template_id']
+}; // Show a blueprint migration
 // Shows the status of a migration. This endpoint can be called on a blueprint course. See also
 // {api:MasterCourses::MasterTemplatesController#imports_show the associated course side}.
 //
@@ -109,9 +143,14 @@ var listBlueprintMigrations = exports.listBlueprintMigrations = { type: 'LIST_BL
 //
 // Example:
 // return canvasRequest(show_blueprint_migration, {course_id, template_id, id});
-var showBlueprintMigration = exports.showBlueprintMigration = { type: 'SHOW_BLUEPRINT_MIGRATION', method: 'get', key: 'show_blueprint_migrationshow_blueprint_migration_{course_id}_{template_id}_{id}', required: ['course_id', 'template_id', 'id'] };
 
-// Get migration details
+exports.listBlueprintMigrations = listBlueprintMigrations;
+var showBlueprintMigration = {
+  type: 'SHOW_BLUEPRINT_MIGRATION',
+  method: 'get',
+  key: 'show_blueprint_migrationshow_blueprint_migration_{course_id}_{template_id}_{id}',
+  required: ['course_id', 'template_id', 'id']
+}; // Get migration details
 // Show the changes that were propagated in a blueprint migration. This endpoint can be called on a
 // blueprint course. See also {api:MasterCourses::MasterTemplatesController#import_details the associated course side}.
 //
@@ -120,9 +159,14 @@ var showBlueprintMigration = exports.showBlueprintMigration = { type: 'SHOW_BLUE
 //
 // Example:
 // return canvasRequest(get_migration_details, {course_id, template_id, id});
-var getMigrationDetails = exports.getMigrationDetails = { type: 'GET_MIGRATION_DETAILS', method: 'get', key: 'get_migration_detailsget_migration_details_{course_id}_{template_id}_{id}', required: ['course_id', 'template_id', 'id'] };
 
-// List blueprint subscriptions
+exports.showBlueprintMigration = showBlueprintMigration;
+var getMigrationDetails = {
+  type: 'GET_MIGRATION_DETAILS',
+  method: 'get',
+  key: 'get_migration_detailsget_migration_details_{course_id}_{template_id}_{id}',
+  required: ['course_id', 'template_id', 'id']
+}; // List blueprint subscriptions
 // Returns a list of blueprint subscriptions for the given course. (Currently a course may have no more than one.)
 //
 // API Docs: https://canvas.instructure.com/doc/api/blueprint_courses.html
@@ -130,9 +174,14 @@ var getMigrationDetails = exports.getMigrationDetails = { type: 'GET_MIGRATION_D
 //
 // Example:
 // return canvasRequest(list_blueprint_subscriptions, {course_id});
-var listBlueprintSubscriptions = exports.listBlueprintSubscriptions = { type: 'LIST_BLUEPRINT_SUBSCRIPTIONS', method: 'get', key: 'list_blueprint_subscriptionslist_blueprint_subscriptions_course_id', required: ['course_id'] };
 
-// List blueprint imports
+exports.getMigrationDetails = getMigrationDetails;
+var listBlueprintSubscriptions = {
+  type: 'LIST_BLUEPRINT_SUBSCRIPTIONS',
+  method: 'get',
+  key: 'list_blueprint_subscriptionslist_blueprint_subscriptions_course_id',
+  required: ['course_id']
+}; // List blueprint imports
 // Shows a paginated list of migrations imported into a course associated with a blueprint, starting with the most recent. See also
 // {api:MasterCourses::MasterTemplatesController#migrations_index the blueprint course side}.
 // 
@@ -143,9 +192,14 @@ var listBlueprintSubscriptions = exports.listBlueprintSubscriptions = { type: 'L
 //
 // Example:
 // return canvasRequest(list_blueprint_imports, {course_id, subscription_id});
-var listBlueprintImports = exports.listBlueprintImports = { type: 'LIST_BLUEPRINT_IMPORTS', method: 'get', key: 'list_blueprint_importslist_blueprint_imports_{course_id}_{subscription_id}', required: ['course_id', 'subscription_id'] };
 
-// Show a blueprint import
+exports.listBlueprintSubscriptions = listBlueprintSubscriptions;
+var listBlueprintImports = {
+  type: 'LIST_BLUEPRINT_IMPORTS',
+  method: 'get',
+  key: 'list_blueprint_importslist_blueprint_imports_{course_id}_{subscription_id}',
+  required: ['course_id', 'subscription_id']
+}; // Show a blueprint import
 // Shows the status of an import into a course associated with a blueprint. See also
 // {api:MasterCourses::MasterTemplatesController#migrations_show the blueprint course side}.
 //
@@ -154,9 +208,14 @@ var listBlueprintImports = exports.listBlueprintImports = { type: 'LIST_BLUEPRIN
 //
 // Example:
 // return canvasRequest(show_blueprint_import, {course_id, subscription_id, id});
-var showBlueprintImport = exports.showBlueprintImport = { type: 'SHOW_BLUEPRINT_IMPORT', method: 'get', key: 'show_blueprint_importshow_blueprint_import_{course_id}_{subscription_id}_{id}', required: ['course_id', 'subscription_id', 'id'] };
 
-// Get import details
+exports.listBlueprintImports = listBlueprintImports;
+var showBlueprintImport = {
+  type: 'SHOW_BLUEPRINT_IMPORT',
+  method: 'get',
+  key: 'show_blueprint_importshow_blueprint_import_{course_id}_{subscription_id}_{id}',
+  required: ['course_id', 'subscription_id', 'id']
+}; // Get import details
 // Show the changes that were propagated to a course associated with a blueprint.  See also
 // {api:MasterCourses::MasterTemplatesController#migration_details the blueprint course side}.
 //
@@ -165,4 +224,12 @@ var showBlueprintImport = exports.showBlueprintImport = { type: 'SHOW_BLUEPRINT_
 //
 // Example:
 // return canvasRequest(get_import_details, {course_id, subscription_id, id});
-var getImportDetails = exports.getImportDetails = { type: 'GET_IMPORT_DETAILS', method: 'get', key: 'get_import_detailsget_import_details_{course_id}_{subscription_id}_{id}', required: ['course_id', 'subscription_id', 'id'] };
+
+exports.showBlueprintImport = showBlueprintImport;
+var getImportDetails = {
+  type: 'GET_IMPORT_DETAILS',
+  method: 'get',
+  key: 'get_import_detailsget_import_details_{course_id}_{subscription_id}_{id}',
+  required: ['course_id', 'subscription_id', 'id']
+};
+exports.getImportDetails = getImportDetails;

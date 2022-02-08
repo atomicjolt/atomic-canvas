@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.listPotentialMembersGroups = exports.listPotentialMembersCourses = exports.listMembersOfCollaboration = exports.listCollaborationsGroups = exports.listCollaborationsCourses = void 0;
 //
 // Collaborations
 //
@@ -18,9 +19,12 @@ Object.defineProperty(exports, "__esModule", {
 //
 // Example:
 // return canvasRequest(list_collaborations_courses, {course_id});
-var listCollaborationsCourses = exports.listCollaborationsCourses = { type: 'LIST_COLLABORATIONS_COURSES', method: 'get', key: 'list_collaborations_courseslist_collaborations_courses_course_id', required: ['course_id'] };
-
-// List collaborations
+var listCollaborationsCourses = {
+  type: 'LIST_COLLABORATIONS_COURSES',
+  method: 'get',
+  key: 'list_collaborations_courseslist_collaborations_courses_course_id',
+  required: ['course_id']
+}; // List collaborations
 // A paginated list of collaborations the current user has access to in the
 // context of the course provided in the url. NOTE: this only returns
 // ExternalToolCollaboration type collaborations.
@@ -32,9 +36,14 @@ var listCollaborationsCourses = exports.listCollaborationsCourses = { type: 'LIS
 //
 // Example:
 // return canvasRequest(list_collaborations_groups, {group_id});
-var listCollaborationsGroups = exports.listCollaborationsGroups = { type: 'LIST_COLLABORATIONS_GROUPS', method: 'get', key: 'list_collaborations_groupslist_collaborations_groups_group_id', required: ['group_id'] };
 
-// List members of a collaboration.
+exports.listCollaborationsCourses = listCollaborationsCourses;
+var listCollaborationsGroups = {
+  type: 'LIST_COLLABORATIONS_GROUPS',
+  method: 'get',
+  key: 'list_collaborations_groupslist_collaborations_groups_group_id',
+  required: ['group_id']
+}; // List members of a collaboration.
 // A paginated list of the collaborators of a given collaboration
 //
 // API Docs: https://canvas.instructure.com/doc/api/collaborations.html
@@ -45,9 +54,14 @@ var listCollaborationsGroups = exports.listCollaborationsGroups = { type: 'LIST_
 //   include
 // }
 // return canvasRequest(list_members_of_collaboration, {id, ...query});
-var listMembersOfCollaboration = exports.listMembersOfCollaboration = { type: 'LIST_MEMBERS_OF_COLLABORATION', method: 'get', key: 'list_members_of_collaborationlist_members_of_collaboration_id', required: ['id'] };
 
-// List potential members
+exports.listCollaborationsGroups = listCollaborationsGroups;
+var listMembersOfCollaboration = {
+  type: 'LIST_MEMBERS_OF_COLLABORATION',
+  method: 'get',
+  key: 'list_members_of_collaborationlist_members_of_collaboration_id',
+  required: ['id']
+}; // List potential members
 // A paginated list of the users who can potentially be added to a
 // collaboration in the given context.
 // 
@@ -59,9 +73,14 @@ var listMembersOfCollaboration = exports.listMembersOfCollaboration = { type: 'L
 //
 // Example:
 // return canvasRequest(list_potential_members_courses, {course_id});
-var listPotentialMembersCourses = exports.listPotentialMembersCourses = { type: 'LIST_POTENTIAL_MEMBERS_COURSES', method: 'get', key: 'list_potential_members_courseslist_potential_members_courses_course_id', required: ['course_id'] };
 
-// List potential members
+exports.listMembersOfCollaboration = listMembersOfCollaboration;
+var listPotentialMembersCourses = {
+  type: 'LIST_POTENTIAL_MEMBERS_COURSES',
+  method: 'get',
+  key: 'list_potential_members_courseslist_potential_members_courses_course_id',
+  required: ['course_id']
+}; // List potential members
 // A paginated list of the users who can potentially be added to a
 // collaboration in the given context.
 // 
@@ -73,4 +92,12 @@ var listPotentialMembersCourses = exports.listPotentialMembersCourses = { type: 
 //
 // Example:
 // return canvasRequest(list_potential_members_groups, {group_id});
-var listPotentialMembersGroups = exports.listPotentialMembersGroups = { type: 'LIST_POTENTIAL_MEMBERS_GROUPS', method: 'get', key: 'list_potential_members_groupslist_potential_members_groups_group_id', required: ['group_id'] };
+
+exports.listPotentialMembersCourses = listPotentialMembersCourses;
+var listPotentialMembersGroups = {
+  type: 'LIST_POTENTIAL_MEMBERS_GROUPS',
+  method: 'get',
+  key: 'list_potential_members_groupslist_potential_members_groups_group_id',
+  required: ['group_id']
+};
+exports.listPotentialMembersGroups = listPotentialMembersGroups;

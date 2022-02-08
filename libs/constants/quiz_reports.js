@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.retrieveAllQuizReports = exports.getQuizReport = exports.createQuizReport = exports.abortGenerationOfReportOrRemovePreviouslyGeneratedOne = void 0;
 //
 // Quiz Reports
 //
@@ -17,9 +18,12 @@ Object.defineProperty(exports, "__esModule", {
 //   includes_all_versions
 // }
 // return canvasRequest(retrieve_all_quiz_reports, {course_id, quiz_id, ...query});
-var retrieveAllQuizReports = exports.retrieveAllQuizReports = { type: 'RETRIEVE_ALL_QUIZ_REPORTS', method: 'get', key: 'retrieve_all_quiz_reportsretrieve_all_quiz_reports_{course_id}_{quiz_id}', required: ['course_id', 'quiz_id'] };
-
-// Create a quiz report
+var retrieveAllQuizReports = {
+  type: 'RETRIEVE_ALL_QUIZ_REPORTS',
+  method: 'get',
+  key: 'retrieve_all_quiz_reportsretrieve_all_quiz_reports_{course_id}_{quiz_id}',
+  required: ['course_id', 'quiz_id']
+}; // Create a quiz report
 // Create and return a new report for this quiz. If a previously
 // generated report matches the arguments and is still current (i.e.
 // there have been no new submissions), it will be returned.
@@ -40,9 +44,14 @@ var retrieveAllQuizReports = exports.retrieveAllQuizReports = { type: 'RETRIEVE_
 //   include
 // }
 // return canvasRequest(create_quiz_report, {course_id, quiz_id}, body);
-var createQuizReport = exports.createQuizReport = { type: 'CREATE_QUIZ_REPORT', method: 'post', key: 'create_quiz_reportcreate_quiz_report_{course_id}_{quiz_id}', required: ['course_id', 'quiz_id'] };
 
-// Get a quiz report
+exports.retrieveAllQuizReports = retrieveAllQuizReports;
+var createQuizReport = {
+  type: 'CREATE_QUIZ_REPORT',
+  method: 'post',
+  key: 'create_quiz_reportcreate_quiz_report_{course_id}_{quiz_id}',
+  required: ['course_id', 'quiz_id']
+}; // Get a quiz report
 // Returns the data for a single quiz report.
 //
 // API Docs: https://canvas.instructure.com/doc/api/quiz_reports.html
@@ -53,9 +62,14 @@ var createQuizReport = exports.createQuizReport = { type: 'CREATE_QUIZ_REPORT', 
 //   include
 // }
 // return canvasRequest(get_quiz_report, {course_id, quiz_id, id, ...query});
-var getQuizReport = exports.getQuizReport = { type: 'GET_QUIZ_REPORT', method: 'get', key: 'get_quiz_reportget_quiz_report_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };
 
-// Abort the generation of a report, or remove a previously generated one
+exports.createQuizReport = createQuizReport;
+var getQuizReport = {
+  type: 'GET_QUIZ_REPORT',
+  method: 'get',
+  key: 'get_quiz_reportget_quiz_report_{course_id}_{quiz_id}_{id}',
+  required: ['course_id', 'quiz_id', 'id']
+}; // Abort the generation of a report, or remove a previously generated one
 // This API allows you to cancel a previous request you issued for a report to
 // be generated. Or in the case of an already generated report, you'd like to
 // remove it, perhaps to generate it another time with an updated version that
@@ -77,4 +91,12 @@ var getQuizReport = exports.getQuizReport = { type: 'GET_QUIZ_REPORT', method: '
 //
 // Example:
 // return canvasRequest(abort_generation_of_report_or_remove_previously_generated_one, {course_id, quiz_id, id});
-var abortGenerationOfReportOrRemovePreviouslyGeneratedOne = exports.abortGenerationOfReportOrRemovePreviouslyGeneratedOne = { type: 'ABORT_GENERATION_OF_REPORT_OR_REMOVE_PREVIOUSLY_GENERATED_ONE', method: 'delete', key: 'abort_generation_of_report_or_remove_previously_generated_oneabort_generation_of_report_or_remove_previously_generated_one_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };
+
+exports.getQuizReport = getQuizReport;
+var abortGenerationOfReportOrRemovePreviouslyGeneratedOne = {
+  type: 'ABORT_GENERATION_OF_REPORT_OR_REMOVE_PREVIOUSLY_GENERATED_ONE',
+  method: 'delete',
+  key: 'abort_generation_of_report_or_remove_previously_generated_oneabort_generation_of_report_or_remove_previously_generated_one_{course_id}_{quiz_id}_{id}',
+  required: ['course_id', 'quiz_id', 'id']
+};
+exports.abortGenerationOfReportOrRemovePreviouslyGeneratedOne = abortGenerationOfReportOrRemovePreviouslyGeneratedOne;

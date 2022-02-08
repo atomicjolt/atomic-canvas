@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.updatePlannernote = exports.showPlannernote = exports.listPlannerNotes = exports.deletePlannerNote = exports.createPlannerNote = void 0;
 //
 // Planner Note
 //
@@ -21,9 +22,12 @@ Object.defineProperty(exports, "__esModule", {
 //   context_codes
 // }
 // return canvasRequest(list_planner_notes, {, ...query});
-var listPlannerNotes = exports.listPlannerNotes = { type: 'LIST_PLANNER_NOTES', method: 'get', key: 'list_planner_notes', required: [] };
-
-// Show a PlannerNote
+var listPlannerNotes = {
+  type: 'LIST_PLANNER_NOTES',
+  method: 'get',
+  key: 'list_planner_notes',
+  required: []
+}; // Show a PlannerNote
 // Retrieve a planner note for the current user
 //
 // API Docs: https://canvas.instructure.com/doc/api/planner_note.html
@@ -31,9 +35,14 @@ var listPlannerNotes = exports.listPlannerNotes = { type: 'LIST_PLANNER_NOTES', 
 //
 // Example:
 // return canvasRequest(show_plannernote, {id});
-var showPlannernote = exports.showPlannernote = { type: 'SHOW_PLANNERNOTE', method: 'get', key: 'show_plannernoteshow_plannernote_id', required: ['id'] };
 
-// Update a PlannerNote
+exports.listPlannerNotes = listPlannerNotes;
+var showPlannernote = {
+  type: 'SHOW_PLANNERNOTE',
+  method: 'get',
+  key: 'show_plannernoteshow_plannernote_id',
+  required: ['id']
+}; // Update a PlannerNote
 // Update a planner note for the current user
 //
 // API Docs: https://canvas.instructure.com/doc/api/planner_note.html
@@ -47,9 +56,14 @@ var showPlannernote = exports.showPlannernote = { type: 'SHOW_PLANNERNOTE', meth
 //   course_id
 // }
 // return canvasRequest(update_plannernote, {id}, body);
-var updatePlannernote = exports.updatePlannernote = { type: 'UPDATE_PLANNERNOTE', method: 'put', key: 'update_plannernoteupdate_plannernote_id', required: ['id'] };
 
-// Create a planner note
+exports.showPlannernote = showPlannernote;
+var updatePlannernote = {
+  type: 'UPDATE_PLANNERNOTE',
+  method: 'put',
+  key: 'update_plannernoteupdate_plannernote_id',
+  required: ['id']
+}; // Create a planner note
 // Create a planner note for the current user
 //
 // API Docs: https://canvas.instructure.com/doc/api/planner_note.html
@@ -65,9 +79,14 @@ var updatePlannernote = exports.updatePlannernote = { type: 'UPDATE_PLANNERNOTE'
 //   linked_object_id
 // }
 // return canvasRequest(create_planner_note, {}, body);
-var createPlannerNote = exports.createPlannerNote = { type: 'CREATE_PLANNER_NOTE', method: 'post', key: 'create_planner_note', required: [] };
 
-// Delete a planner note
+exports.updatePlannernote = updatePlannernote;
+var createPlannerNote = {
+  type: 'CREATE_PLANNER_NOTE',
+  method: 'post',
+  key: 'create_planner_note',
+  required: []
+}; // Delete a planner note
 // Delete a planner note for the current user
 //
 // API Docs: https://canvas.instructure.com/doc/api/planner_note.html
@@ -75,4 +94,12 @@ var createPlannerNote = exports.createPlannerNote = { type: 'CREATE_PLANNER_NOTE
 //
 // Example:
 // return canvasRequest(delete_planner_note, {id});
-var deletePlannerNote = exports.deletePlannerNote = { type: 'DELETE_PLANNER_NOTE', method: 'delete', key: 'delete_planner_notedelete_planner_note_id', required: ['id'] };
+
+exports.createPlannerNote = createPlannerNote;
+var deletePlannerNote = {
+  type: 'DELETE_PLANNER_NOTE',
+  method: 'delete',
+  key: 'delete_planner_notedelete_planner_note_id',
+  required: ['id']
+};
+exports.deletePlannerNote = deletePlannerNote;

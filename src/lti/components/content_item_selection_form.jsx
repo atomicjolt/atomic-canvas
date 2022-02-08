@@ -1,37 +1,42 @@
 import _ from 'lodash';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-export default class ContentItemSelectionForm extends React.Component {
+export default function ContentItemSelectionForm(props) {
+  const {
+    launchData,
+    contentItemReturnURL,
+  } = props;
+  const formRef = useRef(null);
+  const formStyle = { display: 'none' };
 
-  static propTypes = {
-    launchData : PropTypes.shape({}),
-    contentItemReturnURL: PropTypes.string,
-  }
+  useEffect(() => {
+    if(formRef.current){
+      formRef.current.submit();
+    }
+  }, [formRef.current]);
 
-  componentDidMount() {
-    this.form.submit();
-  }
-
-  renderLaunchData() {
-    return _.map(this.props.launchData, (value, key) => (
+  function renderLaunchData() {
+    return _.map(launchData, (value, key) => (
       <input key={key} type="hidden" value={value || ''} name={key} />
     ));
   }
 
-  render() {
-    const formStyle = { display: 'none' };
-    return (
-      <form
-        ref={(ref) => { this.form = ref; }}
-        action={this.props.contentItemReturnURL}
-        style={formStyle}
-        method="post"
-        encType="application/x-www-form-urlencoded"
-      >
-        { this.renderLaunchData() }
-        <button type="submit">Finish</button>
-      </form>
-    );
-  }
+  return (
+    <form
+      ref={formRef}
+      action={contentItemReturnURL}
+      style={formStyle}
+      method="post"
+      encType="application/x-www-form-urlencoded"
+    >
+      { renderLaunchData() }
+      <button type="submit">Finish</button>
+    </form>
+  );
+}
+
+ContentItemSelectionForm.propTypes = {
+  launchData : PropTypes.shape({}),
+  contentItemReturnURL: PropTypes.string,
 }

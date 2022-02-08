@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.updateStudentQuestionScoresAndComments = exports.getSingleQuizSubmission = exports.getQuizSubmission = exports.getCurrentQuizSubmissionTimes = exports.getAllQuizSubmissions = exports.createQuizSubmissionStartQuizTakingSession = exports.completeQuizSubmissionTurnItIn = void 0;
 //
 // Quiz Submissions
 //
@@ -24,9 +25,12 @@ Object.defineProperty(exports, "__esModule", {
 //   include
 // }
 // return canvasRequest(get_all_quiz_submissions, {course_id, quiz_id, ...query});
-var getAllQuizSubmissions = exports.getAllQuizSubmissions = { type: 'GET_ALL_QUIZ_SUBMISSIONS', method: 'get', key: 'get_all_quiz_submissionsget_all_quiz_submissions_{course_id}_{quiz_id}', required: ['course_id', 'quiz_id'] };
-
-// Get the quiz submission.
+var getAllQuizSubmissions = {
+  type: 'GET_ALL_QUIZ_SUBMISSIONS',
+  method: 'get',
+  key: 'get_all_quiz_submissionsget_all_quiz_submissions_{course_id}_{quiz_id}',
+  required: ['course_id', 'quiz_id']
+}; // Get the quiz submission.
 // Get the submission for this quiz for the current user.
 // 
 // <b>200 OK</b> response code is returned if the request was successful.
@@ -39,9 +43,14 @@ var getAllQuizSubmissions = exports.getAllQuizSubmissions = { type: 'GET_ALL_QUI
 //   include
 // }
 // return canvasRequest(get_quiz_submission, {course_id, quiz_id, ...query});
-var getQuizSubmission = exports.getQuizSubmission = { type: 'GET_QUIZ_SUBMISSION', method: 'get', key: 'get_quiz_submissionget_quiz_submission_{course_id}_{quiz_id}', required: ['course_id', 'quiz_id'] };
 
-// Get a single quiz submission.
+exports.getAllQuizSubmissions = getAllQuizSubmissions;
+var getQuizSubmission = {
+  type: 'GET_QUIZ_SUBMISSION',
+  method: 'get',
+  key: 'get_quiz_submissionget_quiz_submission_{course_id}_{quiz_id}',
+  required: ['course_id', 'quiz_id']
+}; // Get a single quiz submission.
 // Get a single quiz submission.
 // 
 // <b>200 OK</b> response code is returned if the request was successful.
@@ -54,9 +63,14 @@ var getQuizSubmission = exports.getQuizSubmission = { type: 'GET_QUIZ_SUBMISSION
 //   include
 // }
 // return canvasRequest(get_single_quiz_submission, {course_id, quiz_id, id, ...query});
-var getSingleQuizSubmission = exports.getSingleQuizSubmission = { type: 'GET_SINGLE_QUIZ_SUBMISSION', method: 'get', key: 'get_single_quiz_submissionget_single_quiz_submission_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };
 
-// Create the quiz submission (start a quiz-taking session)
+exports.getQuizSubmission = getQuizSubmission;
+var getSingleQuizSubmission = {
+  type: 'GET_SINGLE_QUIZ_SUBMISSION',
+  method: 'get',
+  key: 'get_single_quiz_submissionget_single_quiz_submission_{course_id}_{quiz_id}_{id}',
+  required: ['course_id', 'quiz_id', 'id']
+}; // Create the quiz submission (start a quiz-taking session)
 // Start taking a Quiz by creating a QuizSubmission which you can use to answer
 // questions and submit your answers.
 // 
@@ -77,9 +91,14 @@ var getSingleQuizSubmission = exports.getSingleQuizSubmission = { type: 'GET_SIN
 //   preview
 // }
 // return canvasRequest(create_quiz_submission_start_quiz_taking_session, {course_id, quiz_id}, body);
-var createQuizSubmissionStartQuizTakingSession = exports.createQuizSubmissionStartQuizTakingSession = { type: 'CREATE_QUIZ_SUBMISSION_START_QUIZ_TAKING_SESSION', method: 'post', key: 'create_quiz_submission_start_quiz_taking_sessioncreate_quiz_submission_start_quiz_taking_session_{course_id}_{quiz_id}', required: ['course_id', 'quiz_id'] };
 
-// Update student question scores and comments.
+exports.getSingleQuizSubmission = getSingleQuizSubmission;
+var createQuizSubmissionStartQuizTakingSession = {
+  type: 'CREATE_QUIZ_SUBMISSION_START_QUIZ_TAKING_SESSION',
+  method: 'post',
+  key: 'create_quiz_submission_start_quiz_taking_sessioncreate_quiz_submission_start_quiz_taking_session_{course_id}_{quiz_id}',
+  required: ['course_id', 'quiz_id']
+}; // Update student question scores and comments.
 // Update the amount of points a student has scored for questions they've
 // answered, provide comments for the student about their answer(s), or simply
 // fudge the total score by a specific amount of points.
@@ -101,9 +120,14 @@ var createQuizSubmissionStartQuizTakingSession = exports.createQuizSubmissionSta
 //   quiz_submissions[questions]
 // }
 // return canvasRequest(update_student_question_scores_and_comments, {course_id, quiz_id, id}, body);
-var updateStudentQuestionScoresAndComments = exports.updateStudentQuestionScoresAndComments = { type: 'UPDATE_STUDENT_QUESTION_SCORES_AND_COMMENTS', method: 'put', key: 'update_student_question_scores_and_commentsupdate_student_question_scores_and_comments_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };
 
-// Complete the quiz submission (turn it in).
+exports.createQuizSubmissionStartQuizTakingSession = createQuizSubmissionStartQuizTakingSession;
+var updateStudentQuestionScoresAndComments = {
+  type: 'UPDATE_STUDENT_QUESTION_SCORES_AND_COMMENTS',
+  method: 'put',
+  key: 'update_student_question_scores_and_commentsupdate_student_question_scores_and_comments_{course_id}_{quiz_id}_{id}',
+  required: ['course_id', 'quiz_id', 'id']
+}; // Complete the quiz submission (turn it in).
 // Complete the quiz submission by marking it as complete and grading it. When
 // the quiz submission has been marked as complete, no further modifications
 // will be allowed.
@@ -128,9 +152,14 @@ var updateStudentQuestionScoresAndComments = exports.updateStudentQuestionScores
 //   access_code
 // }
 // return canvasRequest(complete_quiz_submission_turn_it_in, {course_id, quiz_id, id}, body);
-var completeQuizSubmissionTurnItIn = exports.completeQuizSubmissionTurnItIn = { type: 'COMPLETE_QUIZ_SUBMISSION_TURN_IT_IN', method: 'post', key: 'complete_quiz_submission_turn_it_incomplete_quiz_submission_turn_it_in_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };
 
-// Get current quiz submission times.
+exports.updateStudentQuestionScoresAndComments = updateStudentQuestionScoresAndComments;
+var completeQuizSubmissionTurnItIn = {
+  type: 'COMPLETE_QUIZ_SUBMISSION_TURN_IT_IN',
+  method: 'post',
+  key: 'complete_quiz_submission_turn_it_incomplete_quiz_submission_turn_it_in_{course_id}_{quiz_id}_{id}',
+  required: ['course_id', 'quiz_id', 'id']
+}; // Get current quiz submission times.
 // Get the current timing data for the quiz attempt, both the end_at timestamp
 // and the time_left parameter.
 // 
@@ -143,4 +172,12 @@ var completeQuizSubmissionTurnItIn = exports.completeQuizSubmissionTurnItIn = { 
 //
 // Example:
 // return canvasRequest(get_current_quiz_submission_times, {course_id, quiz_id, id});
-var getCurrentQuizSubmissionTimes = exports.getCurrentQuizSubmissionTimes = { type: 'GET_CURRENT_QUIZ_SUBMISSION_TIMES', method: 'get', key: 'get_current_quiz_submission_timesget_current_quiz_submission_times_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };
+
+exports.completeQuizSubmissionTurnItIn = completeQuizSubmissionTurnItIn;
+var getCurrentQuizSubmissionTimes = {
+  type: 'GET_CURRENT_QUIZ_SUBMISSION_TIMES',
+  method: 'get',
+  key: 'get_current_quiz_submission_timesget_current_quiz_submission_times_{course_id}_{quiz_id}_{id}',
+  required: ['course_id', 'quiz_id', 'id']
+};
+exports.getCurrentQuizSubmissionTimes = getCurrentQuizSubmissionTimes;

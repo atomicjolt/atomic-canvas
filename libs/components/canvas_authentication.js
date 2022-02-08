@@ -1,114 +1,100 @@
-'use strict';
+"use strict";
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.CanvasAuthentication = undefined;
+exports.CanvasAuthentication = CanvasAuthentication;
+exports["default"] = void 0;
 
-var _stringify = require('babel-runtime/core-js/json/stringify');
+var _lodash = _interopRequireDefault(require("lodash"));
 
-var _stringify2 = _interopRequireDefault(_stringify);
+var _react = _interopRequireWildcard(require("react"));
 
-var _extends2 = require('babel-runtime/helpers/extends');
+var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _extends3 = _interopRequireDefault(_extends2);
+var _settings = require("atomic-fuel/libs/components/settings");
 
-var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-var _createClass2 = require('babel-runtime/helpers/createClass');
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
-var _createClass3 = _interopRequireDefault(_createClass2);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+function CanvasAuthentication(props) {
+  var autoSubmit = props.autoSubmit,
+      hideButton = props.hideButton,
+      buttonText = props.buttonText,
+      buttonClassName = props.buttonClassName,
+      settings = props.settings,
+      overrides = props.overrides;
+  var formRef = (0, _react.useRef)(null);
+  (0, _react.useEffect)(function () {
+    if (autoSubmit) {
+      formRef.current.submit();
+    }
+  }, [autoSubmit]);
 
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = require('babel-runtime/helpers/inherits');
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _class, _temp;
-
-var _lodash = require('lodash');
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _settings = require('atomic-fuel/libs/components/settings');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var CanvasAuthentication = exports.CanvasAuthentication = (_temp = _class = function (_React$Component) {
-  (0, _inherits3.default)(CanvasAuthentication, _React$Component);
-
-  function CanvasAuthentication() {
-    (0, _classCallCheck3.default)(this, CanvasAuthentication);
-    return (0, _possibleConstructorReturn3.default)(this, (CanvasAuthentication.__proto__ || (0, _getPrototypeOf2.default)(CanvasAuthentication)).apply(this, arguments));
+  function getButton() {
+    if (hideButton) return null;
+    return /*#__PURE__*/_react["default"].createElement("input", {
+      type: "submit",
+      value: buttonText || "Authorize",
+      className: buttonClassName
+    });
   }
 
-  (0, _createClass3.default)(CanvasAuthentication, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      if (this.props.autoSubmit) {
-        this.form.submit();
-      }
-    }
-  }, {
-    key: 'getButton',
-    value: function getButton() {
-      if (this.props.hideButton) return null;
-      return _react2.default.createElement('input', { type: 'submit', value: this.props.buttonText || "Authorize", className: this.props.buttonClassName });
-    }
-  }, {
-    key: 'renderSettings',
-    value: function renderSettings() {
-      var settings = (0, _extends3.default)({}, this.props.settings, this.props.overrides);
-      return _lodash2.default.map(settings, function (value, key) {
-        var outValue = value || '';
-        if (_lodash2.default.isObjectLike(value)) {
-          outValue = (0, _stringify2.default)(outValue);
-        }
-        return _react2.default.createElement('input', { key: key, type: 'hidden', value: outValue, name: key });
-      });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
+  function renderSettings() {
+    var settings = _objectSpread(_objectSpread({}, settings), overrides);
 
-      return _react2.default.createElement(
-        'form',
-        {
-          ref: function ref(_ref) {
-            _this2.form = _ref;
-          },
-          action: this.props.settings.canvas_oauth_url,
-          method: 'post'
-        },
-        this.getButton(),
-        this.renderSettings()
-      );
-    }
-  }]);
-  return CanvasAuthentication;
-}(_react2.default.Component), _class.defaultProps = {
+    return _lodash["default"].map(settings, function (value, key) {
+      var outValue = value || '';
+
+      if (_lodash["default"].isObjectLike(value)) {
+        outValue = JSON.stringify(outValue);
+      }
+
+      return /*#__PURE__*/_react["default"].createElement("input", {
+        key: key,
+        type: "hidden",
+        value: outValue,
+        name: key
+      });
+    });
+  }
+
+  return /*#__PURE__*/_react["default"].createElement("form", {
+    ref: formRef,
+    action: settings.canvas_oauth_url,
+    method: "post"
+  }, getButton(), renderSettings());
+}
+
+CanvasAuthentication.defaultProps = {
   overrides: {},
   hideButton: false,
   autoSubmit: false,
   buttonClassName: "",
   buttonText: null
-}, _temp);
-exports.default = (0, _settings.withSettings)(CanvasAuthentication);
+};
+CanvasAuthentication.propTypes = {
+  overrides: _propTypes["default"].shape({}),
+  hideButton: _propTypes["default"].bool,
+  autoSubmit: _propTypes["default"].bool,
+  settings: _propTypes["default"].shape({
+    canvas_oauth_url: _propTypes["default"].string
+  }).isRequired,
+  buttonClassName: _propTypes["default"].string,
+  buttonText: _propTypes["default"].string
+};
+
+var _default = (0, _settings.withSettings)(CanvasAuthentication);
+
+exports["default"] = _default;

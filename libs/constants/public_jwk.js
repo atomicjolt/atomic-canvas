@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.updatePublicJwk = void 0;
 //
 // Public JWK
 //
@@ -17,4 +18,10 @@ Object.defineProperty(exports, "__esModule", {
 //   public_jwk (required)
 // }
 // return canvasRequest(update_public_jwk, {}, body);
-var updatePublicJwk = exports.updatePublicJwk = { type: 'UPDATE_PUBLIC_JWK', method: 'put', key: 'update_public_jwk', required: [] };
+var updatePublicJwk = {
+  type: 'UPDATE_PUBLIC_JWK',
+  method: 'put',
+  key: 'update_public_jwk',
+  required: []
+};
+exports.updatePublicJwk = updatePublicJwk;

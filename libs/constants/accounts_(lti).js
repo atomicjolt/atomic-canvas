@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.getAccount = void 0;
 //
 // Accounts (LTI)
 //
@@ -14,4 +15,10 @@ Object.defineProperty(exports, "__esModule", {
 //
 // Example:
 // return canvasRequest(get_account, {account_id});
-var getAccount = exports.getAccount = { type: 'GET_ACCOUNT', method: 'get', key: 'get_accountget_account_account_id', required: ['account_id'] };
+var getAccount = {
+  type: 'GET_ACCOUNT',
+  method: 'get',
+  key: 'get_accountget_account_account_id',
+  required: ['account_id']
+};
+exports.getAccount = getAccount;

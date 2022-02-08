@@ -1,38 +1,38 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports["default"] = void 0;
 
-var _lodash = require('lodash');
+var _lodash = _interopRequireDefault(require("lodash"));
 
-var _lodash2 = _interopRequireDefault(_lodash);
+var _courses = require("atomic-canvas/libs/constants/courses");
 
-var _courses = require('atomic-canvas/libs/constants/courses');
+var _wrapper = require("atomic-fuel/libs/constants/wrapper");
 
-var _wrapper = require('atomic-fuel/libs/constants/wrapper');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var initialState = [];
 
-exports.default = function () {
+var _default = function _default() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-  var action = arguments[1];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
 
   if (!action.payload) {
     return state;
   }
 
   switch (action.type) {
+    case "".concat(_courses.listYourCourses.type).concat(_wrapper.DONE):
+      return _lodash["default"].concat(state, action.payload);
 
-    case '' + _courses.listYourCourses.type + _wrapper.DONE:
-      return _lodash2.default.concat(state, action.payload);
-
-    case '' + _courses.listCoursesForUser.type + _wrapper.DONE:
-      return _lodash2.default.concat(state, action.payload);
+    case "".concat(_courses.listCoursesForUser.type).concat(_wrapper.DONE):
+      return _lodash["default"].concat(state, action.payload);
 
     default:
       return state;
   }
 };
+
+exports["default"] = _default;

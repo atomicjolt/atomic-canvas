@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Canvas authentication renders a button to authenticate with Canvas 1`] = `
+<form
+  action="http://www.example.com"
+  method="post"
+>
+  <input
+    className=""
+    type="submit"
+    value="Authorize"
+  />
+</form>
+`;

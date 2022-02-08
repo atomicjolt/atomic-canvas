@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.createErrorReport = void 0;
 //
 // Error Reports
 //
@@ -24,4 +25,10 @@ Object.defineProperty(exports, "__esModule", {
 //   error[http_env]
 // }
 // return canvasRequest(create_error_report, {}, body);
-var createErrorReport = exports.createErrorReport = { type: 'CREATE_ERROR_REPORT', method: 'post', key: 'create_error_report', required: [] };
+var createErrorReport = {
+  type: 'CREATE_ERROR_REPORT',
+  method: 'post',
+  key: 'create_error_report',
+  required: []
+};
+exports.createErrorReport = createErrorReport;

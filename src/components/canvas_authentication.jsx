@@ -1,41 +1,33 @@
 import _ from 'lodash';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { withSettings } from 'atomic-fuel/libs/components/settings';
 
-export class CanvasAuthentication extends React.Component {
-  static defaultProps = {
-    overrides: {},
-    hideButton: false,
-    autoSubmit: false,
-    buttonClassName: "",
-    buttonText: null,
-  }
+export function CanvasAuthentication(props) {
+  const {
+    autoSubmit,
+    hideButton,
+    buttonText,
+    buttonClassName,
+    settings,
+    overrides,
+  } = props;
 
-  static propTypes = {
-    overrides: PropTypes.shape({}),
-    hideButton: PropTypes.bool,
-    autoSubmit: PropTypes.bool,
-    settings: PropTypes.shape({
-      canvas_oauth_url: PropTypes.string,
-    }).isRequired,
-    buttonClassName: PropTypes.string,
-    buttonText: PropTypes.string,
-  }
+  const formRef = useRef(null);
 
-  componentDidMount() {
-    if (this.props.autoSubmit) {
-      this.form.submit();
+  useEffect(() => {
+    if (autoSubmit) {
+      formRef.current.submit();
     }
+  }, [autoSubmit]);
+
+  function getButton() {
+    if (hideButton) return null;
+    return <input type="submit" value={buttonText || "Authorize"} className={buttonClassName} />;
   }
 
-  getButton() {
-    if (this.props.hideButton) return null;
-    return <input type="submit" value={this.props.buttonText || "Authorize"} className={this.props.buttonClassName} />;
-  }
-
-  renderSettings() {
-    const settings = { ...this.props.settings, ...this.props.overrides };
+  function renderSettings() {
+    const settings = { ...settings, ...overrides };
     return _.map(settings, (value, key) => {
       let outValue = value || '';
       if (_.isObjectLike(value)) {
@@ -47,18 +39,35 @@ export class CanvasAuthentication extends React.Component {
     });
   }
 
-  render() {
-    return (
-      <form
-        ref={(ref) => { this.form = ref; }}
-        action={this.props.settings.canvas_oauth_url}
-        method="post"
-      >
-        { this.getButton() }
-        { this.renderSettings() }
-      </form>
-    );
-  }
+  return (
+    <form
+      ref={formRef}
+      action={settings.canvas_oauth_url}
+      method="post"
+    >
+      { getButton() }
+      { renderSettings() }
+    </form>
+  );
+}
+
+CanvasAuthentication.defaultProps = {
+  overrides: {},
+  hideButton: false,
+  autoSubmit: false,
+  buttonClassName: "",
+  buttonText: null,
+}
+
+CanvasAuthentication.propTypes = {
+  overrides: PropTypes.shape({}),
+  hideButton: PropTypes.bool,
+  autoSubmit: PropTypes.bool,
+  settings: PropTypes.shape({
+    canvas_oauth_url: PropTypes.string,
+  }).isRequired,
+  buttonClassName: PropTypes.string,
+  buttonText: PropTypes.string,
 }
 
 export default withSettings(CanvasAuthentication);

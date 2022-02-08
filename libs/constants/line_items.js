@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.updateLineItem = exports.showLineItem = exports.listLineItems = exports.deleteLineItem = exports.createLineItem = void 0;
 //
 // Line Items
 //
@@ -22,9 +23,12 @@ Object.defineProperty(exports, "__esModule", {
 //   https://canvas.instructure.com/lti/submission_type
 // }
 // return canvasRequest(create_line_item, {course_id}, body);
-var createLineItem = exports.createLineItem = { type: 'CREATE_LINE_ITEM', method: 'post', key: 'create_line_itemcreate_line_item_course_id', required: ['course_id'] };
-
-// Update a Line Item
+var createLineItem = {
+  type: 'CREATE_LINE_ITEM',
+  method: 'post',
+  key: 'create_line_itemcreate_line_item_course_id',
+  required: ['course_id']
+}; // Update a Line Item
 // Update new Line Item
 //
 // API Docs: https://canvas.instructure.com/doc/api/line_items.html
@@ -38,9 +42,14 @@ var createLineItem = exports.createLineItem = { type: 'CREATE_LINE_ITEM', method
 //   tag
 // }
 // return canvasRequest(update_line_item, {course_id, id}, body);
-var updateLineItem = exports.updateLineItem = { type: 'UPDATE_LINE_ITEM', method: 'put', key: 'update_line_itemupdate_line_item_{course_id}_{id}', required: ['course_id', 'id'] };
 
-// Show a Line Item
+exports.createLineItem = createLineItem;
+var updateLineItem = {
+  type: 'UPDATE_LINE_ITEM',
+  method: 'put',
+  key: 'update_line_itemupdate_line_item_{course_id}_{id}',
+  required: ['course_id', 'id']
+}; // Show a Line Item
 // Show existing Line Item
 //
 // API Docs: https://canvas.instructure.com/doc/api/line_items.html
@@ -48,9 +57,14 @@ var updateLineItem = exports.updateLineItem = { type: 'UPDATE_LINE_ITEM', method
 //
 // Example:
 // return canvasRequest(show_line_item, {course_id, id});
-var showLineItem = exports.showLineItem = { type: 'SHOW_LINE_ITEM', method: 'get', key: 'show_line_itemshow_line_item_{course_id}_{id}', required: ['course_id', 'id'] };
 
-// List line Items
+exports.updateLineItem = updateLineItem;
+var showLineItem = {
+  type: 'SHOW_LINE_ITEM',
+  method: 'get',
+  key: 'show_line_itemshow_line_item_{course_id}_{id}',
+  required: ['course_id', 'id']
+}; // List line Items
 // 
 //
 // API Docs: https://canvas.instructure.com/doc/api/line_items.html
@@ -64,9 +78,14 @@ var showLineItem = exports.showLineItem = { type: 'SHOW_LINE_ITEM', method: 'get
 //   limit
 // }
 // return canvasRequest(list_line_items, {course_id, ...query});
-var listLineItems = exports.listLineItems = { type: 'LIST_LINE_ITEMS', method: 'get', key: 'list_line_itemslist_line_items_course_id', required: ['course_id'] };
 
-// Delete a Line Item
+exports.showLineItem = showLineItem;
+var listLineItems = {
+  type: 'LIST_LINE_ITEMS',
+  method: 'get',
+  key: 'list_line_itemslist_line_items_course_id',
+  required: ['course_id']
+}; // Delete a Line Item
 // Delete an existing Line Item
 //
 // API Docs: https://canvas.instructure.com/doc/api/line_items.html
@@ -74,4 +93,12 @@ var listLineItems = exports.listLineItems = { type: 'LIST_LINE_ITEMS', method: '
 //
 // Example:
 // return canvasRequest(delete_line_item, {course_id, id});
-var deleteLineItem = exports.deleteLineItem = { type: 'DELETE_LINE_ITEM', method: 'delete', key: 'delete_line_itemdelete_line_item_{course_id}_{id}', required: ['course_id', 'id'] };
+
+exports.listLineItems = listLineItems;
+var deleteLineItem = {
+  type: 'DELETE_LINE_ITEM',
+  method: 'delete',
+  key: 'delete_line_itemdelete_line_item_{course_id}_{id}',
+  required: ['course_id', 'id']
+};
+exports.deleteLineItem = deleteLineItem;

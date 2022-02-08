@@ -1,16 +1,19 @@
 import React from 'react';
-import { render } from 'enzyme';
+import {create, act} from 'react-test-renderer';
 import ContentItemSelectionForm from './content_item_selection_form';
 
 describe('Content Item Selection Form', () => {
-  let result;
-  let props;
   it('matches the snapshot', () => {
-    props = {
+    const props = {
       launchData: {},
       contentItemReturnURL: 'http://www.example.com',
     };
-    result = render(<ContentItemSelectionForm {...props} />);
+
+    let result;
+    act(() => {
+      result = create(<ContentItemSelectionForm {...props} />);
+    });
+
     expect(result).toMatchSnapshot();
   });
 });

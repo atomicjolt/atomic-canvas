@@ -1,45 +1,45 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _defineProperty2 = require('babel-runtime/helpers/defineProperty');
-
-var _defineProperty3 = _interopRequireDefault(_defineProperty2);
-
-var _extends3 = require('babel-runtime/helpers/extends');
-
-var _extends4 = _interopRequireDefault(_extends3);
-
 exports.getNextUrl = getNextUrl;
 exports.parseParams = parseParams;
 
-var _lodash = require('lodash');
+var _lodash = _interopRequireDefault(require("lodash"));
 
-var _lodash2 = _interopRequireDefault(_lodash);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function getNextUrl(link) {
   if (link) {
-    var url = _lodash2.default.find(link.split(','), function (l) {
-      var val = _lodash2.default.trim(l.split(';')[1]);
+    var url = _lodash["default"].find(link.split(','), function (l) {
+      var val = _lodash["default"].trim(l.split(';')[1]);
+
       return val === 'rel="next"';
     });
+
     if (url) {
       return url.split(';')[0].replace(/[<>\s]/g, '');
     }
   }
+
   return null;
 }
 
 function parseParams(url) {
   var parts = url.split('?');
+
   if (parts.length > 1) {
-    return _lodash2.default.reduce(parts[1].split('&'), function (params, pair) {
-      return (0, _extends4.default)({}, params, (0, _defineProperty3.default)({}, pair.split('=')[0], pair.split('=')[1]));
+    return _lodash["default"].reduce(parts[1].split('&'), function (params, pair) {
+      return _objectSpread(_objectSpread({}, params), {}, _defineProperty({}, pair.split('=')[0], pair.split('=')[1]));
     }, {});
   }
+
   return undefined;
 }
