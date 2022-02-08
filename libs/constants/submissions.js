@@ -170,6 +170,32 @@ var getSingleSubmissionCourses = exports.getSingleSubmissionCourses = { type: 'G
 // return canvasRequest(get_single_submission_sections, {section_id, assignment_id, user_id, ...query});
 var getSingleSubmissionSections = exports.getSingleSubmissionSections = { type: 'GET_SINGLE_SUBMISSION_SECTIONS', method: 'get', key: 'get_single_submission_sectionsget_single_submission_sections_{section_id}_{assignment_id}_{user_id}', required: ['section_id', 'assignment_id', 'user_id'] };
 
+// Get a single submission by anonymous id
+// Get a single submission, based on the submission's anonymous id.
+//
+// API Docs: https://canvas.instructure.com/doc/api/submissions.html
+// API Url: courses/{course_id}/assignments/{assignment_id}/anonymous_submissions/{anonymous_id}
+//
+// Example:
+// const query = {
+//   include
+// }
+// return canvasRequest(get_single_submission_by_anonymous_id_courses, {course_id, assignment_id, anonymous_id, ...query});
+var getSingleSubmissionByAnonymousIdCourses = exports.getSingleSubmissionByAnonymousIdCourses = { type: 'GET_SINGLE_SUBMISSION_BY_ANONYMOUS_ID_COURSES', method: 'get', key: 'get_single_submission_by_anonymous_id_coursesget_single_submission_by_anonymous_id_courses_{course_id}_{assignment_id}_{anonymous_id}', required: ['course_id', 'assignment_id', 'anonymous_id'] };
+
+// Get a single submission by anonymous id
+// Get a single submission, based on the submission's anonymous id.
+//
+// API Docs: https://canvas.instructure.com/doc/api/submissions.html
+// API Url: sections/{section_id}/assignments/{assignment_id}/anonymous_submissions/{anonymous_id}
+//
+// Example:
+// const query = {
+//   include
+// }
+// return canvasRequest(get_single_submission_by_anonymous_id_sections, {section_id, assignment_id, anonymous_id, ...query});
+var getSingleSubmissionByAnonymousIdSections = exports.getSingleSubmissionByAnonymousIdSections = { type: 'GET_SINGLE_SUBMISSION_BY_ANONYMOUS_ID_SECTIONS', method: 'get', key: 'get_single_submission_by_anonymous_id_sectionsget_single_submission_by_anonymous_id_sections_{section_id}_{assignment_id}_{anonymous_id}', required: ['section_id', 'assignment_id', 'anonymous_id'] };
+
 // Upload a file
 // Upload a file to a submission.
 // 
@@ -256,6 +282,60 @@ var gradeOrCommentOnSubmissionCourses = exports.gradeOrCommentOnSubmissionCourse
 // return canvasRequest(grade_or_comment_on_submission_sections, {section_id, assignment_id, user_id}, body);
 var gradeOrCommentOnSubmissionSections = exports.gradeOrCommentOnSubmissionSections = { type: 'GRADE_OR_COMMENT_ON_SUBMISSION_SECTIONS', method: 'put', key: 'grade_or_comment_on_submission_sectionsgrade_or_comment_on_submission_sections_{section_id}_{assignment_id}_{user_id}', required: ['section_id', 'assignment_id', 'user_id'] };
 
+// Grade or comment on a submission by anonymous id
+// Comment on and/or update the grading for a student's assignment submission,
+// fetching the submission by anonymous id (instead of user id). If any
+// submission or rubric_assessment arguments are provided, the user must
+// have permission to manage grades in the appropriate context (course or
+// section).
+//
+// API Docs: https://canvas.instructure.com/doc/api/submissions.html
+// API Url: courses/{course_id}/assignments/{assignment_id}/anonymous_submissions/{anonymous_id}
+//
+// Example:
+// const body = {
+//   comment[text_comment]
+//   comment[group_comment]
+//   comment[media_comment_id]
+//   comment[media_comment_type]
+//   comment[file_ids]
+//   include[visibility]
+//   submission[posted_grade]
+//   submission[excuse]
+//   submission[late_policy_status]
+//   submission[seconds_late_override]
+//   rubric_assessment
+// }
+// return canvasRequest(grade_or_comment_on_submission_by_anonymous_id_courses, {course_id, assignment_id, anonymous_id}, body);
+var gradeOrCommentOnSubmissionByAnonymousIdCourses = exports.gradeOrCommentOnSubmissionByAnonymousIdCourses = { type: 'GRADE_OR_COMMENT_ON_SUBMISSION_BY_ANONYMOUS_ID_COURSES', method: 'put', key: 'grade_or_comment_on_submission_by_anonymous_id_coursesgrade_or_comment_on_submission_by_anonymous_id_courses_{course_id}_{assignment_id}_{anonymous_id}', required: ['course_id', 'assignment_id', 'anonymous_id'] };
+
+// Grade or comment on a submission by anonymous id
+// Comment on and/or update the grading for a student's assignment submission,
+// fetching the submission by anonymous id (instead of user id). If any
+// submission or rubric_assessment arguments are provided, the user must
+// have permission to manage grades in the appropriate context (course or
+// section).
+//
+// API Docs: https://canvas.instructure.com/doc/api/submissions.html
+// API Url: sections/{section_id}/assignments/{assignment_id}/anonymous_submissions/{anonymous_id}
+//
+// Example:
+// const body = {
+//   comment[text_comment]
+//   comment[group_comment]
+//   comment[media_comment_id]
+//   comment[media_comment_type]
+//   comment[file_ids]
+//   include[visibility]
+//   submission[posted_grade]
+//   submission[excuse]
+//   submission[late_policy_status]
+//   submission[seconds_late_override]
+//   rubric_assessment
+// }
+// return canvasRequest(grade_or_comment_on_submission_by_anonymous_id_sections, {section_id, assignment_id, anonymous_id}, body);
+var gradeOrCommentOnSubmissionByAnonymousIdSections = exports.gradeOrCommentOnSubmissionByAnonymousIdSections = { type: 'GRADE_OR_COMMENT_ON_SUBMISSION_BY_ANONYMOUS_ID_SECTIONS', method: 'put', key: 'grade_or_comment_on_submission_by_anonymous_id_sectionsgrade_or_comment_on_submission_by_anonymous_id_sections_{section_id}_{assignment_id}_{anonymous_id}', required: ['section_id', 'assignment_id', 'anonymous_id'] };
+
 // List gradeable students
 // A paginated list of students eligible to submit the assignment. The caller must have permission to view grades.
 // 
@@ -308,7 +388,7 @@ var listMultipleAssignmentsGradeableStudents = exports.listMultipleAssignmentsGr
 //   grade_data[<student_id>][media_comment_id]
 //   grade_data[<student_id>][media_comment_type]
 //   grade_data[<student_id>][file_ids]
-//   grade_data[<student_id>][assignment_id]
+//   grade_data[<assignment_id>][<student_id>]
 // }
 // return canvasRequest(grade_or_comment_on_multiple_submissions_courses_submissions, {course_id}, body);
 var gradeOrCommentOnMultipleSubmissionsCoursesSubmissions = exports.gradeOrCommentOnMultipleSubmissionsCoursesSubmissions = { type: 'GRADE_OR_COMMENT_ON_MULTIPLE_SUBMISSIONS_COURSES_SUBMISSIONS', method: 'post', key: 'grade_or_comment_on_multiple_submissions_courses_submissionsgrade_or_comment_on_multiple_submissions_courses_submissions_course_id', required: ['course_id'] };
@@ -333,7 +413,7 @@ var gradeOrCommentOnMultipleSubmissionsCoursesSubmissions = exports.gradeOrComme
 //   grade_data[<student_id>][media_comment_id]
 //   grade_data[<student_id>][media_comment_type]
 //   grade_data[<student_id>][file_ids]
-//   grade_data[<student_id>][assignment_id]
+//   grade_data[<assignment_id>][<student_id>]
 // }
 // return canvasRequest(grade_or_comment_on_multiple_submissions_courses_assignments, {course_id, assignment_id}, body);
 var gradeOrCommentOnMultipleSubmissionsCoursesAssignments = exports.gradeOrCommentOnMultipleSubmissionsCoursesAssignments = { type: 'GRADE_OR_COMMENT_ON_MULTIPLE_SUBMISSIONS_COURSES_ASSIGNMENTS', method: 'post', key: 'grade_or_comment_on_multiple_submissions_courses_assignmentsgrade_or_comment_on_multiple_submissions_courses_assignments_{course_id}_{assignment_id}', required: ['course_id', 'assignment_id'] };
@@ -358,7 +438,7 @@ var gradeOrCommentOnMultipleSubmissionsCoursesAssignments = exports.gradeOrComme
 //   grade_data[<student_id>][media_comment_id]
 //   grade_data[<student_id>][media_comment_type]
 //   grade_data[<student_id>][file_ids]
-//   grade_data[<student_id>][assignment_id]
+//   grade_data[<assignment_id>][<student_id>]
 // }
 // return canvasRequest(grade_or_comment_on_multiple_submissions_sections_submissions, {section_id}, body);
 var gradeOrCommentOnMultipleSubmissionsSectionsSubmissions = exports.gradeOrCommentOnMultipleSubmissionsSectionsSubmissions = { type: 'GRADE_OR_COMMENT_ON_MULTIPLE_SUBMISSIONS_SECTIONS_SUBMISSIONS', method: 'post', key: 'grade_or_comment_on_multiple_submissions_sections_submissionsgrade_or_comment_on_multiple_submissions_sections_submissions_section_id', required: ['section_id'] };
@@ -383,7 +463,7 @@ var gradeOrCommentOnMultipleSubmissionsSectionsSubmissions = exports.gradeOrComm
 //   grade_data[<student_id>][media_comment_id]
 //   grade_data[<student_id>][media_comment_type]
 //   grade_data[<student_id>][file_ids]
-//   grade_data[<student_id>][assignment_id]
+//   grade_data[<assignment_id>][<student_id>]
 // }
 // return canvasRequest(grade_or_comment_on_multiple_submissions_sections_assignments, {section_id, assignment_id}, body);
 var gradeOrCommentOnMultipleSubmissionsSectionsAssignments = exports.gradeOrCommentOnMultipleSubmissionsSectionsAssignments = { type: 'GRADE_OR_COMMENT_ON_MULTIPLE_SUBMISSIONS_SECTIONS_ASSIGNMENTS', method: 'post', key: 'grade_or_comment_on_multiple_submissions_sections_assignmentsgrade_or_comment_on_multiple_submissions_sections_assignments_{section_id}_{assignment_id}', required: ['section_id', 'assignment_id'] };
@@ -435,6 +515,98 @@ var markSubmissionAsUnreadCourses = exports.markSubmissionAsUnreadCourses = { ty
 // Example:
 // return canvasRequest(mark_submission_as_unread_sections, {section_id, assignment_id, user_id});
 var markSubmissionAsUnreadSections = exports.markSubmissionAsUnreadSections = { type: 'MARK_SUBMISSION_AS_UNREAD_SECTIONS', method: 'delete', key: 'mark_submission_as_unread_sectionsmark_submission_as_unread_sections_{section_id}_{assignment_id}_{user_id}', required: ['section_id', 'assignment_id', 'user_id'] };
+
+// Get rubric comments read state
+// Return whether new rubric comments made on a submission have been seen by the student being assessed.
+//
+// API Docs: https://canvas.instructure.com/doc/api/submissions.html
+// API Url: courses/{course_id}/assignments/{assignment_id}/submissions/{user_id}/rubric_comments/read
+//
+// Example:
+// return canvasRequest(get_rubric_comments_read_state_courses, {course_id, assignment_id, user_id});
+var getRubricCommentsReadStateCourses = exports.getRubricCommentsReadStateCourses = { type: 'GET_RUBRIC_COMMENTS_READ_STATE_COURSES', method: 'get', key: 'get_rubric_comments_read_state_coursesget_rubric_comments_read_state_courses_{course_id}_{assignment_id}_{user_id}', required: ['course_id', 'assignment_id', 'user_id'] };
+
+// Get rubric comments read state
+// Return whether new rubric comments made on a submission have been seen by the student being assessed.
+//
+// API Docs: https://canvas.instructure.com/doc/api/submissions.html
+// API Url: sections/{section_id}/assignments/{assignment_id}/submissions/{user_id}/rubric_comments/read
+//
+// Example:
+// return canvasRequest(get_rubric_comments_read_state_sections, {section_id, assignment_id, user_id});
+var getRubricCommentsReadStateSections = exports.getRubricCommentsReadStateSections = { type: 'GET_RUBRIC_COMMENTS_READ_STATE_SECTIONS', method: 'get', key: 'get_rubric_comments_read_state_sectionsget_rubric_comments_read_state_sections_{section_id}_{assignment_id}_{user_id}', required: ['section_id', 'assignment_id', 'user_id'] };
+
+// Mark rubric comments as read
+// Indicate that rubric comments made on a submission have been read by the student being assessed.
+// Only the student who owns the submission can use this endpoint.
+// 
+// NOTE: Rubric comments will be marked as read automatically when they are viewed in Canvas web.
+//
+// API Docs: https://canvas.instructure.com/doc/api/submissions.html
+// API Url: courses/{course_id}/assignments/{assignment_id}/submissions/{user_id}/rubric_comments/read
+//
+// Example:
+// return canvasRequest(mark_rubric_comments_as_read_courses, {course_id, assignment_id, user_id});
+var markRubricCommentsAsReadCourses = exports.markRubricCommentsAsReadCourses = { type: 'MARK_RUBRIC_COMMENTS_AS_READ_COURSES', method: 'put', key: 'mark_rubric_comments_as_read_coursesmark_rubric_comments_as_read_courses_{course_id}_{assignment_id}_{user_id}', required: ['course_id', 'assignment_id', 'user_id'] };
+
+// Mark rubric comments as read
+// Indicate that rubric comments made on a submission have been read by the student being assessed.
+// Only the student who owns the submission can use this endpoint.
+// 
+// NOTE: Rubric comments will be marked as read automatically when they are viewed in Canvas web.
+//
+// API Docs: https://canvas.instructure.com/doc/api/submissions.html
+// API Url: sections/{section_id}/assignments/{assignment_id}/submissions/{user_id}/rubric_comments/read
+//
+// Example:
+// return canvasRequest(mark_rubric_comments_as_read_sections, {section_id, assignment_id, user_id});
+var markRubricCommentsAsReadSections = exports.markRubricCommentsAsReadSections = { type: 'MARK_RUBRIC_COMMENTS_AS_READ_SECTIONS', method: 'put', key: 'mark_rubric_comments_as_read_sectionsmark_rubric_comments_as_read_sections_{section_id}_{assignment_id}_{user_id}', required: ['section_id', 'assignment_id', 'user_id'] };
+
+// Get document annotations read state
+// Return whether annotations made on a submitted document have been read by the student
+//
+// API Docs: https://canvas.instructure.com/doc/api/submissions.html
+// API Url: courses/{course_id}/assignments/{assignment_id}/submissions/{user_id}/document_annotations/read
+//
+// Example:
+// return canvasRequest(get_document_annotations_read_state_courses, {course_id, assignment_id, user_id});
+var getDocumentAnnotationsReadStateCourses = exports.getDocumentAnnotationsReadStateCourses = { type: 'GET_DOCUMENT_ANNOTATIONS_READ_STATE_COURSES', method: 'get', key: 'get_document_annotations_read_state_coursesget_document_annotations_read_state_courses_{course_id}_{assignment_id}_{user_id}', required: ['course_id', 'assignment_id', 'user_id'] };
+
+// Get document annotations read state
+// Return whether annotations made on a submitted document have been read by the student
+//
+// API Docs: https://canvas.instructure.com/doc/api/submissions.html
+// API Url: sections/{section_id}/assignments/{assignment_id}/submissions/{user_id}/document_annotations/read
+//
+// Example:
+// return canvasRequest(get_document_annotations_read_state_sections, {section_id, assignment_id, user_id});
+var getDocumentAnnotationsReadStateSections = exports.getDocumentAnnotationsReadStateSections = { type: 'GET_DOCUMENT_ANNOTATIONS_READ_STATE_SECTIONS', method: 'get', key: 'get_document_annotations_read_state_sectionsget_document_annotations_read_state_sections_{section_id}_{assignment_id}_{user_id}', required: ['section_id', 'assignment_id', 'user_id'] };
+
+// Mark document annotations as read
+// Indicate that annotations made on a submitted document have been read by the student.
+// Only the student who owns the submission can use this endpoint.
+// 
+// NOTE: Document annotations will be marked as read automatically when they are viewed in Canvas web.
+//
+// API Docs: https://canvas.instructure.com/doc/api/submissions.html
+// API Url: courses/{course_id}/assignments/{assignment_id}/submissions/{user_id}/document_annotations/read
+//
+// Example:
+// return canvasRequest(mark_document_annotations_as_read_courses, {course_id, assignment_id, user_id});
+var markDocumentAnnotationsAsReadCourses = exports.markDocumentAnnotationsAsReadCourses = { type: 'MARK_DOCUMENT_ANNOTATIONS_AS_READ_COURSES', method: 'put', key: 'mark_document_annotations_as_read_coursesmark_document_annotations_as_read_courses_{course_id}_{assignment_id}_{user_id}', required: ['course_id', 'assignment_id', 'user_id'] };
+
+// Mark document annotations as read
+// Indicate that annotations made on a submitted document have been read by the student.
+// Only the student who owns the submission can use this endpoint.
+// 
+// NOTE: Document annotations will be marked as read automatically when they are viewed in Canvas web.
+//
+// API Docs: https://canvas.instructure.com/doc/api/submissions.html
+// API Url: sections/{section_id}/assignments/{assignment_id}/submissions/{user_id}/document_annotations/read
+//
+// Example:
+// return canvasRequest(mark_document_annotations_as_read_sections, {section_id, assignment_id, user_id});
+var markDocumentAnnotationsAsReadSections = exports.markDocumentAnnotationsAsReadSections = { type: 'MARK_DOCUMENT_ANNOTATIONS_AS_READ_SECTIONS', method: 'put', key: 'mark_document_annotations_as_read_sectionsmark_document_annotations_as_read_sections_{section_id}_{assignment_id}_{user_id}', required: ['section_id', 'assignment_id', 'user_id'] };
 
 // Submission Summary
 // Returns the number of submissions for the given assignment based on gradeable students

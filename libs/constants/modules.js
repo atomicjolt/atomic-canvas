@@ -143,6 +143,8 @@ var showModuleItem = exports.showModuleItem = { type: 'SHOW_MODULE_ITEM', method
 //   module_item[new_tab]
 //   module_item[completion_requirement][type]
 //   module_item[completion_requirement][min_score]
+//   module_item[iframe][width]
+//   module_item[iframe][height]
 // }
 // return canvasRequest(create_module_item, {course_id, module_id}, body);
 var createModuleItem = exports.createModuleItem = { type: 'CREATE_MODULE_ITEM', method: 'post', key: 'create_module_itemcreate_module_item_{course_id}_{module_id}', required: ['course_id', 'module_id'] };

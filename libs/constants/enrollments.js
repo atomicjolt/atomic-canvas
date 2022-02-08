@@ -16,8 +16,11 @@ Object.defineProperty(exports, "__esModule", {
 // and a student or in multiple course sections), each enrollment will be
 // listed separately.
 // 
-// note: Currently, only a root level admin user can return other users' enrollments. A
-// user can, however, return his/her own enrollments.
+// note: Currently, only a root level admin user can return other users' enrollments.
+// A user can, however, return his/her own enrollments.
+// 
+// Enrollments scoped to a course context will include inactive states by default
+// if the caller has account admin authorization and the state[] parameter is omitted.
 //
 // API Docs: https://canvas.instructure.com/doc/api/enrollments.html
 // API Url: courses/{course_id}/enrollments
@@ -50,8 +53,11 @@ var listEnrollmentsCourses = exports.listEnrollmentsCourses = { type: 'LIST_ENRO
 // and a student or in multiple course sections), each enrollment will be
 // listed separately.
 // 
-// note: Currently, only a root level admin user can return other users' enrollments. A
-// user can, however, return his/her own enrollments.
+// note: Currently, only a root level admin user can return other users' enrollments.
+// A user can, however, return his/her own enrollments.
+// 
+// Enrollments scoped to a course context will include inactive states by default
+// if the caller has account admin authorization and the state[] parameter is omitted.
 //
 // API Docs: https://canvas.instructure.com/doc/api/enrollments.html
 // API Url: sections/{section_id}/enrollments
@@ -84,8 +90,11 @@ var listEnrollmentsSections = exports.listEnrollmentsSections = { type: 'LIST_EN
 // and a student or in multiple course sections), each enrollment will be
 // listed separately.
 // 
-// note: Currently, only a root level admin user can return other users' enrollments. A
-// user can, however, return his/her own enrollments.
+// note: Currently, only a root level admin user can return other users' enrollments.
+// A user can, however, return his/her own enrollments.
+// 
+// Enrollments scoped to a course context will include inactive states by default
+// if the caller has account admin authorization and the state[] parameter is omitted.
 //
 // API Docs: https://canvas.instructure.com/doc/api/enrollments.html
 // API Url: users/{user_id}/enrollments

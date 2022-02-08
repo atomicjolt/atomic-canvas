@@ -22,6 +22,7 @@ Object.defineProperty(exports, "__esModule", {
 //   start_date
 //   end_date
 //   context_codes
+//   observed_user_id
 //   filter
 // }
 // return canvasRequest(list_planner_items_planner, {, ...query});
@@ -43,6 +44,7 @@ var listPlannerItemsPlanner = exports.listPlannerItemsPlanner = { type: 'LIST_PL
 //   start_date
 //   end_date
 //   context_codes
+//   observed_user_id
 //   filter
 // }
 // return canvasRequest(list_planner_items_users, {user_id, ...query});

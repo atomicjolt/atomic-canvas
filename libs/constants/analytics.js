@@ -198,6 +198,42 @@ var getDepartmentLevelStatisticsCurrent = exports.getDepartmentLevelStatisticsCu
 // return canvasRequest(get_department_level_statistics_completed, {account_id});
 var getDepartmentLevelStatisticsCompleted = exports.getDepartmentLevelStatisticsCompleted = { type: 'GET_DEPARTMENT_LEVEL_STATISTICS_COMPLETED', method: 'get', key: 'get_department_level_statistics_completedget_department_level_statistics_completed_account_id', required: ['account_id'] };
 
+// Get department-level statistics, broken down by subaccount
+// Returns numeric statistics about the department subaccounts and term (or filter).
+// 
+// Shares the same variations on endpoint as the participation data.
+//
+// API Docs: https://canvas.instructure.com/doc/api/analytics.html
+// API Url: accounts/{account_id}/analytics/terms/{term_id}/statistics_by_subaccount
+//
+// Example:
+// return canvasRequest(get_department_level_statistics_broken_down_by_subaccount_terms, {account_id, term_id});
+var getDepartmentLevelStatisticsBrokenDownBySubaccountTerms = exports.getDepartmentLevelStatisticsBrokenDownBySubaccountTerms = { type: 'GET_DEPARTMENT_LEVEL_STATISTICS_BROKEN_DOWN_BY_SUBACCOUNT_TERMS', method: 'get', key: 'get_department_level_statistics_broken_down_by_subaccount_termsget_department_level_statistics_broken_down_by_subaccount_terms_{account_id}_{term_id}', required: ['account_id', 'term_id'] };
+
+// Get department-level statistics, broken down by subaccount
+// Returns numeric statistics about the department subaccounts and term (or filter).
+// 
+// Shares the same variations on endpoint as the participation data.
+//
+// API Docs: https://canvas.instructure.com/doc/api/analytics.html
+// API Url: accounts/{account_id}/analytics/current/statistics_by_subaccount
+//
+// Example:
+// return canvasRequest(get_department_level_statistics_broken_down_by_subaccount_current, {account_id});
+var getDepartmentLevelStatisticsBrokenDownBySubaccountCurrent = exports.getDepartmentLevelStatisticsBrokenDownBySubaccountCurrent = { type: 'GET_DEPARTMENT_LEVEL_STATISTICS_BROKEN_DOWN_BY_SUBACCOUNT_CURRENT', method: 'get', key: 'get_department_level_statistics_broken_down_by_subaccount_currentget_department_level_statistics_broken_down_by_subaccount_current_account_id', required: ['account_id'] };
+
+// Get department-level statistics, broken down by subaccount
+// Returns numeric statistics about the department subaccounts and term (or filter).
+// 
+// Shares the same variations on endpoint as the participation data.
+//
+// API Docs: https://canvas.instructure.com/doc/api/analytics.html
+// API Url: accounts/{account_id}/analytics/completed/statistics_by_subaccount
+//
+// Example:
+// return canvasRequest(get_department_level_statistics_broken_down_by_subaccount_completed, {account_id});
+var getDepartmentLevelStatisticsBrokenDownBySubaccountCompleted = exports.getDepartmentLevelStatisticsBrokenDownBySubaccountCompleted = { type: 'GET_DEPARTMENT_LEVEL_STATISTICS_BROKEN_DOWN_BY_SUBACCOUNT_COMPLETED', method: 'get', key: 'get_department_level_statistics_broken_down_by_subaccount_completedget_department_level_statistics_broken_down_by_subaccount_completed_account_id', required: ['account_id'] };
+
 // Get course-level participation data
 // Returns page view hits and participation numbers grouped by day through the
 // entire history of the course. Page views is returned as a hash, where the
