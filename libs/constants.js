@@ -1,6 +1,8 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var canvasProxyUrl = exports.canvasProxyUrl = 'api/canvas';
+exports.canvasProxyUrl = void 0;
+var canvasProxyUrl = 'api/canvas';
+exports.canvasProxyUrl = canvasProxyUrl;

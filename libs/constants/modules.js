@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.updateModuleItem = exports.updateModule = exports.showModuleItem = exports.showModule = exports.selectMasteryPath = exports.reLockModuleProgressions = exports.markModuleItemRead = exports.markModuleItemAsDoneNotDone = exports.listModules = exports.listModuleItems = exports.getModuleItemSequence = exports.deleteModuleItem = exports.deleteModule = exports.createModuleItem = exports.createModule = void 0;
 //
 // Modules
 //
@@ -19,9 +20,12 @@ Object.defineProperty(exports, "__esModule", {
 //   student_id
 // }
 // return canvasRequest(list_modules, {course_id, ...query});
-var listModules = exports.listModules = { type: 'LIST_MODULES', method: 'get', key: 'list_moduleslist_modules_course_id', required: ['course_id'] };
-
-// Show module
+var listModules = {
+  type: 'LIST_MODULES',
+  method: 'get',
+  key: 'list_moduleslist_modules_course_id',
+  required: ['course_id']
+}; // Show module
 // Get information about a single module
 //
 // API Docs: https://canvas.instructure.com/doc/api/modules.html
@@ -33,9 +37,14 @@ var listModules = exports.listModules = { type: 'LIST_MODULES', method: 'get', k
 //   student_id
 // }
 // return canvasRequest(show_module, {course_id, id, ...query});
-var showModule = exports.showModule = { type: 'SHOW_MODULE', method: 'get', key: 'show_moduleshow_module_{course_id}_{id}', required: ['course_id', 'id'] };
 
-// Create a module
+exports.listModules = listModules;
+var showModule = {
+  type: 'SHOW_MODULE',
+  method: 'get',
+  key: 'show_moduleshow_module_{course_id}_{id}',
+  required: ['course_id', 'id']
+}; // Create a module
 // Create and return a new module
 //
 // API Docs: https://canvas.instructure.com/doc/api/modules.html
@@ -51,9 +60,14 @@ var showModule = exports.showModule = { type: 'SHOW_MODULE', method: 'get', key:
 //   module[publish_final_grade]
 // }
 // return canvasRequest(create_module, {course_id}, body);
-var createModule = exports.createModule = { type: 'CREATE_MODULE', method: 'post', key: 'create_modulecreate_module_course_id', required: ['course_id'] };
 
-// Update a module
+exports.showModule = showModule;
+var createModule = {
+  type: 'CREATE_MODULE',
+  method: 'post',
+  key: 'create_modulecreate_module_course_id',
+  required: ['course_id']
+}; // Update a module
 // Update and return an existing module
 //
 // API Docs: https://canvas.instructure.com/doc/api/modules.html
@@ -70,9 +84,14 @@ var createModule = exports.createModule = { type: 'CREATE_MODULE', method: 'post
 //   module[published]
 // }
 // return canvasRequest(update_module, {course_id, id}, body);
-var updateModule = exports.updateModule = { type: 'UPDATE_MODULE', method: 'put', key: 'update_moduleupdate_module_{course_id}_{id}', required: ['course_id', 'id'] };
 
-// Delete module
+exports.createModule = createModule;
+var updateModule = {
+  type: 'UPDATE_MODULE',
+  method: 'put',
+  key: 'update_moduleupdate_module_{course_id}_{id}',
+  required: ['course_id', 'id']
+}; // Delete module
 // Delete a module
 //
 // API Docs: https://canvas.instructure.com/doc/api/modules.html
@@ -80,9 +99,14 @@ var updateModule = exports.updateModule = { type: 'UPDATE_MODULE', method: 'put'
 //
 // Example:
 // return canvasRequest(delete_module, {course_id, id});
-var deleteModule = exports.deleteModule = { type: 'DELETE_MODULE', method: 'delete', key: 'delete_moduledelete_module_{course_id}_{id}', required: ['course_id', 'id'] };
 
-// Re-lock module progressions
+exports.updateModule = updateModule;
+var deleteModule = {
+  type: 'DELETE_MODULE',
+  method: 'delete',
+  key: 'delete_moduledelete_module_{course_id}_{id}',
+  required: ['course_id', 'id']
+}; // Re-lock module progressions
 // Resets module progressions to their default locked state and
 // recalculates them based on the current requirements.
 // 
@@ -94,9 +118,14 @@ var deleteModule = exports.deleteModule = { type: 'DELETE_MODULE', method: 'dele
 //
 // Example:
 // return canvasRequest(re_lock_module_progressions, {course_id, id});
-var reLockModuleProgressions = exports.reLockModuleProgressions = { type: 'RE_LOCK_MODULE_PROGRESSIONS', method: 'put', key: 're_lock_module_progressionsre_lock_module_progressions_{course_id}_{id}', required: ['course_id', 'id'] };
 
-// List module items
+exports.deleteModule = deleteModule;
+var reLockModuleProgressions = {
+  type: 'RE_LOCK_MODULE_PROGRESSIONS',
+  method: 'put',
+  key: 're_lock_module_progressionsre_lock_module_progressions_{course_id}_{id}',
+  required: ['course_id', 'id']
+}; // List module items
 // A paginated list of the items in a module
 //
 // API Docs: https://canvas.instructure.com/doc/api/modules.html
@@ -109,9 +138,14 @@ var reLockModuleProgressions = exports.reLockModuleProgressions = { type: 'RE_LO
 //   student_id
 // }
 // return canvasRequest(list_module_items, {course_id, module_id, ...query});
-var listModuleItems = exports.listModuleItems = { type: 'LIST_MODULE_ITEMS', method: 'get', key: 'list_module_itemslist_module_items_{course_id}_{module_id}', required: ['course_id', 'module_id'] };
 
-// Show module item
+exports.reLockModuleProgressions = reLockModuleProgressions;
+var listModuleItems = {
+  type: 'LIST_MODULE_ITEMS',
+  method: 'get',
+  key: 'list_module_itemslist_module_items_{course_id}_{module_id}',
+  required: ['course_id', 'module_id']
+}; // Show module item
 // Get information about a single module item
 //
 // API Docs: https://canvas.instructure.com/doc/api/modules.html
@@ -123,9 +157,14 @@ var listModuleItems = exports.listModuleItems = { type: 'LIST_MODULE_ITEMS', met
 //   student_id
 // }
 // return canvasRequest(show_module_item, {course_id, module_id, id, ...query});
-var showModuleItem = exports.showModuleItem = { type: 'SHOW_MODULE_ITEM', method: 'get', key: 'show_module_itemshow_module_item_{course_id}_{module_id}_{id}', required: ['course_id', 'module_id', 'id'] };
 
-// Create a module item
+exports.listModuleItems = listModuleItems;
+var showModuleItem = {
+  type: 'SHOW_MODULE_ITEM',
+  method: 'get',
+  key: 'show_module_itemshow_module_item_{course_id}_{module_id}_{id}',
+  required: ['course_id', 'module_id', 'id']
+}; // Create a module item
 // Create and return a new module item
 //
 // API Docs: https://canvas.instructure.com/doc/api/modules.html
@@ -147,9 +186,14 @@ var showModuleItem = exports.showModuleItem = { type: 'SHOW_MODULE_ITEM', method
 //   module_item[iframe][height]
 // }
 // return canvasRequest(create_module_item, {course_id, module_id}, body);
-var createModuleItem = exports.createModuleItem = { type: 'CREATE_MODULE_ITEM', method: 'post', key: 'create_module_itemcreate_module_item_{course_id}_{module_id}', required: ['course_id', 'module_id'] };
 
-// Update a module item
+exports.showModuleItem = showModuleItem;
+var createModuleItem = {
+  type: 'CREATE_MODULE_ITEM',
+  method: 'post',
+  key: 'create_module_itemcreate_module_item_{course_id}_{module_id}',
+  required: ['course_id', 'module_id']
+}; // Update a module item
 // Update and return an existing module item
 //
 // API Docs: https://canvas.instructure.com/doc/api/modules.html
@@ -168,9 +212,14 @@ var createModuleItem = exports.createModuleItem = { type: 'CREATE_MODULE_ITEM', 
 //   module_item[module_id]
 // }
 // return canvasRequest(update_module_item, {course_id, module_id, id}, body);
-var updateModuleItem = exports.updateModuleItem = { type: 'UPDATE_MODULE_ITEM', method: 'put', key: 'update_module_itemupdate_module_item_{course_id}_{module_id}_{id}', required: ['course_id', 'module_id', 'id'] };
 
-// Select a mastery path
+exports.createModuleItem = createModuleItem;
+var updateModuleItem = {
+  type: 'UPDATE_MODULE_ITEM',
+  method: 'put',
+  key: 'update_module_itemupdate_module_item_{course_id}_{module_id}_{id}',
+  required: ['course_id', 'module_id', 'id']
+}; // Select a mastery path
 // Select a mastery path when module item includes several possible paths.
 // Requires Mastery Paths feature to be enabled.  Returns a compound document
 // with the assignments included in the given path and any module items
@@ -185,9 +234,14 @@ var updateModuleItem = exports.updateModuleItem = { type: 'UPDATE_MODULE_ITEM', 
 //   student_id
 // }
 // return canvasRequest(select_mastery_path, {course_id, module_id, id}, body);
-var selectMasteryPath = exports.selectMasteryPath = { type: 'SELECT_MASTERY_PATH', method: 'post', key: 'select_mastery_pathselect_mastery_path_{course_id}_{module_id}_{id}', required: ['course_id', 'module_id', 'id'] };
 
-// Delete module item
+exports.updateModuleItem = updateModuleItem;
+var selectMasteryPath = {
+  type: 'SELECT_MASTERY_PATH',
+  method: 'post',
+  key: 'select_mastery_pathselect_mastery_path_{course_id}_{module_id}_{id}',
+  required: ['course_id', 'module_id', 'id']
+}; // Delete module item
 // Delete a module item
 //
 // API Docs: https://canvas.instructure.com/doc/api/modules.html
@@ -195,9 +249,14 @@ var selectMasteryPath = exports.selectMasteryPath = { type: 'SELECT_MASTERY_PATH
 //
 // Example:
 // return canvasRequest(delete_module_item, {course_id, module_id, id});
-var deleteModuleItem = exports.deleteModuleItem = { type: 'DELETE_MODULE_ITEM', method: 'delete', key: 'delete_module_itemdelete_module_item_{course_id}_{module_id}_{id}', required: ['course_id', 'module_id', 'id'] };
 
-// Mark module item as done/not done
+exports.selectMasteryPath = selectMasteryPath;
+var deleteModuleItem = {
+  type: 'DELETE_MODULE_ITEM',
+  method: 'delete',
+  key: 'delete_module_itemdelete_module_item_{course_id}_{module_id}_{id}',
+  required: ['course_id', 'module_id', 'id']
+}; // Mark module item as done/not done
 // Mark a module item as done/not done. Use HTTP method PUT to mark as done,
 // and DELETE to mark as not done.
 //
@@ -206,9 +265,14 @@ var deleteModuleItem = exports.deleteModuleItem = { type: 'DELETE_MODULE_ITEM', 
 //
 // Example:
 // return canvasRequest(mark_module_item_as_done_not_done, {course_id, module_id, id});
-var markModuleItemAsDoneNotDone = exports.markModuleItemAsDoneNotDone = { type: 'MARK_MODULE_ITEM_AS_DONE_NOT_DONE', method: 'put', key: 'mark_module_item_as_done_not_donemark_module_item_as_done_not_done_{course_id}_{module_id}_{id}', required: ['course_id', 'module_id', 'id'] };
 
-// Get module item sequence
+exports.deleteModuleItem = deleteModuleItem;
+var markModuleItemAsDoneNotDone = {
+  type: 'MARK_MODULE_ITEM_AS_DONE_NOT_DONE',
+  method: 'put',
+  key: 'mark_module_item_as_done_not_donemark_module_item_as_done_not_done_{course_id}_{module_id}_{id}',
+  required: ['course_id', 'module_id', 'id']
+}; // Get module item sequence
 // Given an asset in a course, find the ModuleItem it belongs to, the previous and next Module Items
 // in the course sequence, and also any applicable mastery path rules
 //
@@ -221,9 +285,14 @@ var markModuleItemAsDoneNotDone = exports.markModuleItemAsDoneNotDone = { type: 
 //   asset_id
 // }
 // return canvasRequest(get_module_item_sequence, {course_id, ...query});
-var getModuleItemSequence = exports.getModuleItemSequence = { type: 'GET_MODULE_ITEM_SEQUENCE', method: 'get', key: 'get_module_item_sequenceget_module_item_sequence_course_id', required: ['course_id'] };
 
-// Mark module item read
+exports.markModuleItemAsDoneNotDone = markModuleItemAsDoneNotDone;
+var getModuleItemSequence = {
+  type: 'GET_MODULE_ITEM_SEQUENCE',
+  method: 'get',
+  key: 'get_module_item_sequenceget_module_item_sequence_course_id',
+  required: ['course_id']
+}; // Mark module item read
 // Fulfills "must view" requirement for a module item. It is generally not necessary to do this explicitly,
 // but it is provided for applications that need to access external content directly (bypassing the html_url
 // redirect that normally allows Canvas to fulfill "must view" requirements).
@@ -235,4 +304,12 @@ var getModuleItemSequence = exports.getModuleItemSequence = { type: 'GET_MODULE_
 //
 // Example:
 // return canvasRequest(mark_module_item_read, {course_id, module_id, id});
-var markModuleItemRead = exports.markModuleItemRead = { type: 'MARK_MODULE_ITEM_READ', method: 'post', key: 'mark_module_item_readmark_module_item_read_{course_id}_{module_id}_{id}', required: ['course_id', 'module_id', 'id'] };
+
+exports.getModuleItemSequence = getModuleItemSequence;
+var markModuleItemRead = {
+  type: 'MARK_MODULE_ITEM_READ',
+  method: 'post',
+  key: 'mark_module_item_readmark_module_item_read_{course_id}_{module_id}_{id}',
+  required: ['course_id', 'module_id', 'id']
+};
+exports.markModuleItemRead = markModuleItemRead;

@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.updateExistingQuizQuestion = exports.listQuestionsInQuizOrSubmission = exports.getSingleQuizQuestion = exports.deleteQuizQuestion = exports.createSingleQuizQuestion = void 0;
 //
 // Quiz Questions
 //
@@ -18,9 +19,12 @@ Object.defineProperty(exports, "__esModule", {
 //   quiz_submission_attempt
 // }
 // return canvasRequest(list_questions_in_quiz_or_submission, {course_id, quiz_id, ...query});
-var listQuestionsInQuizOrSubmission = exports.listQuestionsInQuizOrSubmission = { type: 'LIST_QUESTIONS_IN_QUIZ_OR_SUBMISSION', method: 'get', key: 'list_questions_in_quiz_or_submissionlist_questions_in_quiz_or_submission_{course_id}_{quiz_id}', required: ['course_id', 'quiz_id'] };
-
-// Get a single quiz question
+var listQuestionsInQuizOrSubmission = {
+  type: 'LIST_QUESTIONS_IN_QUIZ_OR_SUBMISSION',
+  method: 'get',
+  key: 'list_questions_in_quiz_or_submissionlist_questions_in_quiz_or_submission_{course_id}_{quiz_id}',
+  required: ['course_id', 'quiz_id']
+}; // Get a single quiz question
 // Returns the quiz question with the given id
 //
 // API Docs: https://canvas.instructure.com/doc/api/quiz_questions.html
@@ -28,9 +32,14 @@ var listQuestionsInQuizOrSubmission = exports.listQuestionsInQuizOrSubmission = 
 //
 // Example:
 // return canvasRequest(get_single_quiz_question, {course_id, quiz_id, id});
-var getSingleQuizQuestion = exports.getSingleQuizQuestion = { type: 'GET_SINGLE_QUIZ_QUESTION', method: 'get', key: 'get_single_quiz_questionget_single_quiz_question_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };
 
-// Create a single quiz question
+exports.listQuestionsInQuizOrSubmission = listQuestionsInQuizOrSubmission;
+var getSingleQuizQuestion = {
+  type: 'GET_SINGLE_QUIZ_QUESTION',
+  method: 'get',
+  key: 'get_single_quiz_questionget_single_quiz_question_{course_id}_{quiz_id}_{id}',
+  required: ['course_id', 'quiz_id', 'id']
+}; // Create a single quiz question
 // Create a new quiz question for this quiz
 //
 // API Docs: https://canvas.instructure.com/doc/api/quiz_questions.html
@@ -51,9 +60,14 @@ var getSingleQuizQuestion = exports.getSingleQuizQuestion = { type: 'GET_SINGLE_
 //   question[answers]
 // }
 // return canvasRequest(create_single_quiz_question, {course_id, quiz_id}, body);
-var createSingleQuizQuestion = exports.createSingleQuizQuestion = { type: 'CREATE_SINGLE_QUIZ_QUESTION', method: 'post', key: 'create_single_quiz_questioncreate_single_quiz_question_{course_id}_{quiz_id}', required: ['course_id', 'quiz_id'] };
 
-// Update an existing quiz question
+exports.getSingleQuizQuestion = getSingleQuizQuestion;
+var createSingleQuizQuestion = {
+  type: 'CREATE_SINGLE_QUIZ_QUESTION',
+  method: 'post',
+  key: 'create_single_quiz_questioncreate_single_quiz_question_{course_id}_{quiz_id}',
+  required: ['course_id', 'quiz_id']
+}; // Update an existing quiz question
 // Updates an existing quiz question for this quiz
 //
 // API Docs: https://canvas.instructure.com/doc/api/quiz_questions.html
@@ -74,9 +88,14 @@ var createSingleQuizQuestion = exports.createSingleQuizQuestion = { type: 'CREAT
 //   question[answers]
 // }
 // return canvasRequest(update_existing_quiz_question, {course_id, quiz_id, id}, body);
-var updateExistingQuizQuestion = exports.updateExistingQuizQuestion = { type: 'UPDATE_EXISTING_QUIZ_QUESTION', method: 'put', key: 'update_existing_quiz_questionupdate_existing_quiz_question_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };
 
-// Delete a quiz question
+exports.createSingleQuizQuestion = createSingleQuizQuestion;
+var updateExistingQuizQuestion = {
+  type: 'UPDATE_EXISTING_QUIZ_QUESTION',
+  method: 'put',
+  key: 'update_existing_quiz_questionupdate_existing_quiz_question_{course_id}_{quiz_id}_{id}',
+  required: ['course_id', 'quiz_id', 'id']
+}; // Delete a quiz question
 // <b>204 No Content</b> response code is returned if the deletion was successful.
 //
 // API Docs: https://canvas.instructure.com/doc/api/quiz_questions.html
@@ -84,4 +103,12 @@ var updateExistingQuizQuestion = exports.updateExistingQuizQuestion = { type: 'U
 //
 // Example:
 // return canvasRequest(delete_quiz_question, {course_id, quiz_id, id});
-var deleteQuizQuestion = exports.deleteQuizQuestion = { type: 'DELETE_QUIZ_QUESTION', method: 'delete', key: 'delete_quiz_questiondelete_quiz_question_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };
+
+exports.updateExistingQuizQuestion = updateExistingQuizQuestion;
+var deleteQuizQuestion = {
+  type: 'DELETE_QUIZ_QUESTION',
+  method: 'delete',
+  key: 'delete_quiz_questiondelete_quiz_question_{course_id}_{quiz_id}_{id}',
+  required: ['course_id', 'quiz_id', 'id']
+};
+exports.deleteQuizQuestion = deleteQuizQuestion;

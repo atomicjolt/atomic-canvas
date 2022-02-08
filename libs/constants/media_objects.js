@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.updateMediaTracks = exports.updateMediaObject = exports.listMediaTracksForMediaObject = exports.listMediaObjectsMediaObjects = exports.listMediaObjectsGroups = exports.listMediaObjectsCourses = void 0;
 //
 // Media Objects
 //
@@ -17,9 +18,12 @@ Object.defineProperty(exports, "__esModule", {
 //   include
 // }
 // return canvasRequest(list_media_tracks_for_media_object, {media_object_id, ...query});
-var listMediaTracksForMediaObject = exports.listMediaTracksForMediaObject = { type: 'LIST_MEDIA_TRACKS_FOR_MEDIA_OBJECT', method: 'get', key: 'list_media_tracks_for_media_objectlist_media_tracks_for_media_object_media_object_id', required: ['media_object_id'] };
-
-// Update Media Tracks
+var listMediaTracksForMediaObject = {
+  type: 'LIST_MEDIA_TRACKS_FOR_MEDIA_OBJECT',
+  method: 'get',
+  key: 'list_media_tracks_for_media_objectlist_media_tracks_for_media_object_media_object_id',
+  required: ['media_object_id']
+}; // Update Media Tracks
 // Replace the media tracks associated with a media object with
 // the array of tracks provided in the body.
 // Update will
@@ -35,9 +39,14 @@ var listMediaTracksForMediaObject = exports.listMediaTracksForMediaObject = { ty
 //   include
 // }
 // return canvasRequest(update_media_tracks, {media_object_id}, body);
-var updateMediaTracks = exports.updateMediaTracks = { type: 'UPDATE_MEDIA_TRACKS', method: 'put', key: 'update_media_tracksupdate_media_tracks_media_object_id', required: ['media_object_id'] };
 
-// List Media Objects
+exports.listMediaTracksForMediaObject = listMediaTracksForMediaObject;
+var updateMediaTracks = {
+  type: 'UPDATE_MEDIA_TRACKS',
+  method: 'put',
+  key: 'update_media_tracksupdate_media_tracks_media_object_id',
+  required: ['media_object_id']
+}; // List Media Objects
 // Returns media objects created by the user making the request. When
 // using the second version, returns media objects associated with
 // the given course.
@@ -52,9 +61,14 @@ var updateMediaTracks = exports.updateMediaTracks = { type: 'UPDATE_MEDIA_TRACKS
 //   exclude
 // }
 // return canvasRequest(list_media_objects_media_objects, {, ...query});
-var listMediaObjectsMediaObjects = exports.listMediaObjectsMediaObjects = { type: 'LIST_MEDIA_OBJECTS_MEDIA_OBJECTS', method: 'get', key: 'list_media_objects_media_objects', required: [] };
 
-// List Media Objects
+exports.updateMediaTracks = updateMediaTracks;
+var listMediaObjectsMediaObjects = {
+  type: 'LIST_MEDIA_OBJECTS_MEDIA_OBJECTS',
+  method: 'get',
+  key: 'list_media_objects_media_objects',
+  required: []
+}; // List Media Objects
 // Returns media objects created by the user making the request. When
 // using the second version, returns media objects associated with
 // the given course.
@@ -69,9 +83,14 @@ var listMediaObjectsMediaObjects = exports.listMediaObjectsMediaObjects = { type
 //   exclude
 // }
 // return canvasRequest(list_media_objects_courses, {course_id, ...query});
-var listMediaObjectsCourses = exports.listMediaObjectsCourses = { type: 'LIST_MEDIA_OBJECTS_COURSES', method: 'get', key: 'list_media_objects_courseslist_media_objects_courses_course_id', required: ['course_id'] };
 
-// List Media Objects
+exports.listMediaObjectsMediaObjects = listMediaObjectsMediaObjects;
+var listMediaObjectsCourses = {
+  type: 'LIST_MEDIA_OBJECTS_COURSES',
+  method: 'get',
+  key: 'list_media_objects_courseslist_media_objects_courses_course_id',
+  required: ['course_id']
+}; // List Media Objects
 // Returns media objects created by the user making the request. When
 // using the second version, returns media objects associated with
 // the given course.
@@ -86,9 +105,14 @@ var listMediaObjectsCourses = exports.listMediaObjectsCourses = { type: 'LIST_ME
 //   exclude
 // }
 // return canvasRequest(list_media_objects_groups, {group_id, ...query});
-var listMediaObjectsGroups = exports.listMediaObjectsGroups = { type: 'LIST_MEDIA_OBJECTS_GROUPS', method: 'get', key: 'list_media_objects_groupslist_media_objects_groups_group_id', required: ['group_id'] };
 
-// Update Media Object
+exports.listMediaObjectsCourses = listMediaObjectsCourses;
+var listMediaObjectsGroups = {
+  type: 'LIST_MEDIA_OBJECTS_GROUPS',
+  method: 'get',
+  key: 'list_media_objects_groupslist_media_objects_groups_group_id',
+  required: ['group_id']
+}; // Update Media Object
 // 
 //
 // API Docs: https://canvas.instructure.com/doc/api/media_objects.html
@@ -99,4 +123,12 @@ var listMediaObjectsGroups = exports.listMediaObjectsGroups = { type: 'LIST_MEDI
 //   user_entered_title
 // }
 // return canvasRequest(update_media_object, {media_object_id}, body);
-var updateMediaObject = exports.updateMediaObject = { type: 'UPDATE_MEDIA_OBJECT', method: 'put', key: 'update_media_objectupdate_media_object_media_object_id', required: ['media_object_id'] };
+
+exports.listMediaObjectsGroups = listMediaObjectsGroups;
+var updateMediaObject = {
+  type: 'UPDATE_MEDIA_OBJECT',
+  method: 'put',
+  key: 'update_media_objectupdate_media_object_media_object_id',
+  required: ['media_object_id']
+};
+exports.updateMediaObject = updateMediaObject;

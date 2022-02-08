@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.retrieveReportedCspViolationsForAccount = exports.removeDomainFromAccount = exports.lockOrUnlockCurrentCspSettingsForSubAccountsAndCourses = exports.getCurrentSettingsForAccountOrCourseCourses = exports.getCurrentSettingsForAccountOrCourseAccounts = exports.enableDisableOrClearExplicitCspSettingCourses = exports.enableDisableOrClearExplicitCspSettingAccounts = exports.addMultipleAllowedDomainsToAccount = exports.addAllowedDomainToAccount = void 0;
 //
 // Content Security Policy Settings
 //
@@ -14,9 +15,12 @@ Object.defineProperty(exports, "__esModule", {
 //
 // Example:
 // return canvasRequest(get_current_settings_for_account_or_course_courses, {course_id});
-var getCurrentSettingsForAccountOrCourseCourses = exports.getCurrentSettingsForAccountOrCourseCourses = { type: 'GET_CURRENT_SETTINGS_FOR_ACCOUNT_OR_COURSE_COURSES', method: 'get', key: 'get_current_settings_for_account_or_course_coursesget_current_settings_for_account_or_course_courses_course_id', required: ['course_id'] };
-
-// Get current settings for account or course
+var getCurrentSettingsForAccountOrCourseCourses = {
+  type: 'GET_CURRENT_SETTINGS_FOR_ACCOUNT_OR_COURSE_COURSES',
+  method: 'get',
+  key: 'get_current_settings_for_account_or_course_coursesget_current_settings_for_account_or_course_courses_course_id',
+  required: ['course_id']
+}; // Get current settings for account or course
 // Update multiple modules in an account.
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_security_policy_settings.html
@@ -24,9 +28,14 @@ var getCurrentSettingsForAccountOrCourseCourses = exports.getCurrentSettingsForA
 //
 // Example:
 // return canvasRequest(get_current_settings_for_account_or_course_accounts, {account_id});
-var getCurrentSettingsForAccountOrCourseAccounts = exports.getCurrentSettingsForAccountOrCourseAccounts = { type: 'GET_CURRENT_SETTINGS_FOR_ACCOUNT_OR_COURSE_ACCOUNTS', method: 'get', key: 'get_current_settings_for_account_or_course_accountsget_current_settings_for_account_or_course_accounts_account_id', required: ['account_id'] };
 
-// Enable, disable, or clear explicit CSP setting
+exports.getCurrentSettingsForAccountOrCourseCourses = getCurrentSettingsForAccountOrCourseCourses;
+var getCurrentSettingsForAccountOrCourseAccounts = {
+  type: 'GET_CURRENT_SETTINGS_FOR_ACCOUNT_OR_COURSE_ACCOUNTS',
+  method: 'get',
+  key: 'get_current_settings_for_account_or_course_accountsget_current_settings_for_account_or_course_accounts_account_id',
+  required: ['account_id']
+}; // Enable, disable, or clear explicit CSP setting
 // Either explicitly sets CSP to be on or off for courses and sub-accounts,
 // or clear the explicit settings to default to those set by a parent account
 // 
@@ -41,9 +50,14 @@ var getCurrentSettingsForAccountOrCourseAccounts = exports.getCurrentSettingsFor
 //   status (required)
 // }
 // return canvasRequest(enable_disable_or_clear_explicit_csp_setting_courses, {course_id}, body);
-var enableDisableOrClearExplicitCspSettingCourses = exports.enableDisableOrClearExplicitCspSettingCourses = { type: 'ENABLE_DISABLE_OR_CLEAR_EXPLICIT_CSP_SETTING_COURSES', method: 'put', key: 'enable_disable_or_clear_explicit_csp_setting_coursesenable_disable_or_clear_explicit_csp_setting_courses_course_id', required: ['course_id'] };
 
-// Enable, disable, or clear explicit CSP setting
+exports.getCurrentSettingsForAccountOrCourseAccounts = getCurrentSettingsForAccountOrCourseAccounts;
+var enableDisableOrClearExplicitCspSettingCourses = {
+  type: 'ENABLE_DISABLE_OR_CLEAR_EXPLICIT_CSP_SETTING_COURSES',
+  method: 'put',
+  key: 'enable_disable_or_clear_explicit_csp_setting_coursesenable_disable_or_clear_explicit_csp_setting_courses_course_id',
+  required: ['course_id']
+}; // Enable, disable, or clear explicit CSP setting
 // Either explicitly sets CSP to be on or off for courses and sub-accounts,
 // or clear the explicit settings to default to those set by a parent account
 // 
@@ -58,9 +72,14 @@ var enableDisableOrClearExplicitCspSettingCourses = exports.enableDisableOrClear
 //   status (required)
 // }
 // return canvasRequest(enable_disable_or_clear_explicit_csp_setting_accounts, {account_id}, body);
-var enableDisableOrClearExplicitCspSettingAccounts = exports.enableDisableOrClearExplicitCspSettingAccounts = { type: 'ENABLE_DISABLE_OR_CLEAR_EXPLICIT_CSP_SETTING_ACCOUNTS', method: 'put', key: 'enable_disable_or_clear_explicit_csp_setting_accountsenable_disable_or_clear_explicit_csp_setting_accounts_account_id', required: ['account_id'] };
 
-// Lock or unlock current CSP settings for sub-accounts and courses
+exports.enableDisableOrClearExplicitCspSettingCourses = enableDisableOrClearExplicitCspSettingCourses;
+var enableDisableOrClearExplicitCspSettingAccounts = {
+  type: 'ENABLE_DISABLE_OR_CLEAR_EXPLICIT_CSP_SETTING_ACCOUNTS',
+  method: 'put',
+  key: 'enable_disable_or_clear_explicit_csp_setting_accountsenable_disable_or_clear_explicit_csp_setting_accounts_account_id',
+  required: ['account_id']
+}; // Lock or unlock current CSP settings for sub-accounts and courses
 // Can only be set if CSP is explicitly enabled or disabled on this account (i.e. "inherited" is false).
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_security_policy_settings.html
@@ -71,9 +90,14 @@ var enableDisableOrClearExplicitCspSettingAccounts = exports.enableDisableOrClea
 //   settings_locked (required)
 // }
 // return canvasRequest(lock_or_unlock_current_csp_settings_for_sub_accounts_and_courses, {account_id}, body);
-var lockOrUnlockCurrentCspSettingsForSubAccountsAndCourses = exports.lockOrUnlockCurrentCspSettingsForSubAccountsAndCourses = { type: 'LOCK_OR_UNLOCK_CURRENT_CSP_SETTINGS_FOR_SUB_ACCOUNTS_AND_COURSES', method: 'put', key: 'lock_or_unlock_current_csp_settings_for_sub_accounts_and_courseslock_or_unlock_current_csp_settings_for_sub_accounts_and_courses_account_id', required: ['account_id'] };
 
-// Add an allowed domain to account
+exports.enableDisableOrClearExplicitCspSettingAccounts = enableDisableOrClearExplicitCspSettingAccounts;
+var lockOrUnlockCurrentCspSettingsForSubAccountsAndCourses = {
+  type: 'LOCK_OR_UNLOCK_CURRENT_CSP_SETTINGS_FOR_SUB_ACCOUNTS_AND_COURSES',
+  method: 'put',
+  key: 'lock_or_unlock_current_csp_settings_for_sub_accounts_and_courseslock_or_unlock_current_csp_settings_for_sub_accounts_and_courses_account_id',
+  required: ['account_id']
+}; // Add an allowed domain to account
 // Adds an allowed domain for the current account. Note: this will not take effect
 // unless CSP is explicitly enabled on this account.
 //
@@ -85,9 +109,14 @@ var lockOrUnlockCurrentCspSettingsForSubAccountsAndCourses = exports.lockOrUnloc
 //   domain (required)
 // }
 // return canvasRequest(add_allowed_domain_to_account, {account_id}, body);
-var addAllowedDomainToAccount = exports.addAllowedDomainToAccount = { type: 'ADD_ALLOWED_DOMAIN_TO_ACCOUNT', method: 'post', key: 'add_allowed_domain_to_accountadd_allowed_domain_to_account_account_id', required: ['account_id'] };
 
-// Add multiple allowed domains to an account
+exports.lockOrUnlockCurrentCspSettingsForSubAccountsAndCourses = lockOrUnlockCurrentCspSettingsForSubAccountsAndCourses;
+var addAllowedDomainToAccount = {
+  type: 'ADD_ALLOWED_DOMAIN_TO_ACCOUNT',
+  method: 'post',
+  key: 'add_allowed_domain_to_accountadd_allowed_domain_to_account_account_id',
+  required: ['account_id']
+}; // Add multiple allowed domains to an account
 // Adds multiple allowed domains for the current account. Note: this will not take effect
 // unless CSP is explicitly enabled on this account.
 //
@@ -99,9 +128,14 @@ var addAllowedDomainToAccount = exports.addAllowedDomainToAccount = { type: 'ADD
 //   domains (required)
 // }
 // return canvasRequest(add_multiple_allowed_domains_to_account, {account_id}, body);
-var addMultipleAllowedDomainsToAccount = exports.addMultipleAllowedDomainsToAccount = { type: 'ADD_MULTIPLE_ALLOWED_DOMAINS_TO_ACCOUNT', method: 'post', key: 'add_multiple_allowed_domains_to_accountadd_multiple_allowed_domains_to_account_account_id', required: ['account_id'] };
 
-// Retrieve reported CSP Violations for account
+exports.addAllowedDomainToAccount = addAllowedDomainToAccount;
+var addMultipleAllowedDomainsToAccount = {
+  type: 'ADD_MULTIPLE_ALLOWED_DOMAINS_TO_ACCOUNT',
+  method: 'post',
+  key: 'add_multiple_allowed_domains_to_accountadd_multiple_allowed_domains_to_account_account_id',
+  required: ['account_id']
+}; // Retrieve reported CSP Violations for account
 // Must be called on a root account.
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_security_policy_settings.html
@@ -109,9 +143,14 @@ var addMultipleAllowedDomainsToAccount = exports.addMultipleAllowedDomainsToAcco
 //
 // Example:
 // return canvasRequest(retrieve_reported_csp_violations_for_account, {account_id});
-var retrieveReportedCspViolationsForAccount = exports.retrieveReportedCspViolationsForAccount = { type: 'RETRIEVE_REPORTED_CSP_VIOLATIONS_FOR_ACCOUNT', method: 'get', key: 'retrieve_reported_csp_violations_for_accountretrieve_reported_csp_violations_for_account_account_id', required: ['account_id'] };
 
-// Remove a domain from account
+exports.addMultipleAllowedDomainsToAccount = addMultipleAllowedDomainsToAccount;
+var retrieveReportedCspViolationsForAccount = {
+  type: 'RETRIEVE_REPORTED_CSP_VIOLATIONS_FOR_ACCOUNT',
+  method: 'get',
+  key: 'retrieve_reported_csp_violations_for_accountretrieve_reported_csp_violations_for_account_account_id',
+  required: ['account_id']
+}; // Remove a domain from account
 // Removes an allowed domain from the current account.
 //
 // API Docs: https://canvas.instructure.com/doc/api/content_security_policy_settings.html
@@ -122,4 +161,12 @@ var retrieveReportedCspViolationsForAccount = exports.retrieveReportedCspViolati
 //   domain (required)
 // }
 // return canvasRequest(remove_domain_from_account, {account_id}, body);
-var removeDomainFromAccount = exports.removeDomainFromAccount = { type: 'REMOVE_DOMAIN_FROM_ACCOUNT', method: 'delete', key: 'remove_domain_from_accountremove_domain_from_account_account_id', required: ['account_id'] };
+
+exports.retrieveReportedCspViolationsForAccount = retrieveReportedCspViolationsForAccount;
+var removeDomainFromAccount = {
+  type: 'REMOVE_DOMAIN_FROM_ACCOUNT',
+  method: 'delete',
+  key: 'remove_domain_from_accountremove_domain_from_account_account_id',
+  required: ['account_id']
+};
+exports.removeDomainFromAccount = removeDomainFromAccount;

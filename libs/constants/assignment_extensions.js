@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.setExtensionsForStudentAssignmentSubmissions = void 0;
 //
 // Assignment Extensions
 //
@@ -22,4 +23,10 @@ Object.defineProperty(exports, "__esModule", {
 //   assignment_extensions[extra_attempts] (required)
 // }
 // return canvasRequest(set_extensions_for_student_assignment_submissions, {course_id, assignment_id}, body);
-var setExtensionsForStudentAssignmentSubmissions = exports.setExtensionsForStudentAssignmentSubmissions = { type: 'SET_EXTENSIONS_FOR_STUDENT_ASSIGNMENT_SUBMISSIONS', method: 'post', key: 'set_extensions_for_student_assignment_submissionsset_extensions_for_student_assignment_submissions_{course_id}_{assignment_id}', required: ['course_id', 'assignment_id'] };
+var setExtensionsForStudentAssignmentSubmissions = {
+  type: 'SET_EXTENSIONS_FOR_STUDENT_ASSIGNMENT_SUBMISSIONS',
+  method: 'post',
+  key: 'set_extensions_for_student_assignment_submissionsset_extensions_for_student_assignment_submissions_{course_id}_{assignment_id}',
+  required: ['course_id', 'assignment_id']
+};
+exports.setExtensionsForStudentAssignmentSubmissions = setExtensionsForStudentAssignmentSubmissions;

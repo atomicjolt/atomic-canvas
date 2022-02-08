@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.quizExtensionsSetExtensionsForStudentQuizSubmissions = void 0;
 //
 // Quiz Extensions
 //
@@ -25,4 +26,10 @@ Object.defineProperty(exports, "__esModule", {
 //   quiz_extensions[extend_from_end_at]
 // }
 // return canvasRequest(quiz_extensions_set_extensions_for_student_quiz_submissions, {course_id, quiz_id}, body);
-var quizExtensionsSetExtensionsForStudentQuizSubmissions = exports.quizExtensionsSetExtensionsForStudentQuizSubmissions = { type: 'QUIZ_EXTENSIONS_SET_EXTENSIONS_FOR_STUDENT_QUIZ_SUBMISSIONS', method: 'post', key: 'quiz_extensions_set_extensions_for_student_quiz_submissionsquiz_extensions_set_extensions_for_student_quiz_submissions_{course_id}_{quiz_id}', required: ['course_id', 'quiz_id'] };
+var quizExtensionsSetExtensionsForStudentQuizSubmissions = {
+  type: 'QUIZ_EXTENSIONS_SET_EXTENSIONS_FOR_STUDENT_QUIZ_SUBMISSIONS',
+  method: 'post',
+  key: 'quiz_extensions_set_extensions_for_student_quiz_submissionsquiz_extensions_set_extensions_for_student_quiz_submissions_{course_id}_{quiz_id}',
+  required: ['course_id', 'quiz_id']
+};
+exports.quizExtensionsSetExtensionsForStudentQuizSubmissions = quizExtensionsSetExtensionsForStudentQuizSubmissions;

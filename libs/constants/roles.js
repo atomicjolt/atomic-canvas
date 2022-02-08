@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.updateRole = exports.listRoles = exports.getSingleRole = exports.deactivateRole = exports.createNewRole = exports.activateRole = void 0;
 //
 // Roles
 //
@@ -18,9 +19,12 @@ Object.defineProperty(exports, "__esModule", {
 //   show_inherited
 // }
 // return canvasRequest(list_roles, {account_id, ...query});
-var listRoles = exports.listRoles = { type: 'LIST_ROLES', method: 'get', key: 'list_roleslist_roles_account_id', required: ['account_id'] };
-
-// Get a single role
+var listRoles = {
+  type: 'LIST_ROLES',
+  method: 'get',
+  key: 'list_roleslist_roles_account_id',
+  required: ['account_id']
+}; // Get a single role
 // Retrieve information about a single role
 //
 // API Docs: https://canvas.instructure.com/doc/api/roles.html
@@ -32,9 +36,14 @@ var listRoles = exports.listRoles = { type: 'LIST_ROLES', method: 'get', key: 'l
 //   role
 // }
 // return canvasRequest(get_single_role, {account_id, id, ...query});
-var getSingleRole = exports.getSingleRole = { type: 'GET_SINGLE_ROLE', method: 'get', key: 'get_single_roleget_single_role_{account_id}_{id}', required: ['account_id', 'id'] };
 
-// Create a new role
+exports.listRoles = listRoles;
+var getSingleRole = {
+  type: 'GET_SINGLE_ROLE',
+  method: 'get',
+  key: 'get_single_roleget_single_role_{account_id}_{id}',
+  required: ['account_id', 'id']
+}; // Create a new role
 // Create a new course-level or account-level role.
 //
 // API Docs: https://canvas.instructure.com/doc/api/roles.html
@@ -52,9 +61,14 @@ var getSingleRole = exports.getSingleRole = { type: 'GET_SINGLE_ROLE', method: '
 //   permissions[<X>][applies_to_descendants]
 // }
 // return canvasRequest(create_new_role, {account_id}, body);
-var createNewRole = exports.createNewRole = { type: 'CREATE_NEW_ROLE', method: 'post', key: 'create_new_rolecreate_new_role_account_id', required: ['account_id'] };
 
-// Deactivate a role
+exports.getSingleRole = getSingleRole;
+var createNewRole = {
+  type: 'CREATE_NEW_ROLE',
+  method: 'post',
+  key: 'create_new_rolecreate_new_role_account_id',
+  required: ['account_id']
+}; // Deactivate a role
 // Deactivates a custom role.  This hides it in the user interface and prevents it
 // from being assigned to new users.  Existing users assigned to the role will
 // continue to function with the same permissions they had previously.
@@ -69,9 +83,14 @@ var createNewRole = exports.createNewRole = { type: 'CREATE_NEW_ROLE', method: '
 //   role
 // }
 // return canvasRequest(deactivate_role, {account_id, id}, body);
-var deactivateRole = exports.deactivateRole = { type: 'DEACTIVATE_ROLE', method: 'delete', key: 'deactivate_roledeactivate_role_{account_id}_{id}', required: ['account_id', 'id'] };
 
-// Activate a role
+exports.createNewRole = createNewRole;
+var deactivateRole = {
+  type: 'DEACTIVATE_ROLE',
+  method: 'delete',
+  key: 'deactivate_roledeactivate_role_{account_id}_{id}',
+  required: ['account_id', 'id']
+}; // Activate a role
 // Re-activates an inactive role (allowing it to be assigned to new users)
 //
 // API Docs: https://canvas.instructure.com/doc/api/roles.html
@@ -83,9 +102,14 @@ var deactivateRole = exports.deactivateRole = { type: 'DEACTIVATE_ROLE', method:
 //   role
 // }
 // return canvasRequest(activate_role, {account_id, id}, body);
-var activateRole = exports.activateRole = { type: 'ACTIVATE_ROLE', method: 'post', key: 'activate_roleactivate_role_{account_id}_{id}', required: ['account_id', 'id'] };
 
-// Update a role
+exports.deactivateRole = deactivateRole;
+var activateRole = {
+  type: 'ACTIVATE_ROLE',
+  method: 'post',
+  key: 'activate_roleactivate_role_{account_id}_{id}',
+  required: ['account_id', 'id']
+}; // Update a role
 // Update permissions for an existing role.
 // 
 // Recognized roles are:
@@ -109,4 +133,12 @@ var activateRole = exports.activateRole = { type: 'ACTIVATE_ROLE', method: 'post
 //   permissions[<X>][applies_to_descendants]
 // }
 // return canvasRequest(update_role, {account_id, id}, body);
-var updateRole = exports.updateRole = { type: 'UPDATE_ROLE', method: 'put', key: 'update_roleupdate_role_{account_id}_{id}', required: ['account_id', 'id'] };
+
+exports.activateRole = activateRole;
+var updateRole = {
+  type: 'UPDATE_ROLE',
+  method: 'put',
+  key: 'update_roleupdate_role_{account_id}_{id}',
+  required: ['account_id', 'id']
+};
+exports.updateRole = updateRole;

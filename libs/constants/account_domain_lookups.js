@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.searchAccountDomains = void 0;
 //
 // Account Domain Lookups
 //
@@ -22,4 +23,10 @@ Object.defineProperty(exports, "__esModule", {
 //   longitude
 // }
 // return canvasRequest(search_account_domains, {, ...query});
-var searchAccountDomains = exports.searchAccountDomains = { type: 'SEARCH_ACCOUNT_DOMAINS', method: 'get', key: 'search_account_domains', required: [] };
+var searchAccountDomains = {
+  type: 'SEARCH_ACCOUNT_DOMAINS',
+  method: 'get',
+  key: 'search_account_domains',
+  required: []
+};
+exports.searchAccountDomains = searchAccountDomains;

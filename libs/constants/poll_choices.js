@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.updateSinglePollChoice = exports.listPollChoicesInPoll = exports.getSinglePollChoice = exports.deletePollChoice = exports.createSinglePollChoice = void 0;
 //
 // PollChoices
 //
@@ -14,9 +15,12 @@ Object.defineProperty(exports, "__esModule", {
 //
 // Example:
 // return canvasRequest(list_poll_choices_in_poll, {poll_id});
-var listPollChoicesInPoll = exports.listPollChoicesInPoll = { type: 'LIST_POLL_CHOICES_IN_POLL', method: 'get', key: 'list_poll_choices_in_polllist_poll_choices_in_poll_poll_id', required: ['poll_id'] };
-
-// Get a single poll choice
+var listPollChoicesInPoll = {
+  type: 'LIST_POLL_CHOICES_IN_POLL',
+  method: 'get',
+  key: 'list_poll_choices_in_polllist_poll_choices_in_poll_poll_id',
+  required: ['poll_id']
+}; // Get a single poll choice
 // Returns the poll choice with the given id
 //
 // API Docs: https://canvas.instructure.com/doc/api/poll_choices.html
@@ -24,9 +28,14 @@ var listPollChoicesInPoll = exports.listPollChoicesInPoll = { type: 'LIST_POLL_C
 //
 // Example:
 // return canvasRequest(get_single_poll_choice, {poll_id, id});
-var getSinglePollChoice = exports.getSinglePollChoice = { type: 'GET_SINGLE_POLL_CHOICE', method: 'get', key: 'get_single_poll_choiceget_single_poll_choice_{poll_id}_{id}', required: ['poll_id', 'id'] };
 
-// Create a single poll choice
+exports.listPollChoicesInPoll = listPollChoicesInPoll;
+var getSinglePollChoice = {
+  type: 'GET_SINGLE_POLL_CHOICE',
+  method: 'get',
+  key: 'get_single_poll_choiceget_single_poll_choice_{poll_id}_{id}',
+  required: ['poll_id', 'id']
+}; // Create a single poll choice
 // Create a new poll choice for this poll
 //
 // API Docs: https://canvas.instructure.com/doc/api/poll_choices.html
@@ -39,9 +48,14 @@ var getSinglePollChoice = exports.getSinglePollChoice = { type: 'GET_SINGLE_POLL
 //   poll_choices[position]
 // }
 // return canvasRequest(create_single_poll_choice, {poll_id}, body);
-var createSinglePollChoice = exports.createSinglePollChoice = { type: 'CREATE_SINGLE_POLL_CHOICE', method: 'post', key: 'create_single_poll_choicecreate_single_poll_choice_poll_id', required: ['poll_id'] };
 
-// Update a single poll choice
+exports.getSinglePollChoice = getSinglePollChoice;
+var createSinglePollChoice = {
+  type: 'CREATE_SINGLE_POLL_CHOICE',
+  method: 'post',
+  key: 'create_single_poll_choicecreate_single_poll_choice_poll_id',
+  required: ['poll_id']
+}; // Update a single poll choice
 // Update an existing poll choice for this poll
 //
 // API Docs: https://canvas.instructure.com/doc/api/poll_choices.html
@@ -54,9 +68,14 @@ var createSinglePollChoice = exports.createSinglePollChoice = { type: 'CREATE_SI
 //   poll_choices[position]
 // }
 // return canvasRequest(update_single_poll_choice, {poll_id, id}, body);
-var updateSinglePollChoice = exports.updateSinglePollChoice = { type: 'UPDATE_SINGLE_POLL_CHOICE', method: 'put', key: 'update_single_poll_choiceupdate_single_poll_choice_{poll_id}_{id}', required: ['poll_id', 'id'] };
 
-// Delete a poll choice
+exports.createSinglePollChoice = createSinglePollChoice;
+var updateSinglePollChoice = {
+  type: 'UPDATE_SINGLE_POLL_CHOICE',
+  method: 'put',
+  key: 'update_single_poll_choiceupdate_single_poll_choice_{poll_id}_{id}',
+  required: ['poll_id', 'id']
+}; // Delete a poll choice
 // <b>204 No Content</b> response code is returned if the deletion was successful.
 //
 // API Docs: https://canvas.instructure.com/doc/api/poll_choices.html
@@ -64,4 +83,12 @@ var updateSinglePollChoice = exports.updateSinglePollChoice = { type: 'UPDATE_SI
 //
 // Example:
 // return canvasRequest(delete_poll_choice, {poll_id, id});
-var deletePollChoice = exports.deletePollChoice = { type: 'DELETE_POLL_CHOICE', method: 'delete', key: 'delete_poll_choicedelete_poll_choice_{poll_id}_{id}', required: ['poll_id', 'id'] };
+
+exports.updateSinglePollChoice = updateSinglePollChoice;
+var deletePollChoice = {
+  type: 'DELETE_POLL_CHOICE',
+  method: 'delete',
+  key: 'delete_poll_choicedelete_poll_choice_{poll_id}_{id}',
+  required: ['poll_id', 'id']
+};
+exports.deletePollChoice = deletePollChoice;

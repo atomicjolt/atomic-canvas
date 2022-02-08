@@ -1,76 +1,78 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports["default"] = void 0;
 
-var _defineProperty2 = require('babel-runtime/helpers/defineProperty');
+var _lodash = _interopRequireDefault(require("lodash"));
 
-var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var _extends3 = require('babel-runtime/helpers/extends');
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-var _extends4 = _interopRequireDefault(_extends3);
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
-var _lodash = require('lodash');
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var _lodash2 = _interopRequireDefault(_lodash);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = function () {
+var _default = function _default() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  var action = arguments[1];
-
+  var action = arguments.length > 1 ? arguments[1] : undefined;
 
   if (action.canvas) {
     var newState = state.get(action.canvas.key);
 
-    if (_lodash2.default.endsWith(action.type, '_DONE')) {
-
+    if (_lodash["default"].endsWith(action.type, '_DONE')) {
       switch (action.canvas.method) {
         case 'get':
           {
-            var mapped = _lodash2.default.reduce(action.payload, function (result, as) {
-              return (0, _extends4.default)({}, result, (0, _defineProperty3.default)({}, as.id, as));
+            var mapped = _lodash["default"].reduce(action.payload, function (result, as) {
+              return _objectSpread(_objectSpread({}, result), {}, _defineProperty({}, as.id, as));
             }, {});
+
             return newState.merge(mapped);
           }
+
         case 'post':
           {
-            newState = _lodash2.default.deepClone(newState);
+            newState = _lodash["default"].deepClone(newState);
             newState[action.payload.id] = action.payload;
             return newState;
           }
+
         case 'put':
           {
             return newState;
           }
+
         case 'delete':
           {
             return newState;
           }
+
         default:
           {
             break;
           }
       }
     } else {
-
       // Optimistic updates
       switch (action.canvas.method) {
         case 'post':
           {
             return newState;
           }
+
         case 'put':
           {
             return newState;
           }
+
         case 'delete':
           {
             return newState;
           }
+
         default:
           {
             break;
@@ -80,4 +82,6 @@ exports.default = function () {
   }
 
   return state;
-}; // Note. This reducer doesn't work and will need a fair amount
+};
+
+exports["default"] = _default;

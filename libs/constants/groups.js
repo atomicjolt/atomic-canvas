@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.updateMembershipUsers = exports.updateMembershipMemberships = exports.listYourGroups = exports.listGroupsAvailableInContextCourses = exports.listGroupsAvailableInContextAccounts = exports.listGroupSUsers = exports.listGroupMemberships = exports.leaveGroupUsers = exports.leaveGroupMemberships = exports.inviteOthersToGroup = exports.groupsUploadFile = exports.groupsPreviewProcessedHtml = exports.groupsPermissions = exports.groupActivityStreamSummary = exports.groupActivityStream = exports.getSingleGroupMembershipUsers = exports.getSingleGroupMembershipMemberships = exports.getSingleGroup = exports.editGroup = exports.deleteGroup = exports.createMembership = exports.createGroupGroups = exports.createGroupGroupCategories = void 0;
 //
 // Groups
 //
@@ -18,9 +19,12 @@ Object.defineProperty(exports, "__esModule", {
 //   include
 // }
 // return canvasRequest(list_your_groups, {, ...query});
-var listYourGroups = exports.listYourGroups = { type: 'LIST_YOUR_GROUPS', method: 'get', key: 'list_your_groups', required: [] };
-
-// List the groups available in a context.
+var listYourGroups = {
+  type: 'LIST_YOUR_GROUPS',
+  method: 'get',
+  key: 'list_your_groups',
+  required: []
+}; // List the groups available in a context.
 // Returns the paginated list of active groups in the given context that are visible to user.
 //
 // API Docs: https://canvas.instructure.com/doc/api/groups.html
@@ -32,9 +36,14 @@ var listYourGroups = exports.listYourGroups = { type: 'LIST_YOUR_GROUPS', method
 //   include
 // }
 // return canvasRequest(list_groups_available_in_context_accounts, {account_id, ...query});
-var listGroupsAvailableInContextAccounts = exports.listGroupsAvailableInContextAccounts = { type: 'LIST_GROUPS_AVAILABLE_IN_CONTEXT_ACCOUNTS', method: 'get', key: 'list_groups_available_in_context_accountslist_groups_available_in_context_accounts_account_id', required: ['account_id'] };
 
-// List the groups available in a context.
+exports.listYourGroups = listYourGroups;
+var listGroupsAvailableInContextAccounts = {
+  type: 'LIST_GROUPS_AVAILABLE_IN_CONTEXT_ACCOUNTS',
+  method: 'get',
+  key: 'list_groups_available_in_context_accountslist_groups_available_in_context_accounts_account_id',
+  required: ['account_id']
+}; // List the groups available in a context.
 // Returns the paginated list of active groups in the given context that are visible to user.
 //
 // API Docs: https://canvas.instructure.com/doc/api/groups.html
@@ -46,9 +55,14 @@ var listGroupsAvailableInContextAccounts = exports.listGroupsAvailableInContextA
 //   include
 // }
 // return canvasRequest(list_groups_available_in_context_courses, {course_id, ...query});
-var listGroupsAvailableInContextCourses = exports.listGroupsAvailableInContextCourses = { type: 'LIST_GROUPS_AVAILABLE_IN_CONTEXT_COURSES', method: 'get', key: 'list_groups_available_in_context_courseslist_groups_available_in_context_courses_course_id', required: ['course_id'] };
 
-// Get a single group
+exports.listGroupsAvailableInContextAccounts = listGroupsAvailableInContextAccounts;
+var listGroupsAvailableInContextCourses = {
+  type: 'LIST_GROUPS_AVAILABLE_IN_CONTEXT_COURSES',
+  method: 'get',
+  key: 'list_groups_available_in_context_courseslist_groups_available_in_context_courses_course_id',
+  required: ['course_id']
+}; // Get a single group
 // Returns the data for a single group, or a 401 if the caller doesn't have
 // the rights to see it.
 //
@@ -60,9 +74,14 @@ var listGroupsAvailableInContextCourses = exports.listGroupsAvailableInContextCo
 //   include
 // }
 // return canvasRequest(get_single_group, {group_id, ...query});
-var getSingleGroup = exports.getSingleGroup = { type: 'GET_SINGLE_GROUP', method: 'get', key: 'get_single_groupget_single_group_group_id', required: ['group_id'] };
 
-// Create a group
+exports.listGroupsAvailableInContextCourses = listGroupsAvailableInContextCourses;
+var getSingleGroup = {
+  type: 'GET_SINGLE_GROUP',
+  method: 'get',
+  key: 'get_single_groupget_single_group_group_id',
+  required: ['group_id']
+}; // Create a group
 // Creates a new group. Groups created using the "/api/v1/groups/"
 // endpoint will be community groups.
 //
@@ -79,9 +98,14 @@ var getSingleGroup = exports.getSingleGroup = { type: 'GET_SINGLE_GROUP', method
 //   sis_group_id
 // }
 // return canvasRequest(create_group_groups, {}, body);
-var createGroupGroups = exports.createGroupGroups = { type: 'CREATE_GROUP_GROUPS', method: 'post', key: 'create_group_groups', required: [] };
 
-// Create a group
+exports.getSingleGroup = getSingleGroup;
+var createGroupGroups = {
+  type: 'CREATE_GROUP_GROUPS',
+  method: 'post',
+  key: 'create_group_groups',
+  required: []
+}; // Create a group
 // Creates a new group. Groups created using the "/api/v1/groups/"
 // endpoint will be community groups.
 //
@@ -98,9 +122,14 @@ var createGroupGroups = exports.createGroupGroups = { type: 'CREATE_GROUP_GROUPS
 //   sis_group_id
 // }
 // return canvasRequest(create_group_group_categories, {group_category_id}, body);
-var createGroupGroupCategories = exports.createGroupGroupCategories = { type: 'CREATE_GROUP_GROUP_CATEGORIES', method: 'post', key: 'create_group_group_categoriescreate_group_group_categories_group_category_id', required: ['group_category_id'] };
 
-// Edit a group
+exports.createGroupGroups = createGroupGroups;
+var createGroupGroupCategories = {
+  type: 'CREATE_GROUP_GROUP_CATEGORIES',
+  method: 'post',
+  key: 'create_group_group_categoriescreate_group_group_categories_group_category_id',
+  required: ['group_category_id']
+}; // Edit a group
 // Modifies an existing group.  Note that to set an avatar image for the
 // group, you must first upload the image file to the group, and the use the
 // id in the response as the argument to this function.  See the
@@ -122,9 +151,14 @@ var createGroupGroupCategories = exports.createGroupGroupCategories = { type: 'C
 //   sis_group_id
 // }
 // return canvasRequest(edit_group, {group_id}, body);
-var editGroup = exports.editGroup = { type: 'EDIT_GROUP', method: 'put', key: 'edit_groupedit_group_group_id', required: ['group_id'] };
 
-// Delete a group
+exports.createGroupGroupCategories = createGroupGroupCategories;
+var editGroup = {
+  type: 'EDIT_GROUP',
+  method: 'put',
+  key: 'edit_groupedit_group_group_id',
+  required: ['group_id']
+}; // Delete a group
 // Deletes a group and removes all members.
 //
 // API Docs: https://canvas.instructure.com/doc/api/groups.html
@@ -132,9 +166,14 @@ var editGroup = exports.editGroup = { type: 'EDIT_GROUP', method: 'put', key: 'e
 //
 // Example:
 // return canvasRequest(delete_group, {group_id});
-var deleteGroup = exports.deleteGroup = { type: 'DELETE_GROUP', method: 'delete', key: 'delete_groupdelete_group_group_id', required: ['group_id'] };
 
-// Invite others to a group
+exports.editGroup = editGroup;
+var deleteGroup = {
+  type: 'DELETE_GROUP',
+  method: 'delete',
+  key: 'delete_groupdelete_group_group_id',
+  required: ['group_id']
+}; // Invite others to a group
 // Sends an invitation to all supplied email addresses which will allow the
 // receivers to join the group.
 //
@@ -146,9 +185,14 @@ var deleteGroup = exports.deleteGroup = { type: 'DELETE_GROUP', method: 'delete'
 //   invitees (required)
 // }
 // return canvasRequest(invite_others_to_group, {group_id}, body);
-var inviteOthersToGroup = exports.inviteOthersToGroup = { type: 'INVITE_OTHERS_TO_GROUP', method: 'post', key: 'invite_others_to_groupinvite_others_to_group_group_id', required: ['group_id'] };
 
-// List group's users
+exports.deleteGroup = deleteGroup;
+var inviteOthersToGroup = {
+  type: 'INVITE_OTHERS_TO_GROUP',
+  method: 'post',
+  key: 'invite_others_to_groupinvite_others_to_group_group_id',
+  required: ['group_id']
+}; // List group's users
 // Returns a paginated list of users in the group.
 //
 // API Docs: https://canvas.instructure.com/doc/api/groups.html
@@ -161,9 +205,14 @@ var inviteOthersToGroup = exports.inviteOthersToGroup = { type: 'INVITE_OTHERS_T
 //   exclude_inactive
 // }
 // return canvasRequest(list_group_s_users, {group_id, ...query});
-var listGroupSUsers = exports.listGroupSUsers = { type: 'LIST_GROUP_S_USERS', method: 'get', key: 'list_group_s_userslist_group_s_users_group_id', required: ['group_id'] };
 
-// Upload a file
+exports.inviteOthersToGroup = inviteOthersToGroup;
+var listGroupSUsers = {
+  type: 'LIST_GROUP_S_USERS',
+  method: 'get',
+  key: 'list_group_s_userslist_group_s_users_group_id',
+  required: ['group_id']
+}; // Upload a file
 // Upload a file to the group.
 // 
 // This API endpoint is the first step in uploading a file to a group.
@@ -179,9 +228,14 @@ var listGroupSUsers = exports.listGroupSUsers = { type: 'LIST_GROUP_S_USERS', me
 //
 // Example:
 // return canvasRequest(groups_upload_file, {group_id});
-var groupsUploadFile = exports.groupsUploadFile = { type: 'GROUPS_UPLOAD_FILE', method: 'post', key: 'groups_upload_filegroups_upload_file_group_id', required: ['group_id'] };
 
-// Preview processed html
+exports.listGroupSUsers = listGroupSUsers;
+var groupsUploadFile = {
+  type: 'GROUPS_UPLOAD_FILE',
+  method: 'post',
+  key: 'groups_upload_filegroups_upload_file_group_id',
+  required: ['group_id']
+}; // Preview processed html
 // Preview html content processed for this group
 //
 // API Docs: https://canvas.instructure.com/doc/api/groups.html
@@ -192,9 +246,14 @@ var groupsUploadFile = exports.groupsUploadFile = { type: 'GROUPS_UPLOAD_FILE', 
 //   html
 // }
 // return canvasRequest(groups_preview_processed_html, {group_id}, body);
-var groupsPreviewProcessedHtml = exports.groupsPreviewProcessedHtml = { type: 'GROUPS_PREVIEW_PROCESSED_HTML', method: 'post', key: 'groups_preview_processed_htmlgroups_preview_processed_html_group_id', required: ['group_id'] };
 
-// Group activity stream
+exports.groupsUploadFile = groupsUploadFile;
+var groupsPreviewProcessedHtml = {
+  type: 'GROUPS_PREVIEW_PROCESSED_HTML',
+  method: 'post',
+  key: 'groups_preview_processed_htmlgroups_preview_processed_html_group_id',
+  required: ['group_id']
+}; // Group activity stream
 // Returns the current user's group-specific activity stream, paginated.
 // 
 // For full documentation, see the API documentation for the user activity
@@ -205,9 +264,14 @@ var groupsPreviewProcessedHtml = exports.groupsPreviewProcessedHtml = { type: 'G
 //
 // Example:
 // return canvasRequest(group_activity_stream, {group_id});
-var groupActivityStream = exports.groupActivityStream = { type: 'GROUP_ACTIVITY_STREAM', method: 'get', key: 'group_activity_streamgroup_activity_stream_group_id', required: ['group_id'] };
 
-// Group activity stream summary
+exports.groupsPreviewProcessedHtml = groupsPreviewProcessedHtml;
+var groupActivityStream = {
+  type: 'GROUP_ACTIVITY_STREAM',
+  method: 'get',
+  key: 'group_activity_streamgroup_activity_stream_group_id',
+  required: ['group_id']
+}; // Group activity stream summary
 // Returns a summary of the current user's group-specific activity stream.
 // 
 // For full documentation, see the API documentation for the user activity
@@ -218,9 +282,14 @@ var groupActivityStream = exports.groupActivityStream = { type: 'GROUP_ACTIVITY_
 //
 // Example:
 // return canvasRequest(group_activity_stream_summary, {group_id});
-var groupActivityStreamSummary = exports.groupActivityStreamSummary = { type: 'GROUP_ACTIVITY_STREAM_SUMMARY', method: 'get', key: 'group_activity_stream_summarygroup_activity_stream_summary_group_id', required: ['group_id'] };
 
-// Permissions
+exports.groupActivityStream = groupActivityStream;
+var groupActivityStreamSummary = {
+  type: 'GROUP_ACTIVITY_STREAM_SUMMARY',
+  method: 'get',
+  key: 'group_activity_stream_summarygroup_activity_stream_summary_group_id',
+  required: ['group_id']
+}; // Permissions
 // Returns permission information for the calling user in the given group.
 // See also the {api:AccountsController#permissions Account} and
 // {api:CoursesController#permissions Course} counterparts.
@@ -233,9 +302,14 @@ var groupActivityStreamSummary = exports.groupActivityStreamSummary = { type: 'G
 //   permissions
 // }
 // return canvasRequest(groups_permissions, {group_id, ...query});
-var groupsPermissions = exports.groupsPermissions = { type: 'GROUPS_PERMISSIONS', method: 'get', key: 'groups_permissionsgroups_permissions_group_id', required: ['group_id'] };
 
-// List group memberships
+exports.groupActivityStreamSummary = groupActivityStreamSummary;
+var groupsPermissions = {
+  type: 'GROUPS_PERMISSIONS',
+  method: 'get',
+  key: 'groups_permissionsgroups_permissions_group_id',
+  required: ['group_id']
+}; // List group memberships
 // A paginated list of the members of a group.
 //
 // API Docs: https://canvas.instructure.com/doc/api/groups.html
@@ -246,9 +320,14 @@ var groupsPermissions = exports.groupsPermissions = { type: 'GROUPS_PERMISSIONS'
 //   filter_states
 // }
 // return canvasRequest(list_group_memberships, {group_id, ...query});
-var listGroupMemberships = exports.listGroupMemberships = { type: 'LIST_GROUP_MEMBERSHIPS', method: 'get', key: 'list_group_membershipslist_group_memberships_group_id', required: ['group_id'] };
 
-// Get a single group membership
+exports.groupsPermissions = groupsPermissions;
+var listGroupMemberships = {
+  type: 'LIST_GROUP_MEMBERSHIPS',
+  method: 'get',
+  key: 'list_group_membershipslist_group_memberships_group_id',
+  required: ['group_id']
+}; // Get a single group membership
 // Returns the group membership with the given membership id or user id.
 //
 // API Docs: https://canvas.instructure.com/doc/api/groups.html
@@ -256,9 +335,14 @@ var listGroupMemberships = exports.listGroupMemberships = { type: 'LIST_GROUP_ME
 //
 // Example:
 // return canvasRequest(get_single_group_membership_memberships, {group_id, membership_id});
-var getSingleGroupMembershipMemberships = exports.getSingleGroupMembershipMemberships = { type: 'GET_SINGLE_GROUP_MEMBERSHIP_MEMBERSHIPS', method: 'get', key: 'get_single_group_membership_membershipsget_single_group_membership_memberships_{group_id}_{membership_id}', required: ['group_id', 'membership_id'] };
 
-// Get a single group membership
+exports.listGroupMemberships = listGroupMemberships;
+var getSingleGroupMembershipMemberships = {
+  type: 'GET_SINGLE_GROUP_MEMBERSHIP_MEMBERSHIPS',
+  method: 'get',
+  key: 'get_single_group_membership_membershipsget_single_group_membership_memberships_{group_id}_{membership_id}',
+  required: ['group_id', 'membership_id']
+}; // Get a single group membership
 // Returns the group membership with the given membership id or user id.
 //
 // API Docs: https://canvas.instructure.com/doc/api/groups.html
@@ -266,9 +350,14 @@ var getSingleGroupMembershipMemberships = exports.getSingleGroupMembershipMember
 //
 // Example:
 // return canvasRequest(get_single_group_membership_users, {group_id, user_id});
-var getSingleGroupMembershipUsers = exports.getSingleGroupMembershipUsers = { type: 'GET_SINGLE_GROUP_MEMBERSHIP_USERS', method: 'get', key: 'get_single_group_membership_usersget_single_group_membership_users_{group_id}_{user_id}', required: ['group_id', 'user_id'] };
 
-// Create a membership
+exports.getSingleGroupMembershipMemberships = getSingleGroupMembershipMemberships;
+var getSingleGroupMembershipUsers = {
+  type: 'GET_SINGLE_GROUP_MEMBERSHIP_USERS',
+  method: 'get',
+  key: 'get_single_group_membership_usersget_single_group_membership_users_{group_id}_{user_id}',
+  required: ['group_id', 'user_id']
+}; // Create a membership
 // Join, or request to join, a group, depending on the join_level of the
 // group.  If the membership or join request already exists, then it is simply
 // returned
@@ -281,9 +370,14 @@ var getSingleGroupMembershipUsers = exports.getSingleGroupMembershipUsers = { ty
 //   user_id
 // }
 // return canvasRequest(create_membership, {group_id}, body);
-var createMembership = exports.createMembership = { type: 'CREATE_MEMBERSHIP', method: 'post', key: 'create_membershipcreate_membership_group_id', required: ['group_id'] };
 
-// Update a membership
+exports.getSingleGroupMembershipUsers = getSingleGroupMembershipUsers;
+var createMembership = {
+  type: 'CREATE_MEMBERSHIP',
+  method: 'post',
+  key: 'create_membershipcreate_membership_group_id',
+  required: ['group_id']
+}; // Update a membership
 // Accept a membership request, or add/remove moderator rights.
 //
 // API Docs: https://canvas.instructure.com/doc/api/groups.html
@@ -295,9 +389,14 @@ var createMembership = exports.createMembership = { type: 'CREATE_MEMBERSHIP', m
 //   moderator
 // }
 // return canvasRequest(update_membership_memberships, {group_id, membership_id}, body);
-var updateMembershipMemberships = exports.updateMembershipMemberships = { type: 'UPDATE_MEMBERSHIP_MEMBERSHIPS', method: 'put', key: 'update_membership_membershipsupdate_membership_memberships_{group_id}_{membership_id}', required: ['group_id', 'membership_id'] };
 
-// Update a membership
+exports.createMembership = createMembership;
+var updateMembershipMemberships = {
+  type: 'UPDATE_MEMBERSHIP_MEMBERSHIPS',
+  method: 'put',
+  key: 'update_membership_membershipsupdate_membership_memberships_{group_id}_{membership_id}',
+  required: ['group_id', 'membership_id']
+}; // Update a membership
 // Accept a membership request, or add/remove moderator rights.
 //
 // API Docs: https://canvas.instructure.com/doc/api/groups.html
@@ -309,9 +408,14 @@ var updateMembershipMemberships = exports.updateMembershipMemberships = { type: 
 //   moderator
 // }
 // return canvasRequest(update_membership_users, {group_id, user_id}, body);
-var updateMembershipUsers = exports.updateMembershipUsers = { type: 'UPDATE_MEMBERSHIP_USERS', method: 'put', key: 'update_membership_usersupdate_membership_users_{group_id}_{user_id}', required: ['group_id', 'user_id'] };
 
-// Leave a group
+exports.updateMembershipMemberships = updateMembershipMemberships;
+var updateMembershipUsers = {
+  type: 'UPDATE_MEMBERSHIP_USERS',
+  method: 'put',
+  key: 'update_membership_usersupdate_membership_users_{group_id}_{user_id}',
+  required: ['group_id', 'user_id']
+}; // Leave a group
 // Leave a group if you are allowed to leave (some groups, such as sets of
 // course groups created by teachers, cannot be left). You may also use 'self'
 // in place of a membership_id.
@@ -321,9 +425,14 @@ var updateMembershipUsers = exports.updateMembershipUsers = { type: 'UPDATE_MEMB
 //
 // Example:
 // return canvasRequest(leave_group_memberships, {group_id, membership_id});
-var leaveGroupMemberships = exports.leaveGroupMemberships = { type: 'LEAVE_GROUP_MEMBERSHIPS', method: 'delete', key: 'leave_group_membershipsleave_group_memberships_{group_id}_{membership_id}', required: ['group_id', 'membership_id'] };
 
-// Leave a group
+exports.updateMembershipUsers = updateMembershipUsers;
+var leaveGroupMemberships = {
+  type: 'LEAVE_GROUP_MEMBERSHIPS',
+  method: 'delete',
+  key: 'leave_group_membershipsleave_group_memberships_{group_id}_{membership_id}',
+  required: ['group_id', 'membership_id']
+}; // Leave a group
 // Leave a group if you are allowed to leave (some groups, such as sets of
 // course groups created by teachers, cannot be left). You may also use 'self'
 // in place of a membership_id.
@@ -333,4 +442,12 @@ var leaveGroupMemberships = exports.leaveGroupMemberships = { type: 'LEAVE_GROUP
 //
 // Example:
 // return canvasRequest(leave_group_users, {group_id, user_id});
-var leaveGroupUsers = exports.leaveGroupUsers = { type: 'LEAVE_GROUP_USERS', method: 'delete', key: 'leave_group_usersleave_group_users_{group_id}_{user_id}', required: ['group_id', 'user_id'] };
+
+exports.leaveGroupMemberships = leaveGroupMemberships;
+var leaveGroupUsers = {
+  type: 'LEAVE_GROUP_USERS',
+  method: 'delete',
+  key: 'leave_group_usersleave_group_users_{group_id}_{user_id}',
+  required: ['group_id', 'user_id']
+};
+exports.leaveGroupUsers = leaveGroupUsers;

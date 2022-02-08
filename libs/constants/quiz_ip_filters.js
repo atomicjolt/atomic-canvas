@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.getAvailableQuizIpFilters = void 0;
 //
 // Quiz IP Filters
 //
@@ -16,4 +17,10 @@ Object.defineProperty(exports, "__esModule", {
 //
 // Example:
 // return canvasRequest(get_available_quiz_ip_filters, {course_id, quiz_id});
-var getAvailableQuizIpFilters = exports.getAvailableQuizIpFilters = { type: 'GET_AVAILABLE_QUIZ_IP_FILTERS', method: 'get', key: 'get_available_quiz_ip_filtersget_available_quiz_ip_filters_{course_id}_{quiz_id}', required: ['course_id', 'quiz_id'] };
+var getAvailableQuizIpFilters = {
+  type: 'GET_AVAILABLE_QUIZ_IP_FILTERS',
+  method: 'get',
+  key: 'get_available_quiz_ip_filtersget_available_quiz_ip_filters_{course_id}_{quiz_id}',
+  required: ['course_id', 'quiz_id']
+};
+exports.getAvailableQuizIpFilters = getAvailableQuizIpFilters;

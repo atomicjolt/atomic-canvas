@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.getSisImportErrorListSisImports = exports.getSisImportErrorListSisImportErrors = void 0;
 //
 // SIS Import Errors
 //
@@ -26,9 +27,12 @@ Object.defineProperty(exports, "__esModule", {
 //   failure
 // }
 // return canvasRequest(get_sis_import_error_list_sis_imports, {account_id, id, ...query});
-var getSisImportErrorListSisImports = exports.getSisImportErrorListSisImports = { type: 'GET_SIS_IMPORT_ERROR_LIST_SIS_IMPORTS', method: 'get', key: 'get_sis_import_error_list_sis_importsget_sis_import_error_list_sis_imports_{account_id}_{id}', required: ['account_id', 'id'] };
-
-// Get SIS import error list
+var getSisImportErrorListSisImports = {
+  type: 'GET_SIS_IMPORT_ERROR_LIST_SIS_IMPORTS',
+  method: 'get',
+  key: 'get_sis_import_error_list_sis_importsget_sis_import_error_list_sis_imports_{account_id}_{id}',
+  required: ['account_id', 'id']
+}; // Get SIS import error list
 // Returns the list of SIS import errors for an account or a SIS import. Import
 // errors are only stored for 30 days.
 // 
@@ -48,4 +52,12 @@ var getSisImportErrorListSisImports = exports.getSisImportErrorListSisImports = 
 //   failure
 // }
 // return canvasRequest(get_sis_import_error_list_sis_import_errors, {account_id, ...query});
-var getSisImportErrorListSisImportErrors = exports.getSisImportErrorListSisImportErrors = { type: 'GET_SIS_IMPORT_ERROR_LIST_SIS_IMPORT_ERRORS', method: 'get', key: 'get_sis_import_error_list_sis_import_errorsget_sis_import_error_list_sis_import_errors_account_id', required: ['account_id'] };
+
+exports.getSisImportErrorListSisImports = getSisImportErrorListSisImports;
+var getSisImportErrorListSisImportErrors = {
+  type: 'GET_SIS_IMPORT_ERROR_LIST_SIS_IMPORT_ERRORS',
+  method: 'get',
+  key: 'get_sis_import_error_list_sis_import_errorsget_sis_import_error_list_sis_import_errors_account_id',
+  required: ['account_id']
+};
+exports.getSisImportErrorListSisImportErrors = getSisImportErrorListSisImportErrors;

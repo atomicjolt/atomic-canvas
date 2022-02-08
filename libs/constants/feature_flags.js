@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.setFeatureFlagUsers = exports.setFeatureFlagCourses = exports.setFeatureFlagAccounts = exports.removeFeatureFlagUsers = exports.removeFeatureFlagCourses = exports.removeFeatureFlagAccounts = exports.listFeaturesUsers = exports.listFeaturesCourses = exports.listFeaturesAccounts = exports.listEnvironmentFeatures = exports.listEnabledFeaturesUsers = exports.listEnabledFeaturesCourses = exports.listEnabledFeaturesAccounts = exports.getFeatureFlagUsers = exports.getFeatureFlagCourses = exports.getFeatureFlagAccounts = void 0;
 //
 // Feature Flags
 //
@@ -14,9 +15,12 @@ Object.defineProperty(exports, "__esModule", {
 //
 // Example:
 // return canvasRequest(list_features_courses, {course_id});
-var listFeaturesCourses = exports.listFeaturesCourses = { type: 'LIST_FEATURES_COURSES', method: 'get', key: 'list_features_courseslist_features_courses_course_id', required: ['course_id'] };
-
-// List features
+var listFeaturesCourses = {
+  type: 'LIST_FEATURES_COURSES',
+  method: 'get',
+  key: 'list_features_courseslist_features_courses_course_id',
+  required: ['course_id']
+}; // List features
 // A paginated list of all features that apply to a given Account, Course, or User.
 //
 // API Docs: https://canvas.instructure.com/doc/api/feature_flags.html
@@ -24,9 +28,14 @@ var listFeaturesCourses = exports.listFeaturesCourses = { type: 'LIST_FEATURES_C
 //
 // Example:
 // return canvasRequest(list_features_accounts, {account_id});
-var listFeaturesAccounts = exports.listFeaturesAccounts = { type: 'LIST_FEATURES_ACCOUNTS', method: 'get', key: 'list_features_accountslist_features_accounts_account_id', required: ['account_id'] };
 
-// List features
+exports.listFeaturesCourses = listFeaturesCourses;
+var listFeaturesAccounts = {
+  type: 'LIST_FEATURES_ACCOUNTS',
+  method: 'get',
+  key: 'list_features_accountslist_features_accounts_account_id',
+  required: ['account_id']
+}; // List features
 // A paginated list of all features that apply to a given Account, Course, or User.
 //
 // API Docs: https://canvas.instructure.com/doc/api/feature_flags.html
@@ -34,9 +43,14 @@ var listFeaturesAccounts = exports.listFeaturesAccounts = { type: 'LIST_FEATURES
 //
 // Example:
 // return canvasRequest(list_features_users, {user_id});
-var listFeaturesUsers = exports.listFeaturesUsers = { type: 'LIST_FEATURES_USERS', method: 'get', key: 'list_features_userslist_features_users_user_id', required: ['user_id'] };
 
-// List enabled features
+exports.listFeaturesAccounts = listFeaturesAccounts;
+var listFeaturesUsers = {
+  type: 'LIST_FEATURES_USERS',
+  method: 'get',
+  key: 'list_features_userslist_features_users_user_id',
+  required: ['user_id']
+}; // List enabled features
 // A paginated list of all features that are enabled on a given Account, Course, or User.
 // Only the feature names are returned.
 //
@@ -45,9 +59,14 @@ var listFeaturesUsers = exports.listFeaturesUsers = { type: 'LIST_FEATURES_USERS
 //
 // Example:
 // return canvasRequest(list_enabled_features_courses, {course_id});
-var listEnabledFeaturesCourses = exports.listEnabledFeaturesCourses = { type: 'LIST_ENABLED_FEATURES_COURSES', method: 'get', key: 'list_enabled_features_courseslist_enabled_features_courses_course_id', required: ['course_id'] };
 
-// List enabled features
+exports.listFeaturesUsers = listFeaturesUsers;
+var listEnabledFeaturesCourses = {
+  type: 'LIST_ENABLED_FEATURES_COURSES',
+  method: 'get',
+  key: 'list_enabled_features_courseslist_enabled_features_courses_course_id',
+  required: ['course_id']
+}; // List enabled features
 // A paginated list of all features that are enabled on a given Account, Course, or User.
 // Only the feature names are returned.
 //
@@ -56,9 +75,14 @@ var listEnabledFeaturesCourses = exports.listEnabledFeaturesCourses = { type: 'L
 //
 // Example:
 // return canvasRequest(list_enabled_features_accounts, {account_id});
-var listEnabledFeaturesAccounts = exports.listEnabledFeaturesAccounts = { type: 'LIST_ENABLED_FEATURES_ACCOUNTS', method: 'get', key: 'list_enabled_features_accountslist_enabled_features_accounts_account_id', required: ['account_id'] };
 
-// List enabled features
+exports.listEnabledFeaturesCourses = listEnabledFeaturesCourses;
+var listEnabledFeaturesAccounts = {
+  type: 'LIST_ENABLED_FEATURES_ACCOUNTS',
+  method: 'get',
+  key: 'list_enabled_features_accountslist_enabled_features_accounts_account_id',
+  required: ['account_id']
+}; // List enabled features
 // A paginated list of all features that are enabled on a given Account, Course, or User.
 // Only the feature names are returned.
 //
@@ -67,9 +91,14 @@ var listEnabledFeaturesAccounts = exports.listEnabledFeaturesAccounts = { type: 
 //
 // Example:
 // return canvasRequest(list_enabled_features_users, {user_id});
-var listEnabledFeaturesUsers = exports.listEnabledFeaturesUsers = { type: 'LIST_ENABLED_FEATURES_USERS', method: 'get', key: 'list_enabled_features_userslist_enabled_features_users_user_id', required: ['user_id'] };
 
-// List environment features
+exports.listEnabledFeaturesAccounts = listEnabledFeaturesAccounts;
+var listEnabledFeaturesUsers = {
+  type: 'LIST_ENABLED_FEATURES_USERS',
+  method: 'get',
+  key: 'list_enabled_features_userslist_enabled_features_users_user_id',
+  required: ['user_id']
+}; // List environment features
 // Return a hash of global feature options that pertain to the
 // Canvas user interface. This is the same information supplied to the
 // web interface as +ENV.FEATURES+.
@@ -79,9 +108,14 @@ var listEnabledFeaturesUsers = exports.listEnabledFeaturesUsers = { type: 'LIST_
 //
 // Example:
 // return canvasRequest(list_environment_features, {});
-var listEnvironmentFeatures = exports.listEnvironmentFeatures = { type: 'LIST_ENVIRONMENT_FEATURES', method: 'get', key: 'list_environment_features', required: [] };
 
-// Get feature flag
+exports.listEnabledFeaturesUsers = listEnabledFeaturesUsers;
+var listEnvironmentFeatures = {
+  type: 'LIST_ENVIRONMENT_FEATURES',
+  method: 'get',
+  key: 'list_environment_features',
+  required: []
+}; // Get feature flag
 // Get the feature flag that applies to a given Account, Course, or User.
 // The flag may be defined on the object, or it may be inherited from a parent
 // account. You can look at the context_id and context_type of the returned object
@@ -93,9 +127,14 @@ var listEnvironmentFeatures = exports.listEnvironmentFeatures = { type: 'LIST_EN
 //
 // Example:
 // return canvasRequest(get_feature_flag_courses, {course_id, feature});
-var getFeatureFlagCourses = exports.getFeatureFlagCourses = { type: 'GET_FEATURE_FLAG_COURSES', method: 'get', key: 'get_feature_flag_coursesget_feature_flag_courses_{course_id}_{feature}', required: ['course_id', 'feature'] };
 
-// Get feature flag
+exports.listEnvironmentFeatures = listEnvironmentFeatures;
+var getFeatureFlagCourses = {
+  type: 'GET_FEATURE_FLAG_COURSES',
+  method: 'get',
+  key: 'get_feature_flag_coursesget_feature_flag_courses_{course_id}_{feature}',
+  required: ['course_id', 'feature']
+}; // Get feature flag
 // Get the feature flag that applies to a given Account, Course, or User.
 // The flag may be defined on the object, or it may be inherited from a parent
 // account. You can look at the context_id and context_type of the returned object
@@ -107,9 +146,14 @@ var getFeatureFlagCourses = exports.getFeatureFlagCourses = { type: 'GET_FEATURE
 //
 // Example:
 // return canvasRequest(get_feature_flag_accounts, {account_id, feature});
-var getFeatureFlagAccounts = exports.getFeatureFlagAccounts = { type: 'GET_FEATURE_FLAG_ACCOUNTS', method: 'get', key: 'get_feature_flag_accountsget_feature_flag_accounts_{account_id}_{feature}', required: ['account_id', 'feature'] };
 
-// Get feature flag
+exports.getFeatureFlagCourses = getFeatureFlagCourses;
+var getFeatureFlagAccounts = {
+  type: 'GET_FEATURE_FLAG_ACCOUNTS',
+  method: 'get',
+  key: 'get_feature_flag_accountsget_feature_flag_accounts_{account_id}_{feature}',
+  required: ['account_id', 'feature']
+}; // Get feature flag
 // Get the feature flag that applies to a given Account, Course, or User.
 // The flag may be defined on the object, or it may be inherited from a parent
 // account. You can look at the context_id and context_type of the returned object
@@ -121,9 +165,14 @@ var getFeatureFlagAccounts = exports.getFeatureFlagAccounts = { type: 'GET_FEATU
 //
 // Example:
 // return canvasRequest(get_feature_flag_users, {user_id, feature});
-var getFeatureFlagUsers = exports.getFeatureFlagUsers = { type: 'GET_FEATURE_FLAG_USERS', method: 'get', key: 'get_feature_flag_usersget_feature_flag_users_{user_id}_{feature}', required: ['user_id', 'feature'] };
 
-// Set feature flag
+exports.getFeatureFlagAccounts = getFeatureFlagAccounts;
+var getFeatureFlagUsers = {
+  type: 'GET_FEATURE_FLAG_USERS',
+  method: 'get',
+  key: 'get_feature_flag_usersget_feature_flag_users_{user_id}_{feature}',
+  required: ['user_id', 'feature']
+}; // Set feature flag
 // Set a feature flag for a given Account, Course, or User. This call will fail if a parent account sets
 // a feature flag for the same feature in any state other than "allowed".
 //
@@ -135,9 +184,14 @@ var getFeatureFlagUsers = exports.getFeatureFlagUsers = { type: 'GET_FEATURE_FLA
 //   state
 // }
 // return canvasRequest(set_feature_flag_courses, {course_id, feature}, body);
-var setFeatureFlagCourses = exports.setFeatureFlagCourses = { type: 'SET_FEATURE_FLAG_COURSES', method: 'put', key: 'set_feature_flag_coursesset_feature_flag_courses_{course_id}_{feature}', required: ['course_id', 'feature'] };
 
-// Set feature flag
+exports.getFeatureFlagUsers = getFeatureFlagUsers;
+var setFeatureFlagCourses = {
+  type: 'SET_FEATURE_FLAG_COURSES',
+  method: 'put',
+  key: 'set_feature_flag_coursesset_feature_flag_courses_{course_id}_{feature}',
+  required: ['course_id', 'feature']
+}; // Set feature flag
 // Set a feature flag for a given Account, Course, or User. This call will fail if a parent account sets
 // a feature flag for the same feature in any state other than "allowed".
 //
@@ -149,9 +203,14 @@ var setFeatureFlagCourses = exports.setFeatureFlagCourses = { type: 'SET_FEATURE
 //   state
 // }
 // return canvasRequest(set_feature_flag_accounts, {account_id, feature}, body);
-var setFeatureFlagAccounts = exports.setFeatureFlagAccounts = { type: 'SET_FEATURE_FLAG_ACCOUNTS', method: 'put', key: 'set_feature_flag_accountsset_feature_flag_accounts_{account_id}_{feature}', required: ['account_id', 'feature'] };
 
-// Set feature flag
+exports.setFeatureFlagCourses = setFeatureFlagCourses;
+var setFeatureFlagAccounts = {
+  type: 'SET_FEATURE_FLAG_ACCOUNTS',
+  method: 'put',
+  key: 'set_feature_flag_accountsset_feature_flag_accounts_{account_id}_{feature}',
+  required: ['account_id', 'feature']
+}; // Set feature flag
 // Set a feature flag for a given Account, Course, or User. This call will fail if a parent account sets
 // a feature flag for the same feature in any state other than "allowed".
 //
@@ -163,9 +222,14 @@ var setFeatureFlagAccounts = exports.setFeatureFlagAccounts = { type: 'SET_FEATU
 //   state
 // }
 // return canvasRequest(set_feature_flag_users, {user_id, feature}, body);
-var setFeatureFlagUsers = exports.setFeatureFlagUsers = { type: 'SET_FEATURE_FLAG_USERS', method: 'put', key: 'set_feature_flag_usersset_feature_flag_users_{user_id}_{feature}', required: ['user_id', 'feature'] };
 
-// Remove feature flag
+exports.setFeatureFlagAccounts = setFeatureFlagAccounts;
+var setFeatureFlagUsers = {
+  type: 'SET_FEATURE_FLAG_USERS',
+  method: 'put',
+  key: 'set_feature_flag_usersset_feature_flag_users_{user_id}_{feature}',
+  required: ['user_id', 'feature']
+}; // Remove feature flag
 // Remove feature flag for a given Account, Course, or User.  (Note that the flag must
 // be defined on the Account, Course, or User directly.)  The object will then inherit
 // the feature flags from a higher account, if any exist.  If this flag was 'on' or 'off',
@@ -176,9 +240,14 @@ var setFeatureFlagUsers = exports.setFeatureFlagUsers = { type: 'SET_FEATURE_FLA
 //
 // Example:
 // return canvasRequest(remove_feature_flag_courses, {course_id, feature});
-var removeFeatureFlagCourses = exports.removeFeatureFlagCourses = { type: 'REMOVE_FEATURE_FLAG_COURSES', method: 'delete', key: 'remove_feature_flag_coursesremove_feature_flag_courses_{course_id}_{feature}', required: ['course_id', 'feature'] };
 
-// Remove feature flag
+exports.setFeatureFlagUsers = setFeatureFlagUsers;
+var removeFeatureFlagCourses = {
+  type: 'REMOVE_FEATURE_FLAG_COURSES',
+  method: 'delete',
+  key: 'remove_feature_flag_coursesremove_feature_flag_courses_{course_id}_{feature}',
+  required: ['course_id', 'feature']
+}; // Remove feature flag
 // Remove feature flag for a given Account, Course, or User.  (Note that the flag must
 // be defined on the Account, Course, or User directly.)  The object will then inherit
 // the feature flags from a higher account, if any exist.  If this flag was 'on' or 'off',
@@ -189,9 +258,14 @@ var removeFeatureFlagCourses = exports.removeFeatureFlagCourses = { type: 'REMOV
 //
 // Example:
 // return canvasRequest(remove_feature_flag_accounts, {account_id, feature});
-var removeFeatureFlagAccounts = exports.removeFeatureFlagAccounts = { type: 'REMOVE_FEATURE_FLAG_ACCOUNTS', method: 'delete', key: 'remove_feature_flag_accountsremove_feature_flag_accounts_{account_id}_{feature}', required: ['account_id', 'feature'] };
 
-// Remove feature flag
+exports.removeFeatureFlagCourses = removeFeatureFlagCourses;
+var removeFeatureFlagAccounts = {
+  type: 'REMOVE_FEATURE_FLAG_ACCOUNTS',
+  method: 'delete',
+  key: 'remove_feature_flag_accountsremove_feature_flag_accounts_{account_id}_{feature}',
+  required: ['account_id', 'feature']
+}; // Remove feature flag
 // Remove feature flag for a given Account, Course, or User.  (Note that the flag must
 // be defined on the Account, Course, or User directly.)  The object will then inherit
 // the feature flags from a higher account, if any exist.  If this flag was 'on' or 'off',
@@ -202,4 +276,12 @@ var removeFeatureFlagAccounts = exports.removeFeatureFlagAccounts = { type: 'REM
 //
 // Example:
 // return canvasRequest(remove_feature_flag_users, {user_id, feature});
-var removeFeatureFlagUsers = exports.removeFeatureFlagUsers = { type: 'REMOVE_FEATURE_FLAG_USERS', method: 'delete', key: 'remove_feature_flag_usersremove_feature_flag_users_{user_id}_{feature}', required: ['user_id', 'feature'] };
+
+exports.removeFeatureFlagAccounts = removeFeatureFlagAccounts;
+var removeFeatureFlagUsers = {
+  type: 'REMOVE_FEATURE_FLAG_USERS',
+  method: 'delete',
+  key: 'remove_feature_flag_usersremove_feature_flag_users_{user_id}_{feature}',
+  required: ['user_id', 'feature']
+};
+exports.removeFeatureFlagUsers = removeFeatureFlagUsers;

@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.listAnnouncements = void 0;
 //
 // Announcements
 //
@@ -24,4 +25,10 @@ Object.defineProperty(exports, "__esModule", {
 //   include
 // }
 // return canvasRequest(list_announcements, {, ...query});
-var listAnnouncements = exports.listAnnouncements = { type: 'LIST_ANNOUNCEMENTS', method: 'get', key: 'list_announcements', required: [] };
+var listAnnouncements = {
+  type: 'LIST_ANNOUNCEMENTS',
+  method: 'get',
+  key: 'list_announcements',
+  required: []
+};
+exports.listAnnouncements = listAnnouncements;

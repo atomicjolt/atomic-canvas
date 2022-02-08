@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.getOutcomeResults = exports.getOutcomeResultRollups = void 0;
 //
 // Outcome Results
 //
@@ -20,9 +21,12 @@ Object.defineProperty(exports, "__esModule", {
 //   include_hidden
 // }
 // return canvasRequest(get_outcome_results, {course_id, ...query});
-var getOutcomeResults = exports.getOutcomeResults = { type: 'GET_OUTCOME_RESULTS', method: 'get', key: 'get_outcome_resultsget_outcome_results_course_id', required: ['course_id'] };
-
-// Get outcome result rollups
+var getOutcomeResults = {
+  type: 'GET_OUTCOME_RESULTS',
+  method: 'get',
+  key: 'get_outcome_resultsget_outcome_results_course_id',
+  required: ['course_id']
+}; // Get outcome result rollups
 // Gets the outcome rollups for the users and outcomes in the specified
 // context.
 //
@@ -42,4 +46,12 @@ var getOutcomeResults = exports.getOutcomeResults = { type: 'GET_OUTCOME_RESULTS
 //   sort_order
 // }
 // return canvasRequest(get_outcome_result_rollups, {course_id, ...query});
-var getOutcomeResultRollups = exports.getOutcomeResultRollups = { type: 'GET_OUTCOME_RESULT_ROLLUPS', method: 'get', key: 'get_outcome_result_rollupsget_outcome_result_rollups_course_id', required: ['course_id'] };
+
+exports.getOutcomeResults = getOutcomeResults;
+var getOutcomeResultRollups = {
+  type: 'GET_OUTCOME_RESULT_ROLLUPS',
+  method: 'get',
+  key: 'get_outcome_result_rollupsget_outcome_result_rollups_course_id',
+  required: ['course_id']
+};
+exports.getOutcomeResultRollups = getOutcomeResultRollups;

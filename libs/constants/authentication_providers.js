@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.updateAuthenticationProvider = exports.updateAccountAuthSettings = exports.showAccountAuthSettings = exports.listAuthenticationProviders = exports.getAuthenticationProvider = exports.deleteAuthenticationProvider = exports.addAuthenticationProvider = void 0;
 //
 // Authentication Providers
 //
@@ -14,9 +15,12 @@ Object.defineProperty(exports, "__esModule", {
 //
 // Example:
 // return canvasRequest(list_authentication_providers, {account_id});
-var listAuthenticationProviders = exports.listAuthenticationProviders = { type: 'LIST_AUTHENTICATION_PROVIDERS', method: 'get', key: 'list_authentication_providerslist_authentication_providers_account_id', required: ['account_id'] };
-
-// Add authentication provider
+var listAuthenticationProviders = {
+  type: 'LIST_AUTHENTICATION_PROVIDERS',
+  method: 'get',
+  key: 'list_authentication_providerslist_authentication_providers_account_id',
+  required: ['account_id']
+}; // Add authentication provider
 // Add external authentication provider(s) for the account.
 // Services may be Apple, CAS, Facebook, GitHub, Google, LDAP, LinkedIn,
 // Microsoft, OpenID Connect, SAML, or Twitter.
@@ -409,9 +413,14 @@ var listAuthenticationProviders = exports.listAuthenticationProviders = { type: 
 //
 // Example:
 // return canvasRequest(add_authentication_provider, {account_id});
-var addAuthenticationProvider = exports.addAuthenticationProvider = { type: 'ADD_AUTHENTICATION_PROVIDER', method: 'post', key: 'add_authentication_provideradd_authentication_provider_account_id', required: ['account_id'] };
 
-// Update authentication provider
+exports.listAuthenticationProviders = listAuthenticationProviders;
+var addAuthenticationProvider = {
+  type: 'ADD_AUTHENTICATION_PROVIDER',
+  method: 'post',
+  key: 'add_authentication_provideradd_authentication_provider_account_id',
+  required: ['account_id']
+}; // Update authentication provider
 // Update an authentication provider using the same options as the create endpoint.
 // You can not update an existing provider to a new authentication type.
 //
@@ -420,9 +429,14 @@ var addAuthenticationProvider = exports.addAuthenticationProvider = { type: 'ADD
 //
 // Example:
 // return canvasRequest(update_authentication_provider, {account_id, id});
-var updateAuthenticationProvider = exports.updateAuthenticationProvider = { type: 'UPDATE_AUTHENTICATION_PROVIDER', method: 'put', key: 'update_authentication_providerupdate_authentication_provider_{account_id}_{id}', required: ['account_id', 'id'] };
 
-// Get authentication provider
+exports.addAuthenticationProvider = addAuthenticationProvider;
+var updateAuthenticationProvider = {
+  type: 'UPDATE_AUTHENTICATION_PROVIDER',
+  method: 'put',
+  key: 'update_authentication_providerupdate_authentication_provider_{account_id}_{id}',
+  required: ['account_id', 'id']
+}; // Get authentication provider
 // Get the specified authentication provider
 //
 // API Docs: https://canvas.instructure.com/doc/api/authentication_providers.html
@@ -430,9 +444,14 @@ var updateAuthenticationProvider = exports.updateAuthenticationProvider = { type
 //
 // Example:
 // return canvasRequest(get_authentication_provider, {account_id, id});
-var getAuthenticationProvider = exports.getAuthenticationProvider = { type: 'GET_AUTHENTICATION_PROVIDER', method: 'get', key: 'get_authentication_providerget_authentication_provider_{account_id}_{id}', required: ['account_id', 'id'] };
 
-// Delete authentication provider
+exports.updateAuthenticationProvider = updateAuthenticationProvider;
+var getAuthenticationProvider = {
+  type: 'GET_AUTHENTICATION_PROVIDER',
+  method: 'get',
+  key: 'get_authentication_providerget_authentication_provider_{account_id}_{id}',
+  required: ['account_id', 'id']
+}; // Delete authentication provider
 // Delete the config
 //
 // API Docs: https://canvas.instructure.com/doc/api/authentication_providers.html
@@ -440,9 +459,14 @@ var getAuthenticationProvider = exports.getAuthenticationProvider = { type: 'GET
 //
 // Example:
 // return canvasRequest(delete_authentication_provider, {account_id, id});
-var deleteAuthenticationProvider = exports.deleteAuthenticationProvider = { type: 'DELETE_AUTHENTICATION_PROVIDER', method: 'delete', key: 'delete_authentication_providerdelete_authentication_provider_{account_id}_{id}', required: ['account_id', 'id'] };
 
-// show account auth settings
+exports.getAuthenticationProvider = getAuthenticationProvider;
+var deleteAuthenticationProvider = {
+  type: 'DELETE_AUTHENTICATION_PROVIDER',
+  method: 'delete',
+  key: 'delete_authentication_providerdelete_authentication_provider_{account_id}_{id}',
+  required: ['account_id', 'id']
+}; // show account auth settings
 // The way to get the current state of each account level setting
 // that's relevant to Single Sign On configuration
 // 
@@ -453,9 +477,14 @@ var deleteAuthenticationProvider = exports.deleteAuthenticationProvider = { type
 //
 // Example:
 // return canvasRequest(show_account_auth_settings, {account_id});
-var showAccountAuthSettings = exports.showAccountAuthSettings = { type: 'SHOW_ACCOUNT_AUTH_SETTINGS', method: 'get', key: 'show_account_auth_settingsshow_account_auth_settings_account_id', required: ['account_id'] };
 
-// update account auth settings
+exports.deleteAuthenticationProvider = deleteAuthenticationProvider;
+var showAccountAuthSettings = {
+  type: 'SHOW_ACCOUNT_AUTH_SETTINGS',
+  method: 'get',
+  key: 'show_account_auth_settingsshow_account_auth_settings_account_id',
+  required: ['account_id']
+}; // update account auth settings
 // For various cases of mixed SSO configurations, you may need to set some
 // configuration at the account level to handle the particulars of your
 // setup.
@@ -472,4 +501,12 @@ var showAccountAuthSettings = exports.showAccountAuthSettings = { type: 'SHOW_AC
 //
 // Example:
 // return canvasRequest(update_account_auth_settings, {account_id});
-var updateAccountAuthSettings = exports.updateAccountAuthSettings = { type: 'UPDATE_ACCOUNT_AUTH_SETTINGS', method: 'put', key: 'update_account_auth_settingsupdate_account_auth_settings_account_id', required: ['account_id'] };
+
+exports.showAccountAuthSettings = showAccountAuthSettings;
+var updateAccountAuthSettings = {
+  type: 'UPDATE_ACCOUNT_AUTH_SETTINGS',
+  method: 'put',
+  key: 'update_account_auth_settingsupdate_account_auth_settings_account_id',
+  required: ['account_id']
+};
+exports.updateAccountAuthSettings = updateAccountAuthSettings;

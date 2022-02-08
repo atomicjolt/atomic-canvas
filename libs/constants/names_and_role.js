@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.namesAndRoleListGroupMemberships = exports.listCourseMemberships = void 0;
 //
 // Names and Role
 //
@@ -19,9 +20,12 @@ Object.defineProperty(exports, "__esModule", {
 //   limit
 // }
 // return canvasRequest(list_course_memberships, {course_id, ...query});
-var listCourseMemberships = exports.listCourseMemberships = { type: 'LIST_COURSE_MEMBERSHIPS', method: 'get', key: 'list_course_membershipslist_course_memberships_course_id', required: ['course_id'] };
-
-// List Group Memberships
+var listCourseMemberships = {
+  type: 'LIST_COURSE_MEMBERSHIPS',
+  method: 'get',
+  key: 'list_course_membershipslist_course_memberships_course_id',
+  required: ['course_id']
+}; // List Group Memberships
 // Return active NamesAndRoleMemberships in the given group.
 //
 // API Docs: https://canvas.instructure.com/doc/api/names_and_role.html
@@ -34,4 +38,12 @@ var listCourseMemberships = exports.listCourseMemberships = { type: 'LIST_COURSE
 //   limit
 // }
 // return canvasRequest(names_and_role_list_group_memberships, {group_id, ...query});
-var namesAndRoleListGroupMemberships = exports.namesAndRoleListGroupMemberships = { type: 'NAMES_AND_ROLE_LIST_GROUP_MEMBERSHIPS', method: 'get', key: 'names_and_role_list_group_membershipsnames_and_role_list_group_memberships_group_id', required: ['group_id'] };
+
+exports.listCourseMemberships = listCourseMemberships;
+var namesAndRoleListGroupMemberships = {
+  type: 'NAMES_AND_ROLE_LIST_GROUP_MEMBERSHIPS',
+  method: 'get',
+  key: 'names_and_role_list_group_membershipsnames_and_role_list_group_memberships_group_id',
+  required: ['group_id']
+};
+exports.namesAndRoleListGroupMemberships = namesAndRoleListGroupMemberships;

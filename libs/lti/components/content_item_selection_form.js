@@ -1,93 +1,60 @@
-'use strict';
+"use strict";
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = undefined;
+exports["default"] = ContentItemSelectionForm;
 
-var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+var _lodash = _interopRequireDefault(require("lodash"));
 
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+var _react = _interopRequireWildcard(require("react"));
 
-var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
-var _createClass2 = require('babel-runtime/helpers/createClass');
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-var _createClass3 = _interopRequireDefault(_createClass2);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+function ContentItemSelectionForm(props) {
+  var launchData = props.launchData,
+      contentItemReturnURL = props.contentItemReturnURL;
+  var formRef = (0, _react.useRef)(null);
+  var formStyle = {
+    display: 'none'
+  };
+  (0, _react.useEffect)(function () {
+    if (formRef.current) {
+      formRef.current.submit();
+    }
+  }, [formRef.current]);
 
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = require('babel-runtime/helpers/inherits');
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _lodash = require('lodash');
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var _ref = _react2.default.createElement(
-  'button',
-  { type: 'submit' },
-  'Finish'
-);
-
-var ContentItemSelectionForm = function (_React$Component) {
-  (0, _inherits3.default)(ContentItemSelectionForm, _React$Component);
-
-  function ContentItemSelectionForm() {
-    (0, _classCallCheck3.default)(this, ContentItemSelectionForm);
-    return (0, _possibleConstructorReturn3.default)(this, (ContentItemSelectionForm.__proto__ || (0, _getPrototypeOf2.default)(ContentItemSelectionForm)).apply(this, arguments));
+  function renderLaunchData() {
+    return _lodash["default"].map(launchData, function (value, key) {
+      return /*#__PURE__*/_react["default"].createElement("input", {
+        key: key,
+        type: "hidden",
+        value: value || '',
+        name: key
+      });
+    });
   }
 
-  (0, _createClass3.default)(ContentItemSelectionForm, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.form.submit();
-    }
-  }, {
-    key: 'renderLaunchData',
-    value: function renderLaunchData() {
-      return _lodash2.default.map(this.props.launchData, function (value, key) {
-        return _react2.default.createElement('input', { key: key, type: 'hidden', value: value || '', name: key });
-      });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
+  return /*#__PURE__*/_react["default"].createElement("form", {
+    ref: formRef,
+    action: contentItemReturnURL,
+    style: formStyle,
+    method: "post",
+    encType: "application/x-www-form-urlencoded"
+  }, renderLaunchData(), /*#__PURE__*/_react["default"].createElement("button", {
+    type: "submit"
+  }, "Finish"));
+}
 
-      var formStyle = { display: 'none' };
-      return _react2.default.createElement(
-        'form',
-        {
-          ref: function ref(_ref2) {
-            _this2.form = _ref2;
-          },
-          action: this.props.contentItemReturnURL,
-          style: formStyle,
-          method: 'post',
-          encType: 'application/x-www-form-urlencoded'
-        },
-        this.renderLaunchData(),
-        _ref
-      );
-    }
-  }]);
-  return ContentItemSelectionForm;
-}(_react2.default.Component);
-
-exports.default = ContentItemSelectionForm;
+ContentItemSelectionForm.propTypes = {
+  launchData: _propTypes["default"].shape({}),
+  contentItemReturnURL: _propTypes["default"].string
+};

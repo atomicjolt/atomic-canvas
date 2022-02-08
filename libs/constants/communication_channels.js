@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.listUserCommunicationChannels = exports.deletePushNotificationEndpoint = exports.deleteCommunicationChannelType = exports.deleteCommunicationChannelId = exports.createCommunicationChannel = void 0;
 //
 // Communication Channels
 //
@@ -15,9 +16,12 @@ Object.defineProperty(exports, "__esModule", {
 //
 // Example:
 // return canvasRequest(list_user_communication_channels, {user_id});
-var listUserCommunicationChannels = exports.listUserCommunicationChannels = { type: 'LIST_USER_COMMUNICATION_CHANNELS', method: 'get', key: 'list_user_communication_channelslist_user_communication_channels_user_id', required: ['user_id'] };
-
-// Create a communication channel
+var listUserCommunicationChannels = {
+  type: 'LIST_USER_COMMUNICATION_CHANNELS',
+  method: 'get',
+  key: 'list_user_communication_channelslist_user_communication_channels_user_id',
+  required: ['user_id']
+}; // Create a communication channel
 // Creates a new communication channel for the specified user.
 //
 // API Docs: https://canvas.instructure.com/doc/api/communication_channels.html
@@ -31,9 +35,14 @@ var listUserCommunicationChannels = exports.listUserCommunicationChannels = { ty
 //   skip_confirmation
 // }
 // return canvasRequest(create_communication_channel, {user_id}, body);
-var createCommunicationChannel = exports.createCommunicationChannel = { type: 'CREATE_COMMUNICATION_CHANNEL', method: 'post', key: 'create_communication_channelcreate_communication_channel_user_id', required: ['user_id'] };
 
-// Delete a communication channel
+exports.listUserCommunicationChannels = listUserCommunicationChannels;
+var createCommunicationChannel = {
+  type: 'CREATE_COMMUNICATION_CHANNEL',
+  method: 'post',
+  key: 'create_communication_channelcreate_communication_channel_user_id',
+  required: ['user_id']
+}; // Delete a communication channel
 // Delete an existing communication channel.
 //
 // API Docs: https://canvas.instructure.com/doc/api/communication_channels.html
@@ -41,9 +50,14 @@ var createCommunicationChannel = exports.createCommunicationChannel = { type: 'C
 //
 // Example:
 // return canvasRequest(delete_communication_channel_id, {user_id, id});
-var deleteCommunicationChannelId = exports.deleteCommunicationChannelId = { type: 'DELETE_COMMUNICATION_CHANNEL_ID', method: 'delete', key: 'delete_communication_channel_iddelete_communication_channel_id_{user_id}_{id}', required: ['user_id', 'id'] };
 
-// Delete a communication channel
+exports.createCommunicationChannel = createCommunicationChannel;
+var deleteCommunicationChannelId = {
+  type: 'DELETE_COMMUNICATION_CHANNEL_ID',
+  method: 'delete',
+  key: 'delete_communication_channel_iddelete_communication_channel_id_{user_id}_{id}',
+  required: ['user_id', 'id']
+}; // Delete a communication channel
 // Delete an existing communication channel.
 //
 // API Docs: https://canvas.instructure.com/doc/api/communication_channels.html
@@ -51,9 +65,14 @@ var deleteCommunicationChannelId = exports.deleteCommunicationChannelId = { type
 //
 // Example:
 // return canvasRequest(delete_communication_channel_type, {user_id, type, address});
-var deleteCommunicationChannelType = exports.deleteCommunicationChannelType = { type: 'DELETE_COMMUNICATION_CHANNEL_TYPE', method: 'delete', key: 'delete_communication_channel_typedelete_communication_channel_type_{user_id}_{type}_{address}', required: ['user_id', 'type', 'address'] };
 
-// Delete a push notification endpoint
+exports.deleteCommunicationChannelId = deleteCommunicationChannelId;
+var deleteCommunicationChannelType = {
+  type: 'DELETE_COMMUNICATION_CHANNEL_TYPE',
+  method: 'delete',
+  key: 'delete_communication_channel_typedelete_communication_channel_type_{user_id}_{type}_{address}',
+  required: ['user_id', 'type', 'address']
+}; // Delete a push notification endpoint
 // 
 //
 // API Docs: https://canvas.instructure.com/doc/api/communication_channels.html
@@ -61,4 +80,12 @@ var deleteCommunicationChannelType = exports.deleteCommunicationChannelType = { 
 //
 // Example:
 // return canvasRequest(delete_push_notification_endpoint, {});
-var deletePushNotificationEndpoint = exports.deletePushNotificationEndpoint = { type: 'DELETE_PUSH_NOTIFICATION_ENDPOINT', method: 'delete', key: 'delete_push_notification_endpoint', required: [] };
+
+exports.deleteCommunicationChannelType = deleteCommunicationChannelType;
+var deletePushNotificationEndpoint = {
+  type: 'DELETE_PUSH_NOTIFICATION_ENDPOINT',
+  method: 'delete',
+  key: 'delete_push_notification_endpoint',
+  required: []
+};
+exports.deletePushNotificationEndpoint = deletePushNotificationEndpoint;

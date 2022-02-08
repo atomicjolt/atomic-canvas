@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.getSingleSubmission = exports.getHistoryOfSingleSubmission = void 0;
 //
 // Plagiarism Detection Submissions
 //
@@ -14,9 +15,12 @@ Object.defineProperty(exports, "__esModule", {
 //
 // Example:
 // return canvasRequest(get_single_submission, {assignment_id, submission_id});
-var getSingleSubmission = exports.getSingleSubmission = { type: 'GET_SINGLE_SUBMISSION', method: 'get', key: 'get_single_submissionget_single_submission_{assignment_id}_{submission_id}', required: ['assignment_id', 'submission_id'] };
-
-// Get the history of a single submission
+var getSingleSubmission = {
+  type: 'GET_SINGLE_SUBMISSION',
+  method: 'get',
+  key: 'get_single_submissionget_single_submission_{assignment_id}_{submission_id}',
+  required: ['assignment_id', 'submission_id']
+}; // Get the history of a single submission
 // Get a list of all attempts made for a submission, based on submission id.
 //
 // API Docs: https://canvas.instructure.com/doc/api/plagiarism_detection_submissions.html
@@ -24,4 +28,12 @@ var getSingleSubmission = exports.getSingleSubmission = { type: 'GET_SINGLE_SUBM
 //
 // Example:
 // return canvasRequest(get_history_of_single_submission, {assignment_id, submission_id});
-var getHistoryOfSingleSubmission = exports.getHistoryOfSingleSubmission = { type: 'GET_HISTORY_OF_SINGLE_SUBMISSION', method: 'get', key: 'get_history_of_single_submissionget_history_of_single_submission_{assignment_id}_{submission_id}', required: ['assignment_id', 'submission_id'] };
+
+exports.getSingleSubmission = getSingleSubmission;
+var getHistoryOfSingleSubmission = {
+  type: 'GET_HISTORY_OF_SINGLE_SUBMISSION',
+  method: 'get',
+  key: 'get_history_of_single_submissionget_history_of_single_submission_{assignment_id}_{submission_id}',
+  required: ['assignment_id', 'submission_id']
+};
+exports.getHistoryOfSingleSubmission = getHistoryOfSingleSubmission;

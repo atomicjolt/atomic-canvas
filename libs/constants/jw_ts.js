@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.refreshJwt = exports.createJwt = void 0;
 //
 // JWTs
 //
@@ -20,9 +21,12 @@ Object.defineProperty(exports, "__esModule", {
 //   workflows
 // }
 // return canvasRequest(create_jwt, {}, body);
-var createJwt = exports.createJwt = { type: 'CREATE_JWT', method: 'post', key: 'create_jwt', required: [] };
-
-// Refresh JWT
+var createJwt = {
+  type: 'CREATE_JWT',
+  method: 'post',
+  key: 'create_jwt',
+  required: []
+}; // Refresh JWT
 // Refresh a JWT for use with other canvas services
 // 
 // Generates a different JWT each time it's called, each one expires
@@ -36,4 +40,12 @@ var createJwt = exports.createJwt = { type: 'CREATE_JWT', method: 'post', key: '
 //   jwt (required)
 // }
 // return canvasRequest(refresh_jwt, {}, body);
-var refreshJwt = exports.refreshJwt = { type: 'REFRESH_JWT', method: 'post', key: 'refresh_jwt', required: [] };
+
+exports.createJwt = createJwt;
+var refreshJwt = {
+  type: 'REFRESH_JWT',
+  method: 'post',
+  key: 'refresh_jwt',
+  required: []
+};
+exports.refreshJwt = refreshJwt;

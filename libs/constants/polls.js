@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.updateSinglePoll = exports.listPolls = exports.getSinglePoll = exports.deletePoll = exports.createSinglePoll = void 0;
 //
 // Polls
 //
@@ -14,9 +15,12 @@ Object.defineProperty(exports, "__esModule", {
 //
 // Example:
 // return canvasRequest(list_polls, {});
-var listPolls = exports.listPolls = { type: 'LIST_POLLS', method: 'get', key: 'list_polls', required: [] };
-
-// Get a single poll
+var listPolls = {
+  type: 'LIST_POLLS',
+  method: 'get',
+  key: 'list_polls',
+  required: []
+}; // Get a single poll
 // Returns the poll with the given id
 //
 // API Docs: https://canvas.instructure.com/doc/api/polls.html
@@ -24,9 +28,14 @@ var listPolls = exports.listPolls = { type: 'LIST_POLLS', method: 'get', key: 'l
 //
 // Example:
 // return canvasRequest(get_single_poll, {id});
-var getSinglePoll = exports.getSinglePoll = { type: 'GET_SINGLE_POLL', method: 'get', key: 'get_single_pollget_single_poll_id', required: ['id'] };
 
-// Create a single poll
+exports.listPolls = listPolls;
+var getSinglePoll = {
+  type: 'GET_SINGLE_POLL',
+  method: 'get',
+  key: 'get_single_pollget_single_poll_id',
+  required: ['id']
+}; // Create a single poll
 // Create a new poll for the current user
 //
 // API Docs: https://canvas.instructure.com/doc/api/polls.html
@@ -38,9 +47,14 @@ var getSinglePoll = exports.getSinglePoll = { type: 'GET_SINGLE_POLL', method: '
 //   polls[description]
 // }
 // return canvasRequest(create_single_poll, {}, body);
-var createSinglePoll = exports.createSinglePoll = { type: 'CREATE_SINGLE_POLL', method: 'post', key: 'create_single_poll', required: [] };
 
-// Update a single poll
+exports.getSinglePoll = getSinglePoll;
+var createSinglePoll = {
+  type: 'CREATE_SINGLE_POLL',
+  method: 'post',
+  key: 'create_single_poll',
+  required: []
+}; // Update a single poll
 // Update an existing poll belonging to the current user
 //
 // API Docs: https://canvas.instructure.com/doc/api/polls.html
@@ -52,9 +66,14 @@ var createSinglePoll = exports.createSinglePoll = { type: 'CREATE_SINGLE_POLL', 
 //   polls[description]
 // }
 // return canvasRequest(update_single_poll, {id}, body);
-var updateSinglePoll = exports.updateSinglePoll = { type: 'UPDATE_SINGLE_POLL', method: 'put', key: 'update_single_pollupdate_single_poll_id', required: ['id'] };
 
-// Delete a poll
+exports.createSinglePoll = createSinglePoll;
+var updateSinglePoll = {
+  type: 'UPDATE_SINGLE_POLL',
+  method: 'put',
+  key: 'update_single_pollupdate_single_poll_id',
+  required: ['id']
+}; // Delete a poll
 // <b>204 No Content</b> response code is returned if the deletion was successful.
 //
 // API Docs: https://canvas.instructure.com/doc/api/polls.html
@@ -62,4 +81,12 @@ var updateSinglePoll = exports.updateSinglePoll = { type: 'UPDATE_SINGLE_POLL', 
 //
 // Example:
 // return canvasRequest(delete_poll, {id});
-var deletePoll = exports.deletePoll = { type: 'DELETE_POLL', method: 'delete', key: 'delete_polldelete_poll_id', required: ['id'] };
+
+exports.updateSinglePoll = updateSinglePoll;
+var deletePoll = {
+  type: 'DELETE_POLL',
+  method: 'delete',
+  key: 'delete_polldelete_poll_id',
+  required: ['id']
+};
+exports.deletePoll = deletePoll;

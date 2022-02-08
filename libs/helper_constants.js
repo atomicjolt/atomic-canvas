@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.helperListAccounts = void 0;
 //
 // List Accounts
 //
@@ -12,4 +13,10 @@ Object.defineProperty(exports, "__esModule", {
 //
 // Example:
 // return canvasRequest(helperListAccounts);
-var helperListAccounts = exports.helperListAccounts = { type: 'HELPER_ALL_ACCOUNTS', method: 'get', key: 'list_accounts', required: [] };
+var helperListAccounts = {
+  type: 'HELPER_ALL_ACCOUNTS',
+  method: 'get',
+  key: 'list_accounts',
+  required: []
+};
+exports.helperListAccounts = helperListAccounts;

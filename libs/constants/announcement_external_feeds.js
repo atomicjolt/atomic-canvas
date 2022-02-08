@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.listExternalFeedsGroups = exports.listExternalFeedsCourses = exports.deleteExternalFeedGroups = exports.deleteExternalFeedCourses = exports.createExternalFeedGroups = exports.createExternalFeedCourses = void 0;
 //
 // Announcement External Feeds
 //
@@ -14,9 +15,12 @@ Object.defineProperty(exports, "__esModule", {
 //
 // Example:
 // return canvasRequest(list_external_feeds_courses, {course_id});
-var listExternalFeedsCourses = exports.listExternalFeedsCourses = { type: 'LIST_EXTERNAL_FEEDS_COURSES', method: 'get', key: 'list_external_feeds_courseslist_external_feeds_courses_course_id', required: ['course_id'] };
-
-// List external feeds
+var listExternalFeedsCourses = {
+  type: 'LIST_EXTERNAL_FEEDS_COURSES',
+  method: 'get',
+  key: 'list_external_feeds_courseslist_external_feeds_courses_course_id',
+  required: ['course_id']
+}; // List external feeds
 // Returns the paginated list of External Feeds this course or group.
 //
 // API Docs: https://canvas.instructure.com/doc/api/announcement_external_feeds.html
@@ -24,9 +28,14 @@ var listExternalFeedsCourses = exports.listExternalFeedsCourses = { type: 'LIST_
 //
 // Example:
 // return canvasRequest(list_external_feeds_groups, {group_id});
-var listExternalFeedsGroups = exports.listExternalFeedsGroups = { type: 'LIST_EXTERNAL_FEEDS_GROUPS', method: 'get', key: 'list_external_feeds_groupslist_external_feeds_groups_group_id', required: ['group_id'] };
 
-// Create an external feed
+exports.listExternalFeedsCourses = listExternalFeedsCourses;
+var listExternalFeedsGroups = {
+  type: 'LIST_EXTERNAL_FEEDS_GROUPS',
+  method: 'get',
+  key: 'list_external_feeds_groupslist_external_feeds_groups_group_id',
+  required: ['group_id']
+}; // Create an external feed
 // Create a new external feed for the course or group.
 //
 // API Docs: https://canvas.instructure.com/doc/api/announcement_external_feeds.html
@@ -39,9 +48,14 @@ var listExternalFeedsGroups = exports.listExternalFeedsGroups = { type: 'LIST_EX
 //   verbosity
 // }
 // return canvasRequest(create_external_feed_courses, {course_id}, body);
-var createExternalFeedCourses = exports.createExternalFeedCourses = { type: 'CREATE_EXTERNAL_FEED_COURSES', method: 'post', key: 'create_external_feed_coursescreate_external_feed_courses_course_id', required: ['course_id'] };
 
-// Create an external feed
+exports.listExternalFeedsGroups = listExternalFeedsGroups;
+var createExternalFeedCourses = {
+  type: 'CREATE_EXTERNAL_FEED_COURSES',
+  method: 'post',
+  key: 'create_external_feed_coursescreate_external_feed_courses_course_id',
+  required: ['course_id']
+}; // Create an external feed
 // Create a new external feed for the course or group.
 //
 // API Docs: https://canvas.instructure.com/doc/api/announcement_external_feeds.html
@@ -54,9 +68,14 @@ var createExternalFeedCourses = exports.createExternalFeedCourses = { type: 'CRE
 //   verbosity
 // }
 // return canvasRequest(create_external_feed_groups, {group_id}, body);
-var createExternalFeedGroups = exports.createExternalFeedGroups = { type: 'CREATE_EXTERNAL_FEED_GROUPS', method: 'post', key: 'create_external_feed_groupscreate_external_feed_groups_group_id', required: ['group_id'] };
 
-// Delete an external feed
+exports.createExternalFeedCourses = createExternalFeedCourses;
+var createExternalFeedGroups = {
+  type: 'CREATE_EXTERNAL_FEED_GROUPS',
+  method: 'post',
+  key: 'create_external_feed_groupscreate_external_feed_groups_group_id',
+  required: ['group_id']
+}; // Delete an external feed
 // Deletes the external feed.
 //
 // API Docs: https://canvas.instructure.com/doc/api/announcement_external_feeds.html
@@ -64,9 +83,14 @@ var createExternalFeedGroups = exports.createExternalFeedGroups = { type: 'CREAT
 //
 // Example:
 // return canvasRequest(delete_external_feed_courses, {course_id, external_feed_id});
-var deleteExternalFeedCourses = exports.deleteExternalFeedCourses = { type: 'DELETE_EXTERNAL_FEED_COURSES', method: 'delete', key: 'delete_external_feed_coursesdelete_external_feed_courses_{course_id}_{external_feed_id}', required: ['course_id', 'external_feed_id'] };
 
-// Delete an external feed
+exports.createExternalFeedGroups = createExternalFeedGroups;
+var deleteExternalFeedCourses = {
+  type: 'DELETE_EXTERNAL_FEED_COURSES',
+  method: 'delete',
+  key: 'delete_external_feed_coursesdelete_external_feed_courses_{course_id}_{external_feed_id}',
+  required: ['course_id', 'external_feed_id']
+}; // Delete an external feed
 // Deletes the external feed.
 //
 // API Docs: https://canvas.instructure.com/doc/api/announcement_external_feeds.html
@@ -74,4 +98,12 @@ var deleteExternalFeedCourses = exports.deleteExternalFeedCourses = { type: 'DEL
 //
 // Example:
 // return canvasRequest(delete_external_feed_groups, {group_id, external_feed_id});
-var deleteExternalFeedGroups = exports.deleteExternalFeedGroups = { type: 'DELETE_EXTERNAL_FEED_GROUPS', method: 'delete', key: 'delete_external_feed_groupsdelete_external_feed_groups_{group_id}_{external_feed_id}', required: ['group_id', 'external_feed_id'] };
+
+exports.deleteExternalFeedCourses = deleteExternalFeedCourses;
+var deleteExternalFeedGroups = {
+  type: 'DELETE_EXTERNAL_FEED_GROUPS',
+  method: 'delete',
+  key: 'delete_external_feed_groupsdelete_external_feed_groups_{group_id}_{external_feed_id}',
+  required: ['group_id', 'external_feed_id']
+};
+exports.deleteExternalFeedGroups = deleteExternalFeedGroups;

@@ -1,63 +1,65 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports["default"] = callCanvasProxy;
 
-var _regenerator = require('babel-runtime/regenerator');
+var _api = _interopRequireDefault(require("atomic-fuel/libs/api/api"));
 
-var _regenerator2 = _interopRequireDefault(_regenerator);
+var _constants = require("./constants");
 
-var _extends2 = require('babel-runtime/helpers/extends');
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var _extends3 = _interopRequireDefault(_extends2);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-var _asyncToGenerator2 = require('babel-runtime/helpers/asyncToGenerator');
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
-var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var _api = require('atomic-fuel/libs/api/api');
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
-var _api2 = _interopRequireDefault(_api);
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var _constants = require('./constants');
+function callCanvasProxy(_x) {
+  return _callCanvasProxy.apply(this, arguments);
+}
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = function () {
-  var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee(canvasType) {
-    var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var body = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-    var timeout = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 30000;
-    var settings = arguments[4];
-    var jwt = arguments[5];
-    var res;
-    return _regenerator2.default.wrap(function _callee$(_context) {
+function _callCanvasProxy() {
+  _callCanvasProxy = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(canvasType) {
+    var params,
+        body,
+        timeout,
+        settings,
+        jwt,
+        res,
+        _args = arguments;
+    return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _context.next = 2;
-            return _api2.default.execRequest(canvasType.method, _constants.canvasProxyUrl, settings.api_url, jwt, settings.csrf_token, (0, _extends3.default)({}, params, {
+            params = _args.length > 1 && _args[1] !== undefined ? _args[1] : {};
+            body = _args.length > 2 && _args[2] !== undefined ? _args[2] : {};
+            timeout = _args.length > 3 && _args[3] !== undefined ? _args[3] : 30000;
+            settings = _args.length > 4 ? _args[4] : undefined;
+            jwt = _args.length > 5 ? _args[5] : undefined;
+            _context.next = 7;
+            return _api["default"].execRequest(canvasType.method, _constants.canvasProxyUrl, settings.api_url, jwt, settings.csrf_token, _objectSpread(_objectSpread({}, params), {}, {
               lms_proxy_call_type: canvasType.type,
               context_id: settings.context_id,
               oauth_consumer_key: settings.oauth_consumer_key
             }), body, undefined, timeout);
 
-          case 2:
+          case 7:
             res = _context.sent;
-            return _context.abrupt('return', res);
+            return _context.abrupt("return", res);
 
-          case 4:
-          case 'end':
+          case 9:
+          case "end":
             return _context.stop();
         }
       }
-    }, _callee, this);
+    }, _callee);
   }));
-
-  function callCanvasProxy(_x) {
-    return _ref.apply(this, arguments);
-  }
-
-  return callCanvasProxy;
-}();
+  return _callCanvasProxy.apply(this, arguments);
+}

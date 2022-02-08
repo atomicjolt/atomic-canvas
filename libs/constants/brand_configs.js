@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.getBrandConfigVariablesThatShouldBeUsedForThisDomain = void 0;
 //
 // Brand Configs
 //
@@ -17,4 +18,10 @@ Object.defineProperty(exports, "__esModule", {
 //
 // Example:
 // return canvasRequest(get_brand_config_variables_that_should_be_used_for_this_domain, {});
-var getBrandConfigVariablesThatShouldBeUsedForThisDomain = exports.getBrandConfigVariablesThatShouldBeUsedForThisDomain = { type: 'GET_BRAND_CONFIG_VARIABLES_THAT_SHOULD_BE_USED_FOR_THIS_DOMAIN', method: 'get', key: 'get_brand_config_variables_that_should_be_used_for_this_domain', required: [] };
+var getBrandConfigVariablesThatShouldBeUsedForThisDomain = {
+  type: 'GET_BRAND_CONFIG_VARIABLES_THAT_SHOULD_BE_USED_FOR_THIS_DOMAIN',
+  method: 'get',
+  key: 'get_brand_config_variables_that_should_be_used_for_this_domain',
+  required: []
+};
+exports.getBrandConfigVariablesThatShouldBeUsedForThisDomain = getBrandConfigVariablesThatShouldBeUsedForThisDomain;

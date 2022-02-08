@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.updateCourses = exports.updateCourseSettings = exports.updateCourse = exports.searchForContentShareUsers = exports.returnTestStudentForCourse = exports.resetCourse = exports.removeQuizMigrationAlert = exports.listYourCourses = exports.listUsersInCourseUsers = exports.listUsersInCourseSearchUsers = exports.listStudents = exports.listRecentlyLoggedInStudents = exports.listCoursesForUser = exports.getUserProgress = exports.getSingleUser = exports.getSingleCourseCourses = exports.getSingleCourseAccounts = exports.getEffectiveDueDates = exports.getCourseSettings = exports.getCourseCopyStatus = exports.getBulkUserProgress = exports.deleteConcludeCourse = exports.createNewCourse = exports.coursesUploadFile = exports.coursesPreviewProcessedHtml = exports.coursesPermissions = exports.courseTodoItems = exports.courseActivityStreamSummary = exports.courseActivityStream = exports.copyCourseContent = void 0;
 //
 // Courses
 //
@@ -23,9 +24,12 @@ Object.defineProperty(exports, "__esModule", {
 //   state
 // }
 // return canvasRequest(list_your_courses, {, ...query});
-var listYourCourses = exports.listYourCourses = { type: 'LIST_YOUR_COURSES', method: 'get', key: 'list_your_courses', required: [] };
-
-// List courses for a user
+var listYourCourses = {
+  type: 'LIST_YOUR_COURSES',
+  method: 'get',
+  key: 'list_your_courses',
+  required: []
+}; // List courses for a user
 // Returns a paginated list of active courses for this user. To view the course list for a user other than yourself, you must be either an observer of that user or an administrator.
 //
 // API Docs: https://canvas.instructure.com/doc/api/courses.html
@@ -39,9 +43,14 @@ var listYourCourses = exports.listYourCourses = { type: 'LIST_YOUR_COURSES', met
 //   homeroom
 // }
 // return canvasRequest(list_courses_for_user, {user_id, ...query});
-var listCoursesForUser = exports.listCoursesForUser = { type: 'LIST_COURSES_FOR_USER', method: 'get', key: 'list_courses_for_userlist_courses_for_user_user_id', required: ['user_id'] };
 
-// Get user progress
+exports.listYourCourses = listYourCourses;
+var listCoursesForUser = {
+  type: 'LIST_COURSES_FOR_USER',
+  method: 'get',
+  key: 'list_courses_for_userlist_courses_for_user_user_id',
+  required: ['user_id']
+}; // Get user progress
 // Return progress information for the user and course
 // 
 // You can supply +self+ as the user_id to query your own progress in a course. To query another user's progress,
@@ -52,9 +61,14 @@ var listCoursesForUser = exports.listCoursesForUser = { type: 'LIST_COURSES_FOR_
 //
 // Example:
 // return canvasRequest(get_user_progress, {course_id, user_id});
-var getUserProgress = exports.getUserProgress = { type: 'GET_USER_PROGRESS', method: 'get', key: 'get_user_progressget_user_progress_{course_id}_{user_id}', required: ['course_id', 'user_id'] };
 
-// Create a new course
+exports.listCoursesForUser = listCoursesForUser;
+var getUserProgress = {
+  type: 'GET_USER_PROGRESS',
+  method: 'get',
+  key: 'get_user_progressget_user_progress_{course_id}_{user_id}',
+  required: ['course_id', 'user_id']
+}; // Create a new course
 // Create a new course
 //
 // API Docs: https://canvas.instructure.com/doc/api/courses.html
@@ -94,9 +108,14 @@ var getUserProgress = exports.getUserProgress = { type: 'GET_USER_PROGRESS', met
 //   enable_sis_reactivation
 // }
 // return canvasRequest(create_new_course, {account_id}, body);
-var createNewCourse = exports.createNewCourse = { type: 'CREATE_NEW_COURSE', method: 'post', key: 'create_new_coursecreate_new_course_account_id', required: ['account_id'] };
 
-// Upload a file
+exports.getUserProgress = getUserProgress;
+var createNewCourse = {
+  type: 'CREATE_NEW_COURSE',
+  method: 'post',
+  key: 'create_new_coursecreate_new_course_account_id',
+  required: ['account_id']
+}; // Upload a file
 // Upload a file to the course.
 // 
 // This API endpoint is the first step in uploading a file to a course.
@@ -111,9 +130,14 @@ var createNewCourse = exports.createNewCourse = { type: 'CREATE_NEW_COURSE', met
 //
 // Example:
 // return canvasRequest(courses_upload_file, {course_id});
-var coursesUploadFile = exports.coursesUploadFile = { type: 'COURSES_UPLOAD_FILE', method: 'post', key: 'courses_upload_filecourses_upload_file_course_id', required: ['course_id'] };
 
-// List students
+exports.createNewCourse = createNewCourse;
+var coursesUploadFile = {
+  type: 'COURSES_UPLOAD_FILE',
+  method: 'post',
+  key: 'courses_upload_filecourses_upload_file_course_id',
+  required: ['course_id']
+}; // List students
 // Returns the paginated list of students enrolled in this course.
 // 
 // DEPRECATED: Please use the {api:CoursesController#users course users} endpoint
@@ -124,9 +148,14 @@ var coursesUploadFile = exports.coursesUploadFile = { type: 'COURSES_UPLOAD_FILE
 //
 // Example:
 // return canvasRequest(list_students, {course_id});
-var listStudents = exports.listStudents = { type: 'LIST_STUDENTS', method: 'get', key: 'list_studentslist_students_course_id', required: ['course_id'] };
 
-// List users in course
+exports.coursesUploadFile = coursesUploadFile;
+var listStudents = {
+  type: 'LIST_STUDENTS',
+  method: 'get',
+  key: 'list_studentslist_students_course_id',
+  required: ['course_id']
+}; // List users in course
 // Returns the paginated list of users in this course. And optionally the user's enrollments in the course.
 //
 // API Docs: https://canvas.instructure.com/doc/api/courses.html
@@ -145,9 +174,14 @@ var listStudents = exports.listStudents = { type: 'LIST_STUDENTS', method: 'get'
 //   enrollment_state
 // }
 // return canvasRequest(list_users_in_course_users, {course_id, ...query});
-var listUsersInCourseUsers = exports.listUsersInCourseUsers = { type: 'LIST_USERS_IN_COURSE_USERS', method: 'get', key: 'list_users_in_course_userslist_users_in_course_users_course_id', required: ['course_id'] };
 
-// List users in course
+exports.listStudents = listStudents;
+var listUsersInCourseUsers = {
+  type: 'LIST_USERS_IN_COURSE_USERS',
+  method: 'get',
+  key: 'list_users_in_course_userslist_users_in_course_users_course_id',
+  required: ['course_id']
+}; // List users in course
 // Returns the paginated list of users in this course. And optionally the user's enrollments in the course.
 //
 // API Docs: https://canvas.instructure.com/doc/api/courses.html
@@ -166,9 +200,14 @@ var listUsersInCourseUsers = exports.listUsersInCourseUsers = { type: 'LIST_USER
 //   enrollment_state
 // }
 // return canvasRequest(list_users_in_course_search_users, {course_id, ...query});
-var listUsersInCourseSearchUsers = exports.listUsersInCourseSearchUsers = { type: 'LIST_USERS_IN_COURSE_SEARCH_USERS', method: 'get', key: 'list_users_in_course_search_userslist_users_in_course_search_users_course_id', required: ['course_id'] };
 
-// List recently logged in students
+exports.listUsersInCourseUsers = listUsersInCourseUsers;
+var listUsersInCourseSearchUsers = {
+  type: 'LIST_USERS_IN_COURSE_SEARCH_USERS',
+  method: 'get',
+  key: 'list_users_in_course_search_userslist_users_in_course_search_users_course_id',
+  required: ['course_id']
+}; // List recently logged in students
 // Returns the paginated list of users in this course, ordered by how recently they have
 // logged in. The records include the 'last_login' field which contains
 // a timestamp of the last time that user logged into canvas.  The querying
@@ -179,9 +218,14 @@ var listUsersInCourseSearchUsers = exports.listUsersInCourseSearchUsers = { type
 //
 // Example:
 // return canvasRequest(list_recently_logged_in_students, {course_id});
-var listRecentlyLoggedInStudents = exports.listRecentlyLoggedInStudents = { type: 'LIST_RECENTLY_LOGGED_IN_STUDENTS', method: 'get', key: 'list_recently_logged_in_studentslist_recently_logged_in_students_course_id', required: ['course_id'] };
 
-// Get single user
+exports.listUsersInCourseSearchUsers = listUsersInCourseSearchUsers;
+var listRecentlyLoggedInStudents = {
+  type: 'LIST_RECENTLY_LOGGED_IN_STUDENTS',
+  method: 'get',
+  key: 'list_recently_logged_in_studentslist_recently_logged_in_students_course_id',
+  required: ['course_id']
+}; // Get single user
 // Return information on a single user.
 // 
 // Accepts the same include[] parameters as the :users: action, and returns a
@@ -192,9 +236,14 @@ var listRecentlyLoggedInStudents = exports.listRecentlyLoggedInStudents = { type
 //
 // Example:
 // return canvasRequest(get_single_user, {course_id, id});
-var getSingleUser = exports.getSingleUser = { type: 'GET_SINGLE_USER', method: 'get', key: 'get_single_userget_single_user_{course_id}_{id}', required: ['course_id', 'id'] };
 
-// Search for content share users
+exports.listRecentlyLoggedInStudents = listRecentlyLoggedInStudents;
+var getSingleUser = {
+  type: 'GET_SINGLE_USER',
+  method: 'get',
+  key: 'get_single_userget_single_user_{course_id}_{id}',
+  required: ['course_id', 'id']
+}; // Search for content share users
 // Returns a paginated list of users you can share content with.  Requires the content share
 // feature and the user must have the manage content permission for the course.
 //
@@ -206,9 +255,14 @@ var getSingleUser = exports.getSingleUser = { type: 'GET_SINGLE_USER', method: '
 //   search_term (required)
 // }
 // return canvasRequest(search_for_content_share_users, {course_id, ...query});
-var searchForContentShareUsers = exports.searchForContentShareUsers = { type: 'SEARCH_FOR_CONTENT_SHARE_USERS', method: 'get', key: 'search_for_content_share_userssearch_for_content_share_users_course_id', required: ['course_id'] };
 
-// Preview processed html
+exports.getSingleUser = getSingleUser;
+var searchForContentShareUsers = {
+  type: 'SEARCH_FOR_CONTENT_SHARE_USERS',
+  method: 'get',
+  key: 'search_for_content_share_userssearch_for_content_share_users_course_id',
+  required: ['course_id']
+}; // Preview processed html
 // Preview html content processed for this course
 //
 // API Docs: https://canvas.instructure.com/doc/api/courses.html
@@ -219,9 +273,14 @@ var searchForContentShareUsers = exports.searchForContentShareUsers = { type: 'S
 //   html
 // }
 // return canvasRequest(courses_preview_processed_html, {course_id}, body);
-var coursesPreviewProcessedHtml = exports.coursesPreviewProcessedHtml = { type: 'COURSES_PREVIEW_PROCESSED_HTML', method: 'post', key: 'courses_preview_processed_htmlcourses_preview_processed_html_course_id', required: ['course_id'] };
 
-// Course activity stream
+exports.searchForContentShareUsers = searchForContentShareUsers;
+var coursesPreviewProcessedHtml = {
+  type: 'COURSES_PREVIEW_PROCESSED_HTML',
+  method: 'post',
+  key: 'courses_preview_processed_htmlcourses_preview_processed_html_course_id',
+  required: ['course_id']
+}; // Course activity stream
 // Returns the current user's course-specific activity stream, paginated.
 // 
 // For full documentation, see the API documentation for the user activity
@@ -232,9 +291,14 @@ var coursesPreviewProcessedHtml = exports.coursesPreviewProcessedHtml = { type: 
 //
 // Example:
 // return canvasRequest(course_activity_stream, {course_id});
-var courseActivityStream = exports.courseActivityStream = { type: 'COURSE_ACTIVITY_STREAM', method: 'get', key: 'course_activity_streamcourse_activity_stream_course_id', required: ['course_id'] };
 
-// Course activity stream summary
+exports.coursesPreviewProcessedHtml = coursesPreviewProcessedHtml;
+var courseActivityStream = {
+  type: 'COURSE_ACTIVITY_STREAM',
+  method: 'get',
+  key: 'course_activity_streamcourse_activity_stream_course_id',
+  required: ['course_id']
+}; // Course activity stream summary
 // Returns a summary of the current user's course-specific activity stream.
 // 
 // For full documentation, see the API documentation for the user activity
@@ -245,9 +309,14 @@ var courseActivityStream = exports.courseActivityStream = { type: 'COURSE_ACTIVI
 //
 // Example:
 // return canvasRequest(course_activity_stream_summary, {course_id});
-var courseActivityStreamSummary = exports.courseActivityStreamSummary = { type: 'COURSE_ACTIVITY_STREAM_SUMMARY', method: 'get', key: 'course_activity_stream_summarycourse_activity_stream_summary_course_id', required: ['course_id'] };
 
-// Course TODO items
+exports.courseActivityStream = courseActivityStream;
+var courseActivityStreamSummary = {
+  type: 'COURSE_ACTIVITY_STREAM_SUMMARY',
+  method: 'get',
+  key: 'course_activity_stream_summarycourse_activity_stream_summary_course_id',
+  required: ['course_id']
+}; // Course TODO items
 // Returns the current user's course-specific todo items.
 // 
 // For full documentation, see the API documentation for the user todo items, in the user api.
@@ -257,9 +326,14 @@ var courseActivityStreamSummary = exports.courseActivityStreamSummary = { type: 
 //
 // Example:
 // return canvasRequest(course_todo_items, {course_id});
-var courseTodoItems = exports.courseTodoItems = { type: 'COURSE_TODO_ITEMS', method: 'get', key: 'course_todo_itemscourse_todo_items_course_id', required: ['course_id'] };
 
-// Delete/Conclude a course
+exports.courseActivityStreamSummary = courseActivityStreamSummary;
+var courseTodoItems = {
+  type: 'COURSE_TODO_ITEMS',
+  method: 'get',
+  key: 'course_todo_itemscourse_todo_items_course_id',
+  required: ['course_id']
+}; // Delete/Conclude a course
 // Delete or conclude an existing course
 //
 // API Docs: https://canvas.instructure.com/doc/api/courses.html
@@ -270,9 +344,14 @@ var courseTodoItems = exports.courseTodoItems = { type: 'COURSE_TODO_ITEMS', met
 //   event (required)
 // }
 // return canvasRequest(delete_conclude_course, {id}, body);
-var deleteConcludeCourse = exports.deleteConcludeCourse = { type: 'DELETE_CONCLUDE_COURSE', method: 'delete', key: 'delete_conclude_coursedelete_conclude_course_id', required: ['id'] };
 
-// Get course settings
+exports.courseTodoItems = courseTodoItems;
+var deleteConcludeCourse = {
+  type: 'DELETE_CONCLUDE_COURSE',
+  method: 'delete',
+  key: 'delete_conclude_coursedelete_conclude_course_id',
+  required: ['id']
+}; // Get course settings
 // Returns some of a course's settings.
 //
 // API Docs: https://canvas.instructure.com/doc/api/courses.html
@@ -280,9 +359,14 @@ var deleteConcludeCourse = exports.deleteConcludeCourse = { type: 'DELETE_CONCLU
 //
 // Example:
 // return canvasRequest(get_course_settings, {course_id});
-var getCourseSettings = exports.getCourseSettings = { type: 'GET_COURSE_SETTINGS', method: 'get', key: 'get_course_settingsget_course_settings_course_id', required: ['course_id'] };
 
-// Update course settings
+exports.deleteConcludeCourse = deleteConcludeCourse;
+var getCourseSettings = {
+  type: 'GET_COURSE_SETTINGS',
+  method: 'get',
+  key: 'get_course_settingsget_course_settings_course_id',
+  required: ['course_id']
+}; // Update course settings
 // Can update the following course settings:
 //
 // API Docs: https://canvas.instructure.com/doc/api/courses.html
@@ -309,9 +393,14 @@ var getCourseSettings = exports.getCourseSettings = { type: 'GET_COURSE_SETTINGS
 //   syllabus_course_summary
 // }
 // return canvasRequest(update_course_settings, {course_id}, body);
-var updateCourseSettings = exports.updateCourseSettings = { type: 'UPDATE_COURSE_SETTINGS', method: 'put', key: 'update_course_settingsupdate_course_settings_course_id', required: ['course_id'] };
 
-// Return test student for course
+exports.getCourseSettings = getCourseSettings;
+var updateCourseSettings = {
+  type: 'UPDATE_COURSE_SETTINGS',
+  method: 'put',
+  key: 'update_course_settingsupdate_course_settings_course_id',
+  required: ['course_id']
+}; // Return test student for course
 // Returns information for a test student in this course. Creates a test
 // student if one does not already exist for the course. The caller must have
 // permission to access the course's student view.
@@ -321,9 +410,14 @@ var updateCourseSettings = exports.updateCourseSettings = { type: 'UPDATE_COURSE
 //
 // Example:
 // return canvasRequest(return_test_student_for_course, {course_id});
-var returnTestStudentForCourse = exports.returnTestStudentForCourse = { type: 'RETURN_TEST_STUDENT_FOR_COURSE', method: 'get', key: 'return_test_student_for_coursereturn_test_student_for_course_course_id', required: ['course_id'] };
 
-// Get a single course
+exports.updateCourseSettings = updateCourseSettings;
+var returnTestStudentForCourse = {
+  type: 'RETURN_TEST_STUDENT_FOR_COURSE',
+  method: 'get',
+  key: 'return_test_student_for_coursereturn_test_student_for_course_course_id',
+  required: ['course_id']
+}; // Get a single course
 // Return information on a single course.
 // 
 // Accepts the same include[] parameters as the list action plus:
@@ -337,9 +431,14 @@ var returnTestStudentForCourse = exports.returnTestStudentForCourse = { type: 'R
 //   teacher_limit
 // }
 // return canvasRequest(get_single_course_courses, {id, ...query});
-var getSingleCourseCourses = exports.getSingleCourseCourses = { type: 'GET_SINGLE_COURSE_COURSES', method: 'get', key: 'get_single_course_coursesget_single_course_courses_id', required: ['id'] };
 
-// Get a single course
+exports.returnTestStudentForCourse = returnTestStudentForCourse;
+var getSingleCourseCourses = {
+  type: 'GET_SINGLE_COURSE_COURSES',
+  method: 'get',
+  key: 'get_single_course_coursesget_single_course_courses_id',
+  required: ['id']
+}; // Get a single course
 // Return information on a single course.
 // 
 // Accepts the same include[] parameters as the list action plus:
@@ -353,9 +452,14 @@ var getSingleCourseCourses = exports.getSingleCourseCourses = { type: 'GET_SINGL
 //   teacher_limit
 // }
 // return canvasRequest(get_single_course_accounts, {account_id, id, ...query});
-var getSingleCourseAccounts = exports.getSingleCourseAccounts = { type: 'GET_SINGLE_COURSE_ACCOUNTS', method: 'get', key: 'get_single_course_accountsget_single_course_accounts_{account_id}_{id}', required: ['account_id', 'id'] };
 
-// Update a course
+exports.getSingleCourseCourses = getSingleCourseCourses;
+var getSingleCourseAccounts = {
+  type: 'GET_SINGLE_COURSE_ACCOUNTS',
+  method: 'get',
+  key: 'get_single_course_accountsget_single_course_accounts_{account_id}_{id}',
+  required: ['account_id', 'id']
+}; // Update a course
 // Update an existing course.
 // 
 // Arguments are the same as Courses#create, with a few exceptions (enroll_me).
@@ -417,9 +521,14 @@ var getSingleCourseAccounts = exports.getSingleCourseAccounts = { type: 'GET_SIN
 //   course[enable_pace_plans]
 // }
 // return canvasRequest(update_course, {id}, body);
-var updateCourse = exports.updateCourse = { type: 'UPDATE_COURSE', method: 'put', key: 'update_courseupdate_course_id', required: ['id'] };
 
-// Update courses
+exports.getSingleCourseAccounts = getSingleCourseAccounts;
+var updateCourse = {
+  type: 'UPDATE_COURSE',
+  method: 'put',
+  key: 'update_courseupdate_course_id',
+  required: ['id']
+}; // Update courses
 // Update multiple courses in an account.  Operates asynchronously; use the {api:ProgressController#show progress endpoint}
 // to query the status of an operation.
 //
@@ -432,9 +541,14 @@ var updateCourse = exports.updateCourse = { type: 'UPDATE_COURSE', method: 'put'
 //   event (required)
 // }
 // return canvasRequest(update_courses, {account_id}, body);
-var updateCourses = exports.updateCourses = { type: 'UPDATE_COURSES', method: 'put', key: 'update_coursesupdate_courses_account_id', required: ['account_id'] };
 
-// Reset a course
+exports.updateCourse = updateCourse;
+var updateCourses = {
+  type: 'UPDATE_COURSES',
+  method: 'put',
+  key: 'update_coursesupdate_courses_account_id',
+  required: ['account_id']
+}; // Reset a course
 // Deletes the current course, and creates a new equivalent course with
 // no content, but all sections and users moved over.
 //
@@ -443,9 +557,14 @@ var updateCourses = exports.updateCourses = { type: 'UPDATE_COURSES', method: 'p
 //
 // Example:
 // return canvasRequest(reset_course, {course_id});
-var resetCourse = exports.resetCourse = { type: 'RESET_COURSE', method: 'post', key: 'reset_coursereset_course_course_id', required: ['course_id'] };
 
-// Get effective due dates
+exports.updateCourses = updateCourses;
+var resetCourse = {
+  type: 'RESET_COURSE',
+  method: 'post',
+  key: 'reset_coursereset_course_course_id',
+  required: ['course_id']
+}; // Get effective due dates
 // For each assignment in the course, returns each assigned student's ID
 // and their corresponding due date along with some grading period data.
 // Returns a collection with keys representing assignment IDs and values as a
@@ -464,9 +583,14 @@ var resetCourse = exports.resetCourse = { type: 'RESET_COURSE', method: 'post', 
 //   assignment_ids
 // }
 // return canvasRequest(get_effective_due_dates, {course_id, ...query});
-var getEffectiveDueDates = exports.getEffectiveDueDates = { type: 'GET_EFFECTIVE_DUE_DATES', method: 'get', key: 'get_effective_due_datesget_effective_due_dates_course_id', required: ['course_id'] };
 
-// Permissions
+exports.resetCourse = resetCourse;
+var getEffectiveDueDates = {
+  type: 'GET_EFFECTIVE_DUE_DATES',
+  method: 'get',
+  key: 'get_effective_due_datesget_effective_due_dates_course_id',
+  required: ['course_id']
+}; // Permissions
 // Returns permission information for the calling user in the given course.
 // See also the {api:AccountsController#permissions Account} and
 // {api:GroupsController#permissions Group} counterparts.
@@ -479,9 +603,14 @@ var getEffectiveDueDates = exports.getEffectiveDueDates = { type: 'GET_EFFECTIVE
 //   permissions
 // }
 // return canvasRequest(courses_permissions, {course_id, ...query});
-var coursesPermissions = exports.coursesPermissions = { type: 'COURSES_PERMISSIONS', method: 'get', key: 'courses_permissionscourses_permissions_course_id', required: ['course_id'] };
 
-// Get bulk user progress
+exports.getEffectiveDueDates = getEffectiveDueDates;
+var coursesPermissions = {
+  type: 'COURSES_PERMISSIONS',
+  method: 'get',
+  key: 'courses_permissionscourses_permissions_course_id',
+  required: ['course_id']
+}; // Get bulk user progress
 // Returns progress information for all users enrolled in the given course.
 // 
 // You must be a user who has permission to view all grades in the course (such as a teacher or administrator).
@@ -491,9 +620,14 @@ var coursesPermissions = exports.coursesPermissions = { type: 'COURSES_PERMISSIO
 //
 // Example:
 // return canvasRequest(get_bulk_user_progress, {course_id});
-var getBulkUserProgress = exports.getBulkUserProgress = { type: 'GET_BULK_USER_PROGRESS', method: 'get', key: 'get_bulk_user_progressget_bulk_user_progress_course_id', required: ['course_id'] };
 
-// Remove quiz migration alert
+exports.coursesPermissions = coursesPermissions;
+var getBulkUserProgress = {
+  type: 'GET_BULK_USER_PROGRESS',
+  method: 'get',
+  key: 'get_bulk_user_progressget_bulk_user_progress_course_id',
+  required: ['course_id']
+}; // Remove quiz migration alert
 // Remove alert about the limitations of quiz migrations that is displayed
 // to a user in a course
 // 
@@ -504,9 +638,14 @@ var getBulkUserProgress = exports.getBulkUserProgress = { type: 'GET_BULK_USER_P
 //
 // Example:
 // return canvasRequest(remove_quiz_migration_alert, {id});
-var removeQuizMigrationAlert = exports.removeQuizMigrationAlert = { type: 'REMOVE_QUIZ_MIGRATION_ALERT', method: 'post', key: 'remove_quiz_migration_alertremove_quiz_migration_alert_id', required: ['id'] };
 
-// Get course copy status
+exports.getBulkUserProgress = getBulkUserProgress;
+var removeQuizMigrationAlert = {
+  type: 'REMOVE_QUIZ_MIGRATION_ALERT',
+  method: 'post',
+  key: 'remove_quiz_migration_alertremove_quiz_migration_alert_id',
+  required: ['id']
+}; // Get course copy status
 // DEPRECATED: Please use the {api:ContentMigrationsController#create Content Migrations API}
 // 
 // Retrieve the status of a course copy
@@ -516,9 +655,14 @@ var removeQuizMigrationAlert = exports.removeQuizMigrationAlert = { type: 'REMOV
 //
 // Example:
 // return canvasRequest(get_course_copy_status, {course_id, id});
-var getCourseCopyStatus = exports.getCourseCopyStatus = { type: 'GET_COURSE_COPY_STATUS', method: 'get', key: 'get_course_copy_statusget_course_copy_status_{course_id}_{id}', required: ['course_id', 'id'] };
 
-// Copy course content
+exports.removeQuizMigrationAlert = removeQuizMigrationAlert;
+var getCourseCopyStatus = {
+  type: 'GET_COURSE_COPY_STATUS',
+  method: 'get',
+  key: 'get_course_copy_statusget_course_copy_status_{course_id}_{id}',
+  required: ['course_id', 'id']
+}; // Copy course content
 // DEPRECATED: Please use the {api:ContentMigrationsController#create Content Migrations API}
 // 
 // Copies content from one course into another. The default is to copy all course
@@ -537,4 +681,12 @@ var getCourseCopyStatus = exports.getCourseCopyStatus = { type: 'GET_COURSE_COPY
 //   only
 // }
 // return canvasRequest(copy_course_content, {course_id}, body);
-var copyCourseContent = exports.copyCourseContent = { type: 'COPY_COURSE_CONTENT', method: 'post', key: 'copy_course_contentcopy_course_content_course_id', required: ['course_id'] };
+
+exports.getCourseCopyStatus = getCourseCopyStatus;
+var copyCourseContent = {
+  type: 'COPY_COURSE_CONTENT',
+  method: 'post',
+  key: 'copy_course_contentcopy_course_content_course_id',
+  required: ['course_id']
+};
+exports.copyCourseContent = copyCourseContent;

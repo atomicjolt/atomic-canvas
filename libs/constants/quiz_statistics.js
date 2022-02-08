@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.fetchingLatestQuizStatistics = void 0;
 //
 // Quiz Statistics
 //
@@ -21,4 +22,10 @@ Object.defineProperty(exports, "__esModule", {
 //   all_versions
 // }
 // return canvasRequest(fetching_latest_quiz_statistics, {course_id, quiz_id, ...query});
-var fetchingLatestQuizStatistics = exports.fetchingLatestQuizStatistics = { type: 'FETCHING_LATEST_QUIZ_STATISTICS', method: 'get', key: 'fetching_latest_quiz_statisticsfetching_latest_quiz_statistics_{course_id}_{quiz_id}', required: ['course_id', 'quiz_id'] };
+var fetchingLatestQuizStatistics = {
+  type: 'FETCHING_LATEST_QUIZ_STATISTICS',
+  method: 'get',
+  key: 'fetching_latest_quiz_statisticsfetching_latest_quiz_statistics_{course_id}_{quiz_id}',
+  required: ['course_id', 'quiz_id']
+};
+exports.fetchingLatestQuizStatistics = fetchingLatestQuizStatistics;
