@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import React, { useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withSettings } from 'atomic-fuel/libs/components/settings';
 
@@ -14,6 +15,7 @@ export function CanvasAuthentication(props) {
   } = props;
 
   const formRef = useRef(null);
+  const jwt = useSelector(state => state.jwt);
 
   useEffect(() => {
     if (autoSubmit) {
@@ -47,6 +49,11 @@ export function CanvasAuthentication(props) {
     >
       { getButton() }
       { renderSettings() }
+      {
+        jwt
+        ? <input type="hidden" value={jwt} name="authorization" />
+        : null
+      }
     </form>
   );
 }
