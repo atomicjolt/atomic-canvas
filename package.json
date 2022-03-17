@@ -1,6 +1,6 @@
 {
   "name": "atomic-canvas",
-  "version": "1.11.0",
+  "version": "1.12.0",
   "description": "Client side canvas api for Atomic Jolt",
   "engines": {
     "node": ">=14.18.2"
