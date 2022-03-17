@@ -16,6 +16,8 @@ var _lodash = _interopRequireDefault(require("lodash"));
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _reactRedux = require("react-redux");
+
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _settings = require("atomic-fuel/libs/components/settings");
@@ -36,6 +38,9 @@ function CanvasAuthentication(props) {
       settings = props.settings,
       overrides = props.overrides;
   var formRef = (0, _react.useRef)(null);
+  var jwt = (0, _reactRedux.useSelector)(function (state) {
+    return state.jwt;
+  });
   (0, _react.useEffect)(function () {
     if (autoSubmit) {
       formRef.current.submit();
@@ -74,7 +79,11 @@ function CanvasAuthentication(props) {
     ref: formRef,
     action: settings.canvas_oauth_url,
     method: "post"
-  }, getButton(), renderSettings());
+  }, getButton(), renderSettings(), jwt ? /*#__PURE__*/_react["default"].createElement("input", {
+    type: "hidden",
+    value: jwt,
+    name: "authorization"
+  }) : null);
 }
 
 CanvasAuthentication.defaultProps = {
