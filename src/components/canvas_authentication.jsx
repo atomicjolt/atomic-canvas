@@ -18,10 +18,10 @@ export function CanvasAuthentication(props) {
   const jwt = useSelector(state => state.jwt);
 
   useEffect(() => {
-    if (autoSubmit) {
+    if (autoSubmit && formRef.current) {
       formRef.current.submit();
     }
-  }, [autoSubmit]);
+  }, [autoSubmit, formRef.current]);
 
   function getButton() {
     if (hideButton) return null;
@@ -29,8 +29,8 @@ export function CanvasAuthentication(props) {
   }
 
   function renderSettings() {
-    const settings = { ...settings, ...overrides };
-    return _.map(settings, (value, key) => {
+    const all = { ...settings, ...overrides };
+    return _.map(all, (value, key) => {
       let outValue = value || '';
       if (_.isObjectLike(value)) {
         outValue = JSON.stringify(outValue);
