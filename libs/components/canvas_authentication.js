@@ -42,10 +42,10 @@ function CanvasAuthentication(props) {
     return state.jwt;
   });
   (0, _react.useEffect)(function () {
-    if (autoSubmit) {
+    if (autoSubmit && formRef.current) {
       formRef.current.submit();
     }
-  }, [autoSubmit]);
+  }, [autoSubmit, formRef.current]);
 
   function getButton() {
     if (hideButton) return null;
@@ -57,9 +57,9 @@ function CanvasAuthentication(props) {
   }
 
   function renderSettings() {
-    var settings = _objectSpread(_objectSpread({}, settings), overrides);
+    var all = _objectSpread(_objectSpread({}, settings), overrides);
 
-    return _lodash["default"].map(settings, function (value, key) {
+    return _lodash["default"].map(all, function (value, key) {
       var outValue = value || '';
 
       if (_lodash["default"].isObjectLike(value)) {
