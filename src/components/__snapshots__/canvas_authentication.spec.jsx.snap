@@ -10,6 +10,16 @@ exports[`Canvas authentication handles an empty jwt 1`] = `
     type="submit"
     value="Authorize"
   />
+  <input
+    name="canvas_oauth_url"
+    type="hidden"
+    value="http://www.example.com"
+  />
+  <input
+    name="user"
+    type="hidden"
+    value="{\\"name\\":\\"doug\\"}"
+  />
 </form>
 `;
 
@@ -22,6 +32,39 @@ exports[`Canvas authentication renders a button to authenticate with Canvas 1`] 
     className=""
     type="submit"
     value="Authorize"
+  />
+  <input
+    name="canvas_oauth_url"
+    type="hidden"
+    value="http://www.example.com"
+  />
+  <input
+    name="user"
+    type="hidden"
+    value="{\\"name\\":\\"doug\\"}"
+  />
+  <input
+    name="authorization"
+    type="hidden"
+    value="afakejwt"
+  />
+</form>
+`;
+
+exports[`Canvas authentication renders without a button and autosubmits 1`] = `
+<form
+  action="http://www.example.com"
+  method="post"
+>
+  <input
+    name="canvas_oauth_url"
+    type="hidden"
+    value="http://www.example.com"
+  />
+  <input
+    name="user"
+    type="hidden"
+    value="{\\"name\\":\\"doug\\"}"
   />
   <input
     name="authorization"
