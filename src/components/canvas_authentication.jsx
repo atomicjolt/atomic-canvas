@@ -36,7 +36,7 @@ export function CanvasAuthentication(props) {
         outValue = JSON.stringify(outValue);
       }
       return (
-        <input key={key} type="hidden" value={outValue} name={key} />
+        <input key={key} type="hidden" value={`${outValue}`} name={key} />
       )
     });
   }
