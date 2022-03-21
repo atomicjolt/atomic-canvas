@@ -69,7 +69,7 @@ function CanvasAuthentication(props) {
       return /*#__PURE__*/_react["default"].createElement("input", {
         key: key,
         type: "hidden",
-        value: outValue,
+        value: "".concat(outValue),
         name: key
       });
     });
