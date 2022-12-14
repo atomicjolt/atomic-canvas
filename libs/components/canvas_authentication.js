@@ -38,9 +38,15 @@ function CanvasAuthentication(props) {
       settings = props.settings,
       overrides = props.overrides;
   var formRef = (0, _react.useRef)(null);
-  var jwt = (0, _reactRedux.useSelector)(function (state) {
-    return state.jwt;
-  });
+
+  try {
+    var jwt = (0, _reactRedux.useSelector)(function (state) {
+      return state.jwt;
+    });
+  } catch (error) {
+    console.warn(error);
+  }
+
   (0, _react.useEffect)(function () {
     if (autoSubmit && formRef.current) {
       formRef.current.submit();

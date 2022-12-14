@@ -15,7 +15,13 @@ export function CanvasAuthentication(props) {
   } = props;
 
   const formRef = useRef(null);
-  const jwt = useSelector(state => state.jwt);
+
+  try {
+    var jwt = useSelector(state => state.jwt);
+  } catch (error) {
+    console.warn(error);
+  }
+
 
   useEffect(() => {
     if (autoSubmit && formRef.current) {
