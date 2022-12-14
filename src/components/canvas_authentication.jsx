@@ -16,11 +16,10 @@ export function CanvasAuthentication(props) {
 
   const formRef = useRef(null);
 
+  // Not all apps use redux so try catch to prevent blowing up
   try {
     var jwt = useSelector(state => state.jwt);
-  } catch (error) {
-    console.warn(error);
-  }
+  } catch (error) { }
 
 
   useEffect(() => {
