@@ -29,7 +29,9 @@ var createJwt = {
   method: 'post',
   key: 'create_jwt',
   required: []
-}; // Refresh JWT
+};
+
+// Refresh JWT
 // Refresh a JWT for use with other canvas services
 // 
 // Generates a different JWT each time it's called, each one expires
@@ -43,7 +45,6 @@ var createJwt = {
 //   jwt (required)
 // }
 // return canvasRequest(refresh_jwt, {}, body);
-
 exports.createJwt = createJwt;
 var refreshJwt = {
   type: 'REFRESH_JWT',

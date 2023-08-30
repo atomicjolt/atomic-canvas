@@ -20,7 +20,9 @@ var getSinglePollSubmission = {
   method: 'get',
   key: 'get_single_poll_submissionget_single_poll_submission_{poll_id}_{poll_session_id}_{id}',
   required: ['poll_id', 'poll_session_id', 'id']
-}; // Create a single poll submission
+};
+
+// Create a single poll submission
 // Create a new poll submission for this poll session
 //
 // API Docs: https://canvas.instructure.com/doc/api/poll_submissions.html
@@ -31,7 +33,6 @@ var getSinglePollSubmission = {
 //   poll_submissions[poll_choice_id] (required)
 // }
 // return canvasRequest(create_single_poll_submission, {poll_id, poll_session_id}, body);
-
 exports.getSinglePollSubmission = getSinglePollSubmission;
 var createSinglePollSubmission = {
   type: 'CREATE_SINGLE_POLL_SUBMISSION',

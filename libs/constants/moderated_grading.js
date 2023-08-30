@@ -20,7 +20,9 @@ var listStudentsSelectedForModeration = {
   method: 'get',
   key: 'list_students_selected_for_moderationlist_students_selected_for_moderation_{course_id}_{assignment_id}',
   required: ['course_id', 'assignment_id']
-}; // Select students for moderation
+};
+
+// Select students for moderation
 // Returns an array of users that were selected for moderation
 //
 // API Docs: https://canvas.instructure.com/doc/api/moderated_grading.html
@@ -31,14 +33,15 @@ var listStudentsSelectedForModeration = {
 //   student_ids
 // }
 // return canvasRequest(select_students_for_moderation, {course_id, assignment_id}, body);
-
 exports.listStudentsSelectedForModeration = listStudentsSelectedForModeration;
 var selectStudentsForModeration = {
   type: 'SELECT_STUDENTS_FOR_MODERATION',
   method: 'post',
   key: 'select_students_for_moderationselect_students_for_moderation_{course_id}_{assignment_id}',
   required: ['course_id', 'assignment_id']
-}; // Bulk select provisional grades
+};
+
+// Bulk select provisional grades
 // Choose which provisional grades will be received by associated students for an assignment.
 // The caller must be the final grader for the assignment or an admin with :select_final_grade rights.
 //
@@ -47,14 +50,15 @@ var selectStudentsForModeration = {
 //
 // Example:
 // return canvasRequest(bulk_select_provisional_grades, {course_id, assignment_id});
-
 exports.selectStudentsForModeration = selectStudentsForModeration;
 var bulkSelectProvisionalGrades = {
   type: 'BULK_SELECT_PROVISIONAL_GRADES',
   method: 'put',
   key: 'bulk_select_provisional_gradesbulk_select_provisional_grades_{course_id}_{assignment_id}',
   required: ['course_id', 'assignment_id']
-}; // Show provisional grade status for a student
+};
+
+// Show provisional grade status for a student
 // Tell whether the student's submission needs one or more provisional grades.
 //
 // API Docs: https://canvas.instructure.com/doc/api/moderated_grading.html
@@ -65,14 +69,15 @@ var bulkSelectProvisionalGrades = {
 //   student_id
 // }
 // return canvasRequest(show_provisional_grade_status_for_student, {course_id, assignment_id, ...query});
-
 exports.bulkSelectProvisionalGrades = bulkSelectProvisionalGrades;
 var showProvisionalGradeStatusForStudent = {
   type: 'SHOW_PROVISIONAL_GRADE_STATUS_FOR_STUDENT',
   method: 'get',
   key: 'show_provisional_grade_status_for_studentshow_provisional_grade_status_for_student_{course_id}_{assignment_id}',
   required: ['course_id', 'assignment_id']
-}; // Select provisional grade
+};
+
+// Select provisional grade
 // Choose which provisional grade the student should receive for a submission.
 // The caller must be the final grader for the assignment or an admin with :select_final_grade rights.
 //
@@ -81,14 +86,15 @@ var showProvisionalGradeStatusForStudent = {
 //
 // Example:
 // return canvasRequest(select_provisional_grade, {course_id, assignment_id, provisional_grade_id});
-
 exports.showProvisionalGradeStatusForStudent = showProvisionalGradeStatusForStudent;
 var selectProvisionalGrade = {
   type: 'SELECT_PROVISIONAL_GRADE',
   method: 'put',
   key: 'select_provisional_gradeselect_provisional_grade_{course_id}_{assignment_id}_{provisional_grade_id}',
   required: ['course_id', 'assignment_id', 'provisional_grade_id']
-}; // Publish provisional grades for an assignment
+};
+
+// Publish provisional grades for an assignment
 // Publish the selected provisional grade for all submissions to an assignment.
 // Use the "Select provisional grade" endpoint to choose which provisional grade to publish
 // for a particular submission.
@@ -102,14 +108,15 @@ var selectProvisionalGrade = {
 //
 // Example:
 // return canvasRequest(publish_provisional_grades_for_assignment, {course_id, assignment_id});
-
 exports.selectProvisionalGrade = selectProvisionalGrade;
 var publishProvisionalGradesForAssignment = {
   type: 'PUBLISH_PROVISIONAL_GRADES_FOR_ASSIGNMENT',
   method: 'post',
   key: 'publish_provisional_grades_for_assignmentpublish_provisional_grades_for_assignment_{course_id}_{assignment_id}',
   required: ['course_id', 'assignment_id']
-}; // Show provisional grade status for a student
+};
+
+// Show provisional grade status for a student
 // Determine whether or not the student's submission needs one or more provisional grades.
 //
 // API Docs: https://canvas.instructure.com/doc/api/moderated_grading.html
@@ -120,7 +127,6 @@ var publishProvisionalGradesForAssignment = {
 //   anonymous_id
 // }
 // return canvasRequest(moderated_grading_show_provisional_grade_status_for_student, {course_id, assignment_id, ...query});
-
 exports.publishProvisionalGradesForAssignment = publishProvisionalGradesForAssignment;
 var moderatedGradingShowProvisionalGradeStatusForStudent = {
   type: 'MODERATED_GRADING_SHOW_PROVISIONAL_GRADE_STATUS_FOR_STUDENT',

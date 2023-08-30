@@ -20,7 +20,9 @@ var listBookmarks = {
   method: 'get',
   key: 'list_bookmarks',
   required: []
-}; // Create bookmark
+};
+
+// Create bookmark
 // Creates a bookmark.
 //
 // API Docs: https://canvas.instructure.com/doc/api/bookmarks.html
@@ -34,14 +36,15 @@ var listBookmarks = {
 //   data
 // }
 // return canvasRequest(create_bookmark, {}, body);
-
 exports.listBookmarks = listBookmarks;
 var createBookmark = {
   type: 'CREATE_BOOKMARK',
   method: 'post',
   key: 'create_bookmark',
   required: []
-}; // Get bookmark
+};
+
+// Get bookmark
 // Returns the details for a bookmark.
 //
 // API Docs: https://canvas.instructure.com/doc/api/bookmarks.html
@@ -49,14 +52,15 @@ var createBookmark = {
 //
 // Example:
 // return canvasRequest(get_bookmark, {id});
-
 exports.createBookmark = createBookmark;
 var getBookmark = {
   type: 'GET_BOOKMARK',
   method: 'get',
   key: 'get_bookmarkget_bookmark_id',
   required: ['id']
-}; // Update bookmark
+};
+
+// Update bookmark
 // Updates a bookmark
 //
 // API Docs: https://canvas.instructure.com/doc/api/bookmarks.html
@@ -70,14 +74,15 @@ var getBookmark = {
 //   data
 // }
 // return canvasRequest(update_bookmark, {id}, body);
-
 exports.getBookmark = getBookmark;
 var updateBookmark = {
   type: 'UPDATE_BOOKMARK',
   method: 'put',
   key: 'update_bookmarkupdate_bookmark_id',
   required: ['id']
-}; // Delete bookmark
+};
+
+// Delete bookmark
 // Deletes a bookmark
 //
 // API Docs: https://canvas.instructure.com/doc/api/bookmarks.html
@@ -85,7 +90,6 @@ var updateBookmark = {
 //
 // Example:
 // return canvasRequest(delete_bookmark, {id});
-
 exports.updateBookmark = updateBookmark;
 var deleteBookmark = {
   type: 'DELETE_BOOKMARK',

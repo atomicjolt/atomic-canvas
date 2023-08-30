@@ -20,7 +20,9 @@ var getSingleSubmission = {
   method: 'get',
   key: 'get_single_submissionget_single_submission_{assignment_id}_{submission_id}',
   required: ['assignment_id', 'submission_id']
-}; // Get the history of a single submission
+};
+
+// Get the history of a single submission
 // Get a list of all attempts made for a submission, based on submission id.
 //
 // API Docs: https://canvas.instructure.com/doc/api/plagiarism_detection_submissions.html
@@ -28,7 +30,6 @@ var getSingleSubmission = {
 //
 // Example:
 // return canvasRequest(get_history_of_single_submission, {assignment_id, submission_id});
-
 exports.getSingleSubmission = getSingleSubmission;
 var getHistoryOfSingleSubmission = {
   type: 'GET_HISTORY_OF_SINGLE_SUBMISSION',

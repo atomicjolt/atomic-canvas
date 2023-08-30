@@ -47,7 +47,9 @@ var listEnrollmentsCourses = {
   method: 'get',
   key: 'list_enrollments_courseslist_enrollments_courses_course_id',
   required: ['course_id']
-}; // List enrollments
+};
+
+// List enrollments
 // Depending on the URL given, return a paginated list of either (1) all of
 // the enrollments in a course, (2) all of the enrollments in a section or (3)
 // all of a user's enrollments. This includes student, teacher, TA, and
@@ -82,14 +84,15 @@ var listEnrollmentsCourses = {
 //   created_for_sis_id
 // }
 // return canvasRequest(list_enrollments_sections, {section_id, ...query});
-
 exports.listEnrollmentsCourses = listEnrollmentsCourses;
 var listEnrollmentsSections = {
   type: 'LIST_ENROLLMENTS_SECTIONS',
   method: 'get',
   key: 'list_enrollments_sectionslist_enrollments_sections_section_id',
   required: ['section_id']
-}; // List enrollments
+};
+
+// List enrollments
 // Depending on the URL given, return a paginated list of either (1) all of
 // the enrollments in a course, (2) all of the enrollments in a section or (3)
 // all of a user's enrollments. This includes student, teacher, TA, and
@@ -123,14 +126,15 @@ var listEnrollmentsSections = {
 //   created_for_sis_id
 // }
 // return canvasRequest(list_enrollments_users, {user_id, ...query});
-
 exports.listEnrollmentsSections = listEnrollmentsSections;
 var listEnrollmentsUsers = {
   type: 'LIST_ENROLLMENTS_USERS',
   method: 'get',
   key: 'list_enrollments_userslist_enrollments_users_user_id',
   required: ['user_id']
-}; // Enrollment by ID
+};
+
+// Enrollment by ID
 // Get an Enrollment object by Enrollment ID
 //
 // API Docs: https://canvas.instructure.com/doc/api/enrollments.html
@@ -138,14 +142,15 @@ var listEnrollmentsUsers = {
 //
 // Example:
 // return canvasRequest(enrollment_by_id, {account_id, id});
-
 exports.listEnrollmentsUsers = listEnrollmentsUsers;
 var enrollmentById = {
   type: 'ENROLLMENT_BY_ID',
   method: 'get',
   key: 'enrollment_by_idenrollment_by_id_{account_id}_{id}',
   required: ['account_id', 'id']
-}; // Enroll a user
+};
+
+// Enroll a user
 // Create a new user enrollment for a course or section.
 //
 // API Docs: https://canvas.instructure.com/doc/api/enrollments.html
@@ -168,14 +173,15 @@ var enrollmentById = {
 //   enrollment[associated_user_id]
 // }
 // return canvasRequest(enroll_user_courses, {course_id}, body);
-
 exports.enrollmentById = enrollmentById;
 var enrollUserCourses = {
   type: 'ENROLL_USER_COURSES',
   method: 'post',
   key: 'enroll_user_coursesenroll_user_courses_course_id',
   required: ['course_id']
-}; // Enroll a user
+};
+
+// Enroll a user
 // Create a new user enrollment for a course or section.
 //
 // API Docs: https://canvas.instructure.com/doc/api/enrollments.html
@@ -198,14 +204,15 @@ var enrollUserCourses = {
 //   enrollment[associated_user_id]
 // }
 // return canvasRequest(enroll_user_sections, {section_id}, body);
-
 exports.enrollUserCourses = enrollUserCourses;
 var enrollUserSections = {
   type: 'ENROLL_USER_SECTIONS',
   method: 'post',
   key: 'enroll_user_sectionsenroll_user_sections_section_id',
   required: ['section_id']
-}; // Conclude, deactivate, or delete an enrollment
+};
+
+// Conclude, deactivate, or delete an enrollment
 // Conclude, deactivate, or delete an enrollment. If the +task+ argument isn't given, the enrollment
 // will be concluded.
 //
@@ -217,14 +224,15 @@ var enrollUserSections = {
 //   task
 // }
 // return canvasRequest(conclude_deactivate_or_delete_enrollment, {course_id, id}, body);
-
 exports.enrollUserSections = enrollUserSections;
 var concludeDeactivateOrDeleteEnrollment = {
   type: 'CONCLUDE_DEACTIVATE_OR_DELETE_ENROLLMENT',
   method: 'delete',
   key: 'conclude_deactivate_or_delete_enrollmentconclude_deactivate_or_delete_enrollment_{course_id}_{id}',
   required: ['course_id', 'id']
-}; // Accept Course Invitation
+};
+
+// Accept Course Invitation
 // accepts a pending course invitation for the current user
 //
 // API Docs: https://canvas.instructure.com/doc/api/enrollments.html
@@ -232,14 +240,15 @@ var concludeDeactivateOrDeleteEnrollment = {
 //
 // Example:
 // return canvasRequest(accept_course_invitation, {course_id, id});
-
 exports.concludeDeactivateOrDeleteEnrollment = concludeDeactivateOrDeleteEnrollment;
 var acceptCourseInvitation = {
   type: 'ACCEPT_COURSE_INVITATION',
   method: 'post',
   key: 'accept_course_invitationaccept_course_invitation_{course_id}_{id}',
   required: ['course_id', 'id']
-}; // Reject Course Invitation
+};
+
+// Reject Course Invitation
 // rejects a pending course invitation for the current user
 //
 // API Docs: https://canvas.instructure.com/doc/api/enrollments.html
@@ -247,14 +256,15 @@ var acceptCourseInvitation = {
 //
 // Example:
 // return canvasRequest(reject_course_invitation, {course_id, id});
-
 exports.acceptCourseInvitation = acceptCourseInvitation;
 var rejectCourseInvitation = {
   type: 'REJECT_COURSE_INVITATION',
   method: 'post',
   key: 'reject_course_invitationreject_course_invitation_{course_id}_{id}',
   required: ['course_id', 'id']
-}; // Re-activate an enrollment
+};
+
+// Re-activate an enrollment
 // Activates an inactive enrollment
 //
 // API Docs: https://canvas.instructure.com/doc/api/enrollments.html
@@ -262,14 +272,15 @@ var rejectCourseInvitation = {
 //
 // Example:
 // return canvasRequest(re_activate_enrollment, {course_id, id});
-
 exports.rejectCourseInvitation = rejectCourseInvitation;
 var reActivateEnrollment = {
   type: 'RE_ACTIVATE_ENROLLMENT',
   method: 'put',
   key: 're_activate_enrollmentre_activate_enrollment_{course_id}_{id}',
   required: ['course_id', 'id']
-}; // Add last attended date
+};
+
+// Add last attended date
 // Add last attended date to student enrollment in course
 //
 // API Docs: https://canvas.instructure.com/doc/api/enrollments.html
@@ -280,7 +291,6 @@ var reActivateEnrollment = {
 //   date
 // }
 // return canvasRequest(add_last_attended_date, {course_id, user_id}, body);
-
 exports.reActivateEnrollment = reActivateEnrollment;
 var addLastAttendedDate = {
   type: 'ADD_LAST_ATTENDED_DATE',

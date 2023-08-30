@@ -28,7 +28,9 @@ var createEnrollmentTerm = {
   method: 'post',
   key: 'create_enrollment_termcreate_enrollment_term_account_id',
   required: ['account_id']
-}; // Update enrollment term
+};
+
+// Update enrollment term
 // Update an existing enrollment term for the specified account.
 //
 // API Docs: https://canvas.instructure.com/doc/api/enrollment_terms.html
@@ -45,14 +47,15 @@ var createEnrollmentTerm = {
 //   override_sis_stickiness
 // }
 // return canvasRequest(update_enrollment_term, {account_id, id}, body);
-
 exports.createEnrollmentTerm = createEnrollmentTerm;
 var updateEnrollmentTerm = {
   type: 'UPDATE_ENROLLMENT_TERM',
   method: 'put',
   key: 'update_enrollment_termupdate_enrollment_term_{account_id}_{id}',
   required: ['account_id', 'id']
-}; // Delete enrollment term
+};
+
+// Delete enrollment term
 // Delete the specified enrollment term.
 //
 // API Docs: https://canvas.instructure.com/doc/api/enrollment_terms.html
@@ -60,14 +63,15 @@ var updateEnrollmentTerm = {
 //
 // Example:
 // return canvasRequest(delete_enrollment_term, {account_id, id});
-
 exports.updateEnrollmentTerm = updateEnrollmentTerm;
 var deleteEnrollmentTerm = {
   type: 'DELETE_ENROLLMENT_TERM',
   method: 'delete',
   key: 'delete_enrollment_termdelete_enrollment_term_{account_id}_{id}',
   required: ['account_id', 'id']
-}; // List enrollment terms
+};
+
+// List enrollment terms
 // An object with a paginated list of all of the terms in the account.
 //
 // API Docs: https://canvas.instructure.com/doc/api/enrollment_terms.html
@@ -80,14 +84,15 @@ var deleteEnrollmentTerm = {
 //   term_name
 // }
 // return canvasRequest(list_enrollment_terms, {account_id, ...query});
-
 exports.deleteEnrollmentTerm = deleteEnrollmentTerm;
 var listEnrollmentTerms = {
   type: 'LIST_ENROLLMENT_TERMS',
   method: 'get',
   key: 'list_enrollment_termslist_enrollment_terms_account_id',
   required: ['account_id']
-}; // Retrieve enrollment term
+};
+
+// Retrieve enrollment term
 // Retrieves the details for an enrollment term in the account. Includes overrides by default.
 //
 // API Docs: https://canvas.instructure.com/doc/api/enrollment_terms.html
@@ -95,7 +100,6 @@ var listEnrollmentTerms = {
 //
 // Example:
 // return canvasRequest(retrieve_enrollment_term, {account_id, id});
-
 exports.listEnrollmentTerms = listEnrollmentTerms;
 var retrieveEnrollmentTerm = {
   type: 'RETRIEVE_ENROLLMENT_TERM',

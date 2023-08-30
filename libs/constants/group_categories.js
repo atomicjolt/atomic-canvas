@@ -20,7 +20,9 @@ var listGroupCategoriesForContextAccounts = {
   method: 'get',
   key: 'list_group_categories_for_context_accountslist_group_categories_for_context_accounts_account_id',
   required: ['account_id']
-}; // List group categories for a context
+};
+
+// List group categories for a context
 // Returns a paginated list of group categories in a context
 //
 // API Docs: https://canvas.instructure.com/doc/api/group_categories.html
@@ -28,14 +30,15 @@ var listGroupCategoriesForContextAccounts = {
 //
 // Example:
 // return canvasRequest(list_group_categories_for_context_courses, {course_id});
-
 exports.listGroupCategoriesForContextAccounts = listGroupCategoriesForContextAccounts;
 var listGroupCategoriesForContextCourses = {
   type: 'LIST_GROUP_CATEGORIES_FOR_CONTEXT_COURSES',
   method: 'get',
   key: 'list_group_categories_for_context_courseslist_group_categories_for_context_courses_course_id',
   required: ['course_id']
-}; // Get a single group category
+};
+
+// Get a single group category
 // Returns the data for a single group category, or a 401 if the caller doesn't have
 // the rights to see it.
 //
@@ -44,14 +47,15 @@ var listGroupCategoriesForContextCourses = {
 //
 // Example:
 // return canvasRequest(get_single_group_category, {group_category_id});
-
 exports.listGroupCategoriesForContextCourses = listGroupCategoriesForContextCourses;
 var getSingleGroupCategory = {
   type: 'GET_SINGLE_GROUP_CATEGORY',
   method: 'get',
   key: 'get_single_group_categoryget_single_group_category_group_category_id',
   required: ['group_category_id']
-}; // Create a Group Category
+};
+
+// Create a Group Category
 // Create a new group category
 //
 // API Docs: https://canvas.instructure.com/doc/api/group_categories.html
@@ -68,14 +72,15 @@ var getSingleGroupCategory = {
 //   split_group_count
 // }
 // return canvasRequest(create_group_category_accounts, {account_id}, body);
-
 exports.getSingleGroupCategory = getSingleGroupCategory;
 var createGroupCategoryAccounts = {
   type: 'CREATE_GROUP_CATEGORY_ACCOUNTS',
   method: 'post',
   key: 'create_group_category_accountscreate_group_category_accounts_account_id',
   required: ['account_id']
-}; // Create a Group Category
+};
+
+// Create a Group Category
 // Create a new group category
 //
 // API Docs: https://canvas.instructure.com/doc/api/group_categories.html
@@ -92,14 +97,15 @@ var createGroupCategoryAccounts = {
 //   split_group_count
 // }
 // return canvasRequest(create_group_category_courses, {course_id}, body);
-
 exports.createGroupCategoryAccounts = createGroupCategoryAccounts;
 var createGroupCategoryCourses = {
   type: 'CREATE_GROUP_CATEGORY_COURSES',
   method: 'post',
   key: 'create_group_category_coursescreate_group_category_courses_course_id',
   required: ['course_id']
-}; // Import category groups
+};
+
+// Import category groups
 // Create Groups in a Group Category through a CSV import
 // 
 // For more information on the format that's expected here, please see the
@@ -113,14 +119,15 @@ var createGroupCategoryCourses = {
 //   attachment
 // }
 // return canvasRequest(import_category_groups, {group_category_id}, body);
-
 exports.createGroupCategoryCourses = createGroupCategoryCourses;
 var importCategoryGroups = {
   type: 'IMPORT_CATEGORY_GROUPS',
   method: 'post',
   key: 'import_category_groupsimport_category_groups_group_category_id',
   required: ['group_category_id']
-}; // Update a Group Category
+};
+
+// Update a Group Category
 // Modifies an existing group category.
 //
 // API Docs: https://canvas.instructure.com/doc/api/group_categories.html
@@ -137,14 +144,15 @@ var importCategoryGroups = {
 //   split_group_count
 // }
 // return canvasRequest(update_group_category, {group_category_id}, body);
-
 exports.importCategoryGroups = importCategoryGroups;
 var updateGroupCategory = {
   type: 'UPDATE_GROUP_CATEGORY',
   method: 'put',
   key: 'update_group_categoryupdate_group_category_group_category_id',
   required: ['group_category_id']
-}; // Delete a Group Category
+};
+
+// Delete a Group Category
 // Deletes a group category and all groups under it. Protected group
 // categories can not be deleted, i.e. "communities" and "student_organized".
 //
@@ -153,14 +161,15 @@ var updateGroupCategory = {
 //
 // Example:
 // return canvasRequest(delete_group_category, {group_category_id});
-
 exports.updateGroupCategory = updateGroupCategory;
 var deleteGroupCategory = {
   type: 'DELETE_GROUP_CATEGORY',
   method: 'delete',
   key: 'delete_group_categorydelete_group_category_group_category_id',
   required: ['group_category_id']
-}; // List groups in group category
+};
+
+// List groups in group category
 // Returns a paginated list of groups in a group category
 //
 // API Docs: https://canvas.instructure.com/doc/api/group_categories.html
@@ -168,14 +177,15 @@ var deleteGroupCategory = {
 //
 // Example:
 // return canvasRequest(list_groups_in_group_category, {group_category_id});
-
 exports.deleteGroupCategory = deleteGroupCategory;
 var listGroupsInGroupCategory = {
   type: 'LIST_GROUPS_IN_GROUP_CATEGORY',
   method: 'get',
   key: 'list_groups_in_group_categorylist_groups_in_group_category_group_category_id',
   required: ['group_category_id']
-}; // export groups in and users in category
+};
+
+// export groups in and users in category
 // Returns a csv file of users in format ready to import.
 //
 // API Docs: https://canvas.instructure.com/doc/api/group_categories.html
@@ -183,14 +193,15 @@ var listGroupsInGroupCategory = {
 //
 // Example:
 // return canvasRequest(export_groups_in_and_users_in_category, {group_category_id});
-
 exports.listGroupsInGroupCategory = listGroupsInGroupCategory;
 var exportGroupsInAndUsersInCategory = {
   type: 'EXPORT_GROUPS_IN_AND_USERS_IN_CATEGORY',
   method: 'get',
   key: 'export_groups_in_and_users_in_categoryexport_groups_in_and_users_in_category_group_category_id',
   required: ['group_category_id']
-}; // List users in group category
+};
+
+// List users in group category
 // Returns a paginated list of users in the group category.
 //
 // API Docs: https://canvas.instructure.com/doc/api/group_categories.html
@@ -202,14 +213,15 @@ var exportGroupsInAndUsersInCategory = {
 //   unassigned
 // }
 // return canvasRequest(list_users_in_group_category, {group_category_id, ...query});
-
 exports.exportGroupsInAndUsersInCategory = exportGroupsInAndUsersInCategory;
 var listUsersInGroupCategory = {
   type: 'LIST_USERS_IN_GROUP_CATEGORY',
   method: 'get',
   key: 'list_users_in_group_categorylist_users_in_group_category_group_category_id',
   required: ['group_category_id']
-}; // Assign unassigned members
+};
+
+// Assign unassigned members
 // Assign all unassigned members as evenly as possible among the existing
 // student groups.
 //
@@ -221,7 +233,6 @@ var listUsersInGroupCategory = {
 //   sync
 // }
 // return canvasRequest(assign_unassigned_members, {group_category_id}, body);
-
 exports.listUsersInGroupCategory = listUsersInGroupCategory;
 var assignUnassignedMembers = {
   type: 'ASSIGN_UNASSIGNED_MEMBERS',

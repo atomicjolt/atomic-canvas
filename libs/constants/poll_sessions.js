@@ -20,7 +20,9 @@ var listPollSessionsForPoll = {
   method: 'get',
   key: 'list_poll_sessions_for_polllist_poll_sessions_for_poll_poll_id',
   required: ['poll_id']
-}; // Get the results for a single poll session
+};
+
+// Get the results for a single poll session
 // Returns the poll session with the given id
 //
 // API Docs: https://canvas.instructure.com/doc/api/poll_sessions.html
@@ -28,14 +30,15 @@ var listPollSessionsForPoll = {
 //
 // Example:
 // return canvasRequest(get_results_for_single_poll_session, {poll_id, id});
-
 exports.listPollSessionsForPoll = listPollSessionsForPoll;
 var getResultsForSinglePollSession = {
   type: 'GET_RESULTS_FOR_SINGLE_POLL_SESSION',
   method: 'get',
   key: 'get_results_for_single_poll_sessionget_results_for_single_poll_session_{poll_id}_{id}',
   required: ['poll_id', 'id']
-}; // Create a single poll session
+};
+
+// Create a single poll session
 // Create a new poll session for this poll
 //
 // API Docs: https://canvas.instructure.com/doc/api/poll_sessions.html
@@ -48,14 +51,15 @@ var getResultsForSinglePollSession = {
 //   poll_sessions[has_public_results]
 // }
 // return canvasRequest(create_single_poll_session, {poll_id}, body);
-
 exports.getResultsForSinglePollSession = getResultsForSinglePollSession;
 var createSinglePollSession = {
   type: 'CREATE_SINGLE_POLL_SESSION',
   method: 'post',
   key: 'create_single_poll_sessioncreate_single_poll_session_poll_id',
   required: ['poll_id']
-}; // Update a single poll session
+};
+
+// Update a single poll session
 // Update an existing poll session for this poll
 //
 // API Docs: https://canvas.instructure.com/doc/api/poll_sessions.html
@@ -68,14 +72,15 @@ var createSinglePollSession = {
 //   poll_sessions[has_public_results]
 // }
 // return canvasRequest(update_single_poll_session, {poll_id, id}, body);
-
 exports.createSinglePollSession = createSinglePollSession;
 var updateSinglePollSession = {
   type: 'UPDATE_SINGLE_POLL_SESSION',
   method: 'put',
   key: 'update_single_poll_sessionupdate_single_poll_session_{poll_id}_{id}',
   required: ['poll_id', 'id']
-}; // Delete a poll session
+};
+
+// Delete a poll session
 // <b>204 No Content</b> response code is returned if the deletion was successful.
 //
 // API Docs: https://canvas.instructure.com/doc/api/poll_sessions.html
@@ -83,14 +88,15 @@ var updateSinglePollSession = {
 //
 // Example:
 // return canvasRequest(delete_poll_session, {poll_id, id});
-
 exports.updateSinglePollSession = updateSinglePollSession;
 var deletePollSession = {
   type: 'DELETE_POLL_SESSION',
   method: 'delete',
   key: 'delete_poll_sessiondelete_poll_session_{poll_id}_{id}',
   required: ['poll_id', 'id']
-}; // Open a poll session
+};
+
+// Open a poll session
 // 
 //
 // API Docs: https://canvas.instructure.com/doc/api/poll_sessions.html
@@ -98,14 +104,15 @@ var deletePollSession = {
 //
 // Example:
 // return canvasRequest(open_poll_session, {poll_id, id});
-
 exports.deletePollSession = deletePollSession;
 var openPollSession = {
   type: 'OPEN_POLL_SESSION',
   method: 'get',
   key: 'open_poll_sessionopen_poll_session_{poll_id}_{id}',
   required: ['poll_id', 'id']
-}; // Close an opened poll session
+};
+
+// Close an opened poll session
 // 
 //
 // API Docs: https://canvas.instructure.com/doc/api/poll_sessions.html
@@ -113,14 +120,15 @@ var openPollSession = {
 //
 // Example:
 // return canvasRequest(close_opened_poll_session, {poll_id, id});
-
 exports.openPollSession = openPollSession;
 var closeOpenedPollSession = {
   type: 'CLOSE_OPENED_POLL_SESSION',
   method: 'get',
   key: 'close_opened_poll_sessionclose_opened_poll_session_{poll_id}_{id}',
   required: ['poll_id', 'id']
-}; // List opened poll sessions
+};
+
+// List opened poll sessions
 // A paginated list of all opened poll sessions available to the current user.
 //
 // API Docs: https://canvas.instructure.com/doc/api/poll_sessions.html
@@ -128,14 +136,15 @@ var closeOpenedPollSession = {
 //
 // Example:
 // return canvasRequest(list_opened_poll_sessions, {});
-
 exports.closeOpenedPollSession = closeOpenedPollSession;
 var listOpenedPollSessions = {
   type: 'LIST_OPENED_POLL_SESSIONS',
   method: 'get',
   key: 'list_opened_poll_sessions',
   required: []
-}; // List closed poll sessions
+};
+
+// List closed poll sessions
 // A paginated list of all closed poll sessions available to the current user.
 //
 // API Docs: https://canvas.instructure.com/doc/api/poll_sessions.html
@@ -143,7 +152,6 @@ var listOpenedPollSessions = {
 //
 // Example:
 // return canvasRequest(list_closed_poll_sessions, {});
-
 exports.listOpenedPollSessions = listOpenedPollSessions;
 var listClosedPollSessions = {
   type: 'LIST_CLOSED_POLL_SESSIONS',

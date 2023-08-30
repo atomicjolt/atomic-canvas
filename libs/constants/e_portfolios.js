@@ -23,7 +23,9 @@ var getAllEportfoliosForUser = {
   method: 'get',
   key: 'get_all_eportfolios_for_userget_all_eportfolios_for_user_user_id',
   required: ['user_id']
-}; // Get an ePortfolio
+};
+
+// Get an ePortfolio
 // Get details for a single ePortfolio.
 //
 // API Docs: https://canvas.instructure.com/doc/api/e_portfolios.html
@@ -31,14 +33,15 @@ var getAllEportfoliosForUser = {
 //
 // Example:
 // return canvasRequest(get_eportfolio, {id});
-
 exports.getAllEportfoliosForUser = getAllEportfoliosForUser;
 var getEportfolio = {
   type: 'GET_EPORTFOLIO',
   method: 'get',
   key: 'get_eportfolioget_eportfolio_id',
   required: ['id']
-}; // Delete an ePortfolio
+};
+
+// Delete an ePortfolio
 // Mark an ePortfolio as deleted.
 //
 // API Docs: https://canvas.instructure.com/doc/api/e_portfolios.html
@@ -46,14 +49,15 @@ var getEportfolio = {
 //
 // Example:
 // return canvasRequest(delete_eportfolio, {id});
-
 exports.getEportfolio = getEportfolio;
 var deleteEportfolio = {
   type: 'DELETE_EPORTFOLIO',
   method: 'delete',
   key: 'delete_eportfoliodelete_eportfolio_id',
   required: ['id']
-}; // Get ePortfolio Pages
+};
+
+// Get ePortfolio Pages
 // Get details for the pages of an ePortfolio
 //
 // API Docs: https://canvas.instructure.com/doc/api/e_portfolios.html
@@ -61,14 +65,15 @@ var deleteEportfolio = {
 //
 // Example:
 // return canvasRequest(get_eportfolio_pages, {eportfolio_id});
-
 exports.deleteEportfolio = deleteEportfolio;
 var getEportfolioPages = {
   type: 'GET_EPORTFOLIO_PAGES',
   method: 'get',
   key: 'get_eportfolio_pagesget_eportfolio_pages_eportfolio_id',
   required: ['eportfolio_id']
-}; // Moderate an ePortfolio
+};
+
+// Moderate an ePortfolio
 // Update the spam_status of an eportfolio. Only available to admins who can
 // moderate_user_content.
 //
@@ -80,14 +85,15 @@ var getEportfolioPages = {
 //   spam_status
 // }
 // return canvasRequest(moderate_eportfolio, {eportfolio_id}, body);
-
 exports.getEportfolioPages = getEportfolioPages;
 var moderateEportfolio = {
   type: 'MODERATE_EPORTFOLIO',
   method: 'put',
   key: 'moderate_eportfoliomoderate_eportfolio_eportfolio_id',
   required: ['eportfolio_id']
-}; // Moderate all ePortfolios for a User
+};
+
+// Moderate all ePortfolios for a User
 // Update the spam_status for all active eportfolios of a user. Only available to
 // admins who can moderate_user_content.
 //
@@ -99,14 +105,15 @@ var moderateEportfolio = {
 //   spam_status
 // }
 // return canvasRequest(moderate_all_eportfolios_for_user, {user_id}, body);
-
 exports.moderateEportfolio = moderateEportfolio;
 var moderateAllEportfoliosForUser = {
   type: 'MODERATE_ALL_EPORTFOLIOS_FOR_USER',
   method: 'put',
   key: 'moderate_all_eportfolios_for_usermoderate_all_eportfolios_for_user_user_id',
   required: ['user_id']
-}; // Restore a deleted ePortfolio
+};
+
+// Restore a deleted ePortfolio
 // Restore an ePortfolio back to active that was previously deleted. Only
 // available to admins who can moderate_user_content.
 //
@@ -115,7 +122,6 @@ var moderateAllEportfoliosForUser = {
 //
 // Example:
 // return canvasRequest(restore_deleted_eportfolio, {eportfolio_id});
-
 exports.moderateAllEportfoliosForUser = moderateAllEportfoliosForUser;
 var restoreDeletedEportfolio = {
   type: 'RESTORE_DELETED_EPORTFOLIO',

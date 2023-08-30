@@ -24,7 +24,9 @@ var queryByLogin = {
   method: 'get',
   key: 'query_by_loginquery_by_login_login_id',
   required: ['login_id']
-}; // Query by account.
+};
+
+// Query by account.
 // List authentication events for a given account.
 //
 // API Docs: https://canvas.instructure.com/doc/api/authentications_log.html
@@ -36,14 +38,15 @@ var queryByLogin = {
 //   end_time
 // }
 // return canvasRequest(query_by_account, {account_id, ...query});
-
 exports.queryByLogin = queryByLogin;
 var queryByAccount = {
   type: 'QUERY_BY_ACCOUNT',
   method: 'get',
   key: 'query_by_accountquery_by_account_account_id',
   required: ['account_id']
-}; // Query by user.
+};
+
+// Query by user.
 // List authentication events for a given user.
 //
 // API Docs: https://canvas.instructure.com/doc/api/authentications_log.html
@@ -55,7 +58,6 @@ var queryByAccount = {
 //   end_time
 // }
 // return canvasRequest(query_by_user, {user_id, ...query});
-
 exports.queryByAccount = queryByAccount;
 var queryByUser = {
   type: 'QUERY_BY_USER',

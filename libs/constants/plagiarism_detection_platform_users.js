@@ -21,7 +21,9 @@ var getSingleUserLti = {
   method: 'get',
   key: 'get_single_user_ltiget_single_user_lti_id',
   required: ['id']
-}; // Get all users in a group (lti)
+};
+
+// Get all users in a group (lti)
 // Get all Canvas users in a group. Tool providers may only access
 // groups that belong to the context the tool is installed in.
 //
@@ -30,7 +32,6 @@ var getSingleUserLti = {
 //
 // Example:
 // return canvasRequest(get_all_users_in_group_lti, {group_id});
-
 exports.getSingleUserLti = getSingleUserLti;
 var getAllUsersInGroupLti = {
   type: 'GET_ALL_USERS_IN_GROUP_LTI',

@@ -20,7 +20,9 @@ var getNewQuiz = {
   method: 'get',
   key: 'get_new_quizget_new_quiz_{course_id}_{assignment_id}',
   required: ['course_id', 'assignment_id']
-}; // List new quizzes
+};
+
+// List new quizzes
 // Get a list of new quizzes.
 //
 // API Docs: https://canvas.instructure.com/doc/api/new_quizzes.html
@@ -28,14 +30,15 @@ var getNewQuiz = {
 //
 // Example:
 // return canvasRequest(list_new_quizzes, {course_id});
-
 exports.getNewQuiz = getNewQuiz;
 var listNewQuizzes = {
   type: 'LIST_NEW_QUIZZES',
   method: 'get',
   key: 'list_new_quizzeslist_new_quizzes_course_id',
   required: ['course_id']
-}; // Create a new quiz
+};
+
+// Create a new quiz
 // Create a new quiz for the course.
 //
 // API Docs: https://canvas.instructure.com/doc/api/new_quizzes.html
@@ -78,14 +81,15 @@ var listNewQuizzes = {
 //   quiz[quiz_settings][session_time_limit_in_seconds]
 // }
 // return canvasRequest(create_new_quiz, {course_id}, body);
-
 exports.listNewQuizzes = listNewQuizzes;
 var createNewQuiz = {
   type: 'CREATE_NEW_QUIZ',
   method: 'post',
   key: 'create_new_quizcreate_new_quiz_course_id',
   required: ['course_id']
-}; // Update a single quiz
+};
+
+// Update a single quiz
 // Update a single quiz for the course.
 //
 // API Docs: https://canvas.instructure.com/doc/api/new_quizzes.html
@@ -128,14 +132,15 @@ var createNewQuiz = {
 //   quiz[quiz_settings][session_time_limit_in_seconds]
 // }
 // return canvasRequest(update_single_quiz, {course_id, assignment_id}, body);
-
 exports.createNewQuiz = createNewQuiz;
 var updateSingleQuiz = {
   type: 'UPDATE_SINGLE_QUIZ',
   method: 'patch',
   key: 'update_single_quizupdate_single_quiz_{course_id}_{assignment_id}',
   required: ['course_id', 'assignment_id']
-}; // Delete a new quiz
+};
+
+// Delete a new quiz
 // Delete a single new quiz.
 //
 // API Docs: https://canvas.instructure.com/doc/api/new_quizzes.html
@@ -143,7 +148,6 @@ var updateSingleQuiz = {
 //
 // Example:
 // return canvasRequest(delete_new_quiz, {course_id, assignment_id});
-
 exports.updateSingleQuiz = updateSingleQuiz;
 var deleteNewQuiz = {
   type: 'DELETE_NEW_QUIZ',

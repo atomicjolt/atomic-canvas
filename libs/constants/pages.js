@@ -20,7 +20,9 @@ var showFrontPageCourses = {
   method: 'get',
   key: 'show_front_page_coursesshow_front_page_courses_course_id',
   required: ['course_id']
-}; // Show front page
+};
+
+// Show front page
 // Retrieve the content of the front page
 //
 // API Docs: https://canvas.instructure.com/doc/api/pages.html
@@ -28,14 +30,15 @@ var showFrontPageCourses = {
 //
 // Example:
 // return canvasRequest(show_front_page_groups, {group_id});
-
 exports.showFrontPageCourses = showFrontPageCourses;
 var showFrontPageGroups = {
   type: 'SHOW_FRONT_PAGE_GROUPS',
   method: 'get',
   key: 'show_front_page_groupsshow_front_page_groups_group_id',
   required: ['group_id']
-}; // Duplicate page
+};
+
+// Duplicate page
 // Duplicate a wiki page
 //
 // API Docs: https://canvas.instructure.com/doc/api/pages.html
@@ -43,14 +46,15 @@ var showFrontPageGroups = {
 //
 // Example:
 // return canvasRequest(duplicate_page, {course_id, url_or_id});
-
 exports.showFrontPageGroups = showFrontPageGroups;
 var duplicatePage = {
   type: 'DUPLICATE_PAGE',
   method: 'post',
   key: 'duplicate_pageduplicate_page_{course_id}_{url_or_id}',
   required: ['course_id', 'url_or_id']
-}; // Update/create front page
+};
+
+// Update/create front page
 // Update the title or contents of the front page
 //
 // API Docs: https://canvas.instructure.com/doc/api/pages.html
@@ -65,14 +69,15 @@ var duplicatePage = {
 //   wiki_page[published]
 // }
 // return canvasRequest(update_create_front_page_courses, {course_id}, body);
-
 exports.duplicatePage = duplicatePage;
 var updateCreateFrontPageCourses = {
   type: 'UPDATE_CREATE_FRONT_PAGE_COURSES',
   method: 'put',
   key: 'update_create_front_page_coursesupdate_create_front_page_courses_course_id',
   required: ['course_id']
-}; // Update/create front page
+};
+
+// Update/create front page
 // Update the title or contents of the front page
 //
 // API Docs: https://canvas.instructure.com/doc/api/pages.html
@@ -87,14 +92,15 @@ var updateCreateFrontPageCourses = {
 //   wiki_page[published]
 // }
 // return canvasRequest(update_create_front_page_groups, {group_id}, body);
-
 exports.updateCreateFrontPageCourses = updateCreateFrontPageCourses;
 var updateCreateFrontPageGroups = {
   type: 'UPDATE_CREATE_FRONT_PAGE_GROUPS',
   method: 'put',
   key: 'update_create_front_page_groupsupdate_create_front_page_groups_group_id',
   required: ['group_id']
-}; // List pages
+};
+
+// List pages
 // A paginated list of the wiki pages associated with a course or group
 //
 // API Docs: https://canvas.instructure.com/doc/api/pages.html
@@ -109,14 +115,15 @@ var updateCreateFrontPageGroups = {
 //   include
 // }
 // return canvasRequest(list_pages_courses, {course_id, ...query});
-
 exports.updateCreateFrontPageGroups = updateCreateFrontPageGroups;
 var listPagesCourses = {
   type: 'LIST_PAGES_COURSES',
   method: 'get',
   key: 'list_pages_courseslist_pages_courses_course_id',
   required: ['course_id']
-}; // List pages
+};
+
+// List pages
 // A paginated list of the wiki pages associated with a course or group
 //
 // API Docs: https://canvas.instructure.com/doc/api/pages.html
@@ -131,14 +138,15 @@ var listPagesCourses = {
 //   include
 // }
 // return canvasRequest(list_pages_groups, {group_id, ...query});
-
 exports.listPagesCourses = listPagesCourses;
 var listPagesGroups = {
   type: 'LIST_PAGES_GROUPS',
   method: 'get',
   key: 'list_pages_groupslist_pages_groups_group_id',
   required: ['group_id']
-}; // Create page
+};
+
+// Create page
 // Create a new wiki page
 //
 // API Docs: https://canvas.instructure.com/doc/api/pages.html
@@ -155,14 +163,15 @@ var listPagesGroups = {
 //   wiki_page[publish_at]
 // }
 // return canvasRequest(create_page_courses, {course_id}, body);
-
 exports.listPagesGroups = listPagesGroups;
 var createPageCourses = {
   type: 'CREATE_PAGE_COURSES',
   method: 'post',
   key: 'create_page_coursescreate_page_courses_course_id',
   required: ['course_id']
-}; // Create page
+};
+
+// Create page
 // Create a new wiki page
 //
 // API Docs: https://canvas.instructure.com/doc/api/pages.html
@@ -179,14 +188,15 @@ var createPageCourses = {
 //   wiki_page[publish_at]
 // }
 // return canvasRequest(create_page_groups, {group_id}, body);
-
 exports.createPageCourses = createPageCourses;
 var createPageGroups = {
   type: 'CREATE_PAGE_GROUPS',
   method: 'post',
   key: 'create_page_groupscreate_page_groups_group_id',
   required: ['group_id']
-}; // Show page
+};
+
+// Show page
 // Retrieve the content of a wiki page
 //
 // API Docs: https://canvas.instructure.com/doc/api/pages.html
@@ -194,14 +204,15 @@ var createPageGroups = {
 //
 // Example:
 // return canvasRequest(show_page_courses, {course_id, url_or_id});
-
 exports.createPageGroups = createPageGroups;
 var showPageCourses = {
   type: 'SHOW_PAGE_COURSES',
   method: 'get',
   key: 'show_page_coursesshow_page_courses_{course_id}_{url_or_id}',
   required: ['course_id', 'url_or_id']
-}; // Show page
+};
+
+// Show page
 // Retrieve the content of a wiki page
 //
 // API Docs: https://canvas.instructure.com/doc/api/pages.html
@@ -209,14 +220,15 @@ var showPageCourses = {
 //
 // Example:
 // return canvasRequest(show_page_groups, {group_id, url_or_id});
-
 exports.showPageCourses = showPageCourses;
 var showPageGroups = {
   type: 'SHOW_PAGE_GROUPS',
   method: 'get',
   key: 'show_page_groupsshow_page_groups_{group_id}_{url_or_id}',
   required: ['group_id', 'url_or_id']
-}; // Update/create page
+};
+
+// Update/create page
 // Update the title or contents of a wiki page
 // 
 // NOTE: You cannot specify the ID when creating a page. If you pass a numeric value
@@ -237,14 +249,15 @@ var showPageGroups = {
 //   wiki_page[front_page]
 // }
 // return canvasRequest(update_create_page_courses, {course_id, url_or_id}, body);
-
 exports.showPageGroups = showPageGroups;
 var updateCreatePageCourses = {
   type: 'UPDATE_CREATE_PAGE_COURSES',
   method: 'put',
   key: 'update_create_page_coursesupdate_create_page_courses_{course_id}_{url_or_id}',
   required: ['course_id', 'url_or_id']
-}; // Update/create page
+};
+
+// Update/create page
 // Update the title or contents of a wiki page
 // 
 // NOTE: You cannot specify the ID when creating a page. If you pass a numeric value
@@ -265,14 +278,15 @@ var updateCreatePageCourses = {
 //   wiki_page[front_page]
 // }
 // return canvasRequest(update_create_page_groups, {group_id, url_or_id}, body);
-
 exports.updateCreatePageCourses = updateCreatePageCourses;
 var updateCreatePageGroups = {
   type: 'UPDATE_CREATE_PAGE_GROUPS',
   method: 'put',
   key: 'update_create_page_groupsupdate_create_page_groups_{group_id}_{url_or_id}',
   required: ['group_id', 'url_or_id']
-}; // Delete page
+};
+
+// Delete page
 // Delete a wiki page
 //
 // API Docs: https://canvas.instructure.com/doc/api/pages.html
@@ -280,14 +294,15 @@ var updateCreatePageGroups = {
 //
 // Example:
 // return canvasRequest(delete_page_courses, {course_id, url_or_id});
-
 exports.updateCreatePageGroups = updateCreatePageGroups;
 var deletePageCourses = {
   type: 'DELETE_PAGE_COURSES',
   method: 'delete',
   key: 'delete_page_coursesdelete_page_courses_{course_id}_{url_or_id}',
   required: ['course_id', 'url_or_id']
-}; // Delete page
+};
+
+// Delete page
 // Delete a wiki page
 //
 // API Docs: https://canvas.instructure.com/doc/api/pages.html
@@ -295,14 +310,15 @@ var deletePageCourses = {
 //
 // Example:
 // return canvasRequest(delete_page_groups, {group_id, url_or_id});
-
 exports.deletePageCourses = deletePageCourses;
 var deletePageGroups = {
   type: 'DELETE_PAGE_GROUPS',
   method: 'delete',
   key: 'delete_page_groupsdelete_page_groups_{group_id}_{url_or_id}',
   required: ['group_id', 'url_or_id']
-}; // List revisions
+};
+
+// List revisions
 // A paginated list of the revisions of a page. Callers must have update rights on the page in order to see page history.
 //
 // API Docs: https://canvas.instructure.com/doc/api/pages.html
@@ -310,14 +326,15 @@ var deletePageGroups = {
 //
 // Example:
 // return canvasRequest(list_revisions_courses, {course_id, url_or_id});
-
 exports.deletePageGroups = deletePageGroups;
 var listRevisionsCourses = {
   type: 'LIST_REVISIONS_COURSES',
   method: 'get',
   key: 'list_revisions_courseslist_revisions_courses_{course_id}_{url_or_id}',
   required: ['course_id', 'url_or_id']
-}; // List revisions
+};
+
+// List revisions
 // A paginated list of the revisions of a page. Callers must have update rights on the page in order to see page history.
 //
 // API Docs: https://canvas.instructure.com/doc/api/pages.html
@@ -325,14 +342,15 @@ var listRevisionsCourses = {
 //
 // Example:
 // return canvasRequest(list_revisions_groups, {group_id, url_or_id});
-
 exports.listRevisionsCourses = listRevisionsCourses;
 var listRevisionsGroups = {
   type: 'LIST_REVISIONS_GROUPS',
   method: 'get',
   key: 'list_revisions_groupslist_revisions_groups_{group_id}_{url_or_id}',
   required: ['group_id', 'url_or_id']
-}; // Show revision
+};
+
+// Show revision
 // Retrieve the metadata and optionally content of a revision of the page.
 // Note that retrieving historic versions of pages requires edit rights.
 //
@@ -344,14 +362,15 @@ var listRevisionsGroups = {
 //   summary
 // }
 // return canvasRequest(show_revision_courses_latest, {course_id, url_or_id, ...query});
-
 exports.listRevisionsGroups = listRevisionsGroups;
 var showRevisionCoursesLatest = {
   type: 'SHOW_REVISION_COURSES_LATEST',
   method: 'get',
   key: 'show_revision_courses_latestshow_revision_courses_latest_{course_id}_{url_or_id}',
   required: ['course_id', 'url_or_id']
-}; // Show revision
+};
+
+// Show revision
 // Retrieve the metadata and optionally content of a revision of the page.
 // Note that retrieving historic versions of pages requires edit rights.
 //
@@ -363,14 +382,15 @@ var showRevisionCoursesLatest = {
 //   summary
 // }
 // return canvasRequest(show_revision_groups_latest, {group_id, url_or_id, ...query});
-
 exports.showRevisionCoursesLatest = showRevisionCoursesLatest;
 var showRevisionGroupsLatest = {
   type: 'SHOW_REVISION_GROUPS_LATEST',
   method: 'get',
   key: 'show_revision_groups_latestshow_revision_groups_latest_{group_id}_{url_or_id}',
   required: ['group_id', 'url_or_id']
-}; // Show revision
+};
+
+// Show revision
 // Retrieve the metadata and optionally content of a revision of the page.
 // Note that retrieving historic versions of pages requires edit rights.
 //
@@ -382,14 +402,15 @@ var showRevisionGroupsLatest = {
 //   summary
 // }
 // return canvasRequest(show_revision_courses_revision_id, {course_id, url_or_id, revision_id, ...query});
-
 exports.showRevisionGroupsLatest = showRevisionGroupsLatest;
 var showRevisionCoursesRevisionId = {
   type: 'SHOW_REVISION_COURSES_REVISION_ID',
   method: 'get',
   key: 'show_revision_courses_revision_idshow_revision_courses_revision_id_{course_id}_{url_or_id}_{revision_id}',
   required: ['course_id', 'url_or_id', 'revision_id']
-}; // Show revision
+};
+
+// Show revision
 // Retrieve the metadata and optionally content of a revision of the page.
 // Note that retrieving historic versions of pages requires edit rights.
 //
@@ -401,14 +422,15 @@ var showRevisionCoursesRevisionId = {
 //   summary
 // }
 // return canvasRequest(show_revision_groups_revision_id, {group_id, url_or_id, revision_id, ...query});
-
 exports.showRevisionCoursesRevisionId = showRevisionCoursesRevisionId;
 var showRevisionGroupsRevisionId = {
   type: 'SHOW_REVISION_GROUPS_REVISION_ID',
   method: 'get',
   key: 'show_revision_groups_revision_idshow_revision_groups_revision_id_{group_id}_{url_or_id}_{revision_id}',
   required: ['group_id', 'url_or_id', 'revision_id']
-}; // Revert to revision
+};
+
+// Revert to revision
 // Revert a page to a prior revision.
 //
 // API Docs: https://canvas.instructure.com/doc/api/pages.html
@@ -416,14 +438,15 @@ var showRevisionGroupsRevisionId = {
 //
 // Example:
 // return canvasRequest(revert_to_revision_courses, {course_id, url_or_id, revision_id});
-
 exports.showRevisionGroupsRevisionId = showRevisionGroupsRevisionId;
 var revertToRevisionCourses = {
   type: 'REVERT_TO_REVISION_COURSES',
   method: 'post',
   key: 'revert_to_revision_coursesrevert_to_revision_courses_{course_id}_{url_or_id}_{revision_id}',
   required: ['course_id', 'url_or_id', 'revision_id']
-}; // Revert to revision
+};
+
+// Revert to revision
 // Revert a page to a prior revision.
 //
 // API Docs: https://canvas.instructure.com/doc/api/pages.html
@@ -431,7 +454,6 @@ var revertToRevisionCourses = {
 //
 // Example:
 // return canvasRequest(revert_to_revision_groups, {group_id, url_or_id, revision_id});
-
 exports.revertToRevisionCourses = revertToRevisionCourses;
 var revertToRevisionGroups = {
   type: 'REVERT_TO_REVISION_GROUPS',
