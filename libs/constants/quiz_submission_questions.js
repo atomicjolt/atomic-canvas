@@ -25,7 +25,9 @@ var getAllQuizSubmissionQuestions = {
   method: 'get',
   key: 'get_all_quiz_submission_questionsget_all_quiz_submission_questions_quiz_submission_id',
   required: ['quiz_submission_id']
-}; // Answering questions
+};
+
+// Answering questions
 // Provide or update an answer to one or more QuizQuestions.
 //
 // API Docs: https://canvas.instructure.com/doc/api/quiz_submission_questions.html
@@ -39,14 +41,15 @@ var getAllQuizSubmissionQuestions = {
 //   quiz_questions
 // }
 // return canvasRequest(answering_questions, {quiz_submission_id}, body);
-
 exports.getAllQuizSubmissionQuestions = getAllQuizSubmissionQuestions;
 var answeringQuestions = {
   type: 'ANSWERING_QUESTIONS',
   method: 'post',
   key: 'answering_questionsanswering_questions_quiz_submission_id',
   required: ['quiz_submission_id']
-}; // Get a formatted student numerical answer.
+};
+
+// Get a formatted student numerical answer.
 // Matches the intended behavior of the UI when a numerical answer is entered
 // and returns the resulting formatted number
 //
@@ -58,14 +61,15 @@ var answeringQuestions = {
 //   answer (required)
 // }
 // return canvasRequest(get_formatted_student_numerical_answer, {quiz_submission_id, id, ...query});
-
 exports.answeringQuestions = answeringQuestions;
 var getFormattedStudentNumericalAnswer = {
   type: 'GET_FORMATTED_STUDENT_NUMERICAL_ANSWER',
   method: 'get',
   key: 'get_formatted_student_numerical_answerget_formatted_student_numerical_answer_{quiz_submission_id}_{id}',
   required: ['quiz_submission_id', 'id']
-}; // Flagging a question.
+};
+
+// Flagging a question.
 // Set a flag on a quiz question to indicate that you want to return to it
 // later.
 //
@@ -79,14 +83,15 @@ var getFormattedStudentNumericalAnswer = {
 //   access_code
 // }
 // return canvasRequest(flagging_question, {quiz_submission_id, id}, body);
-
 exports.getFormattedStudentNumericalAnswer = getFormattedStudentNumericalAnswer;
 var flaggingQuestion = {
   type: 'FLAGGING_QUESTION',
   method: 'put',
   key: 'flagging_questionflagging_question_{quiz_submission_id}_{id}',
   required: ['quiz_submission_id', 'id']
-}; // Unflagging a question.
+};
+
+// Unflagging a question.
 // Remove the flag that you previously set on a quiz question after you've
 // returned to it.
 //
@@ -100,7 +105,6 @@ var flaggingQuestion = {
 //   access_code
 // }
 // return canvasRequest(unflagging_question, {quiz_submission_id, id}, body);
-
 exports.flaggingQuestion = flaggingQuestion;
 var unflaggingQuestion = {
   type: 'UNFLAGGING_QUESTION',

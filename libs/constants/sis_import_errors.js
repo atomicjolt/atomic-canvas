@@ -32,7 +32,9 @@ var getSisImportErrorListSisImports = {
   method: 'get',
   key: 'get_sis_import_error_list_sis_importsget_sis_import_error_list_sis_imports_{account_id}_{id}',
   required: ['account_id', 'id']
-}; // Get SIS import error list
+};
+
+// Get SIS import error list
 // Returns the list of SIS import errors for an account or a SIS import. Import
 // errors are only stored for 30 days.
 // 
@@ -52,7 +54,6 @@ var getSisImportErrorListSisImports = {
 //   failure
 // }
 // return canvasRequest(get_sis_import_error_list_sis_import_errors, {account_id, ...query});
-
 exports.getSisImportErrorListSisImports = getSisImportErrorListSisImports;
 var getSisImportErrorListSisImportErrors = {
   type: 'GET_SIS_IMPORT_ERROR_LIST_SIS_IMPORT_ERRORS',

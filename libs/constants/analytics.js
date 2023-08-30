@@ -42,7 +42,9 @@ var getDepartmentLevelParticipationDataTerms = {
   method: 'get',
   key: 'get_department_level_participation_data_termsget_department_level_participation_data_terms_{account_id}_{term_id}',
   required: ['account_id', 'term_id']
-}; // Get department-level participation data
+};
+
+// Get department-level participation data
 // Returns page view hits summed across all courses in the department. Two
 // groupings of these counts are returned; one by day (+by_date+), the other
 // by category (+by_category+). The possible categories are announcements,
@@ -72,14 +74,15 @@ var getDepartmentLevelParticipationDataTerms = {
 //
 // Example:
 // return canvasRequest(get_department_level_participation_data_current, {account_id});
-
 exports.getDepartmentLevelParticipationDataTerms = getDepartmentLevelParticipationDataTerms;
 var getDepartmentLevelParticipationDataCurrent = {
   type: 'GET_DEPARTMENT_LEVEL_PARTICIPATION_DATA_CURRENT',
   method: 'get',
   key: 'get_department_level_participation_data_currentget_department_level_participation_data_current_account_id',
   required: ['account_id']
-}; // Get department-level participation data
+};
+
+// Get department-level participation data
 // Returns page view hits summed across all courses in the department. Two
 // groupings of these counts are returned; one by day (+by_date+), the other
 // by category (+by_category+). The possible categories are announcements,
@@ -109,14 +112,15 @@ var getDepartmentLevelParticipationDataCurrent = {
 //
 // Example:
 // return canvasRequest(get_department_level_participation_data_completed, {account_id});
-
 exports.getDepartmentLevelParticipationDataCurrent = getDepartmentLevelParticipationDataCurrent;
 var getDepartmentLevelParticipationDataCompleted = {
   type: 'GET_DEPARTMENT_LEVEL_PARTICIPATION_DATA_COMPLETED',
   method: 'get',
   key: 'get_department_level_participation_data_completedget_department_level_participation_data_completed_account_id',
   required: ['account_id']
-}; // Get department-level grade data
+};
+
+// Get department-level grade data
 // Returns the distribution of grades for students in courses in the
 // department.  Each data point is one student's current grade in one course;
 // if a student is in multiple courses, he contributes one value per course,
@@ -134,14 +138,15 @@ var getDepartmentLevelParticipationDataCompleted = {
 //
 // Example:
 // return canvasRequest(get_department_level_grade_data_terms, {account_id, term_id});
-
 exports.getDepartmentLevelParticipationDataCompleted = getDepartmentLevelParticipationDataCompleted;
 var getDepartmentLevelGradeDataTerms = {
   type: 'GET_DEPARTMENT_LEVEL_GRADE_DATA_TERMS',
   method: 'get',
   key: 'get_department_level_grade_data_termsget_department_level_grade_data_terms_{account_id}_{term_id}',
   required: ['account_id', 'term_id']
-}; // Get department-level grade data
+};
+
+// Get department-level grade data
 // Returns the distribution of grades for students in courses in the
 // department.  Each data point is one student's current grade in one course;
 // if a student is in multiple courses, he contributes one value per course,
@@ -159,14 +164,15 @@ var getDepartmentLevelGradeDataTerms = {
 //
 // Example:
 // return canvasRequest(get_department_level_grade_data_current, {account_id});
-
 exports.getDepartmentLevelGradeDataTerms = getDepartmentLevelGradeDataTerms;
 var getDepartmentLevelGradeDataCurrent = {
   type: 'GET_DEPARTMENT_LEVEL_GRADE_DATA_CURRENT',
   method: 'get',
   key: 'get_department_level_grade_data_currentget_department_level_grade_data_current_account_id',
   required: ['account_id']
-}; // Get department-level grade data
+};
+
+// Get department-level grade data
 // Returns the distribution of grades for students in courses in the
 // department.  Each data point is one student's current grade in one course;
 // if a student is in multiple courses, he contributes one value per course,
@@ -184,14 +190,15 @@ var getDepartmentLevelGradeDataCurrent = {
 //
 // Example:
 // return canvasRequest(get_department_level_grade_data_completed, {account_id});
-
 exports.getDepartmentLevelGradeDataCurrent = getDepartmentLevelGradeDataCurrent;
 var getDepartmentLevelGradeDataCompleted = {
   type: 'GET_DEPARTMENT_LEVEL_GRADE_DATA_COMPLETED',
   method: 'get',
   key: 'get_department_level_grade_data_completedget_department_level_grade_data_completed_account_id',
   required: ['account_id']
-}; // Get department-level statistics
+};
+
+// Get department-level statistics
 // Returns numeric statistics about the department and term (or filter).
 // 
 // Shares the same variations on endpoint as the participation data.
@@ -201,14 +208,15 @@ var getDepartmentLevelGradeDataCompleted = {
 //
 // Example:
 // return canvasRequest(get_department_level_statistics_terms, {account_id, term_id});
-
 exports.getDepartmentLevelGradeDataCompleted = getDepartmentLevelGradeDataCompleted;
 var getDepartmentLevelStatisticsTerms = {
   type: 'GET_DEPARTMENT_LEVEL_STATISTICS_TERMS',
   method: 'get',
   key: 'get_department_level_statistics_termsget_department_level_statistics_terms_{account_id}_{term_id}',
   required: ['account_id', 'term_id']
-}; // Get department-level statistics
+};
+
+// Get department-level statistics
 // Returns numeric statistics about the department and term (or filter).
 // 
 // Shares the same variations on endpoint as the participation data.
@@ -218,14 +226,15 @@ var getDepartmentLevelStatisticsTerms = {
 //
 // Example:
 // return canvasRequest(get_department_level_statistics_current, {account_id});
-
 exports.getDepartmentLevelStatisticsTerms = getDepartmentLevelStatisticsTerms;
 var getDepartmentLevelStatisticsCurrent = {
   type: 'GET_DEPARTMENT_LEVEL_STATISTICS_CURRENT',
   method: 'get',
   key: 'get_department_level_statistics_currentget_department_level_statistics_current_account_id',
   required: ['account_id']
-}; // Get department-level statistics
+};
+
+// Get department-level statistics
 // Returns numeric statistics about the department and term (or filter).
 // 
 // Shares the same variations on endpoint as the participation data.
@@ -235,14 +244,15 @@ var getDepartmentLevelStatisticsCurrent = {
 //
 // Example:
 // return canvasRequest(get_department_level_statistics_completed, {account_id});
-
 exports.getDepartmentLevelStatisticsCurrent = getDepartmentLevelStatisticsCurrent;
 var getDepartmentLevelStatisticsCompleted = {
   type: 'GET_DEPARTMENT_LEVEL_STATISTICS_COMPLETED',
   method: 'get',
   key: 'get_department_level_statistics_completedget_department_level_statistics_completed_account_id',
   required: ['account_id']
-}; // Get department-level statistics, broken down by subaccount
+};
+
+// Get department-level statistics, broken down by subaccount
 // Returns numeric statistics about the department subaccounts and term (or filter).
 // 
 // Shares the same variations on endpoint as the participation data.
@@ -252,14 +262,15 @@ var getDepartmentLevelStatisticsCompleted = {
 //
 // Example:
 // return canvasRequest(get_department_level_statistics_broken_down_by_subaccount_terms, {account_id, term_id});
-
 exports.getDepartmentLevelStatisticsCompleted = getDepartmentLevelStatisticsCompleted;
 var getDepartmentLevelStatisticsBrokenDownBySubaccountTerms = {
   type: 'GET_DEPARTMENT_LEVEL_STATISTICS_BROKEN_DOWN_BY_SUBACCOUNT_TERMS',
   method: 'get',
   key: 'get_department_level_statistics_broken_down_by_subaccount_termsget_department_level_statistics_broken_down_by_subaccount_terms_{account_id}_{term_id}',
   required: ['account_id', 'term_id']
-}; // Get department-level statistics, broken down by subaccount
+};
+
+// Get department-level statistics, broken down by subaccount
 // Returns numeric statistics about the department subaccounts and term (or filter).
 // 
 // Shares the same variations on endpoint as the participation data.
@@ -269,14 +280,15 @@ var getDepartmentLevelStatisticsBrokenDownBySubaccountTerms = {
 //
 // Example:
 // return canvasRequest(get_department_level_statistics_broken_down_by_subaccount_current, {account_id});
-
 exports.getDepartmentLevelStatisticsBrokenDownBySubaccountTerms = getDepartmentLevelStatisticsBrokenDownBySubaccountTerms;
 var getDepartmentLevelStatisticsBrokenDownBySubaccountCurrent = {
   type: 'GET_DEPARTMENT_LEVEL_STATISTICS_BROKEN_DOWN_BY_SUBACCOUNT_CURRENT',
   method: 'get',
   key: 'get_department_level_statistics_broken_down_by_subaccount_currentget_department_level_statistics_broken_down_by_subaccount_current_account_id',
   required: ['account_id']
-}; // Get department-level statistics, broken down by subaccount
+};
+
+// Get department-level statistics, broken down by subaccount
 // Returns numeric statistics about the department subaccounts and term (or filter).
 // 
 // Shares the same variations on endpoint as the participation data.
@@ -286,14 +298,15 @@ var getDepartmentLevelStatisticsBrokenDownBySubaccountCurrent = {
 //
 // Example:
 // return canvasRequest(get_department_level_statistics_broken_down_by_subaccount_completed, {account_id});
-
 exports.getDepartmentLevelStatisticsBrokenDownBySubaccountCurrent = getDepartmentLevelStatisticsBrokenDownBySubaccountCurrent;
 var getDepartmentLevelStatisticsBrokenDownBySubaccountCompleted = {
   type: 'GET_DEPARTMENT_LEVEL_STATISTICS_BROKEN_DOWN_BY_SUBACCOUNT_COMPLETED',
   method: 'get',
   key: 'get_department_level_statistics_broken_down_by_subaccount_completedget_department_level_statistics_broken_down_by_subaccount_completed_account_id',
   required: ['account_id']
-}; // Get course-level participation data
+};
+
+// Get course-level participation data
 // Returns page view hits and participation numbers grouped by day through the
 // entire history of the course. Page views is returned as a hash, where the
 // hash keys are dates in the format "YYYY-MM-DD". The page_views result set
@@ -305,14 +318,15 @@ var getDepartmentLevelStatisticsBrokenDownBySubaccountCompleted = {
 //
 // Example:
 // return canvasRequest(get_course_level_participation_data, {course_id});
-
 exports.getDepartmentLevelStatisticsBrokenDownBySubaccountCompleted = getDepartmentLevelStatisticsBrokenDownBySubaccountCompleted;
 var getCourseLevelParticipationData = {
   type: 'GET_COURSE_LEVEL_PARTICIPATION_DATA',
   method: 'get',
   key: 'get_course_level_participation_dataget_course_level_participation_data_course_id',
   required: ['course_id']
-}; // Get course-level assignment data
+};
+
+// Get course-level assignment data
 // Returns a list of assignments for the course sorted by due date. For
 // each assignment returns basic assignment information, the grade breakdown,
 // and a breakdown of on-time/late status of homework submissions.
@@ -325,14 +339,15 @@ var getCourseLevelParticipationData = {
 //   async
 // }
 // return canvasRequest(get_course_level_assignment_data, {course_id, ...query});
-
 exports.getCourseLevelParticipationData = getCourseLevelParticipationData;
 var getCourseLevelAssignmentData = {
   type: 'GET_COURSE_LEVEL_ASSIGNMENT_DATA',
   method: 'get',
   key: 'get_course_level_assignment_dataget_course_level_assignment_data_course_id',
   required: ['course_id']
-}; // Get course-level student summary data
+};
+
+// Get course-level student summary data
 // Returns a summary of per-user access information for all students in
 // a course. This includes total page views, total participations, and a
 // breakdown of on-time/late status for all homework submissions in the course.
@@ -351,14 +366,15 @@ var getCourseLevelAssignmentData = {
 //   student_id
 // }
 // return canvasRequest(get_course_level_student_summary_data, {course_id, ...query});
-
 exports.getCourseLevelAssignmentData = getCourseLevelAssignmentData;
 var getCourseLevelStudentSummaryData = {
   type: 'GET_COURSE_LEVEL_STUDENT_SUMMARY_DATA',
   method: 'get',
   key: 'get_course_level_student_summary_dataget_course_level_student_summary_data_course_id',
   required: ['course_id']
-}; // Get user-in-a-course-level participation data
+};
+
+// Get user-in-a-course-level participation data
 // Returns page view hits grouped by hour, and participation details through the
 // entire history of the course.
 // 
@@ -370,14 +386,15 @@ var getCourseLevelStudentSummaryData = {
 //
 // Example:
 // return canvasRequest(get_user_in_a_course_level_participation_data, {course_id, student_id});
-
 exports.getCourseLevelStudentSummaryData = getCourseLevelStudentSummaryData;
 var getUserInACourseLevelParticipationData = {
   type: 'GET_USER_IN_A_COURSE_LEVEL_PARTICIPATION_DATA',
   method: 'get',
   key: 'get_user_in_a_course_level_participation_dataget_user_in_a_course_level_participation_data_{course_id}_{student_id}',
   required: ['course_id', 'student_id']
-}; // Get user-in-a-course-level assignment data
+};
+
+// Get user-in-a-course-level assignment data
 // Returns a list of assignments for the course sorted by due date. For
 // each assignment returns basic assignment information, the grade breakdown
 // (including the student's actual grade), and the basic submission
@@ -388,14 +405,15 @@ var getUserInACourseLevelParticipationData = {
 //
 // Example:
 // return canvasRequest(get_user_in_a_course_level_assignment_data, {course_id, student_id});
-
 exports.getUserInACourseLevelParticipationData = getUserInACourseLevelParticipationData;
 var getUserInACourseLevelAssignmentData = {
   type: 'GET_USER_IN_A_COURSE_LEVEL_ASSIGNMENT_DATA',
   method: 'get',
   key: 'get_user_in_a_course_level_assignment_dataget_user_in_a_course_level_assignment_data_{course_id}_{student_id}',
   required: ['course_id', 'student_id']
-}; // Get user-in-a-course-level messaging data
+};
+
+// Get user-in-a-course-level messaging data
 // Returns messaging "hits" grouped by day through the entire history of the
 // course. Returns a hash containing the number of instructor-to-student messages,
 // and student-to-instructor messages, where the hash keys are dates
@@ -407,7 +425,6 @@ var getUserInACourseLevelAssignmentData = {
 //
 // Example:
 // return canvasRequest(get_user_in_a_course_level_messaging_data, {course_id, student_id});
-
 exports.getUserInACourseLevelAssignmentData = getUserInACourseLevelAssignmentData;
 var getUserInACourseLevelMessagingData = {
   type: 'GET_USER_IN_A_COURSE_LEVEL_MESSAGING_DATA',

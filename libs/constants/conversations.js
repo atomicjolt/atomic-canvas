@@ -29,7 +29,9 @@ var listConversations = {
   method: 'get',
   key: 'list_conversations',
   required: []
-}; // Create a conversation
+};
+
+// Create a conversation
 // Create a new conversation with one or more recipients. If there is already
 // an existing private conversation with the given recipients, it will be
 // reused.
@@ -55,14 +57,15 @@ var listConversations = {
 //   context_code
 // }
 // return canvasRequest(create_conversation, {}, body);
-
 exports.listConversations = listConversations;
 var createConversation = {
   type: 'CREATE_CONVERSATION',
   method: 'post',
   key: 'create_conversation',
   required: []
-}; // Get running batches
+};
+
+// Get running batches
 // Returns any currently running conversation batches for the current user.
 // Conversation batches are created when a bulk private message is sent
 // asynchronously (see the mode argument to the {api:ConversationsController#create create API action}).
@@ -72,14 +75,15 @@ var createConversation = {
 //
 // Example:
 // return canvasRequest(get_running_batches, {});
-
 exports.createConversation = createConversation;
 var getRunningBatches = {
   type: 'GET_RUNNING_BATCHES',
   method: 'get',
   key: 'get_running_batches',
   required: []
-}; // Get a single conversation
+};
+
+// Get a single conversation
 // Returns information for a single conversation for the current user. Response includes all
 // fields that are present in the list/index action as well as messages
 // and extended participant information.
@@ -96,14 +100,15 @@ var getRunningBatches = {
 //   auto_mark_as_read
 // }
 // return canvasRequest(get_single_conversation, {id, ...query});
-
 exports.getRunningBatches = getRunningBatches;
 var getSingleConversation = {
   type: 'GET_SINGLE_CONVERSATION',
   method: 'get',
   key: 'get_single_conversationget_single_conversation_id',
   required: ['id']
-}; // Edit a conversation
+};
+
+// Edit a conversation
 // Updates attributes for a single conversation.
 //
 // API Docs: https://canvas.instructure.com/doc/api/conversations.html
@@ -119,14 +124,15 @@ var getSingleConversation = {
 //   filter_mode
 // }
 // return canvasRequest(edit_conversation, {id}, body);
-
 exports.getSingleConversation = getSingleConversation;
 var editConversation = {
   type: 'EDIT_CONVERSATION',
   method: 'put',
   key: 'edit_conversationedit_conversation_id',
   required: ['id']
-}; // Mark all as read
+};
+
+// Mark all as read
 // Mark all conversations as read.
 //
 // API Docs: https://canvas.instructure.com/doc/api/conversations.html
@@ -134,14 +140,15 @@ var editConversation = {
 //
 // Example:
 // return canvasRequest(mark_all_as_read, {});
-
 exports.editConversation = editConversation;
 var markAllAsRead = {
   type: 'MARK_ALL_AS_READ',
   method: 'post',
   key: 'mark_all_as_read',
   required: []
-}; // Delete a conversation
+};
+
+// Delete a conversation
 // Delete this conversation and its messages. Note that this only deletes
 // this user's view of the conversation.
 // 
@@ -152,14 +159,15 @@ var markAllAsRead = {
 //
 // Example:
 // return canvasRequest(delete_conversation, {id});
-
 exports.markAllAsRead = markAllAsRead;
 var deleteConversation = {
   type: 'DELETE_CONVERSATION',
   method: 'delete',
   key: 'delete_conversationdelete_conversation_id',
   required: ['id']
-}; // Add recipients
+};
+
+// Add recipients
 // Add recipients to an existing group conversation. Response is similar to
 // the GET/show action, except that only includes the
 // latest message (e.g. "joe was added to the conversation by bob")
@@ -172,14 +180,15 @@ var deleteConversation = {
 //   recipients (required)
 // }
 // return canvasRequest(add_recipients, {id}, body);
-
 exports.deleteConversation = deleteConversation;
 var addRecipients = {
   type: 'ADD_RECIPIENTS',
   method: 'post',
   key: 'add_recipientsadd_recipients_id',
   required: ['id']
-}; // Add a message
+};
+
+// Add a message
 // Add a message to an existing conversation. Response is similar to the
 // GET/show action, except that only includes the
 // latest message (i.e. what we just sent)
@@ -206,14 +215,15 @@ var addRecipients = {
 //   user_note
 // }
 // return canvasRequest(add_message, {id}, body);
-
 exports.addRecipients = addRecipients;
 var addMessage = {
   type: 'ADD_MESSAGE',
   method: 'post',
   key: 'add_messageadd_message_id',
   required: ['id']
-}; // Delete a message
+};
+
+// Delete a message
 // Delete messages from this conversation. Note that this only affects this
 // user's view of the conversation. If all messages are deleted, the
 // conversation will be as well (equivalent to DELETE)
@@ -226,14 +236,15 @@ var addMessage = {
 //   remove (required)
 // }
 // return canvasRequest(delete_message, {id}, body);
-
 exports.addMessage = addMessage;
 var deleteMessage = {
   type: 'DELETE_MESSAGE',
   method: 'post',
   key: 'delete_messagedelete_message_id',
   required: ['id']
-}; // Batch update conversations
+};
+
+// Batch update conversations
 // Perform a change on a set of conversations. Operates asynchronously; use the {api:ProgressController#show progress endpoint}
 // to query the status of an operation.
 //
@@ -246,14 +257,15 @@ var deleteMessage = {
 //   event (required)
 // }
 // return canvasRequest(batch_update_conversations, {}, body);
-
 exports.deleteMessage = deleteMessage;
 var batchUpdateConversations = {
   type: 'BATCH_UPDATE_CONVERSATIONS',
   method: 'put',
   key: 'batch_update_conversations',
   required: []
-}; // Find recipients
+};
+
+// Find recipients
 // Deprecated, see the {api:SearchController#recipients Find recipients endpoint} in the Search API
 //
 // API Docs: https://canvas.instructure.com/doc/api/conversations.html
@@ -261,14 +273,15 @@ var batchUpdateConversations = {
 //
 // Example:
 // return canvasRequest(find_recipients, {});
-
 exports.batchUpdateConversations = batchUpdateConversations;
 var findRecipients = {
   type: 'FIND_RECIPIENTS',
   method: 'get',
   key: 'find_recipients',
   required: []
-}; // Unread count
+};
+
+// Unread count
 // Get the number of unread conversations for the current user
 //
 // API Docs: https://canvas.instructure.com/doc/api/conversations.html
@@ -276,7 +289,6 @@ var findRecipients = {
 //
 // Example:
 // return canvasRequest(unread_count, {});
-
 exports.findRecipients = findRecipients;
 var unreadCount = {
   type: 'UNREAD_COUNT',

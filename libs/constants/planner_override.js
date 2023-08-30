@@ -20,7 +20,9 @@ var listPlannerOverrides = {
   method: 'get',
   key: 'list_planner_overrides',
   required: []
-}; // Show a planner override
+};
+
+// Show a planner override
 // Retrieve a planner override for the current user
 //
 // API Docs: https://canvas.instructure.com/doc/api/planner_override.html
@@ -28,14 +30,15 @@ var listPlannerOverrides = {
 //
 // Example:
 // return canvasRequest(show_planner_override, {id});
-
 exports.listPlannerOverrides = listPlannerOverrides;
 var showPlannerOverride = {
   type: 'SHOW_PLANNER_OVERRIDE',
   method: 'get',
   key: 'show_planner_overrideshow_planner_override_id',
   required: ['id']
-}; // Update a planner override
+};
+
+// Update a planner override
 // Update a planner override's visibilty for the current user
 //
 // API Docs: https://canvas.instructure.com/doc/api/planner_override.html
@@ -47,14 +50,15 @@ var showPlannerOverride = {
 //   dismissed
 // }
 // return canvasRequest(update_planner_override, {id}, body);
-
 exports.showPlannerOverride = showPlannerOverride;
 var updatePlannerOverride = {
   type: 'UPDATE_PLANNER_OVERRIDE',
   method: 'put',
   key: 'update_planner_overrideupdate_planner_override_id',
   required: ['id']
-}; // Create a planner override
+};
+
+// Create a planner override
 // Create a planner override for the current user
 //
 // API Docs: https://canvas.instructure.com/doc/api/planner_override.html
@@ -68,14 +72,15 @@ var updatePlannerOverride = {
 //   dismissed
 // }
 // return canvasRequest(create_planner_override, {}, body);
-
 exports.updatePlannerOverride = updatePlannerOverride;
 var createPlannerOverride = {
   type: 'CREATE_PLANNER_OVERRIDE',
   method: 'post',
   key: 'create_planner_override',
   required: []
-}; // Delete a planner override
+};
+
+// Delete a planner override
 // Delete a planner override for the current user
 //
 // API Docs: https://canvas.instructure.com/doc/api/planner_override.html
@@ -83,7 +88,6 @@ var createPlannerOverride = {
 //
 // Example:
 // return canvasRequest(delete_planner_override, {id});
-
 exports.createPlannerOverride = createPlannerOverride;
 var deletePlannerOverride = {
   type: 'DELETE_PLANNER_OVERRIDE',

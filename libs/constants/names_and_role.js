@@ -25,7 +25,9 @@ var listCourseMemberships = {
   method: 'get',
   key: 'list_course_membershipslist_course_memberships_course_id',
   required: ['course_id']
-}; // List Group Memberships
+};
+
+// List Group Memberships
 // Return active NamesAndRoleMemberships in the given group.
 //
 // API Docs: https://canvas.instructure.com/doc/api/names_and_role.html
@@ -38,7 +40,6 @@ var listCourseMemberships = {
 //   limit
 // }
 // return canvasRequest(names_and_role_list_group_memberships, {group_id, ...query});
-
 exports.listCourseMemberships = listCourseMemberships;
 var namesAndRoleListGroupMemberships = {
   type: 'NAMES_AND_ROLE_LIST_GROUP_MEMBERSHIPS',

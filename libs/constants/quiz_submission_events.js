@@ -25,7 +25,9 @@ var submitCapturedEvents = {
   method: 'post',
   key: 'submit_captured_eventssubmit_captured_events_{course_id}_{quiz_id}_{id}',
   required: ['course_id', 'quiz_id', 'id']
-}; // Retrieve captured events
+};
+
+// Retrieve captured events
 // Retrieve the set of events captured during a specific submission attempt.
 //
 // API Docs: https://canvas.instructure.com/doc/api/quiz_submission_events.html
@@ -36,7 +38,6 @@ var submitCapturedEvents = {
 //   attempt
 // }
 // return canvasRequest(retrieve_captured_events, {course_id, quiz_id, id, ...query});
-
 exports.submitCapturedEvents = submitCapturedEvents;
 var retrieveCapturedEvents = {
   type: 'RETRIEVE_CAPTURED_EVENTS',

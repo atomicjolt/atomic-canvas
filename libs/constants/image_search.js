@@ -23,7 +23,9 @@ var findImages = {
   method: 'get',
   key: 'find_images',
   required: []
-}; // Confirm image selection
+};
+
+// Confirm image selection
 // After you have used the search API, you should hit this API to indicate photo usage to the server.
 //
 // API Docs: https://canvas.instructure.com/doc/api/image_search.html
@@ -31,7 +33,6 @@ var findImages = {
 //
 // Example:
 // return canvasRequest(confirm_image_selection, {id});
-
 exports.findImages = findImages;
 var confirmImageSelection = {
   type: 'CONFIRM_IMAGE_SELECTION',

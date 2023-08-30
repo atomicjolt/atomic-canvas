@@ -20,7 +20,9 @@ var getKalturaConfig = {
   method: 'get',
   key: 'get_kaltura_config',
   required: []
-}; // Start Kaltura session
+};
+
+// Start Kaltura session
 // Start a new Kaltura session, so that new media can be recorded and uploaded
 // to this Canvas instance's Kaltura instance.
 //
@@ -29,7 +31,6 @@ var getKalturaConfig = {
 //
 // Example:
 // return canvasRequest(start_kaltura_session, {});
-
 exports.getKalturaConfig = getKalturaConfig;
 var startKalturaSession = {
   type: 'START_KALTURA_SESSION',

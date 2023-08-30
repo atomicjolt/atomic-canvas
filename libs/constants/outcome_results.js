@@ -28,7 +28,9 @@ var getOutcomeResults = {
   method: 'get',
   key: 'get_outcome_resultsget_outcome_results_course_id',
   required: ['course_id']
-}; // Get outcome result rollups
+};
+
+// Get outcome result rollups
 // Gets the outcome rollups for the users and outcomes in the specified
 // context.
 //
@@ -50,7 +52,6 @@ var getOutcomeResults = {
 //   contributing_scores
 // }
 // return canvasRequest(get_outcome_result_rollups, {course_id, ...query});
-
 exports.getOutcomeResults = getOutcomeResults;
 var getOutcomeResultRollups = {
   type: 'GET_OUTCOME_RESULT_ROLLUPS',

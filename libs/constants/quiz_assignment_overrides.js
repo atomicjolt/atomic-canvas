@@ -24,7 +24,9 @@ var retrieveAssignmentOverriddenDatesForClassicQuizzes = {
   method: 'get',
   key: 'retrieve_assignment_overridden_dates_for_classic_quizzesretrieve_assignment_overridden_dates_for_classic_quizzes_course_id',
   required: ['course_id']
-}; // Retrieve assignment-overridden dates for New Quizzes
+};
+
+// Retrieve assignment-overridden dates for New Quizzes
 // Retrieve the actual due-at, unlock-at, and available-at dates for quizzes
 // based on the assignment overrides active for the current API user.
 //
@@ -36,7 +38,6 @@ var retrieveAssignmentOverriddenDatesForClassicQuizzes = {
 //   quiz_assignment_overrides[0][quiz_ids]
 // }
 // return canvasRequest(retrieve_assignment_overridden_dates_for_new_quizzes, {course_id, ...query});
-
 exports.retrieveAssignmentOverriddenDatesForClassicQuizzes = retrieveAssignmentOverriddenDatesForClassicQuizzes;
 var retrieveAssignmentOverriddenDatesForNewQuizzes = {
   type: 'RETRIEVE_ASSIGNMENT_OVERRIDDEN_DATES_FOR_NEW_QUIZZES',

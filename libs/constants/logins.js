@@ -20,7 +20,9 @@ var listUserLoginsAccounts = {
   method: 'get',
   key: 'list_user_logins_accountslist_user_logins_accounts_account_id',
   required: ['account_id']
-}; // List user logins
+};
+
+// List user logins
 // Given a user ID, return a paginated list of that user's logins for the given account.
 //
 // API Docs: https://canvas.instructure.com/doc/api/logins.html
@@ -28,14 +30,15 @@ var listUserLoginsAccounts = {
 //
 // Example:
 // return canvasRequest(list_user_logins_users, {user_id});
-
 exports.listUserLoginsAccounts = listUserLoginsAccounts;
 var listUserLoginsUsers = {
   type: 'LIST_USER_LOGINS_USERS',
   method: 'get',
   key: 'list_user_logins_userslist_user_logins_users_user_id',
   required: ['user_id']
-}; // Kickoff password recovery flow
+};
+
+// Kickoff password recovery flow
 // Given a user email, generate a nonce and email it to the user
 //
 // API Docs: https://canvas.instructure.com/doc/api/logins.html
@@ -43,14 +46,15 @@ var listUserLoginsUsers = {
 //
 // Example:
 // return canvasRequest(kickoff_password_recovery_flow, {});
-
 exports.listUserLoginsUsers = listUserLoginsUsers;
 var kickoffPasswordRecoveryFlow = {
   type: 'KICKOFF_PASSWORD_RECOVERY_FLOW',
   method: 'post',
   key: 'kickoff_password_recovery_flow',
   required: []
-}; // Create a user login
+};
+
+// Create a user login
 // Create a new login for an existing user in the given account.
 //
 // API Docs: https://canvas.instructure.com/doc/api/logins.html
@@ -67,14 +71,15 @@ var kickoffPasswordRecoveryFlow = {
 //   login[declared_user_type]
 // }
 // return canvasRequest(create_user_login, {account_id}, body);
-
 exports.kickoffPasswordRecoveryFlow = kickoffPasswordRecoveryFlow;
 var createUserLogin = {
   type: 'CREATE_USER_LOGIN',
   method: 'post',
   key: 'create_user_logincreate_user_login_account_id',
   required: ['account_id']
-}; // Edit a user login
+};
+
+// Edit a user login
 // Update an existing login for a user in the given account.
 //
 // API Docs: https://canvas.instructure.com/doc/api/logins.html
@@ -92,14 +97,15 @@ var createUserLogin = {
 //   override_sis_stickiness
 // }
 // return canvasRequest(edit_user_login, {account_id, id}, body);
-
 exports.createUserLogin = createUserLogin;
 var editUserLogin = {
   type: 'EDIT_USER_LOGIN',
   method: 'put',
   key: 'edit_user_loginedit_user_login_{account_id}_{id}',
   required: ['account_id', 'id']
-}; // Delete a user login
+};
+
+// Delete a user login
 // Delete an existing login.
 //
 // API Docs: https://canvas.instructure.com/doc/api/logins.html
@@ -107,7 +113,6 @@ var editUserLogin = {
 //
 // Example:
 // return canvasRequest(delete_user_login, {user_id, id});
-
 exports.editUserLogin = editUserLogin;
 var deleteUserLogin = {
   type: 'DELETE_USER_LOGIN',

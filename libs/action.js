@@ -4,7 +4,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = _default;
-
 //
 // parameters:
 //   canvas    - The object related to the Canvas api call to be made. ie search_account_domains

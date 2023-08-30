@@ -23,7 +23,9 @@ var retrieveAllQuizReports = {
   method: 'get',
   key: 'retrieve_all_quiz_reportsretrieve_all_quiz_reports_{course_id}_{quiz_id}',
   required: ['course_id', 'quiz_id']
-}; // Create a quiz report
+};
+
+// Create a quiz report
 // Create and return a new report for this quiz. If a previously
 // generated report matches the arguments and is still current (i.e.
 // there have been no new submissions), it will be returned.
@@ -44,14 +46,15 @@ var retrieveAllQuizReports = {
 //   include
 // }
 // return canvasRequest(create_quiz_report, {course_id, quiz_id}, body);
-
 exports.retrieveAllQuizReports = retrieveAllQuizReports;
 var createQuizReport = {
   type: 'CREATE_QUIZ_REPORT',
   method: 'post',
   key: 'create_quiz_reportcreate_quiz_report_{course_id}_{quiz_id}',
   required: ['course_id', 'quiz_id']
-}; // Get a quiz report
+};
+
+// Get a quiz report
 // Returns the data for a single quiz report.
 //
 // API Docs: https://canvas.instructure.com/doc/api/quiz_reports.html
@@ -62,14 +65,15 @@ var createQuizReport = {
 //   include
 // }
 // return canvasRequest(get_quiz_report, {course_id, quiz_id, id, ...query});
-
 exports.createQuizReport = createQuizReport;
 var getQuizReport = {
   type: 'GET_QUIZ_REPORT',
   method: 'get',
   key: 'get_quiz_reportget_quiz_report_{course_id}_{quiz_id}_{id}',
   required: ['course_id', 'quiz_id', 'id']
-}; // Abort the generation of a report, or remove a previously generated one
+};
+
+// Abort the generation of a report, or remove a previously generated one
 // This API allows you to cancel a previous request you issued for a report to
 // be generated. Or in the case of an already generated report, you'd like to
 // remove it, perhaps to generate it another time with an updated version that
@@ -91,7 +95,6 @@ var getQuizReport = {
 //
 // Example:
 // return canvasRequest(abort_generation_of_report_or_remove_previously_generated_one, {course_id, quiz_id, id});
-
 exports.getQuizReport = getQuizReport;
 var abortGenerationOfReportOrRemovePreviouslyGeneratedOne = {
   type: 'ABORT_GENERATION_OF_REPORT_OR_REMOVE_PREVIOUSLY_GENERATED_ONE',

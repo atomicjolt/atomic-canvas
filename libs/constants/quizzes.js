@@ -23,7 +23,9 @@ var listQuizzesInCourse = {
   method: 'get',
   key: 'list_quizzes_in_courselist_quizzes_in_course_course_id',
   required: ['course_id']
-}; // Get a single quiz
+};
+
+// Get a single quiz
 // Returns the quiz with the given id.
 //
 // API Docs: https://canvas.instructure.com/doc/api/quizzes.html
@@ -31,14 +33,15 @@ var listQuizzesInCourse = {
 //
 // Example:
 // return canvasRequest(get_single_quiz, {course_id, id});
-
 exports.listQuizzesInCourse = listQuizzesInCourse;
 var getSingleQuiz = {
   type: 'GET_SINGLE_QUIZ',
   method: 'get',
   key: 'get_single_quizget_single_quiz_{course_id}_{id}',
   required: ['course_id', 'id']
-}; // Create a quiz
+};
+
+// Create a quiz
 // Create a new quiz for this course.
 //
 // API Docs: https://canvas.instructure.com/doc/api/quizzes.html
@@ -71,14 +74,15 @@ var getSingleQuiz = {
 //   quiz[only_visible_to_overrides]
 // }
 // return canvasRequest(create_quiz, {course_id}, body);
-
 exports.getSingleQuiz = getSingleQuiz;
 var createQuiz = {
   type: 'CREATE_QUIZ',
   method: 'post',
   key: 'create_quizcreate_quiz_course_id',
   required: ['course_id']
-}; // Edit a quiz
+};
+
+// Edit a quiz
 // Modify an existing quiz. See the documentation for quiz creation.
 // 
 // Additional arguments:
@@ -91,14 +95,15 @@ var createQuiz = {
 //   quiz[notify_of_update]
 // }
 // return canvasRequest(edit_quiz, {course_id, id}, body);
-
 exports.createQuiz = createQuiz;
 var editQuiz = {
   type: 'EDIT_QUIZ',
   method: 'put',
   key: 'edit_quizedit_quiz_{course_id}_{id}',
   required: ['course_id', 'id']
-}; // Delete a quiz
+};
+
+// Delete a quiz
 // 
 //
 // API Docs: https://canvas.instructure.com/doc/api/quizzes.html
@@ -106,14 +111,15 @@ var editQuiz = {
 //
 // Example:
 // return canvasRequest(delete_quiz, {course_id, id});
-
 exports.editQuiz = editQuiz;
 var deleteQuiz = {
   type: 'DELETE_QUIZ',
   method: 'delete',
   key: 'delete_quizdelete_quiz_{course_id}_{id}',
   required: ['course_id', 'id']
-}; // Reorder quiz items
+};
+
+// Reorder quiz items
 // Change order of the quiz questions or groups within the quiz
 // 
 // <b>204 No Content</b> response code is returned if the reorder was successful.
@@ -127,14 +133,15 @@ var deleteQuiz = {
 //   order[type]
 // }
 // return canvasRequest(reorder_quiz_items, {course_id, id}, body);
-
 exports.deleteQuiz = deleteQuiz;
 var reorderQuizItems = {
   type: 'REORDER_QUIZ_ITEMS',
   method: 'post',
   key: 'reorder_quiz_itemsreorder_quiz_items_{course_id}_{id}',
   required: ['course_id', 'id']
-}; // Validate quiz access code
+};
+
+// Validate quiz access code
 // Accepts an access code and returns a boolean indicating whether that access code is correct
 //
 // API Docs: https://canvas.instructure.com/doc/api/quizzes.html
@@ -145,7 +152,6 @@ var reorderQuizItems = {
 //   access_code (required)
 // }
 // return canvasRequest(validate_quiz_access_code, {course_id, id}, body);
-
 exports.reorderQuizItems = reorderQuizItems;
 var validateQuizAccessCode = {
   type: 'VALIDATE_QUIZ_ACCESS_CODE',

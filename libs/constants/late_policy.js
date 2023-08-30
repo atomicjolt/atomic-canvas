@@ -20,7 +20,9 @@ var getLatePolicy = {
   method: 'get',
   key: 'get_late_policyget_late_policy_id',
   required: ['id']
-}; // Create a late policy
+};
+
+// Create a late policy
 // Create a late policy. If the course already has a late policy, a
 // bad_request is returned since there can only be one late policy
 // per course.
@@ -39,14 +41,15 @@ var getLatePolicy = {
 //   late_policy[late_submission_minimum_percent]
 // }
 // return canvasRequest(create_late_policy, {id}, body);
-
 exports.getLatePolicy = getLatePolicy;
 var createLatePolicy = {
   type: 'CREATE_LATE_POLICY',
   method: 'post',
   key: 'create_late_policycreate_late_policy_id',
   required: ['id']
-}; // Patch a late policy
+};
+
+// Patch a late policy
 // Patch a late policy. No body is returned upon success.
 //
 // API Docs: https://canvas.instructure.com/doc/api/late_policy.html
@@ -63,7 +66,6 @@ var createLatePolicy = {
 //   late_policy[late_submission_minimum_percent]
 // }
 // return canvasRequest(patch_late_policy, {id}, body);
-
 exports.createLatePolicy = createLatePolicy;
 var patchLatePolicy = {
   type: 'PATCH_LATE_POLICY',

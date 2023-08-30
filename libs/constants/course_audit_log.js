@@ -24,7 +24,9 @@ var courseAuditLogQueryByCourse = {
   method: 'get',
   key: 'course_audit_log_query_by_coursecourse_audit_log_query_by_course_course_id',
   required: ['course_id']
-}; // Query by account.
+};
+
+// Query by account.
 // List course change events for a given account.
 //
 // API Docs: https://canvas.instructure.com/doc/api/course_audit_log.html
@@ -36,7 +38,6 @@ var courseAuditLogQueryByCourse = {
 //   end_time
 // }
 // return canvasRequest(course_audit_log_query_by_account, {account_id, ...query});
-
 exports.courseAuditLogQueryByCourse = courseAuditLogQueryByCourse;
 var courseAuditLogQueryByAccount = {
   type: 'COURSE_AUDIT_LOG_QUERY_BY_ACCOUNT',

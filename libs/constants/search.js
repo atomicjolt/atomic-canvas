@@ -33,7 +33,9 @@ var findRecipientsConversations = {
   method: 'get',
   key: 'find_recipients_conversations',
   required: []
-}; // Find recipients
+};
+
+// Find recipients
 // Find valid recipients (users, courses and groups) that the current user
 // can send messages to. The /api/v1/search/recipients path is the preferred
 // endpoint, /api/v1/conversations/find_recipients is deprecated.
@@ -54,14 +56,15 @@ var findRecipientsConversations = {
 //   permissions
 // }
 // return canvasRequest(find_recipients_search, {, ...query});
-
 exports.findRecipientsConversations = findRecipientsConversations;
 var findRecipientsSearch = {
   type: 'FIND_RECIPIENTS_SEARCH',
   method: 'get',
   key: 'find_recipients_search',
   required: []
-}; // List all courses
+};
+
+// List all courses
 // A paginated list of all courses visible in the public index
 //
 // API Docs: https://canvas.instructure.com/doc/api/search.html
@@ -74,7 +77,6 @@ var findRecipientsSearch = {
 //   open_enrollment_only
 // }
 // return canvasRequest(list_all_courses, {, ...query});
-
 exports.findRecipientsSearch = findRecipientsSearch;
 var listAllCourses = {
   type: 'LIST_ALL_COURSES',

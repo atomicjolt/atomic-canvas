@@ -24,7 +24,9 @@ var listRoles = {
   method: 'get',
   key: 'list_roleslist_roles_account_id',
   required: ['account_id']
-}; // Get a single role
+};
+
+// Get a single role
 // Retrieve information about a single role
 //
 // API Docs: https://canvas.instructure.com/doc/api/roles.html
@@ -36,14 +38,15 @@ var listRoles = {
 //   role
 // }
 // return canvasRequest(get_single_role, {account_id, id, ...query});
-
 exports.listRoles = listRoles;
 var getSingleRole = {
   type: 'GET_SINGLE_ROLE',
   method: 'get',
   key: 'get_single_roleget_single_role_{account_id}_{id}',
   required: ['account_id', 'id']
-}; // Create a new role
+};
+
+// Create a new role
 // Create a new course-level or account-level role.
 //
 // API Docs: https://canvas.instructure.com/doc/api/roles.html
@@ -61,14 +64,15 @@ var getSingleRole = {
 //   permissions[<X>][applies_to_descendants]
 // }
 // return canvasRequest(create_new_role, {account_id}, body);
-
 exports.getSingleRole = getSingleRole;
 var createNewRole = {
   type: 'CREATE_NEW_ROLE',
   method: 'post',
   key: 'create_new_rolecreate_new_role_account_id',
   required: ['account_id']
-}; // Deactivate a role
+};
+
+// Deactivate a role
 // Deactivates a custom role.  This hides it in the user interface and prevents it
 // from being assigned to new users.  Existing users assigned to the role will
 // continue to function with the same permissions they had previously.
@@ -83,14 +87,15 @@ var createNewRole = {
 //   role
 // }
 // return canvasRequest(deactivate_role, {account_id, id}, body);
-
 exports.createNewRole = createNewRole;
 var deactivateRole = {
   type: 'DEACTIVATE_ROLE',
   method: 'delete',
   key: 'deactivate_roledeactivate_role_{account_id}_{id}',
   required: ['account_id', 'id']
-}; // Activate a role
+};
+
+// Activate a role
 // Re-activates an inactive role (allowing it to be assigned to new users)
 //
 // API Docs: https://canvas.instructure.com/doc/api/roles.html
@@ -102,14 +107,15 @@ var deactivateRole = {
 //   role
 // }
 // return canvasRequest(activate_role, {account_id, id}, body);
-
 exports.deactivateRole = deactivateRole;
 var activateRole = {
   type: 'ACTIVATE_ROLE',
   method: 'post',
   key: 'activate_roleactivate_role_{account_id}_{id}',
   required: ['account_id', 'id']
-}; // Update a role
+};
+
+// Update a role
 // Update permissions for an existing role.
 // 
 // Recognized roles are:
@@ -133,7 +139,6 @@ var activateRole = {
 //   permissions[<X>][applies_to_descendants]
 // }
 // return canvasRequest(update_role, {account_id, id}, body);
-
 exports.activateRole = activateRole;
 var updateRole = {
   type: 'UPDATE_ROLE',

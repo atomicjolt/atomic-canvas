@@ -13,7 +13,6 @@ exports.embedMultipleHtml = embedMultipleHtml;
 exports.imageLink = imageLink;
 exports.ltiLaunch = ltiLaunch;
 exports.ltiLineItem = ltiLineItem;
-
 // This file contains helper functions for generating a content item response.
 // These functions should be used as examples for generating the json required
 // to respond to a content item selection request.
@@ -25,15 +24,16 @@ exports.ltiLineItem = ltiLineItem;
 // Example content item responses can be found here:
 // https://www.imsglobal.org/specs/lticiv1p0/specification-3
 //
+
 // Wraps an array of graph items in the ContentItem hash
 function contentItems(graph) {
   return {
     '@context': 'http://purl.imsglobal.org/ctx/lti/v1/ContentItem',
     '@graph': graph
   };
-} // Embeds html
+}
 
-
+// Embeds html
 function embedHtml(html) {
   return contentItems([{
     '@type': 'ContentItem',
@@ -43,9 +43,9 @@ function embedHtml(html) {
       presentationDocumentTarget: 'embed'
     }
   }]);
-} // Embed multiple html items
+}
 
-
+// Embed multiple html items
 function embedMultipleHtml(html1, html2) {
   return contentItems([{
     '@type': 'ContentItem',
@@ -62,9 +62,9 @@ function embedMultipleHtml(html1, html2) {
       presentationDocumentTarget: 'embed'
     }
   }]);
-} // Embeds an png image
+}
 
-
+// Embeds an png image
 function embedImage(text, title, width, height, url) {
   return contentItems([{
     '@type': 'FileItem',
@@ -78,9 +78,9 @@ function embedImage(text, title, width, height, url) {
       presentationDocumentTarget: 'embed'
     }
   }]);
-} // Embeds a thumbnail link as html
+}
 
-
+// Embeds a thumbnail link as html
 function imageLink(title, width, height, url) {
   return contentItems([{
     '@type': 'ContentItem',
@@ -97,9 +97,9 @@ function imageLink(title, width, height, url) {
       windowTarget: '_blank'
     }
   }]);
-} // Adds an lti launch link
+}
 
-
+// Adds an lti launch link
 function ltiLaunch(name, launchURL) {
   return contentItems([{
     '@type': 'LtiLinkItem',
@@ -108,7 +108,6 @@ function ltiLaunch(name, launchURL) {
     title: name
   }]);
 }
-
 function ltiLineItem(name, launchURL) {
   return contentItems([{
     '@type': 'LtiLinkItem',
@@ -128,9 +127,9 @@ function ltiLineItem(name, launchURL) {
       }
     }
   }]);
-} // Adds an iframe to the page as html
+}
 
-
+// Adds an iframe to the page as html
 function embedIframe(iframeURL) {
   var iframe = "<iframe style=\"width: 100%; height: 500px;\" src=\"".concat(iframeURL, "\"></iframe>");
   return contentItems([{
@@ -141,9 +140,9 @@ function embedIframe(iframeURL) {
       presentationDocumentTarget: 'embed'
     }
   }]);
-} // Adds an iframe with an LTI launch
+}
 
-
+// Adds an iframe with an LTI launch
 function embedLtiIframe(url) {
   var displayWidth = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '100%';
   var displayHeight = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '500px';
@@ -157,11 +156,11 @@ function embedLtiIframe(url) {
       presentationDocumentTarget: 'iframe'
     }
   }]);
-} // Adds an iframe with an LTI launch and grade write back
+}
+
+// Adds an iframe with an LTI launch and grade write back
 // LineItem specification:
 // https://www.imsglobal.org/lti/model/uml/purl.imsglobal.org/vocab/lis/v2/outcomes/index.html#LineItem
-
-
 function embedLtiIframeWriteBack(label, url) {
   var displayWidth = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '100%';
   var displayHeight = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '500px';

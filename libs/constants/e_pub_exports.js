@@ -21,7 +21,9 @@ var listCoursesWithTheirLatestEpubExport = {
   method: 'get',
   key: 'list_courses_with_their_latest_epub_export',
   required: []
-}; // Create ePub Export
+};
+
+// Create ePub Export
 // Begin an ePub export for a course.
 // 
 // You can use the {api:ProgressController#show Progress API} to track the
@@ -36,14 +38,15 @@ var listCoursesWithTheirLatestEpubExport = {
 //
 // Example:
 // return canvasRequest(create_epub_export, {course_id});
-
 exports.listCoursesWithTheirLatestEpubExport = listCoursesWithTheirLatestEpubExport;
 var createEpubExport = {
   type: 'CREATE_EPUB_EXPORT',
   method: 'post',
   key: 'create_epub_exportcreate_epub_export_course_id',
   required: ['course_id']
-}; // Show ePub export
+};
+
+// Show ePub export
 // Get information about a single ePub export.
 //
 // API Docs: https://canvas.instructure.com/doc/api/e_pub_exports.html
@@ -51,7 +54,6 @@ var createEpubExport = {
 //
 // Example:
 // return canvasRequest(show_epub_export, {course_id, id});
-
 exports.createEpubExport = createEpubExport;
 var showEpubExport = {
   type: 'SHOW_EPUB_EXPORT',

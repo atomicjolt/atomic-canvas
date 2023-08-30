@@ -29,7 +29,9 @@ var createWebhookSubscription = {
   method: 'post',
   key: 'create_webhook_subscription',
   required: []
-}; // Delete a Webhook Subscription
+};
+
+// Delete a Webhook Subscription
 // 
 //
 // API Docs: https://canvas.instructure.com/doc/api/webhooks_subscriptions_for_plagiarism_platform.html
@@ -37,14 +39,15 @@ var createWebhookSubscription = {
 //
 // Example:
 // return canvasRequest(delete_webhook_subscription, {id});
-
 exports.createWebhookSubscription = createWebhookSubscription;
 var deleteWebhookSubscription = {
   type: 'DELETE_WEBHOOK_SUBSCRIPTION',
   method: 'delete',
   key: 'delete_webhook_subscriptiondelete_webhook_subscription_id',
   required: ['id']
-}; // Show a single Webhook Subscription
+};
+
+// Show a single Webhook Subscription
 // 
 //
 // API Docs: https://canvas.instructure.com/doc/api/webhooks_subscriptions_for_plagiarism_platform.html
@@ -52,14 +55,15 @@ var deleteWebhookSubscription = {
 //
 // Example:
 // return canvasRequest(show_single_webhook_subscription, {id});
-
 exports.deleteWebhookSubscription = deleteWebhookSubscription;
 var showSingleWebhookSubscription = {
   type: 'SHOW_SINGLE_WEBHOOK_SUBSCRIPTION',
   method: 'get',
   key: 'show_single_webhook_subscriptionshow_single_webhook_subscription_id',
   required: ['id']
-}; // Update a Webhook Subscription
+};
+
+// Update a Webhook Subscription
 // This endpoint uses the same parameters as the create endpoint
 //
 // API Docs: https://canvas.instructure.com/doc/api/webhooks_subscriptions_for_plagiarism_platform.html
@@ -67,14 +71,15 @@ var showSingleWebhookSubscription = {
 //
 // Example:
 // return canvasRequest(update_webhook_subscription, {id});
-
 exports.showSingleWebhookSubscription = showSingleWebhookSubscription;
 var updateWebhookSubscription = {
   type: 'UPDATE_WEBHOOK_SUBSCRIPTION',
   method: 'put',
   key: 'update_webhook_subscriptionupdate_webhook_subscription_id',
   required: ['id']
-}; // List all Webhook Subscription for a tool proxy
+};
+
+// List all Webhook Subscription for a tool proxy
 // This endpoint returns a paginated list with a default limit of 100 items per result set.
 // You can retrieve the next result set by setting a 'StartKey' header in your next request
 // with the value of the 'EndKey' header in the response.
@@ -87,7 +92,6 @@ var updateWebhookSubscription = {
 //
 // Example:
 // return canvasRequest(list_all_webhook_subscription_for_tool_proxy, {});
-
 exports.updateWebhookSubscription = updateWebhookSubscription;
 var listAllWebhookSubscriptionForToolProxy = {
   type: 'LIST_ALL_WEBHOOK_SUBSCRIPTION_FOR_TOOL_PROXY',

@@ -31,7 +31,9 @@ var createOriginalityReport = {
   method: 'post',
   key: 'create_originality_reportcreate_originality_report_{assignment_id}_{submission_id}',
   required: ['assignment_id', 'submission_id']
-}; // Edit an Originality Report
+};
+
+// Edit an Originality Report
 // Modify an existing originality report. An alternative to this endpoint is
 // to POST the same parameters listed below to the CREATE endpoint.
 //
@@ -49,14 +51,15 @@ var createOriginalityReport = {
 //   originality_report[error_message]
 // }
 // return canvasRequest(edit_originality_report_submissions, {assignment_id, submission_id, id}, body);
-
 exports.createOriginalityReport = createOriginalityReport;
 var editOriginalityReportSubmissions = {
   type: 'EDIT_ORIGINALITY_REPORT_SUBMISSIONS',
   method: 'put',
   key: 'edit_originality_report_submissionsedit_originality_report_submissions_{assignment_id}_{submission_id}_{id}',
   required: ['assignment_id', 'submission_id', 'id']
-}; // Edit an Originality Report
+};
+
+// Edit an Originality Report
 // Modify an existing originality report. An alternative to this endpoint is
 // to POST the same parameters listed below to the CREATE endpoint.
 //
@@ -74,14 +77,15 @@ var editOriginalityReportSubmissions = {
 //   originality_report[error_message]
 // }
 // return canvasRequest(edit_originality_report_files, {assignment_id, file_id}, body);
-
 exports.editOriginalityReportSubmissions = editOriginalityReportSubmissions;
 var editOriginalityReportFiles = {
   type: 'EDIT_ORIGINALITY_REPORT_FILES',
   method: 'put',
   key: 'edit_originality_report_filesedit_originality_report_files_{assignment_id}_{file_id}',
   required: ['assignment_id', 'file_id']
-}; // Show an Originality Report
+};
+
+// Show an Originality Report
 // Get a single originality report
 //
 // API Docs: https://canvas.instructure.com/doc/api/originality_reports.html
@@ -89,14 +93,15 @@ var editOriginalityReportFiles = {
 //
 // Example:
 // return canvasRequest(show_originality_report_submissions, {assignment_id, submission_id, id});
-
 exports.editOriginalityReportFiles = editOriginalityReportFiles;
 var showOriginalityReportSubmissions = {
   type: 'SHOW_ORIGINALITY_REPORT_SUBMISSIONS',
   method: 'get',
   key: 'show_originality_report_submissionsshow_originality_report_submissions_{assignment_id}_{submission_id}_{id}',
   required: ['assignment_id', 'submission_id', 'id']
-}; // Show an Originality Report
+};
+
+// Show an Originality Report
 // Get a single originality report
 //
 // API Docs: https://canvas.instructure.com/doc/api/originality_reports.html
@@ -104,7 +109,6 @@ var showOriginalityReportSubmissions = {
 //
 // Example:
 // return canvasRequest(show_originality_report_files, {assignment_id, file_id});
-
 exports.showOriginalityReportSubmissions = showOriginalityReportSubmissions;
 var showOriginalityReportFiles = {
   type: 'SHOW_ORIGINALITY_REPORT_FILES',

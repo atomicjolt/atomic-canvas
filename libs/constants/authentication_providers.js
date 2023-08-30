@@ -20,7 +20,9 @@ var listAuthenticationProviders = {
   method: 'get',
   key: 'list_authentication_providerslist_authentication_providers_account_id',
   required: ['account_id']
-}; // Add authentication provider
+};
+
+// Add authentication provider
 // Add external authentication provider(s) for the account.
 // Services may be Apple, CAS, Facebook, GitHub, Google, LDAP, LinkedIn,
 // Microsoft, OpenID Connect, SAML, or Twitter.
@@ -413,14 +415,15 @@ var listAuthenticationProviders = {
 //
 // Example:
 // return canvasRequest(add_authentication_provider, {account_id});
-
 exports.listAuthenticationProviders = listAuthenticationProviders;
 var addAuthenticationProvider = {
   type: 'ADD_AUTHENTICATION_PROVIDER',
   method: 'post',
   key: 'add_authentication_provideradd_authentication_provider_account_id',
   required: ['account_id']
-}; // Update authentication provider
+};
+
+// Update authentication provider
 // Update an authentication provider using the same options as the create endpoint.
 // You can not update an existing provider to a new authentication type.
 //
@@ -429,14 +432,15 @@ var addAuthenticationProvider = {
 //
 // Example:
 // return canvasRequest(update_authentication_provider, {account_id, id});
-
 exports.addAuthenticationProvider = addAuthenticationProvider;
 var updateAuthenticationProvider = {
   type: 'UPDATE_AUTHENTICATION_PROVIDER',
   method: 'put',
   key: 'update_authentication_providerupdate_authentication_provider_{account_id}_{id}',
   required: ['account_id', 'id']
-}; // Get authentication provider
+};
+
+// Get authentication provider
 // Get the specified authentication provider
 //
 // API Docs: https://canvas.instructure.com/doc/api/authentication_providers.html
@@ -444,14 +448,15 @@ var updateAuthenticationProvider = {
 //
 // Example:
 // return canvasRequest(get_authentication_provider, {account_id, id});
-
 exports.updateAuthenticationProvider = updateAuthenticationProvider;
 var getAuthenticationProvider = {
   type: 'GET_AUTHENTICATION_PROVIDER',
   method: 'get',
   key: 'get_authentication_providerget_authentication_provider_{account_id}_{id}',
   required: ['account_id', 'id']
-}; // Delete authentication provider
+};
+
+// Delete authentication provider
 // Delete the config
 //
 // API Docs: https://canvas.instructure.com/doc/api/authentication_providers.html
@@ -459,14 +464,15 @@ var getAuthenticationProvider = {
 //
 // Example:
 // return canvasRequest(delete_authentication_provider, {account_id, id});
-
 exports.getAuthenticationProvider = getAuthenticationProvider;
 var deleteAuthenticationProvider = {
   type: 'DELETE_AUTHENTICATION_PROVIDER',
   method: 'delete',
   key: 'delete_authentication_providerdelete_authentication_provider_{account_id}_{id}',
   required: ['account_id', 'id']
-}; // show account auth settings
+};
+
+// show account auth settings
 // The way to get the current state of each account level setting
 // that's relevant to Single Sign On configuration
 // 
@@ -477,14 +483,15 @@ var deleteAuthenticationProvider = {
 //
 // Example:
 // return canvasRequest(show_account_auth_settings, {account_id});
-
 exports.deleteAuthenticationProvider = deleteAuthenticationProvider;
 var showAccountAuthSettings = {
   type: 'SHOW_ACCOUNT_AUTH_SETTINGS',
   method: 'get',
   key: 'show_account_auth_settingsshow_account_auth_settings_account_id',
   required: ['account_id']
-}; // update account auth settings
+};
+
+// update account auth settings
 // For various cases of mixed SSO configurations, you may need to set some
 // configuration at the account level to handle the particulars of your
 // setup.
@@ -501,7 +508,6 @@ var showAccountAuthSettings = {
 //
 // Example:
 // return canvasRequest(update_account_auth_settings, {account_id});
-
 exports.showAccountAuthSettings = showAccountAuthSettings;
 var updateAccountAuthSettings = {
   type: 'UPDATE_ACCOUNT_AUTH_SETTINGS',

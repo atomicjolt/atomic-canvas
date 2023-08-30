@@ -23,7 +23,9 @@ var showCoursePace = {
   method: 'get',
   key: 'show_course_paceshow_course_pace_{course_id}_{id}',
   required: ['course_id', 'id']
-}; // Create a Course pace
+};
+
+// Create a Course pace
 // 
 //
 // API Docs: https://canvas.instructure.com/doc/api/course_pace.html
@@ -43,14 +45,15 @@ var showCoursePace = {
 //   context_type
 // }
 // return canvasRequest(create_course_pace, {course_id}, body);
-
 exports.showCoursePace = showCoursePace;
 var createCoursePace = {
   type: 'CREATE_COURSE_PACE',
   method: 'post',
   key: 'create_course_pacecreate_course_pace_course_id',
   required: ['course_id']
-}; // Update a Course pace
+};
+
+// Update a Course pace
 // Returns the updated course pace
 //
 // API Docs: https://canvas.instructure.com/doc/api/course_pace.html
@@ -66,14 +69,15 @@ var createCoursePace = {
 //   course_pace_module_item_attributes
 // }
 // return canvasRequest(update_course_pace, {course_id, id}, body);
-
 exports.createCoursePace = createCoursePace;
 var updateCoursePace = {
   type: 'UPDATE_COURSE_PACE',
   method: 'put',
   key: 'update_course_paceupdate_course_pace_{course_id}_{id}',
   required: ['course_id', 'id']
-}; // Delete a Course pace
+};
+
+// Delete a Course pace
 // Returns the updated course pace
 //
 // API Docs: https://canvas.instructure.com/doc/api/course_pace.html
@@ -84,7 +88,6 @@ var updateCoursePace = {
 //   course_pace_id (required)
 // }
 // return canvasRequest(delete_course_pace, {course_id, id}, body);
-
 exports.updateCoursePace = updateCoursePace;
 var deleteCoursePace = {
   type: 'DELETE_COURSE_PACE',

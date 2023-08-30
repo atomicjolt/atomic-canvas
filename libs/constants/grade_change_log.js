@@ -24,7 +24,9 @@ var queryByAssignment = {
   method: 'get',
   key: 'query_by_assignmentquery_by_assignment_assignment_id',
   required: ['assignment_id']
-}; // Query by course
+};
+
+// Query by course
 // List grade change events for a given course.
 //
 // API Docs: https://canvas.instructure.com/doc/api/grade_change_log.html
@@ -36,14 +38,15 @@ var queryByAssignment = {
 //   end_time
 // }
 // return canvasRequest(grade_change_log_query_by_course, {course_id, ...query});
-
 exports.queryByAssignment = queryByAssignment;
 var gradeChangeLogQueryByCourse = {
   type: 'GRADE_CHANGE_LOG_QUERY_BY_COURSE',
   method: 'get',
   key: 'grade_change_log_query_by_coursegrade_change_log_query_by_course_course_id',
   required: ['course_id']
-}; // Query by student
+};
+
+// Query by student
 // List grade change events for a given student.
 //
 // API Docs: https://canvas.instructure.com/doc/api/grade_change_log.html
@@ -55,14 +58,15 @@ var gradeChangeLogQueryByCourse = {
 //   end_time
 // }
 // return canvasRequest(query_by_student, {student_id, ...query});
-
 exports.gradeChangeLogQueryByCourse = gradeChangeLogQueryByCourse;
 var queryByStudent = {
   type: 'QUERY_BY_STUDENT',
   method: 'get',
   key: 'query_by_studentquery_by_student_student_id',
   required: ['student_id']
-}; // Query by grader
+};
+
+// Query by grader
 // List grade change events for a given grader.
 //
 // API Docs: https://canvas.instructure.com/doc/api/grade_change_log.html
@@ -74,14 +78,15 @@ var queryByStudent = {
 //   end_time
 // }
 // return canvasRequest(query_by_grader, {grader_id, ...query});
-
 exports.queryByStudent = queryByStudent;
 var queryByGrader = {
   type: 'QUERY_BY_GRADER',
   method: 'get',
   key: 'query_by_graderquery_by_grader_grader_id',
   required: ['grader_id']
-}; // Advanced query
+};
+
+// Advanced query
 // List grade change events satisfying all given parameters. Teachers may query for events in courses they teach.
 // Queries without +course_id+ require account administrator rights.
 // 
@@ -100,7 +105,6 @@ var queryByGrader = {
 //   end_time
 // }
 // return canvasRequest(advanced_query, {, ...query});
-
 exports.queryByGrader = queryByGrader;
 var advancedQuery = {
   type: 'ADVANCED_QUERY',

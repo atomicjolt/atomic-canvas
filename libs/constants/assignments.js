@@ -20,7 +20,9 @@ var deleteAssignment = {
   method: 'delete',
   key: 'delete_assignmentdelete_assignment_{course_id}_{id}',
   required: ['course_id', 'id']
-}; // List assignments
+};
+
+// List assignments
 // Returns the paginated list of assignments for the current course or assignment group.
 //
 // API Docs: https://canvas.instructure.com/doc/api/assignments.html
@@ -38,14 +40,15 @@ var deleteAssignment = {
 //   post_to_sis
 // }
 // return canvasRequest(list_assignments_assignments, {course_id, ...query});
-
 exports.deleteAssignment = deleteAssignment;
 var listAssignmentsAssignments = {
   type: 'LIST_ASSIGNMENTS_ASSIGNMENTS',
   method: 'get',
   key: 'list_assignments_assignmentslist_assignments_assignments_course_id',
   required: ['course_id']
-}; // List assignments
+};
+
+// List assignments
 // Returns the paginated list of assignments for the current course or assignment group.
 //
 // API Docs: https://canvas.instructure.com/doc/api/assignments.html
@@ -63,14 +66,15 @@ var listAssignmentsAssignments = {
 //   post_to_sis
 // }
 // return canvasRequest(list_assignments_assignment_groups, {course_id, assignment_group_id, ...query});
-
 exports.listAssignmentsAssignments = listAssignmentsAssignments;
 var listAssignmentsAssignmentGroups = {
   type: 'LIST_ASSIGNMENTS_ASSIGNMENT_GROUPS',
   method: 'get',
   key: 'list_assignments_assignment_groupslist_assignments_assignment_groups_{course_id}_{assignment_group_id}',
   required: ['course_id', 'assignment_group_id']
-}; // List assignments for user
+};
+
+// List assignments for user
 // Returns the paginated list of assignments for the specified user if the current user has rights to view.
 // See {api:AssignmentsApiController#index List assignments} for valid arguments.
 //
@@ -79,14 +83,15 @@ var listAssignmentsAssignmentGroups = {
 //
 // Example:
 // return canvasRequest(list_assignments_for_user, {user_id, course_id});
-
 exports.listAssignmentsAssignmentGroups = listAssignmentsAssignmentGroups;
 var listAssignmentsForUser = {
   type: 'LIST_ASSIGNMENTS_FOR_USER',
   method: 'get',
   key: 'list_assignments_for_userlist_assignments_for_user_{user_id}_{course_id}',
   required: ['user_id', 'course_id']
-}; // Duplicate assignnment
+};
+
+// Duplicate assignnment
 // Duplicate an assignment and return a json based on result_type argument.
 //
 // API Docs: https://canvas.instructure.com/doc/api/assignments.html
@@ -97,14 +102,15 @@ var listAssignmentsForUser = {
 //   result_type
 // }
 // return canvasRequest(duplicate_assignnment, {course_id, assignment_id}, body);
-
 exports.listAssignmentsForUser = listAssignmentsForUser;
 var duplicateAssignnment = {
   type: 'DUPLICATE_ASSIGNNMENT',
   method: 'post',
   key: 'duplicate_assignnmentduplicate_assignnment_{course_id}_{assignment_id}',
   required: ['course_id', 'assignment_id']
-}; // Get a single assignment
+};
+
+// Get a single assignment
 // Returns the assignment with the given id.
 //
 // API Docs: https://canvas.instructure.com/doc/api/assignments.html
@@ -118,14 +124,15 @@ var duplicateAssignnment = {
 //   all_dates
 // }
 // return canvasRequest(get_single_assignment, {course_id, id, ...query});
-
 exports.duplicateAssignnment = duplicateAssignnment;
 var getSingleAssignment = {
   type: 'GET_SINGLE_ASSIGNMENT',
   method: 'get',
   key: 'get_single_assignmentget_single_assignment_{course_id}_{id}',
   required: ['course_id', 'id']
-}; // Create an assignment
+};
+
+// Create an assignment
 // Create a new assignment for this course. The assignment is created in the
 // active state.
 //
@@ -174,14 +181,15 @@ var getSingleAssignment = {
 //   assignment[annotatable_attachment_id]
 // }
 // return canvasRequest(create_assignment, {course_id}, body);
-
 exports.getSingleAssignment = getSingleAssignment;
 var createAssignment = {
   type: 'CREATE_ASSIGNMENT',
   method: 'post',
   key: 'create_assignmentcreate_assignment_course_id',
   required: ['course_id']
-}; // Edit an assignment
+};
+
+// Edit an assignment
 // Modify an existing assignment.
 //
 // API Docs: https://canvas.instructure.com/doc/api/assignments.html
@@ -231,14 +239,15 @@ var createAssignment = {
 //   assignment[submission_types]
 // }
 // return canvasRequest(edit_assignment, {course_id, id}, body);
-
 exports.createAssignment = createAssignment;
 var editAssignment = {
   type: 'EDIT_ASSIGNMENT',
   method: 'put',
   key: 'edit_assignmentedit_assignment_{course_id}_{id}',
   required: ['course_id', 'id']
-}; // Bulk update assignment dates
+};
+
+// Bulk update assignment dates
 // Update due dates and availability dates for multiple assignments in a course.
 // 
 // Accepts a JSON array of objects containing two keys each: +id+, the assignment id,
@@ -261,14 +270,15 @@ var editAssignment = {
 //
 // Example:
 // return canvasRequest(bulk_update_assignment_dates, {course_id});
-
 exports.editAssignment = editAssignment;
 var bulkUpdateAssignmentDates = {
   type: 'BULK_UPDATE_ASSIGNMENT_DATES',
   method: 'put',
   key: 'bulk_update_assignment_datesbulk_update_assignment_dates_course_id',
   required: ['course_id']
-}; // List assignment overrides
+};
+
+// List assignment overrides
 // Returns the paginated list of overrides for this assignment that target
 // sections/groups/students visible to the current user.
 //
@@ -277,14 +287,15 @@ var bulkUpdateAssignmentDates = {
 //
 // Example:
 // return canvasRequest(list_assignment_overrides, {course_id, assignment_id});
-
 exports.bulkUpdateAssignmentDates = bulkUpdateAssignmentDates;
 var listAssignmentOverrides = {
   type: 'LIST_ASSIGNMENT_OVERRIDES',
   method: 'get',
   key: 'list_assignment_overrideslist_assignment_overrides_{course_id}_{assignment_id}',
   required: ['course_id', 'assignment_id']
-}; // Get a single assignment override
+};
+
+// Get a single assignment override
 // Returns details of the the override with the given id.
 //
 // API Docs: https://canvas.instructure.com/doc/api/assignments.html
@@ -292,14 +303,15 @@ var listAssignmentOverrides = {
 //
 // Example:
 // return canvasRequest(get_single_assignment_override, {course_id, assignment_id, id});
-
 exports.listAssignmentOverrides = listAssignmentOverrides;
 var getSingleAssignmentOverride = {
   type: 'GET_SINGLE_ASSIGNMENT_OVERRIDE',
   method: 'get',
   key: 'get_single_assignment_overrideget_single_assignment_override_{course_id}_{assignment_id}_{id}',
   required: ['course_id', 'assignment_id', 'id']
-}; // Redirect to the assignment override for a group
+};
+
+// Redirect to the assignment override for a group
 // Responds with a redirect to the override for the given group, if any
 // (404 otherwise).
 //
@@ -308,14 +320,15 @@ var getSingleAssignmentOverride = {
 //
 // Example:
 // return canvasRequest(redirect_to_assignment_override_for_group, {group_id, assignment_id});
-
 exports.getSingleAssignmentOverride = getSingleAssignmentOverride;
 var redirectToAssignmentOverrideForGroup = {
   type: 'REDIRECT_TO_ASSIGNMENT_OVERRIDE_FOR_GROUP',
   method: 'get',
   key: 'redirect_to_assignment_override_for_groupredirect_to_assignment_override_for_group_{group_id}_{assignment_id}',
   required: ['group_id', 'assignment_id']
-}; // Redirect to the assignment override for a section
+};
+
+// Redirect to the assignment override for a section
 // Responds with a redirect to the override for the given section, if any
 // (404 otherwise).
 //
@@ -324,14 +337,15 @@ var redirectToAssignmentOverrideForGroup = {
 //
 // Example:
 // return canvasRequest(redirect_to_assignment_override_for_section, {course_section_id, assignment_id});
-
 exports.redirectToAssignmentOverrideForGroup = redirectToAssignmentOverrideForGroup;
 var redirectToAssignmentOverrideForSection = {
   type: 'REDIRECT_TO_ASSIGNMENT_OVERRIDE_FOR_SECTION',
   method: 'get',
   key: 'redirect_to_assignment_override_for_sectionredirect_to_assignment_override_for_section_{course_section_id}_{assignment_id}',
   required: ['course_section_id', 'assignment_id']
-}; // Create an assignment override
+};
+
+// Create an assignment override
 // One of student_ids, group_id, or course_section_id must be present. At most
 // one should be present; if multiple are present only the most specific
 // (student_ids first, then group_id, then course_section_id) is used and any
@@ -351,14 +365,15 @@ var redirectToAssignmentOverrideForSection = {
 //   assignment_override[lock_at]
 // }
 // return canvasRequest(create_assignment_override, {course_id, assignment_id}, body);
-
 exports.redirectToAssignmentOverrideForSection = redirectToAssignmentOverrideForSection;
 var createAssignmentOverride = {
   type: 'CREATE_ASSIGNMENT_OVERRIDE',
   method: 'post',
   key: 'create_assignment_overridecreate_assignment_override_{course_id}_{assignment_id}',
   required: ['course_id', 'assignment_id']
-}; // Update an assignment override
+};
+
+// Update an assignment override
 // All current overridden values must be supplied if they are to be retained;
 // e.g. if due_at was overridden, but this PUT omits a value for due_at,
 // due_at will no longer be overridden. If the override is adhoc and
@@ -377,14 +392,15 @@ var createAssignmentOverride = {
 //   assignment_override[lock_at]
 // }
 // return canvasRequest(update_assignment_override, {course_id, assignment_id, id}, body);
-
 exports.createAssignmentOverride = createAssignmentOverride;
 var updateAssignmentOverride = {
   type: 'UPDATE_ASSIGNMENT_OVERRIDE',
   method: 'put',
   key: 'update_assignment_overrideupdate_assignment_override_{course_id}_{assignment_id}_{id}',
   required: ['course_id', 'assignment_id', 'id']
-}; // Delete an assignment override
+};
+
+// Delete an assignment override
 // Deletes an override and returns its former details.
 //
 // API Docs: https://canvas.instructure.com/doc/api/assignments.html
@@ -392,14 +408,15 @@ var updateAssignmentOverride = {
 //
 // Example:
 // return canvasRequest(delete_assignment_override, {course_id, assignment_id, id});
-
 exports.updateAssignmentOverride = updateAssignmentOverride;
 var deleteAssignmentOverride = {
   type: 'DELETE_ASSIGNMENT_OVERRIDE',
   method: 'delete',
   key: 'delete_assignment_overridedelete_assignment_override_{course_id}_{assignment_id}_{id}',
   required: ['course_id', 'assignment_id', 'id']
-}; // Batch retrieve overrides in a course
+};
+
+// Batch retrieve overrides in a course
 // Returns a list of specified overrides in this course, providing
 // they target sections/groups/students visible to the current user.
 // Returns null elements in the list for requests that were not found.
@@ -413,14 +430,15 @@ var deleteAssignmentOverride = {
 //   assignment_overrides[assignment_id] (required)
 // }
 // return canvasRequest(batch_retrieve_overrides_in_course, {course_id, ...query});
-
 exports.deleteAssignmentOverride = deleteAssignmentOverride;
 var batchRetrieveOverridesInCourse = {
   type: 'BATCH_RETRIEVE_OVERRIDES_IN_COURSE',
   method: 'get',
   key: 'batch_retrieve_overrides_in_coursebatch_retrieve_overrides_in_course_course_id',
   required: ['course_id']
-}; // Batch create overrides in a course
+};
+
+// Batch create overrides in a course
 // Creates the specified overrides for each assignment.  Handles creation in a
 // transaction, so all records are created or none are.
 // 
@@ -440,14 +458,15 @@ var batchRetrieveOverridesInCourse = {
 //   assignment_overrides (required)
 // }
 // return canvasRequest(batch_create_overrides_in_course, {course_id}, body);
-
 exports.batchRetrieveOverridesInCourse = batchRetrieveOverridesInCourse;
 var batchCreateOverridesInCourse = {
   type: 'BATCH_CREATE_OVERRIDES_IN_COURSE',
   method: 'post',
   key: 'batch_create_overrides_in_coursebatch_create_overrides_in_course_course_id',
   required: ['course_id']
-}; // Batch update overrides in a course
+};
+
+// Batch update overrides in a course
 // Updates a list of specified overrides for each assignment.  Handles overrides
 // in a transaction, so either all updates are applied or none.
 // See {api:AssignmentOverridesController#update Update an assignment override} for
@@ -470,7 +489,6 @@ var batchCreateOverridesInCourse = {
 //   assignment_overrides (required)
 // }
 // return canvasRequest(batch_update_overrides_in_course, {course_id}, body);
-
 exports.batchCreateOverridesInCourse = batchCreateOverridesInCourse;
 var batchUpdateOverridesInCourse = {
   type: 'BATCH_UPDATE_OVERRIDES_IN_COURSE',
