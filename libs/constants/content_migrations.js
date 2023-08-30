@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.updateMigrationIssueUsers = exports.updateMigrationIssueGroups = exports.updateMigrationIssueCourses = exports.updateMigrationIssueAccounts = exports.updateContentMigrationUsers = exports.updateContentMigrationGroups = exports.updateContentMigrationCourses = exports.updateContentMigrationAccounts = exports.listMigrationSystemsUsers = exports.listMigrationSystemsGroups = exports.listMigrationSystemsCourses = exports.listMigrationSystemsAccounts = exports.listMigrationIssuesUsers = exports.listMigrationIssuesGroups = exports.listMigrationIssuesCourses = exports.listMigrationIssuesAccounts = exports.listItemsForSelectiveImportUsers = exports.listItemsForSelectiveImportGroups = exports.listItemsForSelectiveImportCourses = exports.listItemsForSelectiveImportAccounts = exports.listContentMigrationsUsers = exports.listContentMigrationsGroups = exports.listContentMigrationsCourses = exports.listContentMigrationsAccounts = exports.getMigrationIssueUsers = exports.getMigrationIssueGroups = exports.getMigrationIssueCourses = exports.getMigrationIssueAccounts = exports.getContentMigrationUsers = exports.getContentMigrationGroups = exports.getContentMigrationCourses = exports.getContentMigrationAccounts = exports.createContentMigrationUsers = exports.createContentMigrationGroups = exports.createContentMigrationCourses = exports.createContentMigrationAccounts = void 0;
+exports.updateMigrationIssueUsers = exports.updateMigrationIssueGroups = exports.updateMigrationIssueCourses = exports.updateMigrationIssueAccounts = exports.updateContentMigrationUsers = exports.updateContentMigrationGroups = exports.updateContentMigrationCourses = exports.updateContentMigrationAccounts = exports.listMigrationSystemsUsers = exports.listMigrationSystemsGroups = exports.listMigrationSystemsCourses = exports.listMigrationSystemsAccounts = exports.listMigrationIssuesUsers = exports.listMigrationIssuesGroups = exports.listMigrationIssuesCourses = exports.listMigrationIssuesAccounts = exports.listItemsForSelectiveImportUsers = exports.listItemsForSelectiveImportGroups = exports.listItemsForSelectiveImportCourses = exports.listItemsForSelectiveImportAccounts = exports.listContentMigrationsUsers = exports.listContentMigrationsGroups = exports.listContentMigrationsCourses = exports.listContentMigrationsAccounts = exports.getMigrationIssueUsers = exports.getMigrationIssueGroups = exports.getMigrationIssueCourses = exports.getMigrationIssueAccounts = exports.getContentMigrationUsers = exports.getContentMigrationGroups = exports.getContentMigrationCourses = exports.getContentMigrationAccounts = exports.getAssetIdMapping = exports.createContentMigrationUsers = exports.createContentMigrationGroups = exports.createContentMigrationCourses = exports.createContentMigrationAccounts = void 0;
 //
 // Content Migrations
 //
@@ -365,6 +365,8 @@ var getContentMigrationUsers = {
 //   settings[insert_into_module_type]
 //   settings[insert_into_module_position]
 //   settings[move_to_assignment_group_id]
+//   settings[importer_skips]
+//   settings[import_blueprint_settings]
 //   date_shift_options[shift_dates]
 //   date_shift_options[old_start_date]
 //   date_shift_options[old_end_date]
@@ -431,6 +433,8 @@ var createContentMigrationAccounts = {
 //   settings[insert_into_module_type]
 //   settings[insert_into_module_position]
 //   settings[move_to_assignment_group_id]
+//   settings[importer_skips]
+//   settings[import_blueprint_settings]
 //   date_shift_options[shift_dates]
 //   date_shift_options[old_start_date]
 //   date_shift_options[old_end_date]
@@ -497,6 +501,8 @@ var createContentMigrationCourses = {
 //   settings[insert_into_module_type]
 //   settings[insert_into_module_position]
 //   settings[move_to_assignment_group_id]
+//   settings[importer_skips]
+//   settings[import_blueprint_settings]
 //   date_shift_options[shift_dates]
 //   date_shift_options[old_start_date]
 //   date_shift_options[old_end_date]
@@ -563,6 +569,8 @@ var createContentMigrationGroups = {
 //   settings[insert_into_module_type]
 //   settings[insert_into_module_position]
 //   settings[move_to_assignment_group_id]
+//   settings[importer_skips]
+//   settings[import_blueprint_settings]
 //   date_shift_options[shift_dates]
 //   date_shift_options[old_start_date]
 //   date_shift_options[old_end_date]
@@ -1001,5 +1009,26 @@ var listItemsForSelectiveImportUsers = {
   method: 'get',
   key: 'list_items_for_selective_import_userslist_items_for_selective_import_users_{user_id}_{id}',
   required: ['user_id', 'id']
-};
+}; // Get asset id mapping
+// Given a complete course copy or blueprint import content migration, return a mapping of asset ids
+// from the source course to the destination course that were copied in this migration or an earlier one
+// with the same course pair and migration_type (course copy or blueprint).
+// 
+// The returned object's keys are asset types as they appear in API URLs (+announcements+, +assignments+,
+// +discussion_topics+, +files+, +module_items+, +modules+, +pages+, and +quizzes+). The values are a mapping
+// from id in source course to id in destination course for objects of this type.
+//
+// API Docs: https://canvas.instructure.com/doc/api/content_migrations.html
+// API Url: courses/{course_id}/content_migrations/{id}/asset_id_mapping
+//
+// Example:
+// return canvasRequest(get_asset_id_mapping, {course_id, id});
+
 exports.listItemsForSelectiveImportUsers = listItemsForSelectiveImportUsers;
+var getAssetIdMapping = {
+  type: 'GET_ASSET_ID_MAPPING',
+  method: 'get',
+  key: 'get_asset_id_mappingget_asset_id_mapping_{course_id}_{id}',
+  required: ['course_id', 'id']
+};
+exports.getAssetIdMapping = getAssetIdMapping;

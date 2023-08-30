@@ -42,6 +42,7 @@ var createEnrollmentTerm = {
 //   enrollment_term[sis_term_id]
 //   enrollment_term[overrides][enrollment_type][start_at]
 //   enrollment_term[overrides][enrollment_type][end_at]
+//   override_sis_stickiness
 // }
 // return canvasRequest(update_enrollment_term, {account_id, id}, body);
 
@@ -76,6 +77,7 @@ var deleteEnrollmentTerm = {
 // const query = {
 //   workflow_state
 //   include
+//   term_name
 // }
 // return canvasRequest(list_enrollment_terms, {account_id, ...query});
 

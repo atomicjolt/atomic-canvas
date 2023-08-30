@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.updateAccount = exports.settings = exports.permissions = exports.listActiveCoursesInAccount = exports.listAccountsForCourseAdmins = exports.listAccounts = exports.getTermsOfService = exports.getSubAccountsOfAccount = exports.getSingleAccount = exports.getManuallyCreatedCoursesSubAccountForDomainRootAccount = exports.getHelpLinks = exports.getAccountsThatAdminsCanManage = exports.deleteUserFromRootAccount = exports.deleteSubAccount = exports.createNewSubAccount = void 0;
+exports.updateAccount = exports.settings = exports.permissions = exports.listActiveCoursesInAccount = exports.listAccountsForCourseAdmins = exports.listAccounts = exports.getTermsOfService = exports.getSubAccountsOfAccount = exports.getSingleAccount = exports.getManuallyCreatedCoursesSubAccountForDomainRootAccount = exports.getHelpLinks = exports.getAccountsThatUsersCanCreateCoursesIn = exports.getAccountsThatAdminsCanManage = exports.deleteUserFromRootAccount = exports.deleteSubAccount = exports.createNewSubAccount = void 0;
 //
 // Accounts
 //
@@ -42,6 +42,22 @@ var getAccountsThatAdminsCanManage = {
   method: 'get',
   key: 'get_accounts_that_admins_can_manage',
   required: []
+}; // Get accounts that users can create courses in
+// A paginated list of accounts where the current user has permission to create
+// courses.
+//
+// API Docs: https://canvas.instructure.com/doc/api/accounts.html
+// API Url: course_creation_accounts
+//
+// Example:
+// return canvasRequest(get_accounts_that_users_can_create_courses_in, {});
+
+exports.getAccountsThatAdminsCanManage = getAccountsThatAdminsCanManage;
+var getAccountsThatUsersCanCreateCoursesIn = {
+  type: 'GET_ACCOUNTS_THAT_USERS_CAN_CREATE_COURSES_IN',
+  method: 'get',
+  key: 'get_accounts_that_users_can_create_courses_in',
+  required: []
 }; // List accounts for course admins
 // A paginated list of accounts that the current user can view through their
 // admin course enrollments. (Teacher, TA, or designer enrollments).
@@ -53,7 +69,7 @@ var getAccountsThatAdminsCanManage = {
 // Example:
 // return canvasRequest(list_accounts_for_course_admins, {});
 
-exports.getAccountsThatAdminsCanManage = getAccountsThatAdminsCanManage;
+exports.getAccountsThatUsersCanCreateCoursesIn = getAccountsThatUsersCanCreateCoursesIn;
 var listAccountsForCourseAdmins = {
   type: 'LIST_ACCOUNTS_FOR_COURSE_ADMINS',
   method: 'get',
@@ -76,8 +92,9 @@ var getSingleAccount = {
   key: 'get_single_accountget_single_account_id',
   required: ['id']
 }; // Settings
-// Returns all of the settings for the specified account as a JSON object. The caller must be an Account
-// admin with the manage_account_settings permission.
+// Returns a JSON object containing a subset of settings for the specified account.
+// It's possible an empty set will be returned if no settings are applicable.
+// The caller must be an Account admin with the manage_account_settings permission.
 //
 // API Docs: https://canvas.instructure.com/doc/api/accounts.html
 // API Url: accounts/{account_id}/settings
@@ -192,6 +209,7 @@ var getManuallyCreatedCoursesSubAccountForDomainRootAccount = {
 //   completed
 //   blueprint
 //   blueprint_associated
+//   public
 //   by_teachers
 //   by_subaccounts
 //   hide_enrollmentless_courses
@@ -244,6 +262,9 @@ var listActiveCoursesInAccount = {
 //   account[settings][usage_rights_required][locked]
 //   account[settings][restrict_student_future_listing][value]
 //   account[settings][restrict_student_future_listing][locked]
+//   account[settings][conditional_release][value]
+//   account[settings][conditional_release][locked]
+//   override_sis_stickiness
 //   account[settings][lock_outcome_proficiency][value]
 //   account[lock_outcome_proficiency][locked]
 //   account[settings][lock_proficiency_calculation][value]

@@ -270,7 +270,10 @@ var listActivityStreamActivityStream = {
 // API Url: users/self/activity_stream/summary
 //
 // Example:
-// return canvasRequest(activity_stream_summary, {});
+// const query = {
+//   only_active_courses
+// }
+// return canvasRequest(activity_stream_summary, {, ...query});
 
 exports.listActivityStreamActivityStream = listActivityStreamActivityStream;
 var activityStreamSummary = {
@@ -648,10 +651,12 @@ var updateDashboardPositions = {
 //   user[locale]
 //   user[avatar][token]
 //   user[avatar][url]
+//   user[avatar][state]
 //   user[title]
 //   user[bio]
 //   user[pronouns]
 //   user[event]
+//   override_sis_stickiness
 // }
 // return canvasRequest(edit_user, {id}, body);
 

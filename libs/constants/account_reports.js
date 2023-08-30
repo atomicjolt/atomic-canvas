@@ -33,6 +33,7 @@ var listAvailableReports = {
 // Example:
 // const body = {
 //   parameters
+//   parameters[skip_message]
 //   parameters[course_id]
 //   parameters[users]
 // }
