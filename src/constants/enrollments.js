@@ -215,12 +215,15 @@ export const rejectCourseInvitation = { type: 'REJECT_COURSE_INVITATION', method
 // return canvasRequest(re_activate_enrollment, {course_id, id});
 export const reActivateEnrollment = { type: 'RE_ACTIVATE_ENROLLMENT', method: 'put', key: 're_activate_enrollmentre_activate_enrollment_{course_id}_{id}', required: ['course_id', 'id'] };
 
-// Adds last attended date to student enrollment in course
-// 
+// Add last attended date
+// Add last attended date to student enrollment in course
 //
 // API Docs: https://canvas.instructure.com/doc/api/enrollments.html
 // API Url: courses/{course_id}/users/{user_id}/last_attended
 //
 // Example:
-// return canvasRequest(adds_last_attended_date_to_student_enrollment_in_course, {course_id, user_id});
-export const addsLastAttendedDateToStudentEnrollmentInCourse = { type: 'ADDS_LAST_ATTENDED_DATE_TO_STUDENT_ENROLLMENT_IN_COURSE', method: 'put', key: 'adds_last_attended_date_to_student_enrollment_in_courseadds_last_attended_date_to_student_enrollment_in_course_{course_id}_{user_id}', required: ['course_id', 'user_id'] };
+// const body = {
+//   date
+// }
+// return canvasRequest(add_last_attended_date, {course_id, user_id}, body);
+export const addLastAttendedDate = { type: 'ADD_LAST_ATTENDED_DATE', method: 'put', key: 'add_last_attended_dateadd_last_attended_date_{course_id}_{user_id}', required: ['course_id', 'user_id'] };

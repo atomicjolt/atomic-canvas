@@ -67,3 +67,40 @@ export const deleteGradingPeriodCourses = { type: 'DELETE_GRADING_PERIOD_COURSES
 // Example:
 // return canvasRequest(delete_grading_period_accounts, {account_id, id});
 export const deleteGradingPeriodAccounts = { type: 'DELETE_GRADING_PERIOD_ACCOUNTS', method: 'delete', key: 'delete_grading_period_accountsdelete_grading_period_accounts_{account_id}_{id}', required: ['account_id', 'id'] };
+
+// Batch update grading periods
+// Update multiple grading periods
+//
+// API Docs: https://canvas.instructure.com/doc/api/grading_periods.html
+// API Url: courses/{course_id}/grading_periods/batch_update
+//
+// Example:
+// const body = {
+//   set_id (required)
+//   grading_periods[id]
+//   grading_periods[title] (required)
+//   grading_periods[start_date] (required)
+//   grading_periods[end_date] (required)
+//   grading_periods[close_date] (required)
+//   grading_periods[weight]
+// }
+// return canvasRequest(batch_update_grading_periods_courses, {course_id}, body);
+export const batchUpdateGradingPeriodsCourses = { type: 'BATCH_UPDATE_GRADING_PERIODS_COURSES', method: 'patch', key: 'batch_update_grading_periods_coursesbatch_update_grading_periods_courses_course_id', required: ['course_id'] };
+
+// Batch update grading periods
+// Update multiple grading periods
+//
+// API Docs: https://canvas.instructure.com/doc/api/grading_periods.html
+// API Url: grading_period_sets/{set_id}/grading_periods/batch_update
+//
+// Example:
+// const body = {
+//   grading_periods[id]
+//   grading_periods[title] (required)
+//   grading_periods[start_date] (required)
+//   grading_periods[end_date] (required)
+//   grading_periods[close_date] (required)
+//   grading_periods[weight]
+// }
+// return canvasRequest(batch_update_grading_periods_grading_period_sets, {set_id}, body);
+export const batchUpdateGradingPeriodsGradingPeriodSets = { type: 'BATCH_UPDATE_GRADING_PERIODS_GRADING_PERIOD_SETS', method: 'patch', key: 'batch_update_grading_periods_grading_period_setsbatch_update_grading_periods_grading_period_sets_set_id', required: ['set_id'] };

@@ -115,6 +115,7 @@ export const createGroupGroupCategories = { type: 'CREATE_GROUP_GROUP_CATEGORIES
 //   storage_quota_mb
 //   members
 //   sis_group_id
+//   override_sis_stickiness
 // }
 // return canvasRequest(edit_group, {group_id}, body);
 export const editGroup = { type: 'EDIT_GROUP', method: 'put', key: 'edit_groupedit_group_group_id', required: ['group_id'] };

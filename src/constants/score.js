@@ -15,8 +15,7 @@
 // A submission comment with an unknown author will be created when the comment value is included.
 // This also supposes the line_item meets the condition to create a submission.
 // 
-// NOTE: Upcoming Feature
-// It will soon be possible to submit a file along with this score, which will attach the file to the
+// It is also possible to submit a file along with this score, which will attach the file to the
 // submission that is created. Files should be formatted as Content Items, with the correct syntax
 // below.
 // 
@@ -36,6 +35,12 @@
 //   scoreMaximum
 //   comment
 //   https://canvas.instructure.com/lti/submission
+//   https://canvas.instructure.com/lti/submission[new_submission]
+//   https://canvas.instructure.com/lti/submission[prioritize_non_tool_grade]
+//   https://canvas.instructure.com/lti/submission[submission_type]
+//   https://canvas.instructure.com/lti/submission[submission_data]
+//   https://canvas.instructure.com/lti/submission[submitted_at]
+//   https://canvas.instructure.com/lti/submission[content_items]
 // }
 // return canvasRequest(create_score, {course_id, line_item_id}, body);
 export const createScore = { type: 'CREATE_SCORE', method: 'post', key: 'create_scorecreate_score_{course_id}_{line_item_id}', required: ['course_id', 'line_item_id'] };

@@ -28,6 +28,17 @@ export const listAccounts = { type: 'LIST_ACCOUNTS', method: 'get', key: 'list_a
 // return canvasRequest(get_accounts_that_admins_can_manage, {});
 export const getAccountsThatAdminsCanManage = { type: 'GET_ACCOUNTS_THAT_ADMINS_CAN_MANAGE', method: 'get', key: 'get_accounts_that_admins_can_manage', required: [] };
 
+// Get accounts that users can create courses in
+// A paginated list of accounts where the current user has permission to create
+// courses.
+//
+// API Docs: https://canvas.instructure.com/doc/api/accounts.html
+// API Url: course_creation_accounts
+//
+// Example:
+// return canvasRequest(get_accounts_that_users_can_create_courses_in, {});
+export const getAccountsThatUsersCanCreateCoursesIn = { type: 'GET_ACCOUNTS_THAT_USERS_CAN_CREATE_COURSES_IN', method: 'get', key: 'get_accounts_that_users_can_create_courses_in', required: [] };
+
 // List accounts for course admins
 // A paginated list of accounts that the current user can view through their
 // admin course enrollments. (Teacher, TA, or designer enrollments).
@@ -52,8 +63,9 @@ export const listAccountsForCourseAdmins = { type: 'LIST_ACCOUNTS_FOR_COURSE_ADM
 export const getSingleAccount = { type: 'GET_SINGLE_ACCOUNT', method: 'get', key: 'get_single_accountget_single_account_id', required: ['id'] };
 
 // Settings
-// Returns all of the settings for the specified account as a JSON object. The caller must be an Account
-// admin with the manage_account_settings permission.
+// Returns a JSON object containing a subset of settings for the specified account.
+// It's possible an empty set will be returned if no settings are applicable.
+// The caller must be an Account admin with the manage_account_settings permission.
 //
 // API Docs: https://canvas.instructure.com/doc/api/accounts.html
 // API Url: accounts/{account_id}/settings
@@ -138,6 +150,7 @@ export const getManuallyCreatedCoursesSubAccountForDomainRootAccount = { type: '
 //   completed
 //   blueprint
 //   blueprint_associated
+//   public
 //   by_teachers
 //   by_subaccounts
 //   hide_enrollmentless_courses
@@ -185,6 +198,9 @@ export const listActiveCoursesInAccount = { type: 'LIST_ACTIVE_COURSES_IN_ACCOUN
 //   account[settings][usage_rights_required][locked]
 //   account[settings][restrict_student_future_listing][value]
 //   account[settings][restrict_student_future_listing][locked]
+//   account[settings][conditional_release][value]
+//   account[settings][conditional_release][locked]
+//   override_sis_stickiness
 //   account[settings][lock_outcome_proficiency][value]
 //   account[lock_outcome_proficiency][locked]
 //   account[settings][lock_proficiency_calculation][value]

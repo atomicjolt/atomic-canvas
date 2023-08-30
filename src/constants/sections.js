@@ -41,7 +41,10 @@ export const createCourseSection = { type: 'CREATE_COURSE_SECTION', method: 'pos
 // API Url: sections/{id}/crosslist/{new_course_id}
 //
 // Example:
-// return canvasRequest(cross_list_section, {id, new_course_id});
+// const body = {
+//   override_sis_stickiness
+// }
+// return canvasRequest(cross_list_section, {id, new_course_id}, body);
 export const crossListSection = { type: 'CROSS_LIST_SECTION', method: 'post', key: 'cross_list_sectioncross_list_section_{id}_{new_course_id}', required: ['id', 'new_course_id'] };
 
 // De-cross-list a Section
@@ -51,7 +54,10 @@ export const crossListSection = { type: 'CROSS_LIST_SECTION', method: 'post', ke
 // API Url: sections/{id}/crosslist
 //
 // Example:
-// return canvasRequest(de_cross_list_section, {id});
+// const body = {
+//   override_sis_stickiness
+// }
+// return canvasRequest(de_cross_list_section, {id}, body);
 export const deCrossListSection = { type: 'DE_CROSS_LIST_SECTION', method: 'delete', key: 'de_cross_list_sectionde_cross_list_section_id', required: ['id'] };
 
 // Edit a section
@@ -68,6 +74,7 @@ export const deCrossListSection = { type: 'DE_CROSS_LIST_SECTION', method: 'dele
 //   course_section[start_at]
 //   course_section[end_at]
 //   course_section[restrict_enrollments_to_section_dates]
+//   override_sis_stickiness
 // }
 // return canvasRequest(edit_section, {id}, body);
 export const editSection = { type: 'EDIT_SECTION', method: 'put', key: 'edit_sectionedit_section_id', required: ['id'] };

@@ -129,6 +129,8 @@ export const getPublicInlinePreviewUrl = { type: 'GET_PUBLIC_INLINE_PREVIEW_URL'
 // Example:
 // const query = {
 //   include
+//   replacement_chain_context_type
+//   replacement_chain_context_id
 // }
 // return canvasRequest(get_file_files, {id, ...query});
 export const getFileFiles = { type: 'GET_FILE_FILES', method: 'get', key: 'get_file_filesget_file_files_id', required: ['id'] };
@@ -142,6 +144,8 @@ export const getFileFiles = { type: 'GET_FILE_FILES', method: 'get', key: 'get_f
 // Example:
 // const query = {
 //   include
+//   replacement_chain_context_type
+//   replacement_chain_context_id
 // }
 // return canvasRequest(get_file_courses, {course_id, id, ...query});
 export const getFileCourses = { type: 'GET_FILE_COURSES', method: 'get', key: 'get_file_coursesget_file_courses_{course_id}_{id}', required: ['course_id', 'id'] };
@@ -155,6 +159,8 @@ export const getFileCourses = { type: 'GET_FILE_COURSES', method: 'get', key: 'g
 // Example:
 // const query = {
 //   include
+//   replacement_chain_context_type
+//   replacement_chain_context_id
 // }
 // return canvasRequest(get_file_groups, {group_id, id, ...query});
 export const getFileGroups = { type: 'GET_FILE_GROUPS', method: 'get', key: 'get_file_groupsget_file_groups_{group_id}_{id}', required: ['group_id', 'id'] };
@@ -168,9 +174,21 @@ export const getFileGroups = { type: 'GET_FILE_GROUPS', method: 'get', key: 'get
 // Example:
 // const query = {
 //   include
+//   replacement_chain_context_type
+//   replacement_chain_context_id
 // }
 // return canvasRequest(get_file_users, {user_id, id, ...query});
 export const getFileUsers = { type: 'GET_FILE_USERS', method: 'get', key: 'get_file_usersget_file_users_{user_id}_{id}', required: ['user_id', 'id'] };
+
+// Translate file reference
+// Get information about a file from a course copy file reference
+//
+// API Docs: https://canvas.instructure.com/doc/api/files.html
+// API Url: courses/{course_id}/files/file_ref/{migration_id}
+//
+// Example:
+// return canvasRequest(translate_file_reference, {course_id, migration_id});
+export const translateFileReference = { type: 'TRANSLATE_FILE_REFERENCE', method: 'get', key: 'translate_file_referencetranslate_file_reference_{course_id}_{migration_id}', required: ['course_id', 'migration_id'] };
 
 // Update file
 // Update some settings on the specified file
@@ -187,6 +205,7 @@ export const getFileUsers = { type: 'GET_FILE_USERS', method: 'get', key: 'get_f
 //   unlock_at
 //   locked
 //   hidden
+//   visibility_level
 // }
 // return canvasRequest(update_file, {id}, body);
 export const updateFile = { type: 'UPDATE_FILE', method: 'put', key: 'update_fileupdate_file_id', required: ['id'] };
@@ -207,6 +226,16 @@ export const updateFile = { type: 'UPDATE_FILE', method: 'put', key: 'update_fil
 // }
 // return canvasRequest(delete_file, {id}, body);
 export const deleteFile = { type: 'DELETE_FILE', method: 'delete', key: 'delete_filedelete_file_id', required: ['id'] };
+
+// Get icon metadata
+// Returns the icon maker file attachment metadata
+//
+// API Docs: https://canvas.instructure.com/doc/api/files.html
+// API Url: files/{id}/icon_metadata
+//
+// Example:
+// return canvasRequest(get_icon_metadata, {id});
+export const getIconMetadata = { type: 'GET_ICON_METADATA', method: 'get', key: 'get_icon_metadataget_icon_metadata_id', required: ['id'] };
 
 // Reset link verifier
 // Resets the link verifier. Any existing links to the file using
