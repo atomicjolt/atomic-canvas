@@ -48,20 +48,26 @@ export const getAssignmentGroup = { type: 'GET_ASSIGNMENT_GROUP', method: 'get',
 //   group_weight
 //   sis_source_id
 //   integration_data
-//   rules
 // }
 // return canvasRequest(create_assignment_group, {course_id}, body);
 export const createAssignmentGroup = { type: 'CREATE_ASSIGNMENT_GROUP', method: 'post', key: 'create_assignment_groupcreate_assignment_group_course_id', required: ['course_id'] };
 
 // Edit an Assignment Group
 // Modify an existing Assignment Group.
-// Accepts the same parameters as Assignment Group creation
 //
 // API Docs: https://canvas.instructure.com/doc/api/assignment_groups.html
 // API Url: courses/{course_id}/assignment_groups/{assignment_group_id}
 //
 // Example:
-// return canvasRequest(edit_assignment_group, {course_id, assignment_group_id});
+// const body = {
+//   name
+//   position
+//   group_weight
+//   sis_source_id
+//   integration_data
+//   rules
+// }
+// return canvasRequest(edit_assignment_group, {course_id, assignment_group_id}, body);
 export const editAssignmentGroup = { type: 'EDIT_ASSIGNMENT_GROUP', method: 'put', key: 'edit_assignment_groupedit_assignment_group_{course_id}_{assignment_group_id}', required: ['course_id', 'assignment_group_id'] };
 
 // Destroy an Assignment Group

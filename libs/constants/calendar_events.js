@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.updateCalendarEvent = exports.setCourseTimetable = exports.reserveTimeSlotParticipantId = exports.reserveTimeSlot = exports.listCalendarEventsForUser = exports.listCalendarEvents = exports.getSingleCalendarEventOrAssignment = exports.getCourseTimetable = exports.deleteCalendarEvent = exports.createOrUpdateEventsDirectlyForCourseTimetable = exports.createCalendarEvent = void 0;
+exports.updateCalendarEvent = exports.setCourseTimetable = exports.saveEnabledAccountCalendars = exports.reserveTimeSlotParticipantId = exports.reserveTimeSlot = exports.listCalendarEventsForUser = exports.listCalendarEvents = exports.getSingleCalendarEventOrAssignment = exports.getCourseTimetable = exports.deleteCalendarEvent = exports.createOrUpdateEventsDirectlyForCourseTimetable = exports.createCalendarEvent = void 0;
 //
 // Calendar Events
 //
@@ -22,7 +22,9 @@ exports.updateCalendarEvent = exports.setCourseTimetable = exports.reserveTimeSl
 //   all_events
 //   context_codes
 //   excludes
+//   includes
 //   important_dates
+//   blackout_date
 // }
 // return canvasRequest(list_calendar_events, {, ...query});
 var listCalendarEvents = {
@@ -49,7 +51,9 @@ var listCalendarEvents = {
 //   excludes
 //   submission_types
 //   exclude_submission_types
+//   includes
 //   important_dates
+//   blackout_date
 // }
 // return canvasRequest(list_calendar_events_for_user, {user_id, ...query});
 
@@ -83,6 +87,8 @@ var listCalendarEventsForUser = {
 //   calendar_event[duplicate][interval]
 //   calendar_event[duplicate][frequency]
 //   calendar_event[duplicate][append_iterator]
+//   calendar_event[rrule]
+//   calendar_event[blackout_date]
 // }
 // return canvasRequest(create_calendar_event, {}, body);
 
@@ -166,6 +172,9 @@ var reserveTimeSlotParticipantId = {
 //   calendar_event[child_event_data][X][start_at]
 //   calendar_event[child_event_data][X][end_at]
 //   calendar_event[child_event_data][X][context_code]
+//   calendar_event[rrule]
+//   which
+//   calendar_event[blackout_date]
 // }
 // return canvasRequest(update_calendar_event, {id}, body);
 
@@ -184,6 +193,7 @@ var updateCalendarEvent = {
 // Example:
 // const body = {
 //   cancel_reason
+//   which
 // }
 // return canvasRequest(delete_calendar_event, {id}, body);
 
@@ -193,6 +203,25 @@ var deleteCalendarEvent = {
   method: 'delete',
   key: 'delete_calendar_eventdelete_calendar_event_id',
   required: ['id']
+}; // Save enabled account calendars
+// Creates and updates the enabled_account_calendars and mark_feature_as_seen user preferences
+//
+// API Docs: https://canvas.instructure.com/doc/api/calendar_events.html
+// API Url: calendar_events/save_enabled_account_calendars
+//
+// Example:
+// const body = {
+//   mark_feature_as_seen
+//   enabled_account_calendars
+// }
+// return canvasRequest(save_enabled_account_calendars, {}, body);
+
+exports.deleteCalendarEvent = deleteCalendarEvent;
+var saveEnabledAccountCalendars = {
+  type: 'SAVE_ENABLED_ACCOUNT_CALENDARS',
+  method: 'post',
+  key: 'save_enabled_account_calendars',
+  required: []
 }; // Set a course timetable
 // Creates and updates "timetable" events for a course.
 // Can automaticaly generate a series of calendar events based on simple schedules
@@ -215,7 +244,7 @@ var deleteCalendarEvent = {
 // }
 // return canvasRequest(set_course_timetable, {course_id}, body);
 
-exports.deleteCalendarEvent = deleteCalendarEvent;
+exports.saveEnabledAccountCalendars = saveEnabledAccountCalendars;
 var setCourseTimetable = {
   type: 'SET_COURSE_TIMETABLE',
   method: 'post',

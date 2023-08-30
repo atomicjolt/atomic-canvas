@@ -149,6 +149,7 @@ var createGroupGroupCategories = {
 //   storage_quota_mb
 //   members
 //   sis_group_id
+//   override_sis_stickiness
 // }
 // return canvasRequest(edit_group, {group_id}, body);
 

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.uploadFileSections = exports.uploadFileCourses = exports.submitAssignmentSections = exports.submitAssignmentCourses = exports.submissionSummarySections = exports.submissionSummaryCourses = exports.markSubmissionAsUnreadSections = exports.markSubmissionAsUnreadCourses = exports.markSubmissionAsReadSections = exports.markSubmissionAsReadCourses = exports.markRubricCommentsAsReadSections = exports.markRubricCommentsAsReadCourses = exports.markDocumentAnnotationsAsReadSections = exports.markDocumentAnnotationsAsReadCourses = exports.listSubmissionsForMultipleAssignmentsSections = exports.listSubmissionsForMultipleAssignmentsCourses = exports.listMultipleAssignmentsGradeableStudents = exports.listGradeableStudents = exports.listAssignmentSubmissionsSections = exports.listAssignmentSubmissionsCourses = exports.gradeOrCommentOnSubmissionSections = exports.gradeOrCommentOnSubmissionCourses = exports.gradeOrCommentOnSubmissionByAnonymousIdSections = exports.gradeOrCommentOnSubmissionByAnonymousIdCourses = exports.gradeOrCommentOnMultipleSubmissionsSectionsSubmissions = exports.gradeOrCommentOnMultipleSubmissionsSectionsAssignments = exports.gradeOrCommentOnMultipleSubmissionsCoursesSubmissions = exports.gradeOrCommentOnMultipleSubmissionsCoursesAssignments = exports.getSingleSubmissionSections = exports.getSingleSubmissionCourses = exports.getSingleSubmissionByAnonymousIdSections = exports.getSingleSubmissionByAnonymousIdCourses = exports.getRubricCommentsReadStateSections = exports.getRubricCommentsReadStateCourses = exports.getDocumentAnnotationsReadStateSections = exports.getDocumentAnnotationsReadStateCourses = void 0;
+exports.uploadFileSections = exports.uploadFileCourses = exports.submitAssignmentSections = exports.submitAssignmentCourses = exports.submissionSummarySections = exports.submissionSummaryCourses = exports.markSubmissionItemAsReadSections = exports.markSubmissionItemAsReadCourses = exports.markSubmissionAsUnreadSections = exports.markSubmissionAsUnreadCourses = exports.markSubmissionAsReadSections = exports.markSubmissionAsReadCourses = exports.markRubricAssessmentsAsReadSectionsRubricComments = exports.markRubricAssessmentsAsReadSectionsRubricAssessments = exports.markRubricAssessmentsAsReadCoursesRubricComments = exports.markRubricAssessmentsAsReadCoursesRubricAssessments = exports.markDocumentAnnotationsAsReadSections = exports.markDocumentAnnotationsAsReadCourses = exports.markBulkSubmissionsAsReadSections = exports.markBulkSubmissionsAsReadCourses = exports.listSubmissionsForMultipleAssignmentsSections = exports.listSubmissionsForMultipleAssignmentsCourses = exports.listMultipleAssignmentsGradeableStudents = exports.listGradeableStudents = exports.listAssignmentSubmissionsSections = exports.listAssignmentSubmissionsCourses = exports.gradeOrCommentOnSubmissionSections = exports.gradeOrCommentOnSubmissionCourses = exports.gradeOrCommentOnSubmissionByAnonymousIdSections = exports.gradeOrCommentOnSubmissionByAnonymousIdCourses = exports.gradeOrCommentOnMultipleSubmissionsSectionsSubmissions = exports.gradeOrCommentOnMultipleSubmissionsSectionsAssignments = exports.gradeOrCommentOnMultipleSubmissionsCoursesSubmissions = exports.gradeOrCommentOnMultipleSubmissionsCoursesAssignments = exports.getSingleSubmissionSections = exports.getSingleSubmissionCourses = exports.getSingleSubmissionByAnonymousIdSections = exports.getSingleSubmissionByAnonymousIdCourses = exports.getRubricAssessmentsReadStateSectionsRubricComments = exports.getRubricAssessmentsReadStateSectionsRubricAssessments = exports.getRubricAssessmentsReadStateCoursesRubricComments = exports.getRubricAssessmentsReadStateCoursesRubricAssessments = exports.getDocumentAnnotationsReadStateSections = exports.getDocumentAnnotationsReadStateCourses = exports.clearUnreadStatusForAllSubmissionsSections = exports.clearUnreadStatusForAllSubmissionsCourses = void 0;
 //
 // Submissions
 //
@@ -301,14 +301,17 @@ var uploadFileSections = {
 // Example:
 // const body = {
 //   comment[text_comment]
+//   comment[attempt]
 //   comment[group_comment]
 //   comment[media_comment_id]
 //   comment[media_comment_type]
 //   comment[file_ids]
 //   include[visibility]
+//   prefer_points_over_scheme
 //   submission[posted_grade]
 //   submission[excuse]
 //   submission[late_policy_status]
+//   submission[sticker]
 //   submission[seconds_late_override]
 //   rubric_assessment
 // }
@@ -332,14 +335,17 @@ var gradeOrCommentOnSubmissionCourses = {
 // Example:
 // const body = {
 //   comment[text_comment]
+//   comment[attempt]
 //   comment[group_comment]
 //   comment[media_comment_id]
 //   comment[media_comment_type]
 //   comment[file_ids]
 //   include[visibility]
+//   prefer_points_over_scheme
 //   submission[posted_grade]
 //   submission[excuse]
 //   submission[late_policy_status]
+//   submission[sticker]
 //   submission[seconds_late_override]
 //   rubric_assessment
 // }
@@ -645,71 +651,253 @@ var markSubmissionAsUnreadSections = {
   method: 'delete',
   key: 'mark_submission_as_unread_sectionsmark_submission_as_unread_sections_{section_id}_{assignment_id}_{user_id}',
   required: ['section_id', 'assignment_id', 'user_id']
-}; // Get rubric comments read state
-// Return whether new rubric comments made on a submission have been seen by the student being assessed.
+}; // Mark bulk submissions as read
+// Accepts a string array of submission ids. Loops through and marks each submission as read
+// 
+// On success, the response will be 204 No Content with an empty body.
 //
 // API Docs: https://canvas.instructure.com/doc/api/submissions.html
-// API Url: courses/{course_id}/assignments/{assignment_id}/submissions/{user_id}/rubric_comments/read
+// API Url: courses/{course_id}/submissions/bulk_mark_read
 //
 // Example:
-// return canvasRequest(get_rubric_comments_read_state_courses, {course_id, assignment_id, user_id});
+// const body = {
+//   submissionIds
+// }
+// return canvasRequest(mark_bulk_submissions_as_read_courses, {course_id}, body);
 
 exports.markSubmissionAsUnreadSections = markSubmissionAsUnreadSections;
-var getRubricCommentsReadStateCourses = {
-  type: 'GET_RUBRIC_COMMENTS_READ_STATE_COURSES',
-  method: 'get',
-  key: 'get_rubric_comments_read_state_coursesget_rubric_comments_read_state_courses_{course_id}_{assignment_id}_{user_id}',
-  required: ['course_id', 'assignment_id', 'user_id']
-}; // Get rubric comments read state
-// Return whether new rubric comments made on a submission have been seen by the student being assessed.
+var markBulkSubmissionsAsReadCourses = {
+  type: 'MARK_BULK_SUBMISSIONS_AS_READ_COURSES',
+  method: 'put',
+  key: 'mark_bulk_submissions_as_read_coursesmark_bulk_submissions_as_read_courses_course_id',
+  required: ['course_id']
+}; // Mark bulk submissions as read
+// Accepts a string array of submission ids. Loops through and marks each submission as read
+// 
+// On success, the response will be 204 No Content with an empty body.
 //
 // API Docs: https://canvas.instructure.com/doc/api/submissions.html
-// API Url: sections/{section_id}/assignments/{assignment_id}/submissions/{user_id}/rubric_comments/read
+// API Url: sections/{section_id}/submissions/bulk_mark_read
 //
 // Example:
-// return canvasRequest(get_rubric_comments_read_state_sections, {section_id, assignment_id, user_id});
+// const body = {
+//   submissionIds
+// }
+// return canvasRequest(mark_bulk_submissions_as_read_sections, {section_id}, body);
 
-exports.getRubricCommentsReadStateCourses = getRubricCommentsReadStateCourses;
-var getRubricCommentsReadStateSections = {
-  type: 'GET_RUBRIC_COMMENTS_READ_STATE_SECTIONS',
-  method: 'get',
-  key: 'get_rubric_comments_read_state_sectionsget_rubric_comments_read_state_sections_{section_id}_{assignment_id}_{user_id}',
-  required: ['section_id', 'assignment_id', 'user_id']
-}; // Mark rubric comments as read
-// Indicate that rubric comments made on a submission have been read by the student being assessed.
-// Only the student who owns the submission can use this endpoint.
+exports.markBulkSubmissionsAsReadCourses = markBulkSubmissionsAsReadCourses;
+var markBulkSubmissionsAsReadSections = {
+  type: 'MARK_BULK_SUBMISSIONS_AS_READ_SECTIONS',
+  method: 'put',
+  key: 'mark_bulk_submissions_as_read_sectionsmark_bulk_submissions_as_read_sections_section_id',
+  required: ['section_id']
+}; // Mark submission item as read
+// No request fields are necessary.
 // 
-// NOTE: Rubric comments will be marked as read automatically when they are viewed in Canvas web.
+// A submission item can be "grade", "comment" or "rubric"
+// 
+// On success, the response will be 204 No Content with an empty body.
+//
+// API Docs: https://canvas.instructure.com/doc/api/submissions.html
+// API Url: courses/{course_id}/assignments/{assignment_id}/submissions/{user_id}/read/{item}
+//
+// Example:
+// return canvasRequest(mark_submission_item_as_read_courses, {course_id, assignment_id, user_id, item});
+
+exports.markBulkSubmissionsAsReadSections = markBulkSubmissionsAsReadSections;
+var markSubmissionItemAsReadCourses = {
+  type: 'MARK_SUBMISSION_ITEM_AS_READ_COURSES',
+  method: 'put',
+  key: 'mark_submission_item_as_read_coursesmark_submission_item_as_read_courses_{course_id}_{assignment_id}_{user_id}_{item}',
+  required: ['course_id', 'assignment_id', 'user_id', 'item']
+}; // Mark submission item as read
+// No request fields are necessary.
+// 
+// A submission item can be "grade", "comment" or "rubric"
+// 
+// On success, the response will be 204 No Content with an empty body.
+//
+// API Docs: https://canvas.instructure.com/doc/api/submissions.html
+// API Url: sections/{section_id}/assignments/{assignment_id}/submissions/{user_id}/read/{item}
+//
+// Example:
+// return canvasRequest(mark_submission_item_as_read_sections, {section_id, assignment_id, user_id, item});
+
+exports.markSubmissionItemAsReadCourses = markSubmissionItemAsReadCourses;
+var markSubmissionItemAsReadSections = {
+  type: 'MARK_SUBMISSION_ITEM_AS_READ_SECTIONS',
+  method: 'put',
+  key: 'mark_submission_item_as_read_sectionsmark_submission_item_as_read_sections_{section_id}_{assignment_id}_{user_id}_{item}',
+  required: ['section_id', 'assignment_id', 'user_id', 'item']
+}; // Clear unread status for all submissions.
+// Site-admin-only endpoint.
+// 
+// No request fields are necessary.
+// 
+// On success, the response will be 204 No Content with an empty body.
+//
+// API Docs: https://canvas.instructure.com/doc/api/submissions.html
+// API Url: courses/{course_id}/submissions/{user_id}/clear_unread
+//
+// Example:
+// return canvasRequest(clear_unread_status_for_all_submissions_courses, {course_id, user_id});
+
+exports.markSubmissionItemAsReadSections = markSubmissionItemAsReadSections;
+var clearUnreadStatusForAllSubmissionsCourses = {
+  type: 'CLEAR_UNREAD_STATUS_FOR_ALL_SUBMISSIONS_COURSES',
+  method: 'put',
+  key: 'clear_unread_status_for_all_submissions_coursesclear_unread_status_for_all_submissions_courses_{course_id}_{user_id}',
+  required: ['course_id', 'user_id']
+}; // Clear unread status for all submissions.
+// Site-admin-only endpoint.
+// 
+// No request fields are necessary.
+// 
+// On success, the response will be 204 No Content with an empty body.
+//
+// API Docs: https://canvas.instructure.com/doc/api/submissions.html
+// API Url: sections/{section_id}/submissions/{user_id}/clear_unread
+//
+// Example:
+// return canvasRequest(clear_unread_status_for_all_submissions_sections, {section_id, user_id});
+
+exports.clearUnreadStatusForAllSubmissionsCourses = clearUnreadStatusForAllSubmissionsCourses;
+var clearUnreadStatusForAllSubmissionsSections = {
+  type: 'CLEAR_UNREAD_STATUS_FOR_ALL_SUBMISSIONS_SECTIONS',
+  method: 'put',
+  key: 'clear_unread_status_for_all_submissions_sectionsclear_unread_status_for_all_submissions_sections_{section_id}_{user_id}',
+  required: ['section_id', 'user_id']
+}; // Get rubric assessments read state
+// Return whether new rubric comments/grading made on a submission have been seen by the student being assessed.
 //
 // API Docs: https://canvas.instructure.com/doc/api/submissions.html
 // API Url: courses/{course_id}/assignments/{assignment_id}/submissions/{user_id}/rubric_comments/read
 //
 // Example:
-// return canvasRequest(mark_rubric_comments_as_read_courses, {course_id, assignment_id, user_id});
+// return canvasRequest(get_rubric_assessments_read_state_courses_rubric_comments, {course_id, assignment_id, user_id});
 
-exports.getRubricCommentsReadStateSections = getRubricCommentsReadStateSections;
-var markRubricCommentsAsReadCourses = {
-  type: 'MARK_RUBRIC_COMMENTS_AS_READ_COURSES',
-  method: 'put',
-  key: 'mark_rubric_comments_as_read_coursesmark_rubric_comments_as_read_courses_{course_id}_{assignment_id}_{user_id}',
+exports.clearUnreadStatusForAllSubmissionsSections = clearUnreadStatusForAllSubmissionsSections;
+var getRubricAssessmentsReadStateCoursesRubricComments = {
+  type: 'GET_RUBRIC_ASSESSMENTS_READ_STATE_COURSES_RUBRIC_COMMENTS',
+  method: 'get',
+  key: 'get_rubric_assessments_read_state_courses_rubric_commentsget_rubric_assessments_read_state_courses_rubric_comments_{course_id}_{assignment_id}_{user_id}',
   required: ['course_id', 'assignment_id', 'user_id']
-}; // Mark rubric comments as read
-// Indicate that rubric comments made on a submission have been read by the student being assessed.
-// Only the student who owns the submission can use this endpoint.
-// 
-// NOTE: Rubric comments will be marked as read automatically when they are viewed in Canvas web.
+}; // Get rubric assessments read state
+// Return whether new rubric comments/grading made on a submission have been seen by the student being assessed.
+//
+// API Docs: https://canvas.instructure.com/doc/api/submissions.html
+// API Url: courses/{course_id}/assignments/{assignment_id}/submissions/{user_id}/rubric_assessments/read
+//
+// Example:
+// return canvasRequest(get_rubric_assessments_read_state_courses_rubric_assessments, {course_id, assignment_id, user_id});
+
+exports.getRubricAssessmentsReadStateCoursesRubricComments = getRubricAssessmentsReadStateCoursesRubricComments;
+var getRubricAssessmentsReadStateCoursesRubricAssessments = {
+  type: 'GET_RUBRIC_ASSESSMENTS_READ_STATE_COURSES_RUBRIC_ASSESSMENTS',
+  method: 'get',
+  key: 'get_rubric_assessments_read_state_courses_rubric_assessmentsget_rubric_assessments_read_state_courses_rubric_assessments_{course_id}_{assignment_id}_{user_id}',
+  required: ['course_id', 'assignment_id', 'user_id']
+}; // Get rubric assessments read state
+// Return whether new rubric comments/grading made on a submission have been seen by the student being assessed.
 //
 // API Docs: https://canvas.instructure.com/doc/api/submissions.html
 // API Url: sections/{section_id}/assignments/{assignment_id}/submissions/{user_id}/rubric_comments/read
 //
 // Example:
-// return canvasRequest(mark_rubric_comments_as_read_sections, {section_id, assignment_id, user_id});
+// return canvasRequest(get_rubric_assessments_read_state_sections_rubric_comments, {section_id, assignment_id, user_id});
 
-exports.markRubricCommentsAsReadCourses = markRubricCommentsAsReadCourses;
-var markRubricCommentsAsReadSections = {
-  type: 'MARK_RUBRIC_COMMENTS_AS_READ_SECTIONS',
+exports.getRubricAssessmentsReadStateCoursesRubricAssessments = getRubricAssessmentsReadStateCoursesRubricAssessments;
+var getRubricAssessmentsReadStateSectionsRubricComments = {
+  type: 'GET_RUBRIC_ASSESSMENTS_READ_STATE_SECTIONS_RUBRIC_COMMENTS',
+  method: 'get',
+  key: 'get_rubric_assessments_read_state_sections_rubric_commentsget_rubric_assessments_read_state_sections_rubric_comments_{section_id}_{assignment_id}_{user_id}',
+  required: ['section_id', 'assignment_id', 'user_id']
+}; // Get rubric assessments read state
+// Return whether new rubric comments/grading made on a submission have been seen by the student being assessed.
+//
+// API Docs: https://canvas.instructure.com/doc/api/submissions.html
+// API Url: sections/{section_id}/assignments/{assignment_id}/submissions/{user_id}/rubric_assessments/read
+//
+// Example:
+// return canvasRequest(get_rubric_assessments_read_state_sections_rubric_assessments, {section_id, assignment_id, user_id});
+
+exports.getRubricAssessmentsReadStateSectionsRubricComments = getRubricAssessmentsReadStateSectionsRubricComments;
+var getRubricAssessmentsReadStateSectionsRubricAssessments = {
+  type: 'GET_RUBRIC_ASSESSMENTS_READ_STATE_SECTIONS_RUBRIC_ASSESSMENTS',
+  method: 'get',
+  key: 'get_rubric_assessments_read_state_sections_rubric_assessmentsget_rubric_assessments_read_state_sections_rubric_assessments_{section_id}_{assignment_id}_{user_id}',
+  required: ['section_id', 'assignment_id', 'user_id']
+}; // Mark rubric assessments as read
+// Indicate that rubric comments/grading made on a submission have been read by the student being assessed.
+// Only the student who owns the submission can use this endpoint.
+// 
+// NOTE: Rubric assessments will be marked as read automatically when they are viewed in Canvas web.
+//
+// API Docs: https://canvas.instructure.com/doc/api/submissions.html
+// API Url: courses/{course_id}/assignments/{assignment_id}/submissions/{user_id}/rubric_comments/read
+//
+// Example:
+// return canvasRequest(mark_rubric_assessments_as_read_courses_rubric_comments, {course_id, assignment_id, user_id});
+
+exports.getRubricAssessmentsReadStateSectionsRubricAssessments = getRubricAssessmentsReadStateSectionsRubricAssessments;
+var markRubricAssessmentsAsReadCoursesRubricComments = {
+  type: 'MARK_RUBRIC_ASSESSMENTS_AS_READ_COURSES_RUBRIC_COMMENTS',
   method: 'put',
-  key: 'mark_rubric_comments_as_read_sectionsmark_rubric_comments_as_read_sections_{section_id}_{assignment_id}_{user_id}',
+  key: 'mark_rubric_assessments_as_read_courses_rubric_commentsmark_rubric_assessments_as_read_courses_rubric_comments_{course_id}_{assignment_id}_{user_id}',
+  required: ['course_id', 'assignment_id', 'user_id']
+}; // Mark rubric assessments as read
+// Indicate that rubric comments/grading made on a submission have been read by the student being assessed.
+// Only the student who owns the submission can use this endpoint.
+// 
+// NOTE: Rubric assessments will be marked as read automatically when they are viewed in Canvas web.
+//
+// API Docs: https://canvas.instructure.com/doc/api/submissions.html
+// API Url: courses/{course_id}/assignments/{assignment_id}/submissions/{user_id}/rubric_assessments/read
+//
+// Example:
+// return canvasRequest(mark_rubric_assessments_as_read_courses_rubric_assessments, {course_id, assignment_id, user_id});
+
+exports.markRubricAssessmentsAsReadCoursesRubricComments = markRubricAssessmentsAsReadCoursesRubricComments;
+var markRubricAssessmentsAsReadCoursesRubricAssessments = {
+  type: 'MARK_RUBRIC_ASSESSMENTS_AS_READ_COURSES_RUBRIC_ASSESSMENTS',
+  method: 'put',
+  key: 'mark_rubric_assessments_as_read_courses_rubric_assessmentsmark_rubric_assessments_as_read_courses_rubric_assessments_{course_id}_{assignment_id}_{user_id}',
+  required: ['course_id', 'assignment_id', 'user_id']
+}; // Mark rubric assessments as read
+// Indicate that rubric comments/grading made on a submission have been read by the student being assessed.
+// Only the student who owns the submission can use this endpoint.
+// 
+// NOTE: Rubric assessments will be marked as read automatically when they are viewed in Canvas web.
+//
+// API Docs: https://canvas.instructure.com/doc/api/submissions.html
+// API Url: sections/{section_id}/assignments/{assignment_id}/submissions/{user_id}/rubric_comments/read
+//
+// Example:
+// return canvasRequest(mark_rubric_assessments_as_read_sections_rubric_comments, {section_id, assignment_id, user_id});
+
+exports.markRubricAssessmentsAsReadCoursesRubricAssessments = markRubricAssessmentsAsReadCoursesRubricAssessments;
+var markRubricAssessmentsAsReadSectionsRubricComments = {
+  type: 'MARK_RUBRIC_ASSESSMENTS_AS_READ_SECTIONS_RUBRIC_COMMENTS',
+  method: 'put',
+  key: 'mark_rubric_assessments_as_read_sections_rubric_commentsmark_rubric_assessments_as_read_sections_rubric_comments_{section_id}_{assignment_id}_{user_id}',
+  required: ['section_id', 'assignment_id', 'user_id']
+}; // Mark rubric assessments as read
+// Indicate that rubric comments/grading made on a submission have been read by the student being assessed.
+// Only the student who owns the submission can use this endpoint.
+// 
+// NOTE: Rubric assessments will be marked as read automatically when they are viewed in Canvas web.
+//
+// API Docs: https://canvas.instructure.com/doc/api/submissions.html
+// API Url: sections/{section_id}/assignments/{assignment_id}/submissions/{user_id}/rubric_assessments/read
+//
+// Example:
+// return canvasRequest(mark_rubric_assessments_as_read_sections_rubric_assessments, {section_id, assignment_id, user_id});
+
+exports.markRubricAssessmentsAsReadSectionsRubricComments = markRubricAssessmentsAsReadSectionsRubricComments;
+var markRubricAssessmentsAsReadSectionsRubricAssessments = {
+  type: 'MARK_RUBRIC_ASSESSMENTS_AS_READ_SECTIONS_RUBRIC_ASSESSMENTS',
+  method: 'put',
+  key: 'mark_rubric_assessments_as_read_sections_rubric_assessmentsmark_rubric_assessments_as_read_sections_rubric_assessments_{section_id}_{assignment_id}_{user_id}',
   required: ['section_id', 'assignment_id', 'user_id']
 }; // Get document annotations read state
 // Return whether annotations made on a submitted document have been read by the student
@@ -720,7 +908,7 @@ var markRubricCommentsAsReadSections = {
 // Example:
 // return canvasRequest(get_document_annotations_read_state_courses, {course_id, assignment_id, user_id});
 
-exports.markRubricCommentsAsReadSections = markRubricCommentsAsReadSections;
+exports.markRubricAssessmentsAsReadSectionsRubricAssessments = markRubricAssessmentsAsReadSectionsRubricAssessments;
 var getDocumentAnnotationsReadStateCourses = {
   type: 'GET_DOCUMENT_ANNOTATIONS_READ_STATE_COURSES',
   method: 'get',

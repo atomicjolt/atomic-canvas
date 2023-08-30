@@ -20,6 +20,7 @@ exports.updateLineItem = exports.showLineItem = exports.listLineItems = exports.
 //   resourceId
 //   tag
 //   resourceLinkId
+//   endDateTime
 //   https://canvas.instructure.com/lti/submission_type
 // }
 // return canvasRequest(create_line_item, {course_id}, body);
@@ -40,6 +41,7 @@ var createLineItem = {
 //   label
 //   resourceId
 //   tag
+//   endDateTime
 // }
 // return canvasRequest(update_line_item, {course_id, id}, body);
 
@@ -56,7 +58,10 @@ var updateLineItem = {
 // API Url: /lti/courses/{course_id}/line_items/{id}
 //
 // Example:
-// return canvasRequest(show_line_item, {course_id, id});
+// const query = {
+//   include
+// }
+// return canvasRequest(show_line_item, {course_id, id, ...query});
 
 exports.updateLineItem = updateLineItem;
 var showLineItem = {
@@ -65,7 +70,7 @@ var showLineItem = {
   key: 'show_line_itemshow_line_item_{course_id}_{id}',
   required: ['course_id', 'id']
 }; // List line Items
-// 
+// List all Line Items for a course
 //
 // API Docs: https://canvas.instructure.com/doc/api/line_items.html
 // API Url: /lti/courses/{course_id}/line_items
@@ -76,6 +81,7 @@ var showLineItem = {
 //   resource_id
 //   resource_link_id
 //   limit
+//   include
 // }
 // return canvasRequest(list_line_items, {course_id, ...query});
 

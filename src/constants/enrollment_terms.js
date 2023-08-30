@@ -33,6 +33,7 @@ export const createEnrollmentTerm = { type: 'CREATE_ENROLLMENT_TERM', method: 'p
 //   enrollment_term[sis_term_id]
 //   enrollment_term[overrides][enrollment_type][start_at]
 //   enrollment_term[overrides][enrollment_type][end_at]
+//   override_sis_stickiness
 // }
 // return canvasRequest(update_enrollment_term, {account_id, id}, body);
 export const updateEnrollmentTerm = { type: 'UPDATE_ENROLLMENT_TERM', method: 'put', key: 'update_enrollment_termupdate_enrollment_term_{account_id}_{id}', required: ['account_id', 'id'] };
@@ -57,6 +58,7 @@ export const deleteEnrollmentTerm = { type: 'DELETE_ENROLLMENT_TERM', method: 'd
 // const query = {
 //   workflow_state
 //   include
+//   term_name
 // }
 // return canvasRequest(list_enrollment_terms, {account_id, ...query});
 export const listEnrollmentTerms = { type: 'LIST_ENROLLMENT_TERMS', method: 'get', key: 'list_enrollment_termslist_enrollment_terms_account_id', required: ['account_id'] };

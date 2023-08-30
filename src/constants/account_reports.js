@@ -24,6 +24,7 @@ export const listAvailableReports = { type: 'LIST_AVAILABLE_REPORTS', method: 'g
 // Example:
 // const body = {
 //   parameters
+//   parameters[skip_message]
 //   parameters[course_id]
 //   parameters[users]
 // }

@@ -8,7 +8,10 @@
 // API Url: outcomes/{id}
 //
 // Example:
-// return canvasRequest(show_outcome, {id});
+// const query = {
+//   add_defaults
+// }
+// return canvasRequest(show_outcome, {id, ...query});
 export const showOutcome = { type: 'SHOW_OUTCOME', method: 'get', key: 'show_outcomeshow_outcome_id', required: ['id'] };
 
 // Update an outcome
@@ -39,6 +42,7 @@ export const showOutcome = { type: 'SHOW_OUTCOME', method: 'get', key: 'show_out
 //   ratings[points]
 //   calculation_method
 //   calculation_int
+//   add_defaults
 // }
 // return canvasRequest(update_outcome, {id}, body);
 export const updateOutcome = { type: 'UPDATE_OUTCOME', method: 'put', key: 'update_outcomeupdate_outcome_id', required: ['id'] };

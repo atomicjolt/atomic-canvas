@@ -21,6 +21,16 @@ export const listUserLoginsAccounts = { type: 'LIST_USER_LOGINS_ACCOUNTS', metho
 // return canvasRequest(list_user_logins_users, {user_id});
 export const listUserLoginsUsers = { type: 'LIST_USER_LOGINS_USERS', method: 'get', key: 'list_user_logins_userslist_user_logins_users_user_id', required: ['user_id'] };
 
+// Kickoff password recovery flow
+// Given a user email, generate a nonce and email it to the user
+//
+// API Docs: https://canvas.instructure.com/doc/api/logins.html
+// API Url: users/reset_password
+//
+// Example:
+// return canvasRequest(kickoff_password_recovery_flow, {});
+export const kickoffPasswordRecoveryFlow = { type: 'KICKOFF_PASSWORD_RECOVERY_FLOW', method: 'post', key: 'kickoff_password_recovery_flow', required: [] };
+
 // Create a user login
 // Create a new login for an existing user in the given account.
 //
@@ -55,6 +65,7 @@ export const createUserLogin = { type: 'CREATE_USER_LOGIN', method: 'post', key:
 //   login[authentication_provider_id]
 //   login[workflow_state]
 //   login[declared_user_type]
+//   override_sis_stickiness
 // }
 // return canvasRequest(edit_user_login, {account_id, id}, body);
 export const editUserLogin = { type: 'EDIT_USER_LOGIN', method: 'put', key: 'edit_user_loginedit_user_login_{account_id}_{id}', required: ['account_id', 'id'] };

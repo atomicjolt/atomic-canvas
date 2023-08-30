@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.rejectCourseInvitation = exports.reActivateEnrollment = exports.listEnrollmentsUsers = exports.listEnrollmentsSections = exports.listEnrollmentsCourses = exports.enrollmentById = exports.enrollUserSections = exports.enrollUserCourses = exports.concludeDeactivateOrDeleteEnrollment = exports.addsLastAttendedDateToStudentEnrollmentInCourse = exports.acceptCourseInvitation = void 0;
+exports.rejectCourseInvitation = exports.reActivateEnrollment = exports.listEnrollmentsUsers = exports.listEnrollmentsSections = exports.listEnrollmentsCourses = exports.enrollmentById = exports.enrollUserSections = exports.enrollUserCourses = exports.concludeDeactivateOrDeleteEnrollment = exports.addLastAttendedDate = exports.acceptCourseInvitation = void 0;
 //
 // Enrollments
 //
@@ -269,20 +269,23 @@ var reActivateEnrollment = {
   method: 'put',
   key: 're_activate_enrollmentre_activate_enrollment_{course_id}_{id}',
   required: ['course_id', 'id']
-}; // Adds last attended date to student enrollment in course
-// 
+}; // Add last attended date
+// Add last attended date to student enrollment in course
 //
 // API Docs: https://canvas.instructure.com/doc/api/enrollments.html
 // API Url: courses/{course_id}/users/{user_id}/last_attended
 //
 // Example:
-// return canvasRequest(adds_last_attended_date_to_student_enrollment_in_course, {course_id, user_id});
+// const body = {
+//   date
+// }
+// return canvasRequest(add_last_attended_date, {course_id, user_id}, body);
 
 exports.reActivateEnrollment = reActivateEnrollment;
-var addsLastAttendedDateToStudentEnrollmentInCourse = {
-  type: 'ADDS_LAST_ATTENDED_DATE_TO_STUDENT_ENROLLMENT_IN_COURSE',
+var addLastAttendedDate = {
+  type: 'ADD_LAST_ATTENDED_DATE',
   method: 'put',
-  key: 'adds_last_attended_date_to_student_enrollment_in_courseadds_last_attended_date_to_student_enrollment_in_course_{course_id}_{user_id}',
+  key: 'add_last_attended_dateadd_last_attended_date_{course_id}_{user_id}',
   required: ['course_id', 'user_id']
 };
-exports.addsLastAttendedDateToStudentEnrollmentInCourse = addsLastAttendedDateToStudentEnrollmentInCourse;
+exports.addLastAttendedDate = addLastAttendedDate;

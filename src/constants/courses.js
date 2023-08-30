@@ -302,6 +302,8 @@ export const getCourseSettings = { type: 'GET_COURSE_SETTINGS', method: 'get', k
 //   show_announcements_on_home_page
 //   home_page_announcement_limit
 //   syllabus_course_summary
+//   default_due_time
+//   conditional_release
 // }
 // return canvasRequest(update_course_settings, {course_id}, body);
 export const updateCourseSettings = { type: 'UPDATE_COURSE_SETTINGS', method: 'put', key: 'update_course_settingsupdate_course_settings_course_id', required: ['course_id'] };
@@ -357,6 +359,9 @@ export const getSingleCourseAccounts = { type: 'GET_SINGLE_COURSE_ACCOUNTS', met
 // 
 // If a user has content management rights, but not full course editing rights, the only attribute
 // editable through this endpoint will be "syllabus_body"
+// 
+// If an account has set prevent_course_availability_editing_by_teachers, a teacher cannot change
+// course[start_at], course[conclude_at], or course[restrict_enrollments_to_course_dates] here.
 //
 // API Docs: https://canvas.instructure.com/doc/api/courses.html
 // API Url: courses/{id}
@@ -409,7 +414,9 @@ export const getSingleCourseAccounts = { type: 'GET_SINGLE_COURSE_ACCOUNTS', met
 //   course[template]
 //   course[course_color]
 //   course[friendly_name]
-//   course[enable_pace_plans]
+//   course[enable_course_paces]
+//   course[conditional_release]
+//   override_sis_stickiness
 // }
 // return canvasRequest(update_course, {id}, body);
 export const updateCourse = { type: 'UPDATE_COURSE', method: 'put', key: 'update_courseupdate_course_id', required: ['id'] };

@@ -8,7 +8,7 @@ exports.refreshJwt = exports.createJwt = void 0;
 // JWTs
 //
 // Create JWT
-// Create a unique jwt for using with other canvas services
+// Create a unique jwt for using with other Canvas services
 // 
 // Generates a different JWT each time it's called, each one expires
 // after a short window (1 hour)
@@ -19,6 +19,9 @@ exports.refreshJwt = exports.createJwt = void 0;
 // Example:
 // const body = {
 //   workflows
+//   context_type
+//   context_id
+//   context_uuid
 // }
 // return canvasRequest(create_jwt, {}, body);
 var createJwt = {

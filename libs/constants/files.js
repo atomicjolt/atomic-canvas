@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.updateFolder = exports.updateFile = exports.setUsageRightsUsers = exports.setUsageRightsGroups = exports.setUsageRightsCourses = exports.resolvePathUsersFullPath = exports.resolvePathUsers = exports.resolvePathGroupsFullPath = exports.resolvePathGroups = exports.resolvePathCoursesFullPath = exports.resolvePathCourses = exports.resetLinkVerifier = exports.removeUsageRightsUsers = exports.removeUsageRightsGroups = exports.removeUsageRightsCourses = exports.listLicensesUsers = exports.listLicensesGroups = exports.listLicensesCourses = exports.listFolders = exports.listFilesUsers = exports.listFilesGroups = exports.listFilesFolders = exports.listFilesCourses = exports.listAllFoldersUsers = exports.listAllFoldersGroups = exports.listAllFoldersCourses = exports.getUploadedMediaFolderForUserGroups = exports.getUploadedMediaFolderForUserCourses = exports.getQuotaInformationUsers = exports.getQuotaInformationGroups = exports.getQuotaInformationCourses = exports.getPublicInlinePreviewUrl = exports.getFolderUsers = exports.getFolderGroups = exports.getFolderFolders = exports.getFolderCourses = exports.getFileUsers = exports.getFileGroups = exports.getFileFiles = exports.getFileCourses = exports.filesUploadFile = exports.deleteFolder = exports.deleteFile = exports.createFolderUsers = exports.createFolderGroups = exports.createFolderFolders = exports.createFolderCourses = exports.copyFolder = exports.copyFile = void 0;
+exports.updateFolder = exports.updateFile = exports.translateFileReference = exports.setUsageRightsUsers = exports.setUsageRightsGroups = exports.setUsageRightsCourses = exports.resolvePathUsersFullPath = exports.resolvePathUsers = exports.resolvePathGroupsFullPath = exports.resolvePathGroups = exports.resolvePathCoursesFullPath = exports.resolvePathCourses = exports.resetLinkVerifier = exports.removeUsageRightsUsers = exports.removeUsageRightsGroups = exports.removeUsageRightsCourses = exports.listLicensesUsers = exports.listLicensesGroups = exports.listLicensesCourses = exports.listFolders = exports.listFilesUsers = exports.listFilesGroups = exports.listFilesFolders = exports.listFilesCourses = exports.listAllFoldersUsers = exports.listAllFoldersGroups = exports.listAllFoldersCourses = exports.getUploadedMediaFolderForUserGroups = exports.getUploadedMediaFolderForUserCourses = exports.getQuotaInformationUsers = exports.getQuotaInformationGroups = exports.getQuotaInformationCourses = exports.getPublicInlinePreviewUrl = exports.getIconMetadata = exports.getFolderUsers = exports.getFolderGroups = exports.getFolderFolders = exports.getFolderCourses = exports.getFileUsers = exports.getFileGroups = exports.getFileFiles = exports.getFileCourses = exports.filesUploadFile = exports.deleteFolder = exports.deleteFile = exports.createFolderUsers = exports.createFolderGroups = exports.createFolderFolders = exports.createFolderCourses = exports.copyFolder = exports.copyFile = void 0;
 //
 // Files
 //
@@ -173,6 +173,8 @@ var getPublicInlinePreviewUrl = {
 // Example:
 // const query = {
 //   include
+//   replacement_chain_context_type
+//   replacement_chain_context_id
 // }
 // return canvasRequest(get_file_files, {id, ...query});
 
@@ -191,6 +193,8 @@ var getFileFiles = {
 // Example:
 // const query = {
 //   include
+//   replacement_chain_context_type
+//   replacement_chain_context_id
 // }
 // return canvasRequest(get_file_courses, {course_id, id, ...query});
 
@@ -209,6 +213,8 @@ var getFileCourses = {
 // Example:
 // const query = {
 //   include
+//   replacement_chain_context_type
+//   replacement_chain_context_id
 // }
 // return canvasRequest(get_file_groups, {group_id, id, ...query});
 
@@ -227,6 +233,8 @@ var getFileGroups = {
 // Example:
 // const query = {
 //   include
+//   replacement_chain_context_type
+//   replacement_chain_context_id
 // }
 // return canvasRequest(get_file_users, {user_id, id, ...query});
 
@@ -236,6 +244,21 @@ var getFileUsers = {
   method: 'get',
   key: 'get_file_usersget_file_users_{user_id}_{id}',
   required: ['user_id', 'id']
+}; // Translate file reference
+// Get information about a file from a course copy file reference
+//
+// API Docs: https://canvas.instructure.com/doc/api/files.html
+// API Url: courses/{course_id}/files/file_ref/{migration_id}
+//
+// Example:
+// return canvasRequest(translate_file_reference, {course_id, migration_id});
+
+exports.getFileUsers = getFileUsers;
+var translateFileReference = {
+  type: 'TRANSLATE_FILE_REFERENCE',
+  method: 'get',
+  key: 'translate_file_referencetranslate_file_reference_{course_id}_{migration_id}',
+  required: ['course_id', 'migration_id']
 }; // Update file
 // Update some settings on the specified file
 //
@@ -251,10 +274,11 @@ var getFileUsers = {
 //   unlock_at
 //   locked
 //   hidden
+//   visibility_level
 // }
 // return canvasRequest(update_file, {id}, body);
 
-exports.getFileUsers = getFileUsers;
+exports.translateFileReference = translateFileReference;
 var updateFile = {
   type: 'UPDATE_FILE',
   method: 'put',
@@ -282,6 +306,21 @@ var deleteFile = {
   method: 'delete',
   key: 'delete_filedelete_file_id',
   required: ['id']
+}; // Get icon metadata
+// Returns the icon maker file attachment metadata
+//
+// API Docs: https://canvas.instructure.com/doc/api/files.html
+// API Url: files/{id}/icon_metadata
+//
+// Example:
+// return canvasRequest(get_icon_metadata, {id});
+
+exports.deleteFile = deleteFile;
+var getIconMetadata = {
+  type: 'GET_ICON_METADATA',
+  method: 'get',
+  key: 'get_icon_metadataget_icon_metadata_id',
+  required: ['id']
 }; // Reset link verifier
 // Resets the link verifier. Any existing links to the file using
 // the previous hard-coded "verifier" parameter will no longer
@@ -295,7 +334,7 @@ var deleteFile = {
 // Example:
 // return canvasRequest(reset_link_verifier, {id});
 
-exports.deleteFile = deleteFile;
+exports.getIconMetadata = getIconMetadata;
 var resetLinkVerifier = {
   type: 'RESET_LINK_VERIFIER',
   method: 'post',

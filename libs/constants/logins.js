@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.listUserLoginsUsers = exports.listUserLoginsAccounts = exports.editUserLogin = exports.deleteUserLogin = exports.createUserLogin = void 0;
+exports.listUserLoginsUsers = exports.listUserLoginsAccounts = exports.kickoffPasswordRecoveryFlow = exports.editUserLogin = exports.deleteUserLogin = exports.createUserLogin = void 0;
 //
 // Logins
 //
@@ -35,6 +35,21 @@ var listUserLoginsUsers = {
   method: 'get',
   key: 'list_user_logins_userslist_user_logins_users_user_id',
   required: ['user_id']
+}; // Kickoff password recovery flow
+// Given a user email, generate a nonce and email it to the user
+//
+// API Docs: https://canvas.instructure.com/doc/api/logins.html
+// API Url: users/reset_password
+//
+// Example:
+// return canvasRequest(kickoff_password_recovery_flow, {});
+
+exports.listUserLoginsUsers = listUserLoginsUsers;
+var kickoffPasswordRecoveryFlow = {
+  type: 'KICKOFF_PASSWORD_RECOVERY_FLOW',
+  method: 'post',
+  key: 'kickoff_password_recovery_flow',
+  required: []
 }; // Create a user login
 // Create a new login for an existing user in the given account.
 //
@@ -53,7 +68,7 @@ var listUserLoginsUsers = {
 // }
 // return canvasRequest(create_user_login, {account_id}, body);
 
-exports.listUserLoginsUsers = listUserLoginsUsers;
+exports.kickoffPasswordRecoveryFlow = kickoffPasswordRecoveryFlow;
 var createUserLogin = {
   type: 'CREATE_USER_LOGIN',
   method: 'post',
@@ -74,6 +89,7 @@ var createUserLogin = {
 //   login[authentication_provider_id]
 //   login[workflow_state]
 //   login[declared_user_type]
+//   override_sis_stickiness
 // }
 // return canvasRequest(edit_user_login, {account_id, id}, body);
 

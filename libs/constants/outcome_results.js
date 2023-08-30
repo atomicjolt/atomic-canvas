@@ -9,6 +9,8 @@ exports.getOutcomeResults = exports.getOutcomeResultRollups = void 0;
 //
 // Get outcome results
 // Gets the outcome results for users and outcomes in the specified context.
+// 
+// used in sLMGB
 //
 // API Docs: https://canvas.instructure.com/doc/api/outcome_results.html
 // API Url: courses/{course_id}/outcome_results
@@ -44,6 +46,8 @@ var getOutcomeResults = {
 //   sort_by
 //   sort_outcome_id
 //   sort_order
+//   add_defaults
+//   contributing_scores
 // }
 // return canvasRequest(get_outcome_result_rollups, {course_id, ...query});
 

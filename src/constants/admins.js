@@ -26,7 +26,7 @@ export const makeAccountAdmin = { type: 'MAKE_ACCOUNT_ADMIN', method: 'post', ke
 // Example:
 // const body = {
 //   role
-//   role_id
+//   role_id (required)
 // }
 // return canvasRequest(remove_account_admin, {account_id, user_id}, body);
 export const removeAccountAdmin = { type: 'REMOVE_ACCOUNT_ADMIN', method: 'delete', key: 'remove_account_adminremove_account_admin_{account_id}_{user_id}', required: ['account_id', 'user_id'] };

@@ -251,7 +251,10 @@ export const listActivityStreamActivityStream = { type: 'LIST_ACTIVITY_STREAM_AC
 // API Url: users/self/activity_stream/summary
 //
 // Example:
-// return canvasRequest(activity_stream_summary, {});
+// const query = {
+//   only_active_courses
+// }
+// return canvasRequest(activity_stream_summary, {, ...query});
 export const activityStreamSummary = { type: 'ACTIVITY_STREAM_SUMMARY', method: 'get', key: 'activity_stream_summary', required: [] };
 
 // List the TODO items
@@ -544,10 +547,12 @@ export const updateDashboardPositions = { type: 'UPDATE_DASHBOARD_POSITIONS', me
 //   user[locale]
 //   user[avatar][token]
 //   user[avatar][url]
+//   user[avatar][state]
 //   user[title]
 //   user[bio]
 //   user[pronouns]
 //   user[event]
+//   override_sis_stickiness
 // }
 // return canvasRequest(edit_user, {id}, body);
 export const editUser = { type: 'EDIT_USER', method: 'put', key: 'edit_useredit_user_id', required: ['id'] };

@@ -35,7 +35,7 @@ var makeAccountAdmin = {
 // Example:
 // const body = {
 //   role
-//   role_id
+//   role_id (required)
 // }
 // return canvasRequest(remove_account_admin, {account_id, user_id}, body);
 

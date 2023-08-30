@@ -16,7 +16,9 @@
 //   all_events
 //   context_codes
 //   excludes
+//   includes
 //   important_dates
+//   blackout_date
 // }
 // return canvasRequest(list_calendar_events, {, ...query});
 export const listCalendarEvents = { type: 'LIST_CALENDAR_EVENTS', method: 'get', key: 'list_calendar_events', required: [] };
@@ -40,7 +42,9 @@ export const listCalendarEvents = { type: 'LIST_CALENDAR_EVENTS', method: 'get',
 //   excludes
 //   submission_types
 //   exclude_submission_types
+//   includes
 //   important_dates
+//   blackout_date
 // }
 // return canvasRequest(list_calendar_events_for_user, {user_id, ...query});
 export const listCalendarEventsForUser = { type: 'LIST_CALENDAR_EVENTS_FOR_USER', method: 'get', key: 'list_calendar_events_for_userlist_calendar_events_for_user_user_id', required: ['user_id'] };
@@ -69,6 +73,8 @@ export const listCalendarEventsForUser = { type: 'LIST_CALENDAR_EVENTS_FOR_USER'
 //   calendar_event[duplicate][interval]
 //   calendar_event[duplicate][frequency]
 //   calendar_event[duplicate][append_iterator]
+//   calendar_event[rrule]
+//   calendar_event[blackout_date]
 // }
 // return canvasRequest(create_calendar_event, {}, body);
 export const createCalendarEvent = { type: 'CREATE_CALENDAR_EVENT', method: 'post', key: 'create_calendar_event', required: [] };
@@ -132,6 +138,9 @@ export const reserveTimeSlotParticipantId = { type: 'RESERVE_TIME_SLOT_PARTICIPA
 //   calendar_event[child_event_data][X][start_at]
 //   calendar_event[child_event_data][X][end_at]
 //   calendar_event[child_event_data][X][context_code]
+//   calendar_event[rrule]
+//   which
+//   calendar_event[blackout_date]
 // }
 // return canvasRequest(update_calendar_event, {id}, body);
 export const updateCalendarEvent = { type: 'UPDATE_CALENDAR_EVENT', method: 'put', key: 'update_calendar_eventupdate_calendar_event_id', required: ['id'] };
@@ -145,9 +154,24 @@ export const updateCalendarEvent = { type: 'UPDATE_CALENDAR_EVENT', method: 'put
 // Example:
 // const body = {
 //   cancel_reason
+//   which
 // }
 // return canvasRequest(delete_calendar_event, {id}, body);
 export const deleteCalendarEvent = { type: 'DELETE_CALENDAR_EVENT', method: 'delete', key: 'delete_calendar_eventdelete_calendar_event_id', required: ['id'] };
+
+// Save enabled account calendars
+// Creates and updates the enabled_account_calendars and mark_feature_as_seen user preferences
+//
+// API Docs: https://canvas.instructure.com/doc/api/calendar_events.html
+// API Url: calendar_events/save_enabled_account_calendars
+//
+// Example:
+// const body = {
+//   mark_feature_as_seen
+//   enabled_account_calendars
+// }
+// return canvasRequest(save_enabled_account_calendars, {}, body);
+export const saveEnabledAccountCalendars = { type: 'SAVE_ENABLED_ACCOUNT_CALENDARS', method: 'post', key: 'save_enabled_account_calendars', required: [] };
 
 // Set a course timetable
 // Creates and updates "timetable" events for a course.

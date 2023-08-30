@@ -75,6 +75,7 @@ var getCurrentImportingSisImport = {
 //   diffing_data_set_identifier
 //   diffing_remaster_data_set
 //   diffing_drop_status
+//   diffing_user_remove_status
 //   batch_mode_enrollment_drop_status
 //   change_threshold
 //   diff_row_count_threshold

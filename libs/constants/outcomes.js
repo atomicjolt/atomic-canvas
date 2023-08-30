@@ -14,7 +14,10 @@ exports.updateOutcome = exports.showOutcome = exports.getAlignedAssignmentsForOu
 // API Url: outcomes/{id}
 //
 // Example:
-// return canvasRequest(show_outcome, {id});
+// const query = {
+//   add_defaults
+// }
+// return canvasRequest(show_outcome, {id, ...query});
 var showOutcome = {
   type: 'SHOW_OUTCOME',
   method: 'get',
@@ -48,6 +51,7 @@ var showOutcome = {
 //   ratings[points]
 //   calculation_method
 //   calculation_int
+//   add_defaults
 // }
 // return canvasRequest(update_outcome, {id}, body);
 

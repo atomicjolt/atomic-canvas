@@ -14,6 +14,7 @@
 //   resourceId
 //   tag
 //   resourceLinkId
+//   endDateTime
 //   https://canvas.instructure.com/lti/submission_type
 // }
 // return canvasRequest(create_line_item, {course_id}, body);
@@ -31,6 +32,7 @@ export const createLineItem = { type: 'CREATE_LINE_ITEM', method: 'post', key: '
 //   label
 //   resourceId
 //   tag
+//   endDateTime
 // }
 // return canvasRequest(update_line_item, {course_id, id}, body);
 export const updateLineItem = { type: 'UPDATE_LINE_ITEM', method: 'put', key: 'update_line_itemupdate_line_item_{course_id}_{id}', required: ['course_id', 'id'] };
@@ -42,11 +44,14 @@ export const updateLineItem = { type: 'UPDATE_LINE_ITEM', method: 'put', key: 'u
 // API Url: /lti/courses/{course_id}/line_items/{id}
 //
 // Example:
-// return canvasRequest(show_line_item, {course_id, id});
+// const query = {
+//   include
+// }
+// return canvasRequest(show_line_item, {course_id, id, ...query});
 export const showLineItem = { type: 'SHOW_LINE_ITEM', method: 'get', key: 'show_line_itemshow_line_item_{course_id}_{id}', required: ['course_id', 'id'] };
 
 // List line Items
-// 
+// List all Line Items for a course
 //
 // API Docs: https://canvas.instructure.com/doc/api/line_items.html
 // API Url: /lti/courses/{course_id}/line_items
@@ -57,6 +62,7 @@ export const showLineItem = { type: 'SHOW_LINE_ITEM', method: 'get', key: 'show_
 //   resource_id
 //   resource_link_id
 //   limit
+//   include
 // }
 // return canvasRequest(list_line_items, {course_id, ...query});
 export const listLineItems = { type: 'LIST_LINE_ITEMS', method: 'get', key: 'list_line_itemslist_line_items_course_id', required: ['course_id'] };

@@ -3,6 +3,8 @@
 //
 // Get outcome results
 // Gets the outcome results for users and outcomes in the specified context.
+// 
+// used in sLMGB
 //
 // API Docs: https://canvas.instructure.com/doc/api/outcome_results.html
 // API Url: courses/{course_id}/outcome_results
@@ -35,6 +37,8 @@ export const getOutcomeResults = { type: 'GET_OUTCOME_RESULTS', method: 'get', k
 //   sort_by
 //   sort_outcome_id
 //   sort_order
+//   add_defaults
+//   contributing_scores
 // }
 // return canvasRequest(get_outcome_result_rollups, {course_id, ...query});
 export const getOutcomeResultRollups = { type: 'GET_OUTCOME_RESULT_ROLLUPS', method: 'get', key: 'get_outcome_result_rollupsget_outcome_result_rollups_course_id', required: ['course_id'] };

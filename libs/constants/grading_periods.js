@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.updateSingleGradingPeriod = exports.listGradingPeriodsCourses = exports.listGradingPeriodsAccounts = exports.getSingleGradingPeriod = exports.deleteGradingPeriodCourses = exports.deleteGradingPeriodAccounts = void 0;
+exports.updateSingleGradingPeriod = exports.listGradingPeriodsCourses = exports.listGradingPeriodsAccounts = exports.getSingleGradingPeriod = exports.deleteGradingPeriodCourses = exports.deleteGradingPeriodAccounts = exports.batchUpdateGradingPeriodsGradingPeriodSets = exports.batchUpdateGradingPeriodsCourses = void 0;
 //
 // Grading Periods
 //
@@ -102,5 +102,52 @@ var deleteGradingPeriodAccounts = {
   method: 'delete',
   key: 'delete_grading_period_accountsdelete_grading_period_accounts_{account_id}_{id}',
   required: ['account_id', 'id']
-};
+}; // Batch update grading periods
+// Update multiple grading periods
+//
+// API Docs: https://canvas.instructure.com/doc/api/grading_periods.html
+// API Url: courses/{course_id}/grading_periods/batch_update
+//
+// Example:
+// const body = {
+//   set_id (required)
+//   grading_periods[id]
+//   grading_periods[title] (required)
+//   grading_periods[start_date] (required)
+//   grading_periods[end_date] (required)
+//   grading_periods[close_date] (required)
+//   grading_periods[weight]
+// }
+// return canvasRequest(batch_update_grading_periods_courses, {course_id}, body);
+
 exports.deleteGradingPeriodAccounts = deleteGradingPeriodAccounts;
+var batchUpdateGradingPeriodsCourses = {
+  type: 'BATCH_UPDATE_GRADING_PERIODS_COURSES',
+  method: 'patch',
+  key: 'batch_update_grading_periods_coursesbatch_update_grading_periods_courses_course_id',
+  required: ['course_id']
+}; // Batch update grading periods
+// Update multiple grading periods
+//
+// API Docs: https://canvas.instructure.com/doc/api/grading_periods.html
+// API Url: grading_period_sets/{set_id}/grading_periods/batch_update
+//
+// Example:
+// const body = {
+//   grading_periods[id]
+//   grading_periods[title] (required)
+//   grading_periods[start_date] (required)
+//   grading_periods[end_date] (required)
+//   grading_periods[close_date] (required)
+//   grading_periods[weight]
+// }
+// return canvasRequest(batch_update_grading_periods_grading_period_sets, {set_id}, body);
+
+exports.batchUpdateGradingPeriodsCourses = batchUpdateGradingPeriodsCourses;
+var batchUpdateGradingPeriodsGradingPeriodSets = {
+  type: 'BATCH_UPDATE_GRADING_PERIODS_GRADING_PERIOD_SETS',
+  method: 'patch',
+  key: 'batch_update_grading_periods_grading_period_setsbatch_update_grading_periods_grading_period_sets_set_id',
+  required: ['set_id']
+};
+exports.batchUpdateGradingPeriodsGradingPeriodSets = batchUpdateGradingPeriodsGradingPeriodSets;

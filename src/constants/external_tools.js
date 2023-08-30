@@ -13,6 +13,7 @@
 //   search_term
 //   selectable
 //   include_parents
+//   placement
 // }
 // return canvasRequest(list_external_tools_courses, {course_id, ...query});
 export const listExternalToolsCourses = { type: 'LIST_EXTERNAL_TOOLS_COURSES', method: 'get', key: 'list_external_tools_courseslist_external_tools_courses_course_id', required: ['course_id'] };
@@ -29,6 +30,7 @@ export const listExternalToolsCourses = { type: 'LIST_EXTERNAL_TOOLS_COURSES', m
 //   search_term
 //   selectable
 //   include_parents
+//   placement
 // }
 // return canvasRequest(list_external_tools_accounts, {account_id, ...query});
 export const listExternalToolsAccounts = { type: 'LIST_EXTERNAL_TOOLS_ACCOUNTS', method: 'get', key: 'list_external_tools_accountslist_external_tools_accounts_account_id', required: ['account_id'] };
@@ -45,14 +47,17 @@ export const listExternalToolsAccounts = { type: 'LIST_EXTERNAL_TOOLS_ACCOUNTS',
 //   search_term
 //   selectable
 //   include_parents
+//   placement
 // }
 // return canvasRequest(list_external_tools_groups, {group_id, ...query});
 export const listExternalToolsGroups = { type: 'LIST_EXTERNAL_TOOLS_GROUPS', method: 'get', key: 'list_external_tools_groupslist_external_tools_groups_group_id', required: ['group_id'] };
 
 // Get a sessionless launch url for an external tool.
 // Returns a sessionless launch url for an external tool.
+// Prefers the resource_link_lookup_uuid, but defaults to the other passed
+//   parameters id, url, and launch_type
 // 
-// NOTE: Either the id or url must be provided unless launch_type is assessment or module_item.
+// NOTE: Either the resource_link_lookup_uuid, id, or url must be provided unless launch_type is assessment or module_item.
 //
 // API Docs: https://canvas.instructure.com/doc/api/external_tools.html
 // API Url: courses/{course_id}/external_tools/sessionless_launch
@@ -64,14 +69,17 @@ export const listExternalToolsGroups = { type: 'LIST_EXTERNAL_TOOLS_GROUPS', met
 //   assignment_id
 //   module_item_id
 //   launch_type
+//   resource_link_lookup_uuid
 // }
 // return canvasRequest(get_sessionless_launch_url_for_external_tool_courses, {course_id, ...query});
 export const getSessionlessLaunchUrlForExternalToolCourses = { type: 'GET_SESSIONLESS_LAUNCH_URL_FOR_EXTERNAL_TOOL_COURSES', method: 'get', key: 'get_sessionless_launch_url_for_external_tool_coursesget_sessionless_launch_url_for_external_tool_courses_course_id', required: ['course_id'] };
 
 // Get a sessionless launch url for an external tool.
 // Returns a sessionless launch url for an external tool.
+// Prefers the resource_link_lookup_uuid, but defaults to the other passed
+//   parameters id, url, and launch_type
 // 
-// NOTE: Either the id or url must be provided unless launch_type is assessment or module_item.
+// NOTE: Either the resource_link_lookup_uuid, id, or url must be provided unless launch_type is assessment or module_item.
 //
 // API Docs: https://canvas.instructure.com/doc/api/external_tools.html
 // API Url: accounts/{account_id}/external_tools/sessionless_launch
@@ -83,6 +91,7 @@ export const getSessionlessLaunchUrlForExternalToolCourses = { type: 'GET_SESSIO
 //   assignment_id
 //   module_item_id
 //   launch_type
+//   resource_link_lookup_uuid
 // }
 // return canvasRequest(get_sessionless_launch_url_for_external_tool_accounts, {account_id, ...query});
 export const getSessionlessLaunchUrlForExternalToolAccounts = { type: 'GET_SESSIONLESS_LAUNCH_URL_FOR_EXTERNAL_TOOL_ACCOUNTS', method: 'get', key: 'get_sessionless_launch_url_for_external_tool_accountsget_sessionless_launch_url_for_external_tool_accounts_account_id', required: ['account_id'] };

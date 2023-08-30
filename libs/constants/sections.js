@@ -55,7 +55,10 @@ var createCourseSection = {
 // API Url: sections/{id}/crosslist/{new_course_id}
 //
 // Example:
-// return canvasRequest(cross_list_section, {id, new_course_id});
+// const body = {
+//   override_sis_stickiness
+// }
+// return canvasRequest(cross_list_section, {id, new_course_id}, body);
 
 exports.createCourseSection = createCourseSection;
 var crossListSection = {
@@ -70,7 +73,10 @@ var crossListSection = {
 // API Url: sections/{id}/crosslist
 //
 // Example:
-// return canvasRequest(de_cross_list_section, {id});
+// const body = {
+//   override_sis_stickiness
+// }
+// return canvasRequest(de_cross_list_section, {id}, body);
 
 exports.crossListSection = crossListSection;
 var deCrossListSection = {
@@ -92,6 +98,7 @@ var deCrossListSection = {
 //   course_section[start_at]
 //   course_section[end_at]
 //   course_section[restrict_enrollments_to_section_dates]
+//   override_sis_stickiness
 // }
 // return canvasRequest(edit_section, {id}, body);
 
