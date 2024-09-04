@@ -1,8 +1,5 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.listRecentHistoryForUser = void 0;
 //
 // History
@@ -18,10 +15,5 @@ exports.listRecentHistoryForUser = void 0;
 //
 // Example:
 // return canvasRequest(list_recent_history_for_user, {user_id});
-var listRecentHistoryForUser = {
-  type: 'LIST_RECENT_HISTORY_FOR_USER',
-  method: 'get',
-  key: 'list_recent_history_for_userlist_recent_history_for_user_user_id',
-  required: ['user_id']
-};
-exports.listRecentHistoryForUser = listRecentHistoryForUser;
+exports.listRecentHistoryForUser = { type: 'LIST_RECENT_HISTORY_FOR_USER', method: 'get', key: 'list_recent_history_for_userlist_recent_history_for_user_user_id', required: ['user_id'] };
+//# sourceMappingURL=history.js.map

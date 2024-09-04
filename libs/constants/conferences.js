@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.listConferencesGroups = exports.listConferencesForCurrentUser = exports.listConferencesCourses = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.listConferencesForCurrentUser = exports.listConferencesGroups = exports.listConferencesCourses = void 0;
 //
 // Conferences
 //
@@ -18,13 +15,7 @@ exports.listConferencesGroups = exports.listConferencesForCurrentUser = exports.
 //
 // Example:
 // return canvasRequest(list_conferences_courses, {course_id});
-var listConferencesCourses = {
-  type: 'LIST_CONFERENCES_COURSES',
-  method: 'get',
-  key: 'list_conferences_courseslist_conferences_courses_course_id',
-  required: ['course_id']
-};
-
+exports.listConferencesCourses = { type: 'LIST_CONFERENCES_COURSES', method: 'get', key: 'list_conferences_courseslist_conferences_courses_course_id', required: ['course_id'] };
 // List conferences
 // Retrieve the paginated list of conferences for this context
 // 
@@ -36,14 +27,7 @@ var listConferencesCourses = {
 //
 // Example:
 // return canvasRequest(list_conferences_groups, {group_id});
-exports.listConferencesCourses = listConferencesCourses;
-var listConferencesGroups = {
-  type: 'LIST_CONFERENCES_GROUPS',
-  method: 'get',
-  key: 'list_conferences_groupslist_conferences_groups_group_id',
-  required: ['group_id']
-};
-
+exports.listConferencesGroups = { type: 'LIST_CONFERENCES_GROUPS', method: 'get', key: 'list_conferences_groupslist_conferences_groups_group_id', required: ['group_id'] };
 // List conferences for the current user
 // Retrieve the paginated list of conferences for all courses and groups
 // the current user belongs to
@@ -59,11 +43,5 @@ var listConferencesGroups = {
 //   state
 // }
 // return canvasRequest(list_conferences_for_current_user, {, ...query});
-exports.listConferencesGroups = listConferencesGroups;
-var listConferencesForCurrentUser = {
-  type: 'LIST_CONFERENCES_FOR_CURRENT_USER',
-  method: 'get',
-  key: 'list_conferences_for_current_user',
-  required: []
-};
-exports.listConferencesForCurrentUser = listConferencesForCurrentUser;
+exports.listConferencesForCurrentUser = { type: 'LIST_CONFERENCES_FOR_CURRENT_USER', method: 'get', key: 'list_conferences_for_current_user', required: [] };
+//# sourceMappingURL=conferences.js.map

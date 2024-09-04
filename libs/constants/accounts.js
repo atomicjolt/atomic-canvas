@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.updateAccount = exports.settings = exports.permissions = exports.listActiveCoursesInAccount = exports.listAccountsForCourseAdmins = exports.listAccounts = exports.getTermsOfService = exports.getSubAccountsOfAccount = exports.getSingleAccount = exports.getManuallyCreatedCoursesSubAccountForDomainRootAccount = exports.getHelpLinks = exports.getAccountsThatUsersCanCreateCoursesIn = exports.getAccountsThatAdminsCanManage = exports.deleteUserFromRootAccount = exports.deleteSubAccount = exports.createNewSubAccount = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.deleteSubAccount = exports.createNewSubAccount = exports.deleteUserFromRootAccount = exports.updateAccount = exports.listActiveCoursesInAccount = exports.getManuallyCreatedCoursesSubAccountForDomainRootAccount = exports.getHelpLinks = exports.getTermsOfService = exports.getSubAccountsOfAccount = exports.permissions = exports.settings = exports.getSingleAccount = exports.listAccountsForCourseAdmins = exports.getAccountsThatUsersCanCreateCoursesIn = exports.getAccountsThatAdminsCanManage = exports.listAccounts = void 0;
 //
 // Accounts
 //
@@ -20,13 +17,7 @@ exports.updateAccount = exports.settings = exports.permissions = exports.listAct
 //   include
 // }
 // return canvasRequest(list_accounts, {, ...query});
-var listAccounts = {
-  type: 'LIST_ACCOUNTS',
-  method: 'get',
-  key: 'list_accounts',
-  required: []
-};
-
+exports.listAccounts = { type: 'LIST_ACCOUNTS', method: 'get', key: 'list_accounts', required: [] };
 // Get accounts that admins can manage
 // A paginated list of accounts where the current user has permission to create
 // or manage courses. List will be empty for students and teachers as only admins
@@ -37,14 +28,7 @@ var listAccounts = {
 //
 // Example:
 // return canvasRequest(get_accounts_that_admins_can_manage, {});
-exports.listAccounts = listAccounts;
-var getAccountsThatAdminsCanManage = {
-  type: 'GET_ACCOUNTS_THAT_ADMINS_CAN_MANAGE',
-  method: 'get',
-  key: 'get_accounts_that_admins_can_manage',
-  required: []
-};
-
+exports.getAccountsThatAdminsCanManage = { type: 'GET_ACCOUNTS_THAT_ADMINS_CAN_MANAGE', method: 'get', key: 'get_accounts_that_admins_can_manage', required: [] };
 // Get accounts that users can create courses in
 // A paginated list of accounts where the current user has permission to create
 // courses.
@@ -54,14 +38,7 @@ var getAccountsThatAdminsCanManage = {
 //
 // Example:
 // return canvasRequest(get_accounts_that_users_can_create_courses_in, {});
-exports.getAccountsThatAdminsCanManage = getAccountsThatAdminsCanManage;
-var getAccountsThatUsersCanCreateCoursesIn = {
-  type: 'GET_ACCOUNTS_THAT_USERS_CAN_CREATE_COURSES_IN',
-  method: 'get',
-  key: 'get_accounts_that_users_can_create_courses_in',
-  required: []
-};
-
+exports.getAccountsThatUsersCanCreateCoursesIn = { type: 'GET_ACCOUNTS_THAT_USERS_CAN_CREATE_COURSES_IN', method: 'get', key: 'get_accounts_that_users_can_create_courses_in', required: [] };
 // List accounts for course admins
 // A paginated list of accounts that the current user can view through their
 // admin course enrollments. (Teacher, TA, or designer enrollments).
@@ -72,14 +49,7 @@ var getAccountsThatUsersCanCreateCoursesIn = {
 //
 // Example:
 // return canvasRequest(list_accounts_for_course_admins, {});
-exports.getAccountsThatUsersCanCreateCoursesIn = getAccountsThatUsersCanCreateCoursesIn;
-var listAccountsForCourseAdmins = {
-  type: 'LIST_ACCOUNTS_FOR_COURSE_ADMINS',
-  method: 'get',
-  key: 'list_accounts_for_course_admins',
-  required: []
-};
-
+exports.listAccountsForCourseAdmins = { type: 'LIST_ACCOUNTS_FOR_COURSE_ADMINS', method: 'get', key: 'list_accounts_for_course_admins', required: [] };
 // Get a single account
 // Retrieve information on an individual account, given by id or sis
 // sis_account_id.
@@ -89,14 +59,7 @@ var listAccountsForCourseAdmins = {
 //
 // Example:
 // return canvasRequest(get_single_account, {id});
-exports.listAccountsForCourseAdmins = listAccountsForCourseAdmins;
-var getSingleAccount = {
-  type: 'GET_SINGLE_ACCOUNT',
-  method: 'get',
-  key: 'get_single_accountget_single_account_id',
-  required: ['id']
-};
-
+exports.getSingleAccount = { type: 'GET_SINGLE_ACCOUNT', method: 'get', key: 'get_single_accountget_single_account_id', required: ['id'] };
 // Settings
 // Returns a JSON object containing a subset of settings for the specified account.
 // It's possible an empty set will be returned if no settings are applicable.
@@ -107,14 +70,7 @@ var getSingleAccount = {
 //
 // Example:
 // return canvasRequest(settings, {account_id});
-exports.getSingleAccount = getSingleAccount;
-var settings = {
-  type: 'SETTINGS',
-  method: 'get',
-  key: 'settingssettings_account_id',
-  required: ['account_id']
-};
-
+exports.settings = { type: 'SETTINGS', method: 'get', key: 'settingssettings_account_id', required: ['account_id'] };
 // Permissions
 // Returns permission information for the calling user and the given account.
 // You may use `self` as the account id to check permissions against the domain root account.
@@ -132,14 +88,7 @@ var settings = {
 //   permissions
 // }
 // return canvasRequest(permissions, {account_id, ...query});
-exports.settings = settings;
-var permissions = {
-  type: 'PERMISSIONS',
-  method: 'get',
-  key: 'permissionspermissions_account_id',
-  required: ['account_id']
-};
-
+exports.permissions = { type: 'PERMISSIONS', method: 'get', key: 'permissionspermissions_account_id', required: ['account_id'] };
 // Get the sub-accounts of an account
 // List accounts that are sub-accounts of the given account.
 //
@@ -151,14 +100,7 @@ var permissions = {
 //   recursive
 // }
 // return canvasRequest(get_sub_accounts_of_account, {account_id, ...query});
-exports.permissions = permissions;
-var getSubAccountsOfAccount = {
-  type: 'GET_SUB_ACCOUNTS_OF_ACCOUNT',
-  method: 'get',
-  key: 'get_sub_accounts_of_accountget_sub_accounts_of_account_account_id',
-  required: ['account_id']
-};
-
+exports.getSubAccountsOfAccount = { type: 'GET_SUB_ACCOUNTS_OF_ACCOUNT', method: 'get', key: 'get_sub_accounts_of_accountget_sub_accounts_of_account_account_id', required: ['account_id'] };
 // Get the Terms of Service
 // Returns the terms of service for that account
 //
@@ -167,14 +109,7 @@ var getSubAccountsOfAccount = {
 //
 // Example:
 // return canvasRequest(get_terms_of_service, {account_id});
-exports.getSubAccountsOfAccount = getSubAccountsOfAccount;
-var getTermsOfService = {
-  type: 'GET_TERMS_OF_SERVICE',
-  method: 'get',
-  key: 'get_terms_of_serviceget_terms_of_service_account_id',
-  required: ['account_id']
-};
-
+exports.getTermsOfService = { type: 'GET_TERMS_OF_SERVICE', method: 'get', key: 'get_terms_of_serviceget_terms_of_service_account_id', required: ['account_id'] };
 // Get help links
 // Returns the help links for that account
 //
@@ -183,14 +118,7 @@ var getTermsOfService = {
 //
 // Example:
 // return canvasRequest(get_help_links, {account_id});
-exports.getTermsOfService = getTermsOfService;
-var getHelpLinks = {
-  type: 'GET_HELP_LINKS',
-  method: 'get',
-  key: 'get_help_linksget_help_links_account_id',
-  required: ['account_id']
-};
-
+exports.getHelpLinks = { type: 'GET_HELP_LINKS', method: 'get', key: 'get_help_linksget_help_links_account_id', required: ['account_id'] };
 // Get the manually-created courses sub-account for the domain root account
 // 
 //
@@ -199,14 +127,7 @@ var getHelpLinks = {
 //
 // Example:
 // return canvasRequest(get_manually_created_courses_sub_account_for_domain_root_account, {});
-exports.getHelpLinks = getHelpLinks;
-var getManuallyCreatedCoursesSubAccountForDomainRootAccount = {
-  type: 'GET_MANUALLY_CREATED_COURSES_SUB_ACCOUNT_FOR_DOMAIN_ROOT_ACCOUNT',
-  method: 'get',
-  key: 'get_manually_created_courses_sub_account_for_domain_root_account',
-  required: []
-};
-
+exports.getManuallyCreatedCoursesSubAccountForDomainRootAccount = { type: 'GET_MANUALLY_CREATED_COURSES_SUB_ACCOUNT_FOR_DOMAIN_ROOT_ACCOUNT', method: 'get', key: 'get_manually_created_courses_sub_account_for_domain_root_account', required: [] };
 // List active courses in an account
 // Retrieve a paginated list of courses in this account.
 //
@@ -237,14 +158,7 @@ var getManuallyCreatedCoursesSubAccountForDomainRootAccount = {
 //   homeroom
 // }
 // return canvasRequest(list_active_courses_in_account, {account_id, ...query});
-exports.getManuallyCreatedCoursesSubAccountForDomainRootAccount = getManuallyCreatedCoursesSubAccountForDomainRootAccount;
-var listActiveCoursesInAccount = {
-  type: 'LIST_ACTIVE_COURSES_IN_ACCOUNT',
-  method: 'get',
-  key: 'list_active_courses_in_accountlist_active_courses_in_account_account_id',
-  required: ['account_id']
-};
-
+exports.listActiveCoursesInAccount = { type: 'LIST_ACTIVE_COURSES_IN_ACCOUNT', method: 'get', key: 'list_active_courses_in_accountlist_active_courses_in_account_account_id', required: ['account_id'] };
 // Update an account
 // Update an existing account.
 //
@@ -285,14 +199,7 @@ var listActiveCoursesInAccount = {
 //   account[services]
 // }
 // return canvasRequest(update_account, {id}, body);
-exports.listActiveCoursesInAccount = listActiveCoursesInAccount;
-var updateAccount = {
-  type: 'UPDATE_ACCOUNT',
-  method: 'put',
-  key: 'update_accountupdate_account_id',
-  required: ['id']
-};
-
+exports.updateAccount = { type: 'UPDATE_ACCOUNT', method: 'put', key: 'update_accountupdate_account_id', required: ['id'] };
 // Delete a user from the root account
 // Delete a user record from a Canvas root account. If a user is associated
 // with multiple root accounts (in a multi-tenant instance of Canvas), this
@@ -307,14 +214,7 @@ var updateAccount = {
 //
 // Example:
 // return canvasRequest(delete_user_from_root_account, {account_id, user_id});
-exports.updateAccount = updateAccount;
-var deleteUserFromRootAccount = {
-  type: 'DELETE_USER_FROM_ROOT_ACCOUNT',
-  method: 'delete',
-  key: 'delete_user_from_root_accountdelete_user_from_root_account_{account_id}_{user_id}',
-  required: ['account_id', 'user_id']
-};
-
+exports.deleteUserFromRootAccount = { type: 'DELETE_USER_FROM_ROOT_ACCOUNT', method: 'delete', key: 'delete_user_from_root_accountdelete_user_from_root_account_{account_id}_{user_id}', required: ['account_id', 'user_id'] };
 // Create a new sub-account
 // Add a new sub-account to a given account.
 //
@@ -330,14 +230,7 @@ var deleteUserFromRootAccount = {
 //   account[default_group_storage_quota_mb]
 // }
 // return canvasRequest(create_new_sub_account, {account_id}, body);
-exports.deleteUserFromRootAccount = deleteUserFromRootAccount;
-var createNewSubAccount = {
-  type: 'CREATE_NEW_SUB_ACCOUNT',
-  method: 'post',
-  key: 'create_new_sub_accountcreate_new_sub_account_account_id',
-  required: ['account_id']
-};
-
+exports.createNewSubAccount = { type: 'CREATE_NEW_SUB_ACCOUNT', method: 'post', key: 'create_new_sub_accountcreate_new_sub_account_account_id', required: ['account_id'] };
 // Delete a sub-account
 // Cannot delete an account with active courses or active sub_accounts.
 // Cannot delete a root_account
@@ -347,11 +240,5 @@ var createNewSubAccount = {
 //
 // Example:
 // return canvasRequest(delete_sub_account, {account_id, id});
-exports.createNewSubAccount = createNewSubAccount;
-var deleteSubAccount = {
-  type: 'DELETE_SUB_ACCOUNT',
-  method: 'delete',
-  key: 'delete_sub_accountdelete_sub_account_{account_id}_{id}',
-  required: ['account_id', 'id']
-};
-exports.deleteSubAccount = deleteSubAccount;
+exports.deleteSubAccount = { type: 'DELETE_SUB_ACCOUNT', method: 'delete', key: 'delete_sub_accountdelete_sub_account_{account_id}_{id}', required: ['account_id', 'id'] };
+//# sourceMappingURL=accounts.js.map

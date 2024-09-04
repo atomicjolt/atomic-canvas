@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.updateWebhookSubscription = exports.showSingleWebhookSubscription = exports.listAllWebhookSubscriptionForToolProxy = exports.deleteWebhookSubscription = exports.createWebhookSubscription = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.listAllWebhookSubscriptionForToolProxy = exports.updateWebhookSubscription = exports.showSingleWebhookSubscription = exports.deleteWebhookSubscription = exports.createWebhookSubscription = void 0;
 //
 // Webhooks Subscriptions for Plagiarism Platform
 //
@@ -24,13 +21,7 @@ exports.updateWebhookSubscription = exports.showSingleWebhookSubscription = expo
 //   subscription[TransportType] (required)
 // }
 // return canvasRequest(create_webhook_subscription, {}, body);
-var createWebhookSubscription = {
-  type: 'CREATE_WEBHOOK_SUBSCRIPTION',
-  method: 'post',
-  key: 'create_webhook_subscription',
-  required: []
-};
-
+exports.createWebhookSubscription = { type: 'CREATE_WEBHOOK_SUBSCRIPTION', method: 'post', key: 'create_webhook_subscription', required: [] };
 // Delete a Webhook Subscription
 // 
 //
@@ -39,14 +30,7 @@ var createWebhookSubscription = {
 //
 // Example:
 // return canvasRequest(delete_webhook_subscription, {id});
-exports.createWebhookSubscription = createWebhookSubscription;
-var deleteWebhookSubscription = {
-  type: 'DELETE_WEBHOOK_SUBSCRIPTION',
-  method: 'delete',
-  key: 'delete_webhook_subscriptiondelete_webhook_subscription_id',
-  required: ['id']
-};
-
+exports.deleteWebhookSubscription = { type: 'DELETE_WEBHOOK_SUBSCRIPTION', method: 'delete', key: 'delete_webhook_subscriptiondelete_webhook_subscription_id', required: ['id'] };
 // Show a single Webhook Subscription
 // 
 //
@@ -55,14 +39,7 @@ var deleteWebhookSubscription = {
 //
 // Example:
 // return canvasRequest(show_single_webhook_subscription, {id});
-exports.deleteWebhookSubscription = deleteWebhookSubscription;
-var showSingleWebhookSubscription = {
-  type: 'SHOW_SINGLE_WEBHOOK_SUBSCRIPTION',
-  method: 'get',
-  key: 'show_single_webhook_subscriptionshow_single_webhook_subscription_id',
-  required: ['id']
-};
-
+exports.showSingleWebhookSubscription = { type: 'SHOW_SINGLE_WEBHOOK_SUBSCRIPTION', method: 'get', key: 'show_single_webhook_subscriptionshow_single_webhook_subscription_id', required: ['id'] };
 // Update a Webhook Subscription
 // This endpoint uses the same parameters as the create endpoint
 //
@@ -71,14 +48,7 @@ var showSingleWebhookSubscription = {
 //
 // Example:
 // return canvasRequest(update_webhook_subscription, {id});
-exports.showSingleWebhookSubscription = showSingleWebhookSubscription;
-var updateWebhookSubscription = {
-  type: 'UPDATE_WEBHOOK_SUBSCRIPTION',
-  method: 'put',
-  key: 'update_webhook_subscriptionupdate_webhook_subscription_id',
-  required: ['id']
-};
-
+exports.updateWebhookSubscription = { type: 'UPDATE_WEBHOOK_SUBSCRIPTION', method: 'put', key: 'update_webhook_subscriptionupdate_webhook_subscription_id', required: ['id'] };
 // List all Webhook Subscription for a tool proxy
 // This endpoint returns a paginated list with a default limit of 100 items per result set.
 // You can retrieve the next result set by setting a 'StartKey' header in your next request
@@ -92,11 +62,5 @@ var updateWebhookSubscription = {
 //
 // Example:
 // return canvasRequest(list_all_webhook_subscription_for_tool_proxy, {});
-exports.updateWebhookSubscription = updateWebhookSubscription;
-var listAllWebhookSubscriptionForToolProxy = {
-  type: 'LIST_ALL_WEBHOOK_SUBSCRIPTION_FOR_TOOL_PROXY',
-  method: 'get',
-  key: 'list_all_webhook_subscription_for_tool_proxy',
-  required: []
-};
-exports.listAllWebhookSubscriptionForToolProxy = listAllWebhookSubscriptionForToolProxy;
+exports.listAllWebhookSubscriptionForToolProxy = { type: 'LIST_ALL_WEBHOOK_SUBSCRIPTION_FOR_TOOL_PROXY', method: 'get', key: 'list_all_webhook_subscription_for_tool_proxy', required: [] };
+//# sourceMappingURL=webhooks_subscriptions_for_plagiarism_platform.js.map

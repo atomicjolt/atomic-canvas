@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.updateCalendarEvent = exports.setCourseTimetable = exports.saveEnabledAccountCalendars = exports.reserveTimeSlotParticipantId = exports.reserveTimeSlot = exports.listCalendarEventsForUser = exports.listCalendarEvents = exports.getSingleCalendarEventOrAssignment = exports.getCourseTimetable = exports.deleteCalendarEvent = exports.createOrUpdateEventsDirectlyForCourseTimetable = exports.createCalendarEvent = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createOrUpdateEventsDirectlyForCourseTimetable = exports.getCourseTimetable = exports.setCourseTimetable = exports.saveEnabledAccountCalendars = exports.deleteCalendarEvent = exports.updateCalendarEvent = exports.reserveTimeSlotParticipantId = exports.reserveTimeSlot = exports.getSingleCalendarEventOrAssignment = exports.createCalendarEvent = exports.listCalendarEventsForUser = exports.listCalendarEvents = void 0;
 //
 // Calendar Events
 //
@@ -27,13 +24,7 @@ exports.updateCalendarEvent = exports.setCourseTimetable = exports.saveEnabledAc
 //   blackout_date
 // }
 // return canvasRequest(list_calendar_events, {, ...query});
-var listCalendarEvents = {
-  type: 'LIST_CALENDAR_EVENTS',
-  method: 'get',
-  key: 'list_calendar_events',
-  required: []
-};
-
+exports.listCalendarEvents = { type: 'LIST_CALENDAR_EVENTS', method: 'get', key: 'list_calendar_events', required: [] };
 // List calendar events for a user
 // Retrieve the paginated list of calendar events or assignments for the specified user.
 // To view calendar events for a user other than yourself,
@@ -58,14 +49,7 @@ var listCalendarEvents = {
 //   blackout_date
 // }
 // return canvasRequest(list_calendar_events_for_user, {user_id, ...query});
-exports.listCalendarEvents = listCalendarEvents;
-var listCalendarEventsForUser = {
-  type: 'LIST_CALENDAR_EVENTS_FOR_USER',
-  method: 'get',
-  key: 'list_calendar_events_for_userlist_calendar_events_for_user_user_id',
-  required: ['user_id']
-};
-
+exports.listCalendarEventsForUser = { type: 'LIST_CALENDAR_EVENTS_FOR_USER', method: 'get', key: 'list_calendar_events_for_userlist_calendar_events_for_user_user_id', required: ['user_id'] };
 // Create a calendar event
 // Create and return a new calendar event
 //
@@ -94,14 +78,7 @@ var listCalendarEventsForUser = {
 //   calendar_event[blackout_date]
 // }
 // return canvasRequest(create_calendar_event, {}, body);
-exports.listCalendarEventsForUser = listCalendarEventsForUser;
-var createCalendarEvent = {
-  type: 'CREATE_CALENDAR_EVENT',
-  method: 'post',
-  key: 'create_calendar_event',
-  required: []
-};
-
+exports.createCalendarEvent = { type: 'CREATE_CALENDAR_EVENT', method: 'post', key: 'create_calendar_event', required: [] };
 // Get a single calendar event or assignment
 // 
 //
@@ -110,14 +87,7 @@ var createCalendarEvent = {
 //
 // Example:
 // return canvasRequest(get_single_calendar_event_or_assignment, {id});
-exports.createCalendarEvent = createCalendarEvent;
-var getSingleCalendarEventOrAssignment = {
-  type: 'GET_SINGLE_CALENDAR_EVENT_OR_ASSIGNMENT',
-  method: 'get',
-  key: 'get_single_calendar_event_or_assignmentget_single_calendar_event_or_assignment_id',
-  required: ['id']
-};
-
+exports.getSingleCalendarEventOrAssignment = { type: 'GET_SINGLE_CALENDAR_EVENT_OR_ASSIGNMENT', method: 'get', key: 'get_single_calendar_event_or_assignmentget_single_calendar_event_or_assignment_id', required: ['id'] };
 // Reserve a time slot
 // Reserves a particular time slot and return the new reservation
 //
@@ -131,14 +101,7 @@ var getSingleCalendarEventOrAssignment = {
 //   cancel_existing
 // }
 // return canvasRequest(reserve_time_slot, {id}, body);
-exports.getSingleCalendarEventOrAssignment = getSingleCalendarEventOrAssignment;
-var reserveTimeSlot = {
-  type: 'RESERVE_TIME_SLOT',
-  method: 'post',
-  key: 'reserve_time_slotreserve_time_slot_id',
-  required: ['id']
-};
-
+exports.reserveTimeSlot = { type: 'RESERVE_TIME_SLOT', method: 'post', key: 'reserve_time_slotreserve_time_slot_id', required: ['id'] };
 // Reserve a time slot
 // Reserves a particular time slot and return the new reservation
 //
@@ -151,14 +114,7 @@ var reserveTimeSlot = {
 //   cancel_existing
 // }
 // return canvasRequest(reserve_time_slot_participant_id, {id, participant_id}, body);
-exports.reserveTimeSlot = reserveTimeSlot;
-var reserveTimeSlotParticipantId = {
-  type: 'RESERVE_TIME_SLOT_PARTICIPANT_ID',
-  method: 'post',
-  key: 'reserve_time_slot_participant_idreserve_time_slot_participant_id_{id}_{participant_id}',
-  required: ['id', 'participant_id']
-};
-
+exports.reserveTimeSlotParticipantId = { type: 'RESERVE_TIME_SLOT_PARTICIPANT_ID', method: 'post', key: 'reserve_time_slot_participant_idreserve_time_slot_participant_id_{id}_{participant_id}', required: ['id', 'participant_id'] };
 // Update a calendar event
 // Update and return a calendar event
 //
@@ -184,14 +140,7 @@ var reserveTimeSlotParticipantId = {
 //   calendar_event[blackout_date]
 // }
 // return canvasRequest(update_calendar_event, {id}, body);
-exports.reserveTimeSlotParticipantId = reserveTimeSlotParticipantId;
-var updateCalendarEvent = {
-  type: 'UPDATE_CALENDAR_EVENT',
-  method: 'put',
-  key: 'update_calendar_eventupdate_calendar_event_id',
-  required: ['id']
-};
-
+exports.updateCalendarEvent = { type: 'UPDATE_CALENDAR_EVENT', method: 'put', key: 'update_calendar_eventupdate_calendar_event_id', required: ['id'] };
 // Delete a calendar event
 // Delete an event from the calendar and return the deleted event
 //
@@ -204,14 +153,7 @@ var updateCalendarEvent = {
 //   which
 // }
 // return canvasRequest(delete_calendar_event, {id}, body);
-exports.updateCalendarEvent = updateCalendarEvent;
-var deleteCalendarEvent = {
-  type: 'DELETE_CALENDAR_EVENT',
-  method: 'delete',
-  key: 'delete_calendar_eventdelete_calendar_event_id',
-  required: ['id']
-};
-
+exports.deleteCalendarEvent = { type: 'DELETE_CALENDAR_EVENT', method: 'delete', key: 'delete_calendar_eventdelete_calendar_event_id', required: ['id'] };
 // Save enabled account calendars
 // Creates and updates the enabled_account_calendars and mark_feature_as_seen user preferences
 //
@@ -224,14 +166,7 @@ var deleteCalendarEvent = {
 //   enabled_account_calendars
 // }
 // return canvasRequest(save_enabled_account_calendars, {}, body);
-exports.deleteCalendarEvent = deleteCalendarEvent;
-var saveEnabledAccountCalendars = {
-  type: 'SAVE_ENABLED_ACCOUNT_CALENDARS',
-  method: 'post',
-  key: 'save_enabled_account_calendars',
-  required: []
-};
-
+exports.saveEnabledAccountCalendars = { type: 'SAVE_ENABLED_ACCOUNT_CALENDARS', method: 'post', key: 'save_enabled_account_calendars', required: [] };
 // Set a course timetable
 // Creates and updates "timetable" events for a course.
 // Can automaticaly generate a series of calendar events based on simple schedules
@@ -253,14 +188,7 @@ var saveEnabledAccountCalendars = {
 //   timetables[course_section_id][location_name]
 // }
 // return canvasRequest(set_course_timetable, {course_id}, body);
-exports.saveEnabledAccountCalendars = saveEnabledAccountCalendars;
-var setCourseTimetable = {
-  type: 'SET_COURSE_TIMETABLE',
-  method: 'post',
-  key: 'set_course_timetableset_course_timetable_course_id',
-  required: ['course_id']
-};
-
+exports.setCourseTimetable = { type: 'SET_COURSE_TIMETABLE', method: 'post', key: 'set_course_timetableset_course_timetable_course_id', required: ['course_id'] };
 // Get course timetable
 // Returns the last timetable set by the
 // {api:CalendarEventsApiController#set_course_timetable Set a course timetable} endpoint
@@ -270,14 +198,7 @@ var setCourseTimetable = {
 //
 // Example:
 // return canvasRequest(get_course_timetable, {course_id});
-exports.setCourseTimetable = setCourseTimetable;
-var getCourseTimetable = {
-  type: 'GET_COURSE_TIMETABLE',
-  method: 'get',
-  key: 'get_course_timetableget_course_timetable_course_id',
-  required: ['course_id']
-};
-
+exports.getCourseTimetable = { type: 'GET_COURSE_TIMETABLE', method: 'get', key: 'get_course_timetableget_course_timetable_course_id', required: ['course_id'] };
 // Create or update events directly for a course timetable
 // Creates and updates "timetable" events for a course or course section.
 // Similar to {api:CalendarEventsApiController#set_course_timetable setting a course timetable},
@@ -298,11 +219,5 @@ var getCourseTimetable = {
 //   events[title]
 // }
 // return canvasRequest(create_or_update_events_directly_for_course_timetable, {course_id}, body);
-exports.getCourseTimetable = getCourseTimetable;
-var createOrUpdateEventsDirectlyForCourseTimetable = {
-  type: 'CREATE_OR_UPDATE_EVENTS_DIRECTLY_FOR_COURSE_TIMETABLE',
-  method: 'post',
-  key: 'create_or_update_events_directly_for_course_timetablecreate_or_update_events_directly_for_course_timetable_course_id',
-  required: ['course_id']
-};
-exports.createOrUpdateEventsDirectlyForCourseTimetable = createOrUpdateEventsDirectlyForCourseTimetable;
+exports.createOrUpdateEventsDirectlyForCourseTimetable = { type: 'CREATE_OR_UPDATE_EVENTS_DIRECTLY_FOR_COURSE_TIMETABLE', method: 'post', key: 'create_or_update_events_directly_for_course_timetablecreate_or_update_events_directly_for_course_timetable_course_id', required: ['course_id'] };
+//# sourceMappingURL=calendar_events.js.map

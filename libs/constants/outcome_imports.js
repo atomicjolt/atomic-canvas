@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.importOutcomesCourses = exports.importOutcomesAccounts = exports.getOutcomeImportStatusCourses = exports.getOutcomeImportStatusAccounts = exports.getIdsOfOutcomeGroupsCreatedAfterSuccessfulImportCourses = exports.getIdsOfOutcomeGroupsCreatedAfterSuccessfulImportAccounts = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getIdsOfOutcomeGroupsCreatedAfterSuccessfulImportCourses = exports.getIdsOfOutcomeGroupsCreatedAfterSuccessfulImportAccounts = exports.getOutcomeImportStatusCourses = exports.getOutcomeImportStatusAccounts = exports.importOutcomesCourses = exports.importOutcomesAccounts = void 0;
 //
 // Outcome Imports
 //
@@ -23,13 +20,7 @@ exports.importOutcomesCourses = exports.importOutcomesAccounts = exports.getOutc
 //   extension
 // }
 // return canvasRequest(import_outcomes_accounts, {account_id}, body);
-var importOutcomesAccounts = {
-  type: 'IMPORT_OUTCOMES_ACCOUNTS',
-  method: 'post',
-  key: 'import_outcomes_accountsimport_outcomes_accounts_account_id',
-  required: ['account_id']
-};
-
+exports.importOutcomesAccounts = { type: 'IMPORT_OUTCOMES_ACCOUNTS', method: 'post', key: 'import_outcomes_accountsimport_outcomes_accounts_account_id', required: ['account_id'] };
 // Import Outcomes
 // Import outcomes into Canvas.
 // 
@@ -46,14 +37,7 @@ var importOutcomesAccounts = {
 //   extension
 // }
 // return canvasRequest(import_outcomes_courses, {course_id}, body);
-exports.importOutcomesAccounts = importOutcomesAccounts;
-var importOutcomesCourses = {
-  type: 'IMPORT_OUTCOMES_COURSES',
-  method: 'post',
-  key: 'import_outcomes_coursesimport_outcomes_courses_course_id',
-  required: ['course_id']
-};
-
+exports.importOutcomesCourses = { type: 'IMPORT_OUTCOMES_COURSES', method: 'post', key: 'import_outcomes_coursesimport_outcomes_courses_course_id', required: ['course_id'] };
 // Get Outcome import status
 // Get the status of an already created Outcome import. Pass 'latest' for the outcome import id
 // for the latest import.
@@ -69,14 +53,7 @@ var importOutcomesCourses = {
 //
 // Example:
 // return canvasRequest(get_outcome_import_status_accounts, {account_id, id});
-exports.importOutcomesCourses = importOutcomesCourses;
-var getOutcomeImportStatusAccounts = {
-  type: 'GET_OUTCOME_IMPORT_STATUS_ACCOUNTS',
-  method: 'get',
-  key: 'get_outcome_import_status_accountsget_outcome_import_status_accounts_{account_id}_{id}',
-  required: ['account_id', 'id']
-};
-
+exports.getOutcomeImportStatusAccounts = { type: 'GET_OUTCOME_IMPORT_STATUS_ACCOUNTS', method: 'get', key: 'get_outcome_import_status_accountsget_outcome_import_status_accounts_{account_id}_{id}', required: ['account_id', 'id'] };
 // Get Outcome import status
 // Get the status of an already created Outcome import. Pass 'latest' for the outcome import id
 // for the latest import.
@@ -92,14 +69,7 @@ var getOutcomeImportStatusAccounts = {
 //
 // Example:
 // return canvasRequest(get_outcome_import_status_courses, {course_id, id});
-exports.getOutcomeImportStatusAccounts = getOutcomeImportStatusAccounts;
-var getOutcomeImportStatusCourses = {
-  type: 'GET_OUTCOME_IMPORT_STATUS_COURSES',
-  method: 'get',
-  key: 'get_outcome_import_status_coursesget_outcome_import_status_courses_{course_id}_{id}',
-  required: ['course_id', 'id']
-};
-
+exports.getOutcomeImportStatusCourses = { type: 'GET_OUTCOME_IMPORT_STATUS_COURSES', method: 'get', key: 'get_outcome_import_status_coursesget_outcome_import_status_courses_{course_id}_{id}', required: ['course_id', 'id'] };
 // Get IDs of outcome groups created after successful import
 // Get the IDs of the outcome groups created after a successful import.
 // Pass 'latest' for the outcome import id for the latest import.
@@ -115,14 +85,7 @@ var getOutcomeImportStatusCourses = {
 //
 // Example:
 // return canvasRequest(get_ids_of_outcome_groups_created_after_successful_import_accounts, {account_id, id});
-exports.getOutcomeImportStatusCourses = getOutcomeImportStatusCourses;
-var getIdsOfOutcomeGroupsCreatedAfterSuccessfulImportAccounts = {
-  type: 'GET_IDS_OF_OUTCOME_GROUPS_CREATED_AFTER_SUCCESSFUL_IMPORT_ACCOUNTS',
-  method: 'get',
-  key: 'get_ids_of_outcome_groups_created_after_successful_import_accountsget_ids_of_outcome_groups_created_after_successful_import_accounts_{account_id}_{id}',
-  required: ['account_id', 'id']
-};
-
+exports.getIdsOfOutcomeGroupsCreatedAfterSuccessfulImportAccounts = { type: 'GET_IDS_OF_OUTCOME_GROUPS_CREATED_AFTER_SUCCESSFUL_IMPORT_ACCOUNTS', method: 'get', key: 'get_ids_of_outcome_groups_created_after_successful_import_accountsget_ids_of_outcome_groups_created_after_successful_import_accounts_{account_id}_{id}', required: ['account_id', 'id'] };
 // Get IDs of outcome groups created after successful import
 // Get the IDs of the outcome groups created after a successful import.
 // Pass 'latest' for the outcome import id for the latest import.
@@ -138,11 +101,5 @@ var getIdsOfOutcomeGroupsCreatedAfterSuccessfulImportAccounts = {
 //
 // Example:
 // return canvasRequest(get_ids_of_outcome_groups_created_after_successful_import_courses, {course_id, id});
-exports.getIdsOfOutcomeGroupsCreatedAfterSuccessfulImportAccounts = getIdsOfOutcomeGroupsCreatedAfterSuccessfulImportAccounts;
-var getIdsOfOutcomeGroupsCreatedAfterSuccessfulImportCourses = {
-  type: 'GET_IDS_OF_OUTCOME_GROUPS_CREATED_AFTER_SUCCESSFUL_IMPORT_COURSES',
-  method: 'get',
-  key: 'get_ids_of_outcome_groups_created_after_successful_import_coursesget_ids_of_outcome_groups_created_after_successful_import_courses_{course_id}_{id}',
-  required: ['course_id', 'id']
-};
-exports.getIdsOfOutcomeGroupsCreatedAfterSuccessfulImportCourses = getIdsOfOutcomeGroupsCreatedAfterSuccessfulImportCourses;
+exports.getIdsOfOutcomeGroupsCreatedAfterSuccessfulImportCourses = { type: 'GET_IDS_OF_OUTCOME_GROUPS_CREATED_AFTER_SUCCESSFUL_IMPORT_COURSES', method: 'get', key: 'get_ids_of_outcome_groups_created_after_successful_import_coursesget_ids_of_outcome_groups_created_after_successful_import_courses_{course_id}_{id}', required: ['course_id', 'id'] };
+//# sourceMappingURL=outcome_imports.js.map

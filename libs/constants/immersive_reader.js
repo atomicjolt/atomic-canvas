@@ -1,4 +1,5 @@
+"use strict";
 //
 // Immersive Reader
 //
-"use strict";
+//# sourceMappingURL=immersive_reader.js.map

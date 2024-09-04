@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.updateQuizItem = exports.listQuizItems = exports.getQuizItem = exports.getItemsMediaUploadUrl = exports.deleteQuizItem = exports.createQuizItem = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getItemsMediaUploadUrl = exports.deleteQuizItem = exports.updateQuizItem = exports.createQuizItem = exports.listQuizItems = exports.getQuizItem = void 0;
 //
 // New Quiz Items
 //
@@ -15,13 +12,7 @@ exports.updateQuizItem = exports.listQuizItems = exports.getQuizItem = exports.g
 //
 // Example:
 // return canvasRequest(get_quiz_item, {course_id, assignment_id, item_id});
-var getQuizItem = {
-  type: 'GET_QUIZ_ITEM',
-  method: 'get',
-  key: 'get_quiz_itemget_quiz_item_{course_id}_{assignment_id}_{item_id}',
-  required: ['course_id', 'assignment_id', 'item_id']
-};
-
+exports.getQuizItem = { type: 'GET_QUIZ_ITEM', method: 'get', key: 'get_quiz_itemget_quiz_item_{course_id}_{assignment_id}_{item_id}', required: ['course_id', 'assignment_id', 'item_id'] };
 // List quiz items
 // Get a list of items in a new quiz.
 //
@@ -30,14 +21,7 @@ var getQuizItem = {
 //
 // Example:
 // return canvasRequest(list_quiz_items, {course_id, assignment_id});
-exports.getQuizItem = getQuizItem;
-var listQuizItems = {
-  type: 'LIST_QUIZ_ITEMS',
-  method: 'get',
-  key: 'list_quiz_itemslist_quiz_items_{course_id}_{assignment_id}',
-  required: ['course_id', 'assignment_id']
-};
-
+exports.listQuizItems = { type: 'LIST_QUIZ_ITEMS', method: 'get', key: 'list_quiz_itemslist_quiz_items_{course_id}_{assignment_id}', required: ['course_id', 'assignment_id'] };
 // Create a quiz item
 // Create a quiz item in a new quiz. Only +QuestionItem+ types can be created.
 //
@@ -63,14 +47,7 @@ var listQuizItems = {
 //   item[entry][scoring_algorithm] (required)
 // }
 // return canvasRequest(create_quiz_item, {course_id, assignment_id}, body);
-exports.listQuizItems = listQuizItems;
-var createQuizItem = {
-  type: 'CREATE_QUIZ_ITEM',
-  method: 'post',
-  key: 'create_quiz_itemcreate_quiz_item_{course_id}_{assignment_id}',
-  required: ['course_id', 'assignment_id']
-};
-
+exports.createQuizItem = { type: 'CREATE_QUIZ_ITEM', method: 'post', key: 'create_quiz_itemcreate_quiz_item_{course_id}_{assignment_id}', required: ['course_id', 'assignment_id'] };
 // Update a quiz item
 // Update a single quiz item in a new quiz. Only +QuestionItem+ types can be updated.
 //
@@ -96,14 +73,7 @@ var createQuizItem = {
 //   item[entry][scoring_algorithm]
 // }
 // return canvasRequest(update_quiz_item, {course_id, assignment_id, item_id}, body);
-exports.createQuizItem = createQuizItem;
-var updateQuizItem = {
-  type: 'UPDATE_QUIZ_ITEM',
-  method: 'patch',
-  key: 'update_quiz_itemupdate_quiz_item_{course_id}_{assignment_id}_{item_id}',
-  required: ['course_id', 'assignment_id', 'item_id']
-};
-
+exports.updateQuizItem = { type: 'UPDATE_QUIZ_ITEM', method: 'patch', key: 'update_quiz_itemupdate_quiz_item_{course_id}_{assignment_id}_{item_id}', required: ['course_id', 'assignment_id', 'item_id'] };
 // Delete a quiz item
 // Delete a single quiz item in a new quiz.
 //
@@ -112,14 +82,7 @@ var updateQuizItem = {
 //
 // Example:
 // return canvasRequest(delete_quiz_item, {course_id, assignment_id, item_id});
-exports.updateQuizItem = updateQuizItem;
-var deleteQuizItem = {
-  type: 'DELETE_QUIZ_ITEM',
-  method: 'delete',
-  key: 'delete_quiz_itemdelete_quiz_item_{course_id}_{assignment_id}_{item_id}',
-  required: ['course_id', 'assignment_id', 'item_id']
-};
-
+exports.deleteQuizItem = { type: 'DELETE_QUIZ_ITEM', method: 'delete', key: 'delete_quiz_itemdelete_quiz_item_{course_id}_{assignment_id}_{item_id}', required: ['course_id', 'assignment_id', 'item_id'] };
 // Get items media_upload_url
 // Get a url for uploading media for use in hot-spot question types. See the hot-spot
 // question type in the {Appendix: Question Types} for more details about using this endpoint.
@@ -129,11 +92,5 @@ var deleteQuizItem = {
 //
 // Example:
 // return canvasRequest(get_items_media_upload_url, {course_id, assignment_id});
-exports.deleteQuizItem = deleteQuizItem;
-var getItemsMediaUploadUrl = {
-  type: 'GET_ITEMS_MEDIA_UPLOAD_URL',
-  method: 'get',
-  key: 'get_items_media_upload_urlget_items_media_upload_url_{course_id}_{assignment_id}',
-  required: ['course_id', 'assignment_id']
-};
-exports.getItemsMediaUploadUrl = getItemsMediaUploadUrl;
+exports.getItemsMediaUploadUrl = { type: 'GET_ITEMS_MEDIA_UPLOAD_URL', method: 'get', key: 'get_items_media_upload_urlget_items_media_upload_url_{course_id}_{assignment_id}', required: ['course_id', 'assignment_id'] };
+//# sourceMappingURL=new_quiz_items.js.map

@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.updateBookmark = exports.listBookmarks = exports.getBookmark = exports.deleteBookmark = exports.createBookmark = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.deleteBookmark = exports.updateBookmark = exports.getBookmark = exports.createBookmark = exports.listBookmarks = void 0;
 //
 // Bookmarks
 //
@@ -15,13 +12,7 @@ exports.updateBookmark = exports.listBookmarks = exports.getBookmark = exports.d
 //
 // Example:
 // return canvasRequest(list_bookmarks, {});
-var listBookmarks = {
-  type: 'LIST_BOOKMARKS',
-  method: 'get',
-  key: 'list_bookmarks',
-  required: []
-};
-
+exports.listBookmarks = { type: 'LIST_BOOKMARKS', method: 'get', key: 'list_bookmarks', required: [] };
 // Create bookmark
 // Creates a bookmark.
 //
@@ -36,14 +27,7 @@ var listBookmarks = {
 //   data
 // }
 // return canvasRequest(create_bookmark, {}, body);
-exports.listBookmarks = listBookmarks;
-var createBookmark = {
-  type: 'CREATE_BOOKMARK',
-  method: 'post',
-  key: 'create_bookmark',
-  required: []
-};
-
+exports.createBookmark = { type: 'CREATE_BOOKMARK', method: 'post', key: 'create_bookmark', required: [] };
 // Get bookmark
 // Returns the details for a bookmark.
 //
@@ -52,14 +36,7 @@ var createBookmark = {
 //
 // Example:
 // return canvasRequest(get_bookmark, {id});
-exports.createBookmark = createBookmark;
-var getBookmark = {
-  type: 'GET_BOOKMARK',
-  method: 'get',
-  key: 'get_bookmarkget_bookmark_id',
-  required: ['id']
-};
-
+exports.getBookmark = { type: 'GET_BOOKMARK', method: 'get', key: 'get_bookmarkget_bookmark_id', required: ['id'] };
 // Update bookmark
 // Updates a bookmark
 //
@@ -74,14 +51,7 @@ var getBookmark = {
 //   data
 // }
 // return canvasRequest(update_bookmark, {id}, body);
-exports.getBookmark = getBookmark;
-var updateBookmark = {
-  type: 'UPDATE_BOOKMARK',
-  method: 'put',
-  key: 'update_bookmarkupdate_bookmark_id',
-  required: ['id']
-};
-
+exports.updateBookmark = { type: 'UPDATE_BOOKMARK', method: 'put', key: 'update_bookmarkupdate_bookmark_id', required: ['id'] };
 // Delete bookmark
 // Deletes a bookmark
 //
@@ -90,11 +60,5 @@ var updateBookmark = {
 //
 // Example:
 // return canvasRequest(delete_bookmark, {id});
-exports.updateBookmark = updateBookmark;
-var deleteBookmark = {
-  type: 'DELETE_BOOKMARK',
-  method: 'delete',
-  key: 'delete_bookmarkdelete_bookmark_id',
-  required: ['id']
-};
-exports.deleteBookmark = deleteBookmark;
+exports.deleteBookmark = { type: 'DELETE_BOOKMARK', method: 'delete', key: 'delete_bookmarkdelete_bookmark_id', required: ['id'] };
+//# sourceMappingURL=bookmarks.js.map

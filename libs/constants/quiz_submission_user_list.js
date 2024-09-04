@@ -1,8 +1,5 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.sendMessageToUnsubmittedOrSubmittedUsersForQuiz = void 0;
 //
 // Quiz Submission User List
@@ -34,10 +31,5 @@ exports.sendMessageToUnsubmittedOrSubmittedUsersForQuiz = void 0;
 //   conversations
 // }
 // return canvasRequest(send_message_to_unsubmitted_or_submitted_users_for_quiz, {course_id, id}, body);
-var sendMessageToUnsubmittedOrSubmittedUsersForQuiz = {
-  type: 'SEND_MESSAGE_TO_UNSUBMITTED_OR_SUBMITTED_USERS_FOR_QUIZ',
-  method: 'post',
-  key: 'send_message_to_unsubmitted_or_submitted_users_for_quizsend_message_to_unsubmitted_or_submitted_users_for_quiz_{course_id}_{id}',
-  required: ['course_id', 'id']
-};
-exports.sendMessageToUnsubmittedOrSubmittedUsersForQuiz = sendMessageToUnsubmittedOrSubmittedUsersForQuiz;
+exports.sendMessageToUnsubmittedOrSubmittedUsersForQuiz = { type: 'SEND_MESSAGE_TO_UNSUBMITTED_OR_SUBMITTED_USERS_FOR_QUIZ', method: 'post', key: 'send_message_to_unsubmitted_or_submitted_users_for_quizsend_message_to_unsubmitted_or_submitted_users_for_quiz_{course_id}_{id}', required: ['course_id', 'id'] };
+//# sourceMappingURL=quiz_submission_user_list.js.map

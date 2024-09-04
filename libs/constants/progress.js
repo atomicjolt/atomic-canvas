@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.queryProgress = exports.progressQueryProgress = exports.cancelProgress = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.progressQueryProgress = exports.cancelProgress = exports.queryProgress = void 0;
 //
 // Progress
 //
@@ -15,13 +12,7 @@ exports.queryProgress = exports.progressQueryProgress = exports.cancelProgress =
 //
 // Example:
 // return canvasRequest(query_progress, {id});
-var queryProgress = {
-  type: 'QUERY_PROGRESS',
-  method: 'get',
-  key: 'query_progressquery_progress_id',
-  required: ['id']
-};
-
+exports.queryProgress = { type: 'QUERY_PROGRESS', method: 'get', key: 'query_progressquery_progress_id', required: ['id'] };
 // Cancel progress
 // Cancel an asynchronous job associated with a Progress object
 // If you include "message" in the POSTed data, it will be set on
@@ -33,14 +24,7 @@ var queryProgress = {
 //
 // Example:
 // return canvasRequest(cancel_progress, {id});
-exports.queryProgress = queryProgress;
-var cancelProgress = {
-  type: 'CANCEL_PROGRESS',
-  method: 'post',
-  key: 'cancel_progresscancel_progress_id',
-  required: ['id']
-};
-
+exports.cancelProgress = { type: 'CANCEL_PROGRESS', method: 'post', key: 'cancel_progresscancel_progress_id', required: ['id'] };
 // Query progress
 // Return completion and status information about an asynchronous job
 //
@@ -49,11 +33,5 @@ var cancelProgress = {
 //
 // Example:
 // return canvasRequest(progress_query_progress, {course_id, id});
-exports.cancelProgress = cancelProgress;
-var progressQueryProgress = {
-  type: 'PROGRESS_QUERY_PROGRESS',
-  method: 'get',
-  key: 'progress_query_progressprogress_query_progress_{course_id}_{id}',
-  required: ['course_id', 'id']
-};
-exports.progressQueryProgress = progressQueryProgress;
+exports.progressQueryProgress = { type: 'PROGRESS_QUERY_PROGRESS', method: 'get', key: 'progress_query_progressprogress_query_progress_{course_id}_{id}', required: ['course_id', 'id'] };
+//# sourceMappingURL=progress.js.map

@@ -1,9 +1,5 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = _default;
+Object.defineProperty(exports, "__esModule", { value: true });
 //
 // parameters:
 //   canvas    - The object related to the Canvas api call to be made. ie search_account_domains
@@ -12,15 +8,16 @@ exports["default"] = _default;
 //   localData - An object containing data that the action will hold onto for local usage
 //               but will not be passed to the server.
 //   timeout   - Override the default network timeout for this request
-function _default(canvas, params, body) {
-  var localData = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
-  var timeout = arguments.length > 4 ? arguments[4] : undefined;
-  return {
-    type: canvas.type,
-    canvas: canvas,
-    params: params,
-    body: body,
-    localData: localData,
-    timeout: timeout
-  };
+function default_1(canvas, params, body, localData, timeout) {
+    if (localData === void 0) { localData = {}; }
+    return {
+        type: canvas.type,
+        canvas: canvas,
+        params: params,
+        body: body,
+        localData: localData,
+        timeout: timeout,
+    };
 }
+exports.default = default_1;
+//# sourceMappingURL=action.js.map

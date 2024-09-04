@@ -1,8 +1,5 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.refreshJwt = exports.createJwt = void 0;
 //
 // JWTs
@@ -24,13 +21,7 @@ exports.refreshJwt = exports.createJwt = void 0;
 //   context_uuid
 // }
 // return canvasRequest(create_jwt, {}, body);
-var createJwt = {
-  type: 'CREATE_JWT',
-  method: 'post',
-  key: 'create_jwt',
-  required: []
-};
-
+exports.createJwt = { type: 'CREATE_JWT', method: 'post', key: 'create_jwt', required: [] };
 // Refresh JWT
 // Refresh a JWT for use with other canvas services
 // 
@@ -45,11 +36,5 @@ var createJwt = {
 //   jwt (required)
 // }
 // return canvasRequest(refresh_jwt, {}, body);
-exports.createJwt = createJwt;
-var refreshJwt = {
-  type: 'REFRESH_JWT',
-  method: 'post',
-  key: 'refresh_jwt',
-  required: []
-};
-exports.refreshJwt = refreshJwt;
+exports.refreshJwt = { type: 'REFRESH_JWT', method: 'post', key: 'refresh_jwt', required: [] };
+//# sourceMappingURL=jw_ts.js.map

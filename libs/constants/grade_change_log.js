@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.queryByStudent = exports.queryByGrader = exports.queryByAssignment = exports.gradeChangeLogQueryByCourse = exports.advancedQuery = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.advancedQuery = exports.queryByGrader = exports.queryByStudent = exports.gradeChangeLogQueryByCourse = exports.queryByAssignment = void 0;
 //
 // Grade Change Log
 //
@@ -19,13 +16,7 @@ exports.queryByStudent = exports.queryByGrader = exports.queryByAssignment = exp
 //   end_time
 // }
 // return canvasRequest(query_by_assignment, {assignment_id, ...query});
-var queryByAssignment = {
-  type: 'QUERY_BY_ASSIGNMENT',
-  method: 'get',
-  key: 'query_by_assignmentquery_by_assignment_assignment_id',
-  required: ['assignment_id']
-};
-
+exports.queryByAssignment = { type: 'QUERY_BY_ASSIGNMENT', method: 'get', key: 'query_by_assignmentquery_by_assignment_assignment_id', required: ['assignment_id'] };
 // Query by course
 // List grade change events for a given course.
 //
@@ -38,14 +29,7 @@ var queryByAssignment = {
 //   end_time
 // }
 // return canvasRequest(grade_change_log_query_by_course, {course_id, ...query});
-exports.queryByAssignment = queryByAssignment;
-var gradeChangeLogQueryByCourse = {
-  type: 'GRADE_CHANGE_LOG_QUERY_BY_COURSE',
-  method: 'get',
-  key: 'grade_change_log_query_by_coursegrade_change_log_query_by_course_course_id',
-  required: ['course_id']
-};
-
+exports.gradeChangeLogQueryByCourse = { type: 'GRADE_CHANGE_LOG_QUERY_BY_COURSE', method: 'get', key: 'grade_change_log_query_by_coursegrade_change_log_query_by_course_course_id', required: ['course_id'] };
 // Query by student
 // List grade change events for a given student.
 //
@@ -58,14 +42,7 @@ var gradeChangeLogQueryByCourse = {
 //   end_time
 // }
 // return canvasRequest(query_by_student, {student_id, ...query});
-exports.gradeChangeLogQueryByCourse = gradeChangeLogQueryByCourse;
-var queryByStudent = {
-  type: 'QUERY_BY_STUDENT',
-  method: 'get',
-  key: 'query_by_studentquery_by_student_student_id',
-  required: ['student_id']
-};
-
+exports.queryByStudent = { type: 'QUERY_BY_STUDENT', method: 'get', key: 'query_by_studentquery_by_student_student_id', required: ['student_id'] };
 // Query by grader
 // List grade change events for a given grader.
 //
@@ -78,14 +55,7 @@ var queryByStudent = {
 //   end_time
 // }
 // return canvasRequest(query_by_grader, {grader_id, ...query});
-exports.queryByStudent = queryByStudent;
-var queryByGrader = {
-  type: 'QUERY_BY_GRADER',
-  method: 'get',
-  key: 'query_by_graderquery_by_grader_grader_id',
-  required: ['grader_id']
-};
-
+exports.queryByGrader = { type: 'QUERY_BY_GRADER', method: 'get', key: 'query_by_graderquery_by_grader_grader_id', required: ['grader_id'] };
 // Advanced query
 // List grade change events satisfying all given parameters. Teachers may query for events in courses they teach.
 // Queries without +course_id+ require account administrator rights.
@@ -105,11 +75,5 @@ var queryByGrader = {
 //   end_time
 // }
 // return canvasRequest(advanced_query, {, ...query});
-exports.queryByGrader = queryByGrader;
-var advancedQuery = {
-  type: 'ADVANCED_QUERY',
-  method: 'get',
-  key: 'advanced_query',
-  required: []
-};
-exports.advancedQuery = advancedQuery;
+exports.advancedQuery = { type: 'ADVANCED_QUERY', method: 'get', key: 'advanced_query', required: [] };
+//# sourceMappingURL=grade_change_log.js.map

@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.getSingleSubmission = exports.getHistoryOfSingleSubmission = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getHistoryOfSingleSubmission = exports.getSingleSubmission = void 0;
 //
 // Plagiarism Detection Submissions
 //
@@ -15,13 +12,7 @@ exports.getSingleSubmission = exports.getHistoryOfSingleSubmission = void 0;
 //
 // Example:
 // return canvasRequest(get_single_submission, {assignment_id, submission_id});
-var getSingleSubmission = {
-  type: 'GET_SINGLE_SUBMISSION',
-  method: 'get',
-  key: 'get_single_submissionget_single_submission_{assignment_id}_{submission_id}',
-  required: ['assignment_id', 'submission_id']
-};
-
+exports.getSingleSubmission = { type: 'GET_SINGLE_SUBMISSION', method: 'get', key: 'get_single_submissionget_single_submission_{assignment_id}_{submission_id}', required: ['assignment_id', 'submission_id'] };
 // Get the history of a single submission
 // Get a list of all attempts made for a submission, based on submission id.
 //
@@ -30,11 +21,5 @@ var getSingleSubmission = {
 //
 // Example:
 // return canvasRequest(get_history_of_single_submission, {assignment_id, submission_id});
-exports.getSingleSubmission = getSingleSubmission;
-var getHistoryOfSingleSubmission = {
-  type: 'GET_HISTORY_OF_SINGLE_SUBMISSION',
-  method: 'get',
-  key: 'get_history_of_single_submissionget_history_of_single_submission_{assignment_id}_{submission_id}',
-  required: ['assignment_id', 'submission_id']
-};
-exports.getHistoryOfSingleSubmission = getHistoryOfSingleSubmission;
+exports.getHistoryOfSingleSubmission = { type: 'GET_HISTORY_OF_SINGLE_SUBMISSION', method: 'get', key: 'get_history_of_single_submissionget_history_of_single_submission_{assignment_id}_{submission_id}', required: ['assignment_id', 'submission_id'] };
+//# sourceMappingURL=plagiarism_detection_submissions.js.map

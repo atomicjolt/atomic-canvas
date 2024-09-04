@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.validateQuizAccessCode = exports.reorderQuizItems = exports.listQuizzesInCourse = exports.getSingleQuiz = exports.editQuiz = exports.deleteQuiz = exports.createQuiz = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.validateQuizAccessCode = exports.reorderQuizItems = exports.deleteQuiz = exports.editQuiz = exports.createQuiz = exports.getSingleQuiz = exports.listQuizzesInCourse = void 0;
 //
 // Quizzes
 //
@@ -18,13 +15,7 @@ exports.validateQuizAccessCode = exports.reorderQuizItems = exports.listQuizzesI
 //   search_term
 // }
 // return canvasRequest(list_quizzes_in_course, {course_id, ...query});
-var listQuizzesInCourse = {
-  type: 'LIST_QUIZZES_IN_COURSE',
-  method: 'get',
-  key: 'list_quizzes_in_courselist_quizzes_in_course_course_id',
-  required: ['course_id']
-};
-
+exports.listQuizzesInCourse = { type: 'LIST_QUIZZES_IN_COURSE', method: 'get', key: 'list_quizzes_in_courselist_quizzes_in_course_course_id', required: ['course_id'] };
 // Get a single quiz
 // Returns the quiz with the given id.
 //
@@ -33,14 +24,7 @@ var listQuizzesInCourse = {
 //
 // Example:
 // return canvasRequest(get_single_quiz, {course_id, id});
-exports.listQuizzesInCourse = listQuizzesInCourse;
-var getSingleQuiz = {
-  type: 'GET_SINGLE_QUIZ',
-  method: 'get',
-  key: 'get_single_quizget_single_quiz_{course_id}_{id}',
-  required: ['course_id', 'id']
-};
-
+exports.getSingleQuiz = { type: 'GET_SINGLE_QUIZ', method: 'get', key: 'get_single_quizget_single_quiz_{course_id}_{id}', required: ['course_id', 'id'] };
 // Create a quiz
 // Create a new quiz for this course.
 //
@@ -74,14 +58,7 @@ var getSingleQuiz = {
 //   quiz[only_visible_to_overrides]
 // }
 // return canvasRequest(create_quiz, {course_id}, body);
-exports.getSingleQuiz = getSingleQuiz;
-var createQuiz = {
-  type: 'CREATE_QUIZ',
-  method: 'post',
-  key: 'create_quizcreate_quiz_course_id',
-  required: ['course_id']
-};
-
+exports.createQuiz = { type: 'CREATE_QUIZ', method: 'post', key: 'create_quizcreate_quiz_course_id', required: ['course_id'] };
 // Edit a quiz
 // Modify an existing quiz. See the documentation for quiz creation.
 // 
@@ -95,14 +72,7 @@ var createQuiz = {
 //   quiz[notify_of_update]
 // }
 // return canvasRequest(edit_quiz, {course_id, id}, body);
-exports.createQuiz = createQuiz;
-var editQuiz = {
-  type: 'EDIT_QUIZ',
-  method: 'put',
-  key: 'edit_quizedit_quiz_{course_id}_{id}',
-  required: ['course_id', 'id']
-};
-
+exports.editQuiz = { type: 'EDIT_QUIZ', method: 'put', key: 'edit_quizedit_quiz_{course_id}_{id}', required: ['course_id', 'id'] };
 // Delete a quiz
 // 
 //
@@ -111,14 +81,7 @@ var editQuiz = {
 //
 // Example:
 // return canvasRequest(delete_quiz, {course_id, id});
-exports.editQuiz = editQuiz;
-var deleteQuiz = {
-  type: 'DELETE_QUIZ',
-  method: 'delete',
-  key: 'delete_quizdelete_quiz_{course_id}_{id}',
-  required: ['course_id', 'id']
-};
-
+exports.deleteQuiz = { type: 'DELETE_QUIZ', method: 'delete', key: 'delete_quizdelete_quiz_{course_id}_{id}', required: ['course_id', 'id'] };
 // Reorder quiz items
 // Change order of the quiz questions or groups within the quiz
 // 
@@ -133,14 +96,7 @@ var deleteQuiz = {
 //   order[type]
 // }
 // return canvasRequest(reorder_quiz_items, {course_id, id}, body);
-exports.deleteQuiz = deleteQuiz;
-var reorderQuizItems = {
-  type: 'REORDER_QUIZ_ITEMS',
-  method: 'post',
-  key: 'reorder_quiz_itemsreorder_quiz_items_{course_id}_{id}',
-  required: ['course_id', 'id']
-};
-
+exports.reorderQuizItems = { type: 'REORDER_QUIZ_ITEMS', method: 'post', key: 'reorder_quiz_itemsreorder_quiz_items_{course_id}_{id}', required: ['course_id', 'id'] };
 // Validate quiz access code
 // Accepts an access code and returns a boolean indicating whether that access code is correct
 //
@@ -152,11 +108,5 @@ var reorderQuizItems = {
 //   access_code (required)
 // }
 // return canvasRequest(validate_quiz_access_code, {course_id, id}, body);
-exports.reorderQuizItems = reorderQuizItems;
-var validateQuizAccessCode = {
-  type: 'VALIDATE_QUIZ_ACCESS_CODE',
-  method: 'post',
-  key: 'validate_quiz_access_codevalidate_quiz_access_code_{course_id}_{id}',
-  required: ['course_id', 'id']
-};
-exports.validateQuizAccessCode = validateQuizAccessCode;
+exports.validateQuizAccessCode = { type: 'VALIDATE_QUIZ_ACCESS_CODE', method: 'post', key: 'validate_quiz_access_codevalidate_quiz_access_code_{course_id}_{id}', required: ['course_id', 'id'] };
+//# sourceMappingURL=quizzes.js.map

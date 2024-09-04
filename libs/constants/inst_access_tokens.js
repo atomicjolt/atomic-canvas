@@ -1,8 +1,5 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.createInstaccessToken = void 0;
 //
 // InstAccess tokens
@@ -18,10 +15,5 @@ exports.createInstaccessToken = void 0;
 //
 // Example:
 // return canvasRequest(create_instaccess_token, {});
-var createInstaccessToken = {
-  type: 'CREATE_INSTACCESS_TOKEN',
-  method: 'post',
-  key: 'create_instaccess_token',
-  required: []
-};
-exports.createInstaccessToken = createInstaccessToken;
+exports.createInstaccessToken = { type: 'CREATE_INSTACCESS_TOKEN', method: 'post', key: 'create_instaccess_token', required: [] };
+//# sourceMappingURL=inst_access_tokens.js.map

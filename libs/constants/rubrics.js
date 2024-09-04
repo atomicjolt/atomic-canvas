@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.updateSingleRubricAssessment = exports.updateSingleRubric = exports.updateRubricassociation = exports.listRubricsCourses = exports.listRubricsAccounts = exports.getSingleRubricCourses = exports.getSingleRubricAccounts = exports.deleteSingleRubricAssessment = exports.deleteSingleRubric = exports.deleteRubricassociation = exports.createSingleRubricAssessment = exports.createSingleRubric = exports.createRubricassociation = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.deleteRubricassociation = exports.updateRubricassociation = exports.createRubricassociation = exports.deleteSingleRubricAssessment = exports.updateSingleRubricAssessment = exports.createSingleRubricAssessment = exports.getSingleRubricCourses = exports.getSingleRubricAccounts = exports.listRubricsCourses = exports.listRubricsAccounts = exports.deleteSingleRubric = exports.updateSingleRubric = exports.createSingleRubric = void 0;
 //
 // Rubrics
 //
@@ -34,13 +31,7 @@ exports.updateSingleRubricAssessment = exports.updateSingleRubric = exports.upda
 //   rubric[criteria]
 // }
 // return canvasRequest(create_single_rubric, {course_id}, body);
-var createSingleRubric = {
-  type: 'CREATE_SINGLE_RUBRIC',
-  method: 'post',
-  key: 'create_single_rubriccreate_single_rubric_course_id',
-  required: ['course_id']
-};
-
+exports.createSingleRubric = { type: 'CREATE_SINGLE_RUBRIC', method: 'post', key: 'create_single_rubriccreate_single_rubric_course_id', required: ['course_id'] };
 // Update a single rubric
 // Returns the rubric with the given id.
 // 
@@ -68,14 +59,7 @@ var createSingleRubric = {
 //   rubric[criteria]
 // }
 // return canvasRequest(update_single_rubric, {course_id, id}, body);
-exports.createSingleRubric = createSingleRubric;
-var updateSingleRubric = {
-  type: 'UPDATE_SINGLE_RUBRIC',
-  method: 'put',
-  key: 'update_single_rubricupdate_single_rubric_{course_id}_{id}',
-  required: ['course_id', 'id']
-};
-
+exports.updateSingleRubric = { type: 'UPDATE_SINGLE_RUBRIC', method: 'put', key: 'update_single_rubricupdate_single_rubric_{course_id}_{id}', required: ['course_id', 'id'] };
 // Delete a single rubric
 // Deletes a Rubric and removes all RubricAssociations.
 //
@@ -84,14 +68,7 @@ var updateSingleRubric = {
 //
 // Example:
 // return canvasRequest(delete_single_rubric, {course_id, id});
-exports.updateSingleRubric = updateSingleRubric;
-var deleteSingleRubric = {
-  type: 'DELETE_SINGLE_RUBRIC',
-  method: 'delete',
-  key: 'delete_single_rubricdelete_single_rubric_{course_id}_{id}',
-  required: ['course_id', 'id']
-};
-
+exports.deleteSingleRubric = { type: 'DELETE_SINGLE_RUBRIC', method: 'delete', key: 'delete_single_rubricdelete_single_rubric_{course_id}_{id}', required: ['course_id', 'id'] };
 // List rubrics
 // Returns the paginated list of active rubrics for the current context.
 //
@@ -100,14 +77,7 @@ var deleteSingleRubric = {
 //
 // Example:
 // return canvasRequest(list_rubrics_accounts, {account_id});
-exports.deleteSingleRubric = deleteSingleRubric;
-var listRubricsAccounts = {
-  type: 'LIST_RUBRICS_ACCOUNTS',
-  method: 'get',
-  key: 'list_rubrics_accountslist_rubrics_accounts_account_id',
-  required: ['account_id']
-};
-
+exports.listRubricsAccounts = { type: 'LIST_RUBRICS_ACCOUNTS', method: 'get', key: 'list_rubrics_accountslist_rubrics_accounts_account_id', required: ['account_id'] };
 // List rubrics
 // Returns the paginated list of active rubrics for the current context.
 //
@@ -116,14 +86,7 @@ var listRubricsAccounts = {
 //
 // Example:
 // return canvasRequest(list_rubrics_courses, {course_id});
-exports.listRubricsAccounts = listRubricsAccounts;
-var listRubricsCourses = {
-  type: 'LIST_RUBRICS_COURSES',
-  method: 'get',
-  key: 'list_rubrics_courseslist_rubrics_courses_course_id',
-  required: ['course_id']
-};
-
+exports.listRubricsCourses = { type: 'LIST_RUBRICS_COURSES', method: 'get', key: 'list_rubrics_courseslist_rubrics_courses_course_id', required: ['course_id'] };
 // Get a single rubric
 // Returns the rubric with the given id.
 //
@@ -136,14 +99,7 @@ var listRubricsCourses = {
 //   style
 // }
 // return canvasRequest(get_single_rubric_accounts, {account_id, id, ...query});
-exports.listRubricsCourses = listRubricsCourses;
-var getSingleRubricAccounts = {
-  type: 'GET_SINGLE_RUBRIC_ACCOUNTS',
-  method: 'get',
-  key: 'get_single_rubric_accountsget_single_rubric_accounts_{account_id}_{id}',
-  required: ['account_id', 'id']
-};
-
+exports.getSingleRubricAccounts = { type: 'GET_SINGLE_RUBRIC_ACCOUNTS', method: 'get', key: 'get_single_rubric_accountsget_single_rubric_accounts_{account_id}_{id}', required: ['account_id', 'id'] };
 // Get a single rubric
 // Returns the rubric with the given id.
 //
@@ -156,14 +112,7 @@ var getSingleRubricAccounts = {
 //   style
 // }
 // return canvasRequest(get_single_rubric_courses, {course_id, id, ...query});
-exports.getSingleRubricAccounts = getSingleRubricAccounts;
-var getSingleRubricCourses = {
-  type: 'GET_SINGLE_RUBRIC_COURSES',
-  method: 'get',
-  key: 'get_single_rubric_coursesget_single_rubric_courses_{course_id}_{id}',
-  required: ['course_id', 'id']
-};
-
+exports.getSingleRubricCourses = { type: 'GET_SINGLE_RUBRIC_COURSES', method: 'get', key: 'get_single_rubric_coursesget_single_rubric_courses_{course_id}_{id}', required: ['course_id', 'id'] };
 // Create a single rubric assessment
 // Returns the rubric assessment with the given id.
 // The returned object also provides the information of
@@ -180,14 +129,7 @@ var getSingleRubricCourses = {
 //   rubric_assessment
 // }
 // return canvasRequest(create_single_rubric_assessment, {course_id, rubric_association_id}, body);
-exports.getSingleRubricCourses = getSingleRubricCourses;
-var createSingleRubricAssessment = {
-  type: 'CREATE_SINGLE_RUBRIC_ASSESSMENT',
-  method: 'post',
-  key: 'create_single_rubric_assessmentcreate_single_rubric_assessment_{course_id}_{rubric_association_id}',
-  required: ['course_id', 'rubric_association_id']
-};
-
+exports.createSingleRubricAssessment = { type: 'CREATE_SINGLE_RUBRIC_ASSESSMENT', method: 'post', key: 'create_single_rubric_assessmentcreate_single_rubric_assessment_{course_id}_{rubric_association_id}', required: ['course_id', 'rubric_association_id'] };
 // Update a single rubric assessment
 // Returns the rubric assessment with the given id.
 // The returned object also provides the information of
@@ -204,14 +146,7 @@ var createSingleRubricAssessment = {
 //   rubric_assessment
 // }
 // return canvasRequest(update_single_rubric_assessment, {course_id, rubric_association_id, id}, body);
-exports.createSingleRubricAssessment = createSingleRubricAssessment;
-var updateSingleRubricAssessment = {
-  type: 'UPDATE_SINGLE_RUBRIC_ASSESSMENT',
-  method: 'put',
-  key: 'update_single_rubric_assessmentupdate_single_rubric_assessment_{course_id}_{rubric_association_id}_{id}',
-  required: ['course_id', 'rubric_association_id', 'id']
-};
-
+exports.updateSingleRubricAssessment = { type: 'UPDATE_SINGLE_RUBRIC_ASSESSMENT', method: 'put', key: 'update_single_rubric_assessmentupdate_single_rubric_assessment_{course_id}_{rubric_association_id}_{id}', required: ['course_id', 'rubric_association_id', 'id'] };
 // Delete a single rubric assessment
 // Deletes a rubric assessment
 //
@@ -220,14 +155,7 @@ var updateSingleRubricAssessment = {
 //
 // Example:
 // return canvasRequest(delete_single_rubric_assessment, {course_id, rubric_association_id, id});
-exports.updateSingleRubricAssessment = updateSingleRubricAssessment;
-var deleteSingleRubricAssessment = {
-  type: 'DELETE_SINGLE_RUBRIC_ASSESSMENT',
-  method: 'delete',
-  key: 'delete_single_rubric_assessmentdelete_single_rubric_assessment_{course_id}_{rubric_association_id}_{id}',
-  required: ['course_id', 'rubric_association_id', 'id']
-};
-
+exports.deleteSingleRubricAssessment = { type: 'DELETE_SINGLE_RUBRIC_ASSESSMENT', method: 'delete', key: 'delete_single_rubric_assessmentdelete_single_rubric_assessment_{course_id}_{rubric_association_id}_{id}', required: ['course_id', 'rubric_association_id', 'id'] };
 // Create a RubricAssociation
 // Returns the rubric with the given id.
 //
@@ -246,14 +174,7 @@ var deleteSingleRubricAssessment = {
 //   rubric_association[bookmarked]
 // }
 // return canvasRequest(create_rubricassociation, {course_id}, body);
-exports.deleteSingleRubricAssessment = deleteSingleRubricAssessment;
-var createRubricassociation = {
-  type: 'CREATE_RUBRICASSOCIATION',
-  method: 'post',
-  key: 'create_rubricassociationcreate_rubricassociation_course_id',
-  required: ['course_id']
-};
-
+exports.createRubricassociation = { type: 'CREATE_RUBRICASSOCIATION', method: 'post', key: 'create_rubricassociationcreate_rubricassociation_course_id', required: ['course_id'] };
 // Update a RubricAssociation
 // Returns the rubric with the given id.
 //
@@ -272,14 +193,7 @@ var createRubricassociation = {
 //   rubric_association[bookmarked]
 // }
 // return canvasRequest(update_rubricassociation, {course_id, id}, body);
-exports.createRubricassociation = createRubricassociation;
-var updateRubricassociation = {
-  type: 'UPDATE_RUBRICASSOCIATION',
-  method: 'put',
-  key: 'update_rubricassociationupdate_rubricassociation_{course_id}_{id}',
-  required: ['course_id', 'id']
-};
-
+exports.updateRubricassociation = { type: 'UPDATE_RUBRICASSOCIATION', method: 'put', key: 'update_rubricassociationupdate_rubricassociation_{course_id}_{id}', required: ['course_id', 'id'] };
 // Delete a RubricAssociation
 // Delete the RubricAssociation with the given ID
 //
@@ -288,11 +202,5 @@ var updateRubricassociation = {
 //
 // Example:
 // return canvasRequest(delete_rubricassociation, {course_id, id});
-exports.updateRubricassociation = updateRubricassociation;
-var deleteRubricassociation = {
-  type: 'DELETE_RUBRICASSOCIATION',
-  method: 'delete',
-  key: 'delete_rubricassociationdelete_rubricassociation_{course_id}_{id}',
-  required: ['course_id', 'id']
-};
-exports.deleteRubricassociation = deleteRubricassociation;
+exports.deleteRubricassociation = { type: 'DELETE_RUBRICASSOCIATION', method: 'delete', key: 'delete_rubricassociationdelete_rubricassociation_{course_id}_{id}', required: ['course_id', 'id'] };
+//# sourceMappingURL=rubrics.js.map

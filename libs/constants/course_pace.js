@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.updateCoursePace = exports.showCoursePace = exports.deleteCoursePace = exports.createCoursePace = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.deleteCoursePace = exports.updateCoursePace = exports.createCoursePace = exports.showCoursePace = void 0;
 //
 // Course Pace
 //
@@ -18,13 +15,7 @@ exports.updateCoursePace = exports.showCoursePace = exports.deleteCoursePace = e
 //   course_pace_id (required)
 // }
 // return canvasRequest(show_course_pace, {course_id, id, ...query});
-var showCoursePace = {
-  type: 'SHOW_COURSE_PACE',
-  method: 'get',
-  key: 'show_course_paceshow_course_pace_{course_id}_{id}',
-  required: ['course_id', 'id']
-};
-
+exports.showCoursePace = { type: 'SHOW_COURSE_PACE', method: 'get', key: 'show_course_paceshow_course_pace_{course_id}_{id}', required: ['course_id', 'id'] };
 // Create a Course pace
 // 
 //
@@ -45,14 +36,7 @@ var showCoursePace = {
 //   context_type
 // }
 // return canvasRequest(create_course_pace, {course_id}, body);
-exports.showCoursePace = showCoursePace;
-var createCoursePace = {
-  type: 'CREATE_COURSE_PACE',
-  method: 'post',
-  key: 'create_course_pacecreate_course_pace_course_id',
-  required: ['course_id']
-};
-
+exports.createCoursePace = { type: 'CREATE_COURSE_PACE', method: 'post', key: 'create_course_pacecreate_course_pace_course_id', required: ['course_id'] };
 // Update a Course pace
 // Returns the updated course pace
 //
@@ -69,14 +53,7 @@ var createCoursePace = {
 //   course_pace_module_item_attributes
 // }
 // return canvasRequest(update_course_pace, {course_id, id}, body);
-exports.createCoursePace = createCoursePace;
-var updateCoursePace = {
-  type: 'UPDATE_COURSE_PACE',
-  method: 'put',
-  key: 'update_course_paceupdate_course_pace_{course_id}_{id}',
-  required: ['course_id', 'id']
-};
-
+exports.updateCoursePace = { type: 'UPDATE_COURSE_PACE', method: 'put', key: 'update_course_paceupdate_course_pace_{course_id}_{id}', required: ['course_id', 'id'] };
 // Delete a Course pace
 // Returns the updated course pace
 //
@@ -88,11 +65,5 @@ var updateCoursePace = {
 //   course_pace_id (required)
 // }
 // return canvasRequest(delete_course_pace, {course_id, id}, body);
-exports.updateCoursePace = updateCoursePace;
-var deleteCoursePace = {
-  type: 'DELETE_COURSE_PACE',
-  method: 'delete',
-  key: 'delete_course_pacedelete_course_pace_{course_id}_{id}',
-  required: ['course_id', 'id']
-};
-exports.deleteCoursePace = deleteCoursePace;
+exports.deleteCoursePace = { type: 'DELETE_COURSE_PACE', method: 'delete', key: 'delete_course_pacedelete_course_pace_{course_id}_{id}', required: ['course_id', 'id'] };
+//# sourceMappingURL=course_pace.js.map

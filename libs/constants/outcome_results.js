@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.getOutcomeResults = exports.getOutcomeResultRollups = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getOutcomeResultRollups = exports.getOutcomeResults = void 0;
 //
 // Outcome Results
 //
@@ -23,13 +20,7 @@ exports.getOutcomeResults = exports.getOutcomeResultRollups = void 0;
 //   include_hidden
 // }
 // return canvasRequest(get_outcome_results, {course_id, ...query});
-var getOutcomeResults = {
-  type: 'GET_OUTCOME_RESULTS',
-  method: 'get',
-  key: 'get_outcome_resultsget_outcome_results_course_id',
-  required: ['course_id']
-};
-
+exports.getOutcomeResults = { type: 'GET_OUTCOME_RESULTS', method: 'get', key: 'get_outcome_resultsget_outcome_results_course_id', required: ['course_id'] };
 // Get outcome result rollups
 // Gets the outcome rollups for the users and outcomes in the specified
 // context.
@@ -52,11 +43,5 @@ var getOutcomeResults = {
 //   contributing_scores
 // }
 // return canvasRequest(get_outcome_result_rollups, {course_id, ...query});
-exports.getOutcomeResults = getOutcomeResults;
-var getOutcomeResultRollups = {
-  type: 'GET_OUTCOME_RESULT_ROLLUPS',
-  method: 'get',
-  key: 'get_outcome_result_rollupsget_outcome_result_rollups_course_id',
-  required: ['course_id']
-};
-exports.getOutcomeResultRollups = getOutcomeResultRollups;
+exports.getOutcomeResultRollups = { type: 'GET_OUTCOME_RESULT_ROLLUPS', method: 'get', key: 'get_outcome_result_rollupsget_outcome_result_rollups_course_id', required: ['course_id'] };
+//# sourceMappingURL=outcome_results.js.map
