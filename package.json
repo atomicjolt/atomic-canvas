@@ -11,7 +11,7 @@
     "build": "tsc",
     "clean": "rimraf libs",
     "lint": "eslint src",
-    "prepare": "yarn clean && yarn build"
+    "prepack": "yarn clean && yarn build"
   },
   "jest": {
     "testEnvironment": "jsdom"
