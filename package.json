@@ -6,12 +6,15 @@
     "node": ">=14.18.2"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --no-cache --config package.json",
     "watch": "jest --watch",
-    "build": "cross-env BABEL_ENV=production babel src --out-dir libs",
+    "build": "tsc",
     "clean": "rimraf libs",
     "lint": "eslint src",
     "prepare": "yarn clean && yarn build"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
   },
   "repository": {
     "type": "git",
@@ -27,32 +30,29 @@
     "cli-highlight": "^2.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.17.0",
-    "@babel/core": "^7.17.2",
-    "@babel/plugin-proposal-class-properties": "^7.16.7",
-    "@babel/plugin-transform-runtime": "^7.17.0",
-    "@babel/preset-env": "^7.16.11",
-    "@babel/preset-react": "^7.16.7",
-    "atomic-fuel": "^4.15.3",
-    "babel-eslint": "^10.1.0",
-    "babel-jest": "^27.5.1",
-    "cross-env": "^7.0.3",
-    "jest": "^27.5.1",
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
+    "@babel/preset-react": "^7.24.7",
+    "atomic-fuel": "git+ssh://git@github.com/atomicjolt/atomic-fuel.git#rb/cleanup",
+    "babel-jest": "^29.7.0",
+    "jest": "^28.1.0",
+    "jest-environment-jsdom": "^29.7.0",
     "lodash": "^4.17.11",
     "mime": "^3.0.0",
     "nock": "^13.2.4",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
     "react-redux": "^7.2.6",
-    "react-test-renderer": "^17.0.2",
+    "react-test-renderer": "^18.3.1",
     "redux": "^4.1.2",
-    "superagent": "^7.1.1"
+    "superagent": "^7.1.1",
+    "typescript": "^4.7.2"
   },
   "peerDependencies": {
     "atomic-fuel": ">=4",
     "prop-types": ">=15",
-    "react": ">=16.0.0 <= 18",
-    "react-dom": ">=16.0.0 <= 18",
+    "react": "^16.0.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0",
     "react-redux": ">=7 <=8",
     "redux": ">=4 <=5",
     "superagent": ">=6 <=8"
