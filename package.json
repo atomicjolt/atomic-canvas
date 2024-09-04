@@ -51,12 +51,12 @@
     "typescript": "^4.7.2"
   },
   "peerDependencies": {
-    "atomic-fuel": ">=4",
+    "atomic-fuel": ">=7",
     "prop-types": ">=15",
     "react": "^16.0.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0",
-    "react-redux": ">=7 <=8",
-    "redux": ">=4 <=5",
-    "superagent": ">=6 <=8"
+    "react-redux": ">= 8.0.0",
+    "redux": ">= 4.1.2",
+    "superagent": ">= 7.1.1"
   }
 }
