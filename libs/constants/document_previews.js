@@ -1,4 +1,5 @@
+"use strict";
 //
 // Document Previews
 //
-"use strict";
+//# sourceMappingURL=document_previews.js.map

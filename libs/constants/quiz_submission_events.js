@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.submitCapturedEvents = exports.retrieveCapturedEvents = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.retrieveCapturedEvents = exports.submitCapturedEvents = void 0;
 //
 // Quiz Submission Events
 //
@@ -20,13 +17,7 @@ exports.submitCapturedEvents = exports.retrieveCapturedEvents = void 0;
 //   quiz_submission_events (required)
 // }
 // return canvasRequest(submit_captured_events, {course_id, quiz_id, id}, body);
-var submitCapturedEvents = {
-  type: 'SUBMIT_CAPTURED_EVENTS',
-  method: 'post',
-  key: 'submit_captured_eventssubmit_captured_events_{course_id}_{quiz_id}_{id}',
-  required: ['course_id', 'quiz_id', 'id']
-};
-
+exports.submitCapturedEvents = { type: 'SUBMIT_CAPTURED_EVENTS', method: 'post', key: 'submit_captured_eventssubmit_captured_events_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };
 // Retrieve captured events
 // Retrieve the set of events captured during a specific submission attempt.
 //
@@ -38,11 +29,5 @@ var submitCapturedEvents = {
 //   attempt
 // }
 // return canvasRequest(retrieve_captured_events, {course_id, quiz_id, id, ...query});
-exports.submitCapturedEvents = submitCapturedEvents;
-var retrieveCapturedEvents = {
-  type: 'RETRIEVE_CAPTURED_EVENTS',
-  method: 'get',
-  key: 'retrieve_captured_eventsretrieve_captured_events_{course_id}_{quiz_id}_{id}',
-  required: ['course_id', 'quiz_id', 'id']
-};
-exports.retrieveCapturedEvents = retrieveCapturedEvents;
+exports.retrieveCapturedEvents = { type: 'RETRIEVE_CAPTURED_EVENTS', method: 'get', key: 'retrieve_captured_eventsretrieve_captured_events_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };
+//# sourceMappingURL=quiz_submission_events.js.map

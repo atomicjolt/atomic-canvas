@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.getSisImportErrorListSisImports = exports.getSisImportErrorListSisImportErrors = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getSisImportErrorListSisImportErrors = exports.getSisImportErrorListSisImports = void 0;
 //
 // SIS Import Errors
 //
@@ -27,13 +24,7 @@ exports.getSisImportErrorListSisImports = exports.getSisImportErrorListSisImport
 //   failure
 // }
 // return canvasRequest(get_sis_import_error_list_sis_imports, {account_id, id, ...query});
-var getSisImportErrorListSisImports = {
-  type: 'GET_SIS_IMPORT_ERROR_LIST_SIS_IMPORTS',
-  method: 'get',
-  key: 'get_sis_import_error_list_sis_importsget_sis_import_error_list_sis_imports_{account_id}_{id}',
-  required: ['account_id', 'id']
-};
-
+exports.getSisImportErrorListSisImports = { type: 'GET_SIS_IMPORT_ERROR_LIST_SIS_IMPORTS', method: 'get', key: 'get_sis_import_error_list_sis_importsget_sis_import_error_list_sis_imports_{account_id}_{id}', required: ['account_id', 'id'] };
 // Get SIS import error list
 // Returns the list of SIS import errors for an account or a SIS import. Import
 // errors are only stored for 30 days.
@@ -54,11 +45,5 @@ var getSisImportErrorListSisImports = {
 //   failure
 // }
 // return canvasRequest(get_sis_import_error_list_sis_import_errors, {account_id, ...query});
-exports.getSisImportErrorListSisImports = getSisImportErrorListSisImports;
-var getSisImportErrorListSisImportErrors = {
-  type: 'GET_SIS_IMPORT_ERROR_LIST_SIS_IMPORT_ERRORS',
-  method: 'get',
-  key: 'get_sis_import_error_list_sis_import_errorsget_sis_import_error_list_sis_import_errors_account_id',
-  required: ['account_id']
-};
-exports.getSisImportErrorListSisImportErrors = getSisImportErrorListSisImportErrors;
+exports.getSisImportErrorListSisImportErrors = { type: 'GET_SIS_IMPORT_ERROR_LIST_SIS_IMPORT_ERRORS', method: 'get', key: 'get_sis_import_error_list_sis_import_errorsget_sis_import_error_list_sis_import_errors_account_id', required: ['account_id'] };
+//# sourceMappingURL=sis_import_errors.js.map

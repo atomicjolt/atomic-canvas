@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.updateSingleQuiz = exports.listNewQuizzes = exports.getNewQuiz = exports.deleteNewQuiz = exports.createNewQuiz = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.deleteNewQuiz = exports.updateSingleQuiz = exports.createNewQuiz = exports.listNewQuizzes = exports.getNewQuiz = void 0;
 //
 // New Quizzes
 //
@@ -15,13 +12,7 @@ exports.updateSingleQuiz = exports.listNewQuizzes = exports.getNewQuiz = exports
 //
 // Example:
 // return canvasRequest(get_new_quiz, {course_id, assignment_id});
-var getNewQuiz = {
-  type: 'GET_NEW_QUIZ',
-  method: 'get',
-  key: 'get_new_quizget_new_quiz_{course_id}_{assignment_id}',
-  required: ['course_id', 'assignment_id']
-};
-
+exports.getNewQuiz = { type: 'GET_NEW_QUIZ', method: 'get', key: 'get_new_quizget_new_quiz_{course_id}_{assignment_id}', required: ['course_id', 'assignment_id'] };
 // List new quizzes
 // Get a list of new quizzes.
 //
@@ -30,14 +21,7 @@ var getNewQuiz = {
 //
 // Example:
 // return canvasRequest(list_new_quizzes, {course_id});
-exports.getNewQuiz = getNewQuiz;
-var listNewQuizzes = {
-  type: 'LIST_NEW_QUIZZES',
-  method: 'get',
-  key: 'list_new_quizzeslist_new_quizzes_course_id',
-  required: ['course_id']
-};
-
+exports.listNewQuizzes = { type: 'LIST_NEW_QUIZZES', method: 'get', key: 'list_new_quizzeslist_new_quizzes_course_id', required: ['course_id'] };
 // Create a new quiz
 // Create a new quiz for the course.
 //
@@ -81,14 +65,7 @@ var listNewQuizzes = {
 //   quiz[quiz_settings][session_time_limit_in_seconds]
 // }
 // return canvasRequest(create_new_quiz, {course_id}, body);
-exports.listNewQuizzes = listNewQuizzes;
-var createNewQuiz = {
-  type: 'CREATE_NEW_QUIZ',
-  method: 'post',
-  key: 'create_new_quizcreate_new_quiz_course_id',
-  required: ['course_id']
-};
-
+exports.createNewQuiz = { type: 'CREATE_NEW_QUIZ', method: 'post', key: 'create_new_quizcreate_new_quiz_course_id', required: ['course_id'] };
 // Update a single quiz
 // Update a single quiz for the course.
 //
@@ -132,14 +109,7 @@ var createNewQuiz = {
 //   quiz[quiz_settings][session_time_limit_in_seconds]
 // }
 // return canvasRequest(update_single_quiz, {course_id, assignment_id}, body);
-exports.createNewQuiz = createNewQuiz;
-var updateSingleQuiz = {
-  type: 'UPDATE_SINGLE_QUIZ',
-  method: 'patch',
-  key: 'update_single_quizupdate_single_quiz_{course_id}_{assignment_id}',
-  required: ['course_id', 'assignment_id']
-};
-
+exports.updateSingleQuiz = { type: 'UPDATE_SINGLE_QUIZ', method: 'patch', key: 'update_single_quizupdate_single_quiz_{course_id}_{assignment_id}', required: ['course_id', 'assignment_id'] };
 // Delete a new quiz
 // Delete a single new quiz.
 //
@@ -148,11 +118,5 @@ var updateSingleQuiz = {
 //
 // Example:
 // return canvasRequest(delete_new_quiz, {course_id, assignment_id});
-exports.updateSingleQuiz = updateSingleQuiz;
-var deleteNewQuiz = {
-  type: 'DELETE_NEW_QUIZ',
-  method: 'delete',
-  key: 'delete_new_quizdelete_new_quiz_{course_id}_{assignment_id}',
-  required: ['course_id', 'assignment_id']
-};
-exports.deleteNewQuiz = deleteNewQuiz;
+exports.deleteNewQuiz = { type: 'DELETE_NEW_QUIZ', method: 'delete', key: 'delete_new_quizdelete_new_quiz_{course_id}_{assignment_id}', required: ['course_id', 'assignment_id'] };
+//# sourceMappingURL=new_quizzes.js.map

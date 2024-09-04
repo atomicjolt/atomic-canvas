@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.restoreWorkflowStatesOfSisImportedItems = exports.importSisData = exports.getSisImportStatus = exports.getSisImportList = exports.getCurrentImportingSisImport = exports.abortSisImport = exports.abortAllPendingSisImports = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.abortAllPendingSisImports = exports.abortSisImport = exports.restoreWorkflowStatesOfSisImportedItems = exports.getSisImportStatus = exports.importSisData = exports.getCurrentImportingSisImport = exports.getSisImportList = void 0;
 //
 // SIS Imports
 //
@@ -24,13 +21,7 @@ exports.restoreWorkflowStatesOfSisImportedItems = exports.importSisData = export
 //   workflow_state
 // }
 // return canvasRequest(get_sis_import_list, {account_id, ...query});
-var getSisImportList = {
-  type: 'GET_SIS_IMPORT_LIST',
-  method: 'get',
-  key: 'get_sis_import_listget_sis_import_list_account_id',
-  required: ['account_id']
-};
-
+exports.getSisImportList = { type: 'GET_SIS_IMPORT_LIST', method: 'get', key: 'get_sis_import_listget_sis_import_list_account_id', required: ['account_id'] };
 // Get the current importing SIS import
 // Returns the SIS imports that are currently processing for an account. If no
 // imports are running, will return an empty array.
@@ -44,14 +35,7 @@ var getSisImportList = {
 //
 // Example:
 // return canvasRequest(get_current_importing_sis_import, {account_id});
-exports.getSisImportList = getSisImportList;
-var getCurrentImportingSisImport = {
-  type: 'GET_CURRENT_IMPORTING_SIS_IMPORT',
-  method: 'get',
-  key: 'get_current_importing_sis_importget_current_importing_sis_import_account_id',
-  required: ['account_id']
-};
-
+exports.getCurrentImportingSisImport = { type: 'GET_CURRENT_IMPORTING_SIS_IMPORT', method: 'get', key: 'get_current_importing_sis_importget_current_importing_sis_import_account_id', required: ['account_id'] };
 // Import SIS data
 // Import SIS data into Canvas. Must be on a root account with SIS imports
 // enabled.
@@ -84,14 +68,7 @@ var getCurrentImportingSisImport = {
 //   diff_row_count_threshold
 // }
 // return canvasRequest(import_sis_data, {account_id}, body);
-exports.getCurrentImportingSisImport = getCurrentImportingSisImport;
-var importSisData = {
-  type: 'IMPORT_SIS_DATA',
-  method: 'post',
-  key: 'import_sis_dataimport_sis_data_account_id',
-  required: ['account_id']
-};
-
+exports.importSisData = { type: 'IMPORT_SIS_DATA', method: 'post', key: 'import_sis_dataimport_sis_data_account_id', required: ['account_id'] };
 // Get SIS import status
 // Get the status of an already created SIS import.
 // 
@@ -104,14 +81,7 @@ var importSisData = {
 //
 // Example:
 // return canvasRequest(get_sis_import_status, {account_id, id});
-exports.importSisData = importSisData;
-var getSisImportStatus = {
-  type: 'GET_SIS_IMPORT_STATUS',
-  method: 'get',
-  key: 'get_sis_import_statusget_sis_import_status_{account_id}_{id}',
-  required: ['account_id', 'id']
-};
-
+exports.getSisImportStatus = { type: 'GET_SIS_IMPORT_STATUS', method: 'get', key: 'get_sis_import_statusget_sis_import_status_{account_id}_{id}', required: ['account_id', 'id'] };
 // Restore workflow_states of SIS imported items
 // This will restore the the workflow_state for all the items that changed
 // their workflow_state during the import being restored.
@@ -133,14 +103,7 @@ var getSisImportStatus = {
 //   unconclude_only
 // }
 // return canvasRequest(restore_workflow_states_of_sis_imported_items, {account_id, id}, body);
-exports.getSisImportStatus = getSisImportStatus;
-var restoreWorkflowStatesOfSisImportedItems = {
-  type: 'RESTORE_WORKFLOW_STATES_OF_SIS_IMPORTED_ITEMS',
-  method: 'put',
-  key: 'restore_workflow_states_of_sis_imported_itemsrestore_workflow_states_of_sis_imported_items_{account_id}_{id}',
-  required: ['account_id', 'id']
-};
-
+exports.restoreWorkflowStatesOfSisImportedItems = { type: 'RESTORE_WORKFLOW_STATES_OF_SIS_IMPORTED_ITEMS', method: 'put', key: 'restore_workflow_states_of_sis_imported_itemsrestore_workflow_states_of_sis_imported_items_{account_id}_{id}', required: ['account_id', 'id'] };
 // Abort SIS import
 // Abort a SIS import that has not completed.
 // 
@@ -153,14 +116,7 @@ var restoreWorkflowStatesOfSisImportedItems = {
 //
 // Example:
 // return canvasRequest(abort_sis_import, {account_id, id});
-exports.restoreWorkflowStatesOfSisImportedItems = restoreWorkflowStatesOfSisImportedItems;
-var abortSisImport = {
-  type: 'ABORT_SIS_IMPORT',
-  method: 'put',
-  key: 'abort_sis_importabort_sis_import_{account_id}_{id}',
-  required: ['account_id', 'id']
-};
-
+exports.abortSisImport = { type: 'ABORT_SIS_IMPORT', method: 'put', key: 'abort_sis_importabort_sis_import_{account_id}_{id}', required: ['account_id', 'id'] };
 // Abort all pending SIS imports
 // Abort already created but not processed or processing SIS imports.
 //
@@ -169,11 +125,5 @@ var abortSisImport = {
 //
 // Example:
 // return canvasRequest(abort_all_pending_sis_imports, {account_id});
-exports.abortSisImport = abortSisImport;
-var abortAllPendingSisImports = {
-  type: 'ABORT_ALL_PENDING_SIS_IMPORTS',
-  method: 'put',
-  key: 'abort_all_pending_sis_importsabort_all_pending_sis_imports_account_id',
-  required: ['account_id']
-};
-exports.abortAllPendingSisImports = abortAllPendingSisImports;
+exports.abortAllPendingSisImports = { type: 'ABORT_ALL_PENDING_SIS_IMPORTS', method: 'put', key: 'abort_all_pending_sis_importsabort_all_pending_sis_imports_account_id', required: ['account_id'] };
+//# sourceMappingURL=sis_imports.js.map

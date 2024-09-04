@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.updateGlobalNotification = exports.showGlobalNotification = exports.indexOfActiveGlobalNotificationForUser = exports.createGlobalNotification = exports.closeNotificationForUser = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.updateGlobalNotification = exports.createGlobalNotification = exports.closeNotificationForUser = exports.showGlobalNotification = exports.indexOfActiveGlobalNotificationForUser = void 0;
 //
 // Account Notifications
 //
@@ -20,13 +17,7 @@ exports.updateGlobalNotification = exports.showGlobalNotification = exports.inde
 //   include_past
 // }
 // return canvasRequest(index_of_active_global_notification_for_user, {account_id, ...query});
-var indexOfActiveGlobalNotificationForUser = {
-  type: 'INDEX_OF_ACTIVE_GLOBAL_NOTIFICATION_FOR_USER',
-  method: 'get',
-  key: 'index_of_active_global_notification_for_userindex_of_active_global_notification_for_user_account_id',
-  required: ['account_id']
-};
-
+exports.indexOfActiveGlobalNotificationForUser = { type: 'INDEX_OF_ACTIVE_GLOBAL_NOTIFICATION_FOR_USER', method: 'get', key: 'index_of_active_global_notification_for_userindex_of_active_global_notification_for_user_account_id', required: ['account_id'] };
 // Show a global notification
 // Returns a global notification for the current user
 // A notification that has been closed by the user will not be returned
@@ -36,14 +27,7 @@ var indexOfActiveGlobalNotificationForUser = {
 //
 // Example:
 // return canvasRequest(show_global_notification, {account_id, id});
-exports.indexOfActiveGlobalNotificationForUser = indexOfActiveGlobalNotificationForUser;
-var showGlobalNotification = {
-  type: 'SHOW_GLOBAL_NOTIFICATION',
-  method: 'get',
-  key: 'show_global_notificationshow_global_notification_{account_id}_{id}',
-  required: ['account_id', 'id']
-};
-
+exports.showGlobalNotification = { type: 'SHOW_GLOBAL_NOTIFICATION', method: 'get', key: 'show_global_notificationshow_global_notification_{account_id}_{id}', required: ['account_id', 'id'] };
 // Close notification for user
 // If the current user no long wants to see this notification it can be excused with this call
 //
@@ -52,14 +36,7 @@ var showGlobalNotification = {
 //
 // Example:
 // return canvasRequest(close_notification_for_user, {account_id, id});
-exports.showGlobalNotification = showGlobalNotification;
-var closeNotificationForUser = {
-  type: 'CLOSE_NOTIFICATION_FOR_USER',
-  method: 'delete',
-  key: 'close_notification_for_userclose_notification_for_user_{account_id}_{id}',
-  required: ['account_id', 'id']
-};
-
+exports.closeNotificationForUser = { type: 'CLOSE_NOTIFICATION_FOR_USER', method: 'delete', key: 'close_notification_for_userclose_notification_for_user_{account_id}_{id}', required: ['account_id', 'id'] };
 // Create a global notification
 // Create and return a new global notification for an account.
 //
@@ -76,14 +53,7 @@ var closeNotificationForUser = {
 //   account_notification_roles
 // }
 // return canvasRequest(create_global_notification, {account_id}, body);
-exports.closeNotificationForUser = closeNotificationForUser;
-var createGlobalNotification = {
-  type: 'CREATE_GLOBAL_NOTIFICATION',
-  method: 'post',
-  key: 'create_global_notificationcreate_global_notification_account_id',
-  required: ['account_id']
-};
-
+exports.createGlobalNotification = { type: 'CREATE_GLOBAL_NOTIFICATION', method: 'post', key: 'create_global_notificationcreate_global_notification_account_id', required: ['account_id'] };
 // Update a global notification
 // Update global notification for an account.
 //
@@ -100,11 +70,5 @@ var createGlobalNotification = {
 //   account_notification_roles
 // }
 // return canvasRequest(update_global_notification, {account_id, id}, body);
-exports.createGlobalNotification = createGlobalNotification;
-var updateGlobalNotification = {
-  type: 'UPDATE_GLOBAL_NOTIFICATION',
-  method: 'put',
-  key: 'update_global_notificationupdate_global_notification_{account_id}_{id}',
-  required: ['account_id', 'id']
-};
-exports.updateGlobalNotification = updateGlobalNotification;
+exports.updateGlobalNotification = { type: 'UPDATE_GLOBAL_NOTIFICATION', method: 'put', key: 'update_global_notificationupdate_global_notification_{account_id}_{id}', required: ['account_id', 'id'] };
+//# sourceMappingURL=account_notifications.js.map

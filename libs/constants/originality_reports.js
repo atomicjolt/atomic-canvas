@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.showOriginalityReportSubmissions = exports.showOriginalityReportFiles = exports.editOriginalityReportSubmissions = exports.editOriginalityReportFiles = exports.createOriginalityReport = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.showOriginalityReportFiles = exports.showOriginalityReportSubmissions = exports.editOriginalityReportFiles = exports.editOriginalityReportSubmissions = exports.createOriginalityReport = void 0;
 //
 // Originality Reports
 //
@@ -26,13 +23,7 @@ exports.showOriginalityReportSubmissions = exports.showOriginalityReportFiles = 
 //   originality_report[attempt]
 // }
 // return canvasRequest(create_originality_report, {assignment_id, submission_id}, body);
-var createOriginalityReport = {
-  type: 'CREATE_ORIGINALITY_REPORT',
-  method: 'post',
-  key: 'create_originality_reportcreate_originality_report_{assignment_id}_{submission_id}',
-  required: ['assignment_id', 'submission_id']
-};
-
+exports.createOriginalityReport = { type: 'CREATE_ORIGINALITY_REPORT', method: 'post', key: 'create_originality_reportcreate_originality_report_{assignment_id}_{submission_id}', required: ['assignment_id', 'submission_id'] };
 // Edit an Originality Report
 // Modify an existing originality report. An alternative to this endpoint is
 // to POST the same parameters listed below to the CREATE endpoint.
@@ -51,14 +42,7 @@ var createOriginalityReport = {
 //   originality_report[error_message]
 // }
 // return canvasRequest(edit_originality_report_submissions, {assignment_id, submission_id, id}, body);
-exports.createOriginalityReport = createOriginalityReport;
-var editOriginalityReportSubmissions = {
-  type: 'EDIT_ORIGINALITY_REPORT_SUBMISSIONS',
-  method: 'put',
-  key: 'edit_originality_report_submissionsedit_originality_report_submissions_{assignment_id}_{submission_id}_{id}',
-  required: ['assignment_id', 'submission_id', 'id']
-};
-
+exports.editOriginalityReportSubmissions = { type: 'EDIT_ORIGINALITY_REPORT_SUBMISSIONS', method: 'put', key: 'edit_originality_report_submissionsedit_originality_report_submissions_{assignment_id}_{submission_id}_{id}', required: ['assignment_id', 'submission_id', 'id'] };
 // Edit an Originality Report
 // Modify an existing originality report. An alternative to this endpoint is
 // to POST the same parameters listed below to the CREATE endpoint.
@@ -77,14 +61,7 @@ var editOriginalityReportSubmissions = {
 //   originality_report[error_message]
 // }
 // return canvasRequest(edit_originality_report_files, {assignment_id, file_id}, body);
-exports.editOriginalityReportSubmissions = editOriginalityReportSubmissions;
-var editOriginalityReportFiles = {
-  type: 'EDIT_ORIGINALITY_REPORT_FILES',
-  method: 'put',
-  key: 'edit_originality_report_filesedit_originality_report_files_{assignment_id}_{file_id}',
-  required: ['assignment_id', 'file_id']
-};
-
+exports.editOriginalityReportFiles = { type: 'EDIT_ORIGINALITY_REPORT_FILES', method: 'put', key: 'edit_originality_report_filesedit_originality_report_files_{assignment_id}_{file_id}', required: ['assignment_id', 'file_id'] };
 // Show an Originality Report
 // Get a single originality report
 //
@@ -93,14 +70,7 @@ var editOriginalityReportFiles = {
 //
 // Example:
 // return canvasRequest(show_originality_report_submissions, {assignment_id, submission_id, id});
-exports.editOriginalityReportFiles = editOriginalityReportFiles;
-var showOriginalityReportSubmissions = {
-  type: 'SHOW_ORIGINALITY_REPORT_SUBMISSIONS',
-  method: 'get',
-  key: 'show_originality_report_submissionsshow_originality_report_submissions_{assignment_id}_{submission_id}_{id}',
-  required: ['assignment_id', 'submission_id', 'id']
-};
-
+exports.showOriginalityReportSubmissions = { type: 'SHOW_ORIGINALITY_REPORT_SUBMISSIONS', method: 'get', key: 'show_originality_report_submissionsshow_originality_report_submissions_{assignment_id}_{submission_id}_{id}', required: ['assignment_id', 'submission_id', 'id'] };
 // Show an Originality Report
 // Get a single originality report
 //
@@ -109,11 +79,5 @@ var showOriginalityReportSubmissions = {
 //
 // Example:
 // return canvasRequest(show_originality_report_files, {assignment_id, file_id});
-exports.showOriginalityReportSubmissions = showOriginalityReportSubmissions;
-var showOriginalityReportFiles = {
-  type: 'SHOW_ORIGINALITY_REPORT_FILES',
-  method: 'get',
-  key: 'show_originality_report_filesshow_originality_report_files_{assignment_id}_{file_id}',
-  required: ['assignment_id', 'file_id']
-};
-exports.showOriginalityReportFiles = showOriginalityReportFiles;
+exports.showOriginalityReportFiles = { type: 'SHOW_ORIGINALITY_REPORT_FILES', method: 'get', key: 'show_originality_report_filesshow_originality_report_files_{assignment_id}_{file_id}', required: ['assignment_id', 'file_id'] };
+//# sourceMappingURL=originality_reports.js.map

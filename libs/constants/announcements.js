@@ -1,8 +1,5 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.listAnnouncements = void 0;
 //
 // Announcements
@@ -25,10 +22,5 @@ exports.listAnnouncements = void 0;
 //   include
 // }
 // return canvasRequest(list_announcements, {, ...query});
-var listAnnouncements = {
-  type: 'LIST_ANNOUNCEMENTS',
-  method: 'get',
-  key: 'list_announcements',
-  required: []
-};
-exports.listAnnouncements = listAnnouncements;
+exports.listAnnouncements = { type: 'LIST_ANNOUNCEMENTS', method: 'get', key: 'list_announcements', required: [] };
+//# sourceMappingURL=announcements.js.map

@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.updateContentShare = exports.removeContentShare = exports.listContentSharesSent = exports.listContentSharesReceived = exports.getUnreadSharesCount = exports.getContentShare = exports.createContentShare = exports.addUsersToContentShare = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.updateContentShare = exports.addUsersToContentShare = exports.removeContentShare = exports.getContentShare = exports.getUnreadSharesCount = exports.listContentSharesReceived = exports.listContentSharesSent = exports.createContentShare = void 0;
 //
 // Content Shares
 //
@@ -20,13 +17,7 @@ exports.updateContentShare = exports.removeContentShare = exports.listContentSha
 //   content_id (required)
 // }
 // return canvasRequest(create_content_share, {user_id}, body);
-var createContentShare = {
-  type: 'CREATE_CONTENT_SHARE',
-  method: 'post',
-  key: 'create_content_sharecreate_content_share_user_id',
-  required: ['user_id']
-};
-
+exports.createContentShare = { type: 'CREATE_CONTENT_SHARE', method: 'post', key: 'create_content_sharecreate_content_share_user_id', required: ['user_id'] };
 // List content shares
 // Return a paginated list of content shares a user has sent or received. Use +self+ as the user_id
 // to retrieve your own content shares. Only linked observers and administrators may view other users'
@@ -37,14 +28,7 @@ var createContentShare = {
 //
 // Example:
 // return canvasRequest(list_content_shares_sent, {user_id});
-exports.createContentShare = createContentShare;
-var listContentSharesSent = {
-  type: 'LIST_CONTENT_SHARES_SENT',
-  method: 'get',
-  key: 'list_content_shares_sentlist_content_shares_sent_user_id',
-  required: ['user_id']
-};
-
+exports.listContentSharesSent = { type: 'LIST_CONTENT_SHARES_SENT', method: 'get', key: 'list_content_shares_sentlist_content_shares_sent_user_id', required: ['user_id'] };
 // List content shares
 // Return a paginated list of content shares a user has sent or received. Use +self+ as the user_id
 // to retrieve your own content shares. Only linked observers and administrators may view other users'
@@ -55,14 +39,7 @@ var listContentSharesSent = {
 //
 // Example:
 // return canvasRequest(list_content_shares_received, {user_id});
-exports.listContentSharesSent = listContentSharesSent;
-var listContentSharesReceived = {
-  type: 'LIST_CONTENT_SHARES_RECEIVED',
-  method: 'get',
-  key: 'list_content_shares_receivedlist_content_shares_received_user_id',
-  required: ['user_id']
-};
-
+exports.listContentSharesReceived = { type: 'LIST_CONTENT_SHARES_RECEIVED', method: 'get', key: 'list_content_shares_receivedlist_content_shares_received_user_id', required: ['user_id'] };
 // Get unread shares count
 // Return the number of content shares a user has received that have not yet been read. Use +self+ as the user_id
 // to retrieve your own content shares. Only linked observers and administrators may view other users'
@@ -73,14 +50,7 @@ var listContentSharesReceived = {
 //
 // Example:
 // return canvasRequest(get_unread_shares_count, {user_id});
-exports.listContentSharesReceived = listContentSharesReceived;
-var getUnreadSharesCount = {
-  type: 'GET_UNREAD_SHARES_COUNT',
-  method: 'get',
-  key: 'get_unread_shares_countget_unread_shares_count_user_id',
-  required: ['user_id']
-};
-
+exports.getUnreadSharesCount = { type: 'GET_UNREAD_SHARES_COUNT', method: 'get', key: 'get_unread_shares_countget_unread_shares_count_user_id', required: ['user_id'] };
 // Get content share
 // Return information about a single content share. You may use +self+ as the user_id to retrieve your own content share.
 //
@@ -89,14 +59,7 @@ var getUnreadSharesCount = {
 //
 // Example:
 // return canvasRequest(get_content_share, {user_id, id});
-exports.getUnreadSharesCount = getUnreadSharesCount;
-var getContentShare = {
-  type: 'GET_CONTENT_SHARE',
-  method: 'get',
-  key: 'get_content_shareget_content_share_{user_id}_{id}',
-  required: ['user_id', 'id']
-};
-
+exports.getContentShare = { type: 'GET_CONTENT_SHARE', method: 'get', key: 'get_content_shareget_content_share_{user_id}_{id}', required: ['user_id', 'id'] };
 // Remove content share
 // Remove a content share from your list. Use +self+ as the user_id. Note that this endpoint does not delete other users'
 // copies of the content share.
@@ -106,14 +69,7 @@ var getContentShare = {
 //
 // Example:
 // return canvasRequest(remove_content_share, {user_id, id});
-exports.getContentShare = getContentShare;
-var removeContentShare = {
-  type: 'REMOVE_CONTENT_SHARE',
-  method: 'delete',
-  key: 'remove_content_shareremove_content_share_{user_id}_{id}',
-  required: ['user_id', 'id']
-};
-
+exports.removeContentShare = { type: 'REMOVE_CONTENT_SHARE', method: 'delete', key: 'remove_content_shareremove_content_share_{user_id}_{id}', required: ['user_id', 'id'] };
 // Add users to content share
 // Send a previously created content share to additional users
 //
@@ -125,14 +81,7 @@ var removeContentShare = {
 //   receiver_ids
 // }
 // return canvasRequest(add_users_to_content_share, {user_id, id}, body);
-exports.removeContentShare = removeContentShare;
-var addUsersToContentShare = {
-  type: 'ADD_USERS_TO_CONTENT_SHARE',
-  method: 'post',
-  key: 'add_users_to_content_shareadd_users_to_content_share_{user_id}_{id}',
-  required: ['user_id', 'id']
-};
-
+exports.addUsersToContentShare = { type: 'ADD_USERS_TO_CONTENT_SHARE', method: 'post', key: 'add_users_to_content_shareadd_users_to_content_share_{user_id}_{id}', required: ['user_id', 'id'] };
 // Update a content share
 // Mark a content share read or unread
 //
@@ -144,11 +93,5 @@ var addUsersToContentShare = {
 //   read_state
 // }
 // return canvasRequest(update_content_share, {user_id, id}, body);
-exports.addUsersToContentShare = addUsersToContentShare;
-var updateContentShare = {
-  type: 'UPDATE_CONTENT_SHARE',
-  method: 'put',
-  key: 'update_content_shareupdate_content_share_{user_id}_{id}',
-  required: ['user_id', 'id']
-};
-exports.updateContentShare = updateContentShare;
+exports.updateContentShare = { type: 'UPDATE_CONTENT_SHARE', method: 'put', key: 'update_content_shareupdate_content_share_{user_id}_{id}', required: ['user_id', 'id'] };
+//# sourceMappingURL=content_shares.js.map

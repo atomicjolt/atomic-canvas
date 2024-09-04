@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.queryByUser = exports.queryByLogin = exports.queryByAccount = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.queryByUser = exports.queryByAccount = exports.queryByLogin = void 0;
 //
 // Authentications Log
 //
@@ -19,13 +16,7 @@ exports.queryByUser = exports.queryByLogin = exports.queryByAccount = void 0;
 //   end_time
 // }
 // return canvasRequest(query_by_login, {login_id, ...query});
-var queryByLogin = {
-  type: 'QUERY_BY_LOGIN',
-  method: 'get',
-  key: 'query_by_loginquery_by_login_login_id',
-  required: ['login_id']
-};
-
+exports.queryByLogin = { type: 'QUERY_BY_LOGIN', method: 'get', key: 'query_by_loginquery_by_login_login_id', required: ['login_id'] };
 // Query by account.
 // List authentication events for a given account.
 //
@@ -38,14 +29,7 @@ var queryByLogin = {
 //   end_time
 // }
 // return canvasRequest(query_by_account, {account_id, ...query});
-exports.queryByLogin = queryByLogin;
-var queryByAccount = {
-  type: 'QUERY_BY_ACCOUNT',
-  method: 'get',
-  key: 'query_by_accountquery_by_account_account_id',
-  required: ['account_id']
-};
-
+exports.queryByAccount = { type: 'QUERY_BY_ACCOUNT', method: 'get', key: 'query_by_accountquery_by_account_account_id', required: ['account_id'] };
 // Query by user.
 // List authentication events for a given user.
 //
@@ -58,11 +42,5 @@ var queryByAccount = {
 //   end_time
 // }
 // return canvasRequest(query_by_user, {user_id, ...query});
-exports.queryByAccount = queryByAccount;
-var queryByUser = {
-  type: 'QUERY_BY_USER',
-  method: 'get',
-  key: 'query_by_userquery_by_user_user_id',
-  required: ['user_id']
-};
-exports.queryByUser = queryByUser;
+exports.queryByUser = { type: 'QUERY_BY_USER', method: 'get', key: 'query_by_userquery_by_user_user_id', required: ['user_id'] };
+//# sourceMappingURL=authentications_log.js.map

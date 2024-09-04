@@ -1,8 +1,5 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.listAllCourses = exports.findRecipientsSearch = exports.findRecipientsConversations = void 0;
 //
 // Search
@@ -28,13 +25,7 @@ exports.listAllCourses = exports.findRecipientsSearch = exports.findRecipientsCo
 //   permissions
 // }
 // return canvasRequest(find_recipients_conversations, {, ...query});
-var findRecipientsConversations = {
-  type: 'FIND_RECIPIENTS_CONVERSATIONS',
-  method: 'get',
-  key: 'find_recipients_conversations',
-  required: []
-};
-
+exports.findRecipientsConversations = { type: 'FIND_RECIPIENTS_CONVERSATIONS', method: 'get', key: 'find_recipients_conversations', required: [] };
 // Find recipients
 // Find valid recipients (users, courses and groups) that the current user
 // can send messages to. The /api/v1/search/recipients path is the preferred
@@ -56,14 +47,7 @@ var findRecipientsConversations = {
 //   permissions
 // }
 // return canvasRequest(find_recipients_search, {, ...query});
-exports.findRecipientsConversations = findRecipientsConversations;
-var findRecipientsSearch = {
-  type: 'FIND_RECIPIENTS_SEARCH',
-  method: 'get',
-  key: 'find_recipients_search',
-  required: []
-};
-
+exports.findRecipientsSearch = { type: 'FIND_RECIPIENTS_SEARCH', method: 'get', key: 'find_recipients_search', required: [] };
 // List all courses
 // A paginated list of all courses visible in the public index
 //
@@ -77,11 +61,5 @@ var findRecipientsSearch = {
 //   open_enrollment_only
 // }
 // return canvasRequest(list_all_courses, {, ...query});
-exports.findRecipientsSearch = findRecipientsSearch;
-var listAllCourses = {
-  type: 'LIST_ALL_COURSES',
-  method: 'get',
-  key: 'list_all_courses',
-  required: []
-};
-exports.listAllCourses = listAllCourses;
+exports.listAllCourses = { type: 'LIST_ALL_COURSES', method: 'get', key: 'list_all_courses', required: [] };
+//# sourceMappingURL=search.js.map

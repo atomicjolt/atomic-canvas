@@ -1,8 +1,5 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.getSingleAssignmentLti = void 0;
 //
 // Plagiarism Detection Platform Assignments
@@ -19,10 +16,5 @@ exports.getSingleAssignmentLti = void 0;
 //   user_id
 // }
 // return canvasRequest(get_single_assignment_lti, {assignment_id, ...query});
-var getSingleAssignmentLti = {
-  type: 'GET_SINGLE_ASSIGNMENT_LTI',
-  method: 'get',
-  key: 'get_single_assignment_ltiget_single_assignment_lti_assignment_id',
-  required: ['assignment_id']
-};
-exports.getSingleAssignmentLti = getSingleAssignmentLti;
+exports.getSingleAssignmentLti = { type: 'GET_SINGLE_ASSIGNMENT_LTI', method: 'get', key: 'get_single_assignment_ltiget_single_assignment_lti_assignment_id', required: ['assignment_id'] };
+//# sourceMappingURL=plagiarism_detection_platform_assignments.js.map

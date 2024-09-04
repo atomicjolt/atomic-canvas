@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.updateCustomGradebookColumn = exports.updateColumnData = exports.reorderCustomColumns = exports.listEntriesForColumn = exports.listCustomGradebookColumns = exports.deleteCustomGradebookColumn = exports.createCustomGradebookColumn = exports.bulkUpdateColumnData = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.bulkUpdateColumnData = exports.updateColumnData = exports.listEntriesForColumn = exports.reorderCustomColumns = exports.deleteCustomGradebookColumn = exports.updateCustomGradebookColumn = exports.createCustomGradebookColumn = exports.listCustomGradebookColumns = void 0;
 //
 // Custom Gradebook Columns
 //
@@ -18,13 +15,7 @@ exports.updateCustomGradebookColumn = exports.updateColumnData = exports.reorder
 //   include_hidden
 // }
 // return canvasRequest(list_custom_gradebook_columns, {course_id, ...query});
-var listCustomGradebookColumns = {
-  type: 'LIST_CUSTOM_GRADEBOOK_COLUMNS',
-  method: 'get',
-  key: 'list_custom_gradebook_columnslist_custom_gradebook_columns_course_id',
-  required: ['course_id']
-};
-
+exports.listCustomGradebookColumns = { type: 'LIST_CUSTOM_GRADEBOOK_COLUMNS', method: 'get', key: 'list_custom_gradebook_columnslist_custom_gradebook_columns_course_id', required: ['course_id'] };
 // Create a custom gradebook column
 // Create a custom gradebook column
 //
@@ -40,14 +31,7 @@ var listCustomGradebookColumns = {
 //   column[read_only]
 // }
 // return canvasRequest(create_custom_gradebook_column, {course_id}, body);
-exports.listCustomGradebookColumns = listCustomGradebookColumns;
-var createCustomGradebookColumn = {
-  type: 'CREATE_CUSTOM_GRADEBOOK_COLUMN',
-  method: 'post',
-  key: 'create_custom_gradebook_columncreate_custom_gradebook_column_course_id',
-  required: ['course_id']
-};
-
+exports.createCustomGradebookColumn = { type: 'CREATE_CUSTOM_GRADEBOOK_COLUMN', method: 'post', key: 'create_custom_gradebook_columncreate_custom_gradebook_column_course_id', required: ['course_id'] };
 // Update a custom gradebook column
 // Accepts the same parameters as custom gradebook column creation
 //
@@ -56,14 +40,7 @@ var createCustomGradebookColumn = {
 //
 // Example:
 // return canvasRequest(update_custom_gradebook_column, {course_id, id});
-exports.createCustomGradebookColumn = createCustomGradebookColumn;
-var updateCustomGradebookColumn = {
-  type: 'UPDATE_CUSTOM_GRADEBOOK_COLUMN',
-  method: 'put',
-  key: 'update_custom_gradebook_columnupdate_custom_gradebook_column_{course_id}_{id}',
-  required: ['course_id', 'id']
-};
-
+exports.updateCustomGradebookColumn = { type: 'UPDATE_CUSTOM_GRADEBOOK_COLUMN', method: 'put', key: 'update_custom_gradebook_columnupdate_custom_gradebook_column_{course_id}_{id}', required: ['course_id', 'id'] };
 // Delete a custom gradebook column
 // Permanently deletes a custom column and its associated data
 //
@@ -72,14 +49,7 @@ var updateCustomGradebookColumn = {
 //
 // Example:
 // return canvasRequest(delete_custom_gradebook_column, {course_id, id});
-exports.updateCustomGradebookColumn = updateCustomGradebookColumn;
-var deleteCustomGradebookColumn = {
-  type: 'DELETE_CUSTOM_GRADEBOOK_COLUMN',
-  method: 'delete',
-  key: 'delete_custom_gradebook_columndelete_custom_gradebook_column_{course_id}_{id}',
-  required: ['course_id', 'id']
-};
-
+exports.deleteCustomGradebookColumn = { type: 'DELETE_CUSTOM_GRADEBOOK_COLUMN', method: 'delete', key: 'delete_custom_gradebook_columndelete_custom_gradebook_column_{course_id}_{id}', required: ['course_id', 'id'] };
 // Reorder custom columns
 // Puts the given columns in the specified order
 // 
@@ -93,14 +63,7 @@ var deleteCustomGradebookColumn = {
 //   order (required)
 // }
 // return canvasRequest(reorder_custom_columns, {course_id}, body);
-exports.deleteCustomGradebookColumn = deleteCustomGradebookColumn;
-var reorderCustomColumns = {
-  type: 'REORDER_CUSTOM_COLUMNS',
-  method: 'post',
-  key: 'reorder_custom_columnsreorder_custom_columns_course_id',
-  required: ['course_id']
-};
-
+exports.reorderCustomColumns = { type: 'REORDER_CUSTOM_COLUMNS', method: 'post', key: 'reorder_custom_columnsreorder_custom_columns_course_id', required: ['course_id'] };
 // List entries for a column
 // This does not list entries for students without associated data.
 //
@@ -112,14 +75,7 @@ var reorderCustomColumns = {
 //   include_hidden
 // }
 // return canvasRequest(list_entries_for_column, {course_id, id, ...query});
-exports.reorderCustomColumns = reorderCustomColumns;
-var listEntriesForColumn = {
-  type: 'LIST_ENTRIES_FOR_COLUMN',
-  method: 'get',
-  key: 'list_entries_for_columnlist_entries_for_column_{course_id}_{id}',
-  required: ['course_id', 'id']
-};
-
+exports.listEntriesForColumn = { type: 'LIST_ENTRIES_FOR_COLUMN', method: 'get', key: 'list_entries_for_columnlist_entries_for_column_{course_id}_{id}', required: ['course_id', 'id'] };
 // Update column data
 // Set the content of a custom column
 //
@@ -131,14 +87,7 @@ var listEntriesForColumn = {
 //   column_data[content] (required)
 // }
 // return canvasRequest(update_column_data, {course_id, id, user_id}, body);
-exports.listEntriesForColumn = listEntriesForColumn;
-var updateColumnData = {
-  type: 'UPDATE_COLUMN_DATA',
-  method: 'put',
-  key: 'update_column_dataupdate_column_data_{course_id}_{id}_{user_id}',
-  required: ['course_id', 'id', 'user_id']
-};
-
+exports.updateColumnData = { type: 'UPDATE_COLUMN_DATA', method: 'put', key: 'update_column_dataupdate_column_data_{course_id}_{id}_{user_id}', required: ['course_id', 'id', 'user_id'] };
 // Bulk update column data
 // Set the content of custom columns
 // 
@@ -165,11 +114,5 @@ var updateColumnData = {
 //   column_data (required)
 // }
 // return canvasRequest(bulk_update_column_data, {course_id}, body);
-exports.updateColumnData = updateColumnData;
-var bulkUpdateColumnData = {
-  type: 'BULK_UPDATE_COLUMN_DATA',
-  method: 'put',
-  key: 'bulk_update_column_databulk_update_column_data_course_id',
-  required: ['course_id']
-};
-exports.bulkUpdateColumnData = bulkUpdateColumnData;
+exports.bulkUpdateColumnData = { type: 'BULK_UPDATE_COLUMN_DATA', method: 'put', key: 'bulk_update_column_databulk_update_column_data_course_id', required: ['course_id'] };
+//# sourceMappingURL=custom_gradebook_columns.js.map

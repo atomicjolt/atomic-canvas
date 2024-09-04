@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.updateQuestionGroup = exports.reorderQuestionGroups = exports.getSingleQuizGroup = exports.deleteQuestionGroup = exports.createQuestionGroup = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.reorderQuestionGroups = exports.deleteQuestionGroup = exports.updateQuestionGroup = exports.createQuestionGroup = exports.getSingleQuizGroup = void 0;
 //
 // Quiz Question Groups
 //
@@ -15,13 +12,7 @@ exports.updateQuestionGroup = exports.reorderQuestionGroups = exports.getSingleQ
 //
 // Example:
 // return canvasRequest(get_single_quiz_group, {course_id, quiz_id, id});
-var getSingleQuizGroup = {
-  type: 'GET_SINGLE_QUIZ_GROUP',
-  method: 'get',
-  key: 'get_single_quiz_groupget_single_quiz_group_{course_id}_{quiz_id}_{id}',
-  required: ['course_id', 'quiz_id', 'id']
-};
-
+exports.getSingleQuizGroup = { type: 'GET_SINGLE_QUIZ_GROUP', method: 'get', key: 'get_single_quiz_groupget_single_quiz_group_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };
 // Create a question group
 // Create a new question group for this quiz
 // 
@@ -38,14 +29,7 @@ var getSingleQuizGroup = {
 //   quiz_groups[assessment_question_bank_id]
 // }
 // return canvasRequest(create_question_group, {course_id, quiz_id}, body);
-exports.getSingleQuizGroup = getSingleQuizGroup;
-var createQuestionGroup = {
-  type: 'CREATE_QUESTION_GROUP',
-  method: 'post',
-  key: 'create_question_groupcreate_question_group_{course_id}_{quiz_id}',
-  required: ['course_id', 'quiz_id']
-};
-
+exports.createQuestionGroup = { type: 'CREATE_QUESTION_GROUP', method: 'post', key: 'create_question_groupcreate_question_group_{course_id}_{quiz_id}', required: ['course_id', 'quiz_id'] };
 // Update a question group
 // Update a question group
 //
@@ -59,14 +43,7 @@ var createQuestionGroup = {
 //   quiz_groups[question_points]
 // }
 // return canvasRequest(update_question_group, {course_id, quiz_id, id}, body);
-exports.createQuestionGroup = createQuestionGroup;
-var updateQuestionGroup = {
-  type: 'UPDATE_QUESTION_GROUP',
-  method: 'put',
-  key: 'update_question_groupupdate_question_group_{course_id}_{quiz_id}_{id}',
-  required: ['course_id', 'quiz_id', 'id']
-};
-
+exports.updateQuestionGroup = { type: 'UPDATE_QUESTION_GROUP', method: 'put', key: 'update_question_groupupdate_question_group_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };
 // Delete a question group
 // Delete a question group
 // 
@@ -77,14 +54,7 @@ var updateQuestionGroup = {
 //
 // Example:
 // return canvasRequest(delete_question_group, {course_id, quiz_id, id});
-exports.updateQuestionGroup = updateQuestionGroup;
-var deleteQuestionGroup = {
-  type: 'DELETE_QUESTION_GROUP',
-  method: 'delete',
-  key: 'delete_question_groupdelete_question_group_{course_id}_{quiz_id}_{id}',
-  required: ['course_id', 'quiz_id', 'id']
-};
-
+exports.deleteQuestionGroup = { type: 'DELETE_QUESTION_GROUP', method: 'delete', key: 'delete_question_groupdelete_question_group_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };
 // Reorder question groups
 // Change the order of the quiz questions within the group
 // 
@@ -99,11 +69,5 @@ var deleteQuestionGroup = {
 //   order[type]
 // }
 // return canvasRequest(reorder_question_groups, {course_id, quiz_id, id}, body);
-exports.deleteQuestionGroup = deleteQuestionGroup;
-var reorderQuestionGroups = {
-  type: 'REORDER_QUESTION_GROUPS',
-  method: 'post',
-  key: 'reorder_question_groupsreorder_question_groups_{course_id}_{quiz_id}_{id}',
-  required: ['course_id', 'quiz_id', 'id']
-};
-exports.reorderQuestionGroups = reorderQuestionGroups;
+exports.reorderQuestionGroups = { type: 'REORDER_QUESTION_GROUPS', method: 'post', key: 'reorder_question_groupsreorder_question_groups_{course_id}_{quiz_id}_{id}', required: ['course_id', 'quiz_id', 'id'] };
+//# sourceMappingURL=quiz_question_groups.js.map

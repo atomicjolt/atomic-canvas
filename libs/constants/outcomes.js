@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.updateOutcome = exports.showOutcome = exports.getAlignedAssignmentsForOutcomeInCourseForParticularStudent = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getAlignedAssignmentsForOutcomeInCourseForParticularStudent = exports.updateOutcome = exports.showOutcome = void 0;
 //
 // Outcomes
 //
@@ -18,13 +15,7 @@ exports.updateOutcome = exports.showOutcome = exports.getAlignedAssignmentsForOu
 //   add_defaults
 // }
 // return canvasRequest(show_outcome, {id, ...query});
-var showOutcome = {
-  type: 'SHOW_OUTCOME',
-  method: 'get',
-  key: 'show_outcomeshow_outcome_id',
-  required: ['id']
-};
-
+exports.showOutcome = { type: 'SHOW_OUTCOME', method: 'get', key: 'show_outcomeshow_outcome_id', required: ['id'] };
 // Update an outcome
 // Modify an existing outcome. Fields not provided are left as is;
 // unrecognized fields are ignored.
@@ -56,14 +47,7 @@ var showOutcome = {
 //   add_defaults
 // }
 // return canvasRequest(update_outcome, {id}, body);
-exports.showOutcome = showOutcome;
-var updateOutcome = {
-  type: 'UPDATE_OUTCOME',
-  method: 'put',
-  key: 'update_outcomeupdate_outcome_id',
-  required: ['id']
-};
-
+exports.updateOutcome = { type: 'UPDATE_OUTCOME', method: 'put', key: 'update_outcomeupdate_outcome_id', required: ['id'] };
 // Get aligned assignments for an outcome in a course for a particular student
 // 
 //
@@ -75,11 +59,5 @@ var updateOutcome = {
 //   student_id
 // }
 // return canvasRequest(get_aligned_assignments_for_outcome_in_course_for_particular_student, {course_id, ...query});
-exports.updateOutcome = updateOutcome;
-var getAlignedAssignmentsForOutcomeInCourseForParticularStudent = {
-  type: 'GET_ALIGNED_ASSIGNMENTS_FOR_OUTCOME_IN_COURSE_FOR_PARTICULAR_STUDENT',
-  method: 'get',
-  key: 'get_aligned_assignments_for_outcome_in_course_for_particular_studentget_aligned_assignments_for_outcome_in_course_for_particular_student_course_id',
-  required: ['course_id']
-};
-exports.getAlignedAssignmentsForOutcomeInCourseForParticularStudent = getAlignedAssignmentsForOutcomeInCourseForParticularStudent;
+exports.getAlignedAssignmentsForOutcomeInCourseForParticularStudent = { type: 'GET_ALIGNED_ASSIGNMENTS_FOR_OUTCOME_IN_COURSE_FOR_PARTICULAR_STUDENT', method: 'get', key: 'get_aligned_assignments_for_outcome_in_course_for_particular_studentget_aligned_assignments_for_outcome_in_course_for_particular_student_course_id', required: ['course_id'] };
+//# sourceMappingURL=outcomes.js.map

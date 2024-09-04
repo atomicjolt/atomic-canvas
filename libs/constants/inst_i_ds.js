@@ -1,8 +1,5 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.createInstid = void 0;
 //
 // InstIDs
@@ -18,10 +15,5 @@ exports.createInstid = void 0;
 //
 // Example:
 // return canvasRequest(create_instid, {});
-var createInstid = {
-  type: 'CREATE_INSTID',
-  method: 'post',
-  key: 'create_instid',
-  required: []
-};
-exports.createInstid = createInstid;
+exports.createInstid = { type: 'CREATE_INSTID', method: 'post', key: 'create_instid', required: [] };
+//# sourceMappingURL=inst_i_ds.js.map

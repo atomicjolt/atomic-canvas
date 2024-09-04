@@ -1,8 +1,5 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.listScopes = void 0;
 //
 // API Token Scopes
@@ -18,10 +15,5 @@ exports.listScopes = void 0;
 //   group_by
 // }
 // return canvasRequest(list_scopes, {account_id, ...query});
-var listScopes = {
-  type: 'LIST_SCOPES',
-  method: 'get',
-  key: 'list_scopeslist_scopes_account_id',
-  required: ['account_id']
-};
-exports.listScopes = listScopes;
+exports.listScopes = { type: 'LIST_SCOPES', method: 'get', key: 'list_scopeslist_scopes_account_id', required: ['account_id'] };
+//# sourceMappingURL=api_token_scopes.js.map

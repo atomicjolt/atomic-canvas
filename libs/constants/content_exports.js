@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.showContentExportUsers = exports.showContentExportGroups = exports.showContentExportCourses = exports.listContentExportsUsers = exports.listContentExportsGroups = exports.listContentExportsCourses = exports.exportContentUsers = exports.exportContentGroups = exports.exportContentCourses = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.exportContentUsers = exports.exportContentGroups = exports.exportContentCourses = exports.showContentExportUsers = exports.showContentExportGroups = exports.showContentExportCourses = exports.listContentExportsUsers = exports.listContentExportsGroups = exports.listContentExportsCourses = void 0;
 //
 // Content Exports
 //
@@ -16,13 +13,7 @@ exports.showContentExportUsers = exports.showContentExportGroups = exports.showC
 //
 // Example:
 // return canvasRequest(list_content_exports_courses, {course_id});
-var listContentExportsCourses = {
-  type: 'LIST_CONTENT_EXPORTS_COURSES',
-  method: 'get',
-  key: 'list_content_exports_courseslist_content_exports_courses_course_id',
-  required: ['course_id']
-};
-
+exports.listContentExportsCourses = { type: 'LIST_CONTENT_EXPORTS_COURSES', method: 'get', key: 'list_content_exports_courseslist_content_exports_courses_course_id', required: ['course_id'] };
 // List content exports
 // A paginated list of the past and pending content export jobs for a course,
 // group, or user. Exports are returned newest first.
@@ -32,14 +23,7 @@ var listContentExportsCourses = {
 //
 // Example:
 // return canvasRequest(list_content_exports_groups, {group_id});
-exports.listContentExportsCourses = listContentExportsCourses;
-var listContentExportsGroups = {
-  type: 'LIST_CONTENT_EXPORTS_GROUPS',
-  method: 'get',
-  key: 'list_content_exports_groupslist_content_exports_groups_group_id',
-  required: ['group_id']
-};
-
+exports.listContentExportsGroups = { type: 'LIST_CONTENT_EXPORTS_GROUPS', method: 'get', key: 'list_content_exports_groupslist_content_exports_groups_group_id', required: ['group_id'] };
 // List content exports
 // A paginated list of the past and pending content export jobs for a course,
 // group, or user. Exports are returned newest first.
@@ -49,14 +33,7 @@ var listContentExportsGroups = {
 //
 // Example:
 // return canvasRequest(list_content_exports_users, {user_id});
-exports.listContentExportsGroups = listContentExportsGroups;
-var listContentExportsUsers = {
-  type: 'LIST_CONTENT_EXPORTS_USERS',
-  method: 'get',
-  key: 'list_content_exports_userslist_content_exports_users_user_id',
-  required: ['user_id']
-};
-
+exports.listContentExportsUsers = { type: 'LIST_CONTENT_EXPORTS_USERS', method: 'get', key: 'list_content_exports_userslist_content_exports_users_user_id', required: ['user_id'] };
 // Show content export
 // Get information about a single content export.
 //
@@ -65,14 +42,7 @@ var listContentExportsUsers = {
 //
 // Example:
 // return canvasRequest(show_content_export_courses, {course_id, id});
-exports.listContentExportsUsers = listContentExportsUsers;
-var showContentExportCourses = {
-  type: 'SHOW_CONTENT_EXPORT_COURSES',
-  method: 'get',
-  key: 'show_content_export_coursesshow_content_export_courses_{course_id}_{id}',
-  required: ['course_id', 'id']
-};
-
+exports.showContentExportCourses = { type: 'SHOW_CONTENT_EXPORT_COURSES', method: 'get', key: 'show_content_export_coursesshow_content_export_courses_{course_id}_{id}', required: ['course_id', 'id'] };
 // Show content export
 // Get information about a single content export.
 //
@@ -81,14 +51,7 @@ var showContentExportCourses = {
 //
 // Example:
 // return canvasRequest(show_content_export_groups, {group_id, id});
-exports.showContentExportCourses = showContentExportCourses;
-var showContentExportGroups = {
-  type: 'SHOW_CONTENT_EXPORT_GROUPS',
-  method: 'get',
-  key: 'show_content_export_groupsshow_content_export_groups_{group_id}_{id}',
-  required: ['group_id', 'id']
-};
-
+exports.showContentExportGroups = { type: 'SHOW_CONTENT_EXPORT_GROUPS', method: 'get', key: 'show_content_export_groupsshow_content_export_groups_{group_id}_{id}', required: ['group_id', 'id'] };
 // Show content export
 // Get information about a single content export.
 //
@@ -97,14 +60,7 @@ var showContentExportGroups = {
 //
 // Example:
 // return canvasRequest(show_content_export_users, {user_id, id});
-exports.showContentExportGroups = showContentExportGroups;
-var showContentExportUsers = {
-  type: 'SHOW_CONTENT_EXPORT_USERS',
-  method: 'get',
-  key: 'show_content_export_usersshow_content_export_users_{user_id}_{id}',
-  required: ['user_id', 'id']
-};
-
+exports.showContentExportUsers = { type: 'SHOW_CONTENT_EXPORT_USERS', method: 'get', key: 'show_content_export_usersshow_content_export_users_{user_id}_{id}', required: ['user_id', 'id'] };
 // Export content
 // Begin a content export job for a course, group, or user.
 // 
@@ -125,14 +81,7 @@ var showContentExportUsers = {
 //   select
 // }
 // return canvasRequest(export_content_courses, {course_id}, body);
-exports.showContentExportUsers = showContentExportUsers;
-var exportContentCourses = {
-  type: 'EXPORT_CONTENT_COURSES',
-  method: 'post',
-  key: 'export_content_coursesexport_content_courses_course_id',
-  required: ['course_id']
-};
-
+exports.exportContentCourses = { type: 'EXPORT_CONTENT_COURSES', method: 'post', key: 'export_content_coursesexport_content_courses_course_id', required: ['course_id'] };
 // Export content
 // Begin a content export job for a course, group, or user.
 // 
@@ -153,14 +102,7 @@ var exportContentCourses = {
 //   select
 // }
 // return canvasRequest(export_content_groups, {group_id}, body);
-exports.exportContentCourses = exportContentCourses;
-var exportContentGroups = {
-  type: 'EXPORT_CONTENT_GROUPS',
-  method: 'post',
-  key: 'export_content_groupsexport_content_groups_group_id',
-  required: ['group_id']
-};
-
+exports.exportContentGroups = { type: 'EXPORT_CONTENT_GROUPS', method: 'post', key: 'export_content_groupsexport_content_groups_group_id', required: ['group_id'] };
 // Export content
 // Begin a content export job for a course, group, or user.
 // 
@@ -181,11 +123,5 @@ var exportContentGroups = {
 //   select
 // }
 // return canvasRequest(export_content_users, {user_id}, body);
-exports.exportContentGroups = exportContentGroups;
-var exportContentUsers = {
-  type: 'EXPORT_CONTENT_USERS',
-  method: 'post',
-  key: 'export_content_usersexport_content_users_user_id',
-  required: ['user_id']
-};
-exports.exportContentUsers = exportContentUsers;
+exports.exportContentUsers = { type: 'EXPORT_CONTENT_USERS', method: 'post', key: 'export_content_usersexport_content_users_user_id', required: ['user_id'] };
+//# sourceMappingURL=content_exports.js.map

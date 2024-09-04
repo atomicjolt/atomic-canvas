@@ -1,9 +1,6 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.findImages = exports.confirmImageSelection = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.confirmImageSelection = exports.findImages = void 0;
 //
 // Image Search
 //
@@ -18,13 +15,7 @@ exports.findImages = exports.confirmImageSelection = void 0;
 //   query (required)
 // }
 // return canvasRequest(find_images, {, ...query});
-var findImages = {
-  type: 'FIND_IMAGES',
-  method: 'get',
-  key: 'find_images',
-  required: []
-};
-
+exports.findImages = { type: 'FIND_IMAGES', method: 'get', key: 'find_images', required: [] };
 // Confirm image selection
 // After you have used the search API, you should hit this API to indicate photo usage to the server.
 //
@@ -33,11 +24,5 @@ var findImages = {
 //
 // Example:
 // return canvasRequest(confirm_image_selection, {id});
-exports.findImages = findImages;
-var confirmImageSelection = {
-  type: 'CONFIRM_IMAGE_SELECTION',
-  method: 'post',
-  key: 'confirm_image_selectionconfirm_image_selection_id',
-  required: ['id']
-};
-exports.confirmImageSelection = confirmImageSelection;
+exports.confirmImageSelection = { type: 'CONFIRM_IMAGE_SELECTION', method: 'post', key: 'confirm_image_selectionconfirm_image_selection_id', required: ['id'] };
+//# sourceMappingURL=image_search.js.map
