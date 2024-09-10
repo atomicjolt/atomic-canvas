@@ -34,7 +34,7 @@
     "@babel/preset-env": "^7.25.4",
     "@babel/preset-react": "^7.24.7",
     "@types/react-dom": "^18.3.0",
-    "atomic-fuel": "git+ssh://git@github.com/atomicjolt/atomic-fuel.git#rb/cleanup",
+    "atomic-fuel": "^7.0.0",
     "babel-jest": "^29.7.0",
     "graphql": "^16.6.0",
     "jest": "^28.1.0",
