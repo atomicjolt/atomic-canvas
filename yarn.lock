@@ -1861,9 +1861,10 @@ asynckit@^0.4.0:
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==
 
-"atomic-fuel@git+ssh://git@github.com/atomicjolt/atomic-fuel.git#rb/cleanup":
-  version "6.0.0"
-  resolved "git+ssh://git@github.com/atomicjolt/atomic-fuel.git#4c8fb3ae7a8bf19d81847b35962452163ceecba8"
+atomic-fuel@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/atomic-fuel/-/atomic-fuel-7.0.0.tgz#eb5a104cdf534ee204391cc1001221424590371d"
+  integrity sha512-NouYb8lyRDF2q8XwYLv67DdcQMTNVnQMGt6gCdBtp1OMGylx8ZF3UGblqLiuOqU7lYLob73WdZExkLQBS91J0Q==
   dependencies:
     "@apollo/client" "~3"
 
