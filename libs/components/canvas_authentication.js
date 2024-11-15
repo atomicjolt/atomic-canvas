@@ -42,7 +42,7 @@ var lodash_1 = __importDefault(require("lodash"));
 var react_1 = __importStar(require("react"));
 var react_redux_1 = require("react-redux");
 var prop_types_1 = __importDefault(require("prop-types"));
-var settings_1 = require("atomic-fuel/libs/components/settings");
+var settings_1 = require("@atomicjolt/atomic-fuel/libs/components/settings");
 function CanvasAuthentication(props) {
     var autoSubmit = props.autoSubmit, hideButton = props.hideButton, buttonText = props.buttonText, buttonClassName = props.buttonClassName, settings = props.settings, overrides = props.overrides;
     var formRef = (0, react_1.useRef)(null);

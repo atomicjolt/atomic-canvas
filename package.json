@@ -1,6 +1,6 @@
 {
   "name": "atomic-canvas",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Client side canvas api for Atomic Jolt",
   "engines": {
     "node": ">=14.18.2"
@@ -34,7 +34,6 @@
     "@babel/preset-env": "^7.25.4",
     "@babel/preset-react": "^7.24.7",
     "@types/react-dom": "^18.3.0",
-    "atomic-fuel": "^7.0.0",
     "babel-jest": "^29.7.0",
     "graphql": "^16.6.0",
     "jest": "^28.1.0",
@@ -51,7 +50,7 @@
     "typescript": "^4.7.2"
   },
   "peerDependencies": {
-    "atomic-fuel": ">=7.0.0",
+    "@atomicjolt/atomic-fuel": "^7.0.0",
     "prop-types": ">=15",
     "react": "^16.0.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0",

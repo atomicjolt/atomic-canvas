@@ -6,8 +6,8 @@ import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
-import jwt from 'atomic-fuel/libs/reducers/jwt';
-import { SettingsContext } from 'atomic-fuel/libs/components/settings';
+import jwt from '@atomicjolt/atomic-fuel/libs/reducers/jwt';
+import { SettingsContext } from '@atomicjolt/atomic-fuel/libs/components/settings';
 import CanvasAuthentication from './canvas_authentication';
 
 describe('Canvas authentication', () => {
