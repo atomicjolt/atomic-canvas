@@ -50,7 +50,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var api_1 = __importDefault(require("atomic-fuel/libs/api/api"));
+var api_1 = __importDefault(require("@atomicjolt/atomic-fuel/libs/api/api"));
 var constants_1 = require("./constants");
 function callCanvasProxy(canvasType, params, body, timeout, settings, jwt) {
     if (params === void 0) { params = {}; }

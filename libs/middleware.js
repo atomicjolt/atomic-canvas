@@ -16,8 +16,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = exports.proxyCanvas = void 0;
 var lodash_1 = __importDefault(require("lodash"));
-var api_1 = __importDefault(require("atomic-fuel/libs/api/api"));
-var wrapper_1 = require("atomic-fuel/libs/constants/wrapper");
+var api_1 = __importDefault(require("@atomicjolt/atomic-fuel/libs/api/api"));
+var wrapper_1 = require("@atomicjolt/atomic-fuel/libs/constants/wrapper");
 var urls_1 = require("./urls");
 var constants_1 = require("./constants");
 function checkRequired(action) {

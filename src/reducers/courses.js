@@ -3,7 +3,7 @@ import _ from 'lodash';
 import { listYourCourses } from 'atomic-canvas/libs/constants/courses';
 import { listCoursesForUser } from 'atomic-canvas/libs/constants/courses';
 
-import { DONE } from 'atomic-fuel/libs/constants/wrapper';
+import { DONE } from '@atomicjolt/atomic-fuel/libs/constants/wrapper';
 
 const initialState = [];
 
