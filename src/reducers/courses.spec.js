@@ -1,7 +1,7 @@
 import { listYourCourses } from '../constants/courses';
 import { listCoursesForUser } from '../constants/courses';
 
-import { DONE } from 'atomic-fuel/libs/constants/wrapper';
+import { DONE } from '@atomicjolt/atomic-fuel/libs/constants/wrapper';
 
 import courses from './courses';
 

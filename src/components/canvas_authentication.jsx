@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { withSettings } from 'atomic-fuel/libs/components/settings';
+import { withSettings } from '@atomicjolt/atomic-fuel/libs/components/settings';
 
 export function CanvasAuthentication(props) {
   const {

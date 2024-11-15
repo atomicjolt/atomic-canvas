@@ -1,4 +1,4 @@
-import Api from 'atomic-fuel/libs/api/api';
+import Api from '@atomicjolt/atomic-fuel/libs/api/api';
 
 import { canvasProxyUrl } from './constants';
 

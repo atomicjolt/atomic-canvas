@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var lodash_1 = __importDefault(require("lodash"));
 var courses_1 = require("atomic-canvas/libs/constants/courses");
 var courses_2 = require("atomic-canvas/libs/constants/courses");
-var wrapper_1 = require("atomic-fuel/libs/constants/wrapper");
+var wrapper_1 = require("@atomicjolt/atomic-fuel/libs/constants/wrapper");
 var initialState = [];
 exports.default = (function (state, action) {
     if (state === void 0) { state = initialState; }
