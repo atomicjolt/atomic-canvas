@@ -6,12 +6,12 @@ import { withSettings } from '@atomicjolt/atomic-fuel/libs/components/settings';
 
 export function CanvasAuthentication(props) {
   const {
-    autoSubmit,
-    hideButton,
-    buttonText,
-    buttonClassName,
+    autoSubmit = false,
+    hideButton = false,
+    buttonText = null,
+    buttonClassName = "",
     settings,
-    overrides,
+    overrides = {},
   } = props;
 
   const formRef = useRef(null);
@@ -61,14 +61,6 @@ export function CanvasAuthentication(props) {
       }
     </form>
   );
-}
-
-CanvasAuthentication.defaultProps = {
-  overrides: {},
-  hideButton: false,
-  autoSubmit: false,
-  buttonClassName: "",
-  buttonText: null,
 }
 
 CanvasAuthentication.propTypes = {

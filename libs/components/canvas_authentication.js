@@ -44,7 +44,7 @@ var react_redux_1 = require("react-redux");
 var prop_types_1 = __importDefault(require("prop-types"));
 var settings_1 = require("@atomicjolt/atomic-fuel/libs/components/settings");
 function CanvasAuthentication(props) {
-    var autoSubmit = props.autoSubmit, hideButton = props.hideButton, buttonText = props.buttonText, buttonClassName = props.buttonClassName, settings = props.settings, overrides = props.overrides;
+    var _a = props.autoSubmit, autoSubmit = _a === void 0 ? false : _a, _b = props.hideButton, hideButton = _b === void 0 ? false : _b, _c = props.buttonText, buttonText = _c === void 0 ? null : _c, _d = props.buttonClassName, buttonClassName = _d === void 0 ? "" : _d, settings = props.settings, _e = props.overrides, overrides = _e === void 0 ? {} : _e;
     var formRef = (0, react_1.useRef)(null);
     // Not all apps use redux so try catch to prevent blowing up
     try {
@@ -79,13 +79,6 @@ function CanvasAuthentication(props) {
             : null));
 }
 exports.CanvasAuthentication = CanvasAuthentication;
-CanvasAuthentication.defaultProps = {
-    overrides: {},
-    hideButton: false,
-    autoSubmit: false,
-    buttonClassName: "",
-    buttonText: null,
-};
 CanvasAuthentication.propTypes = {
     overrides: prop_types_1.default.shape({}),
     hideButton: prop_types_1.default.bool,
