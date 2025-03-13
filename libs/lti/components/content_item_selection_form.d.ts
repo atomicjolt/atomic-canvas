@@ -1,10 +1,9 @@
 declare function ContentItemSelectionForm(props: any): React.JSX.Element;
 declare namespace ContentItemSelectionForm {
     namespace propTypes {
-        const launchData: PropTypes.Requireable<PropTypes.InferProps<{}>>;
-        const contentItemReturnURL: PropTypes.Requireable<string>;
+        const launchData: any;
+        const contentItemReturnURL: any;
     }
 }
 export default ContentItemSelectionForm;
 import React from "react";
-import PropTypes from "prop-types";

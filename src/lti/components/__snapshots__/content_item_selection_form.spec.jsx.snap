@@ -5,6 +5,11 @@ exports[`Content Item Selection Form matches the snapshot 1`] = `
   action="http://www.example.com"
   encType="application/x-www-form-urlencoded"
   method="post"
+  ref={
+    Object {
+      "current": null,
+    }
+  }
   style={
     Object {
       "display": "none",
